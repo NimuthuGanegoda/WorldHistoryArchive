@@ -1,0 +1,217 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #1d1d1f;
+    background: #f5f5f7;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
+header {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    padding: 15px 0;
+}
+
+.nav-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #1d1d1f;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1d1d1f;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #0066cc;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero .subtitle {
+    font-size: 21px;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.95;
+}
+
+/* Kingdoms Section */
+.kingdoms-section {
+    padding: 60px 20px;
+}
+
+.kingdoms-section h2 {
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #1d1d1f;
+}
+
+/* Kingdom Grid */
+.kingdom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.kingdom-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.kingdom-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.kingdom-card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1d1d1f;
+}
+
+.kingdom-card .period {
+    font-size: 14px;
+    color: #86868b;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.kingdom-card p {
+    color: #515154;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    background: #1d1d1f;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+footer p {
+    margin: 5px 0;
+    opacity: 0.8;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    padding: 20px 0;
+    font-size: 14px;
+    color: #86868b;
+}
+
+.breadcrumbs a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* Content Sections */
+.content-section {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.content-section h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.content-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #515154;
+    margin-bottom: 15px;
+}
+
+/* Info Box */
+.info-box {
+    background: #e8f4f8;
+    border-left: 4px solid #0066cc;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .kingdom-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-links {
+        gap: 15px;
+        font-size: 14px;
+    }
+}
