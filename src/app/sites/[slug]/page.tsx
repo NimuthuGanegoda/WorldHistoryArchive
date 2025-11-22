@@ -1,6 +1,4 @@
 import { notFound } from 'next/navigation';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import sitesData from '@/data/sites.json';
@@ -51,9 +49,7 @@ export default async function SitePage({ params }: { params: Promise<{ slug: str
   );
 
   return (
-    <>
-      <Header />
-      <main className="max-w-5xl mx-auto py-6 px-5">
+    <main className="max-w-5xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
           { label: 'Historical Sites', href: '/sites' },
@@ -216,7 +212,5 @@ export default async function SitePage({ params }: { params: Promise<{ slug: str
           )}
         </article>
       </main>
-      <Footer />
-    </>
   );
 }

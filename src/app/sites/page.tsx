@@ -1,5 +1,3 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import sitesData from '@/data/sites.json';
@@ -14,9 +12,7 @@ interface Site {
 
 export default function SitesPage() {
   return (
-    <>
-      <Header />
-      <main className="max-w-7xl mx-auto py-6 px-5">
+    <main className="max-w-7xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
           { label: 'Historical Sites' }
@@ -63,7 +59,5 @@ export default function SitesPage() {
           </div>
         )}
       </main>
-      <Footer />
-    </>
   );
 }

@@ -1,6 +1,4 @@
 import { notFound } from 'next/navigation';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Timeline from '@/components/Timeline';
 import Link from 'next/link';
@@ -58,9 +56,7 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
   );
 
   return (
-    <>
-      <Header />
-      <main className="max-w-5xl mx-auto py-6 px-5">
+    <main className="max-w-5xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
           { label: kingdom.name }
@@ -166,7 +162,5 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
           )}
         </article>
       </main>
-      <Footer />
-    </>
   );
 }

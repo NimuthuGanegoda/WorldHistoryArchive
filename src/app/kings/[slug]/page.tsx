@@ -1,6 +1,4 @@
 import { notFound } from 'next/navigation';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
@@ -45,9 +43,7 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
   );
 
   return (
-    <>
-      <Header />
-      <main className="max-w-5xl mx-auto py-6 px-5">
+    <main className="max-w-5xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
           ...(kingdom ? [{ label: kingdom.name, href: `/kingdoms/${kingdom.id}` }] : []),
@@ -172,7 +168,5 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
           )}
         </article>
       </main>
-      <Footer />
-    </>
   );
 }
