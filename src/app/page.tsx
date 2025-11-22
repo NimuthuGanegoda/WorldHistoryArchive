@@ -46,6 +46,11 @@ export default function Home() {
       description: 'Ancient capital; cradle of early Sinhalese civilization.'
     },
     {
+      slug: 'ruhuna',
+      name: 'Ruhuna',
+      description: 'Southern kingdom; base of resistance movements.'
+    },
+    {
       slug: 'sigiriya',
       name: 'Sigiriya',
       description: 'Fortress kingdom of Kashyapa I, known for its rock palace.'

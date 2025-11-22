@@ -5,7 +5,6 @@ import Link from 'next/link';
 import kingsData from '@/data/kings.json';
 
 interface King {
-  id: string;
   name: string;
   slug: string;
   kingdom: string;
@@ -15,7 +14,7 @@ interface King {
 }
 
 export default function ConnectionsPage() {
-  const kingsWithConnections = kingsData.filter((king: King) => king.internationalConnections);
+  const kingsWithConnections = kingsData.filter((king: any) => king.internationalConnections);
 
   return (
     <>
@@ -36,18 +35,18 @@ export default function ConnectionsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {kingsWithConnections.map((king: King, index: number) => (
             <div 
-              key={king.id}
+              key={king.slug}
               className="card p-6 scroll-animate"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <h2 className="text-2xl font-bold mb-1">
-                    <Link href={`/kings/${king.id}`} className="hover:text-[var(--accent)] transition-colors">
+                    <Link href={`/kings/${king.slug}`} className="hover:text-[var(--accent)] transition-colors">
                       {king.name}
                     </Link>
                   </h2>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 capitalize">
                     {king.reign} • {king.kingdom}
                   </p>
                 </div>

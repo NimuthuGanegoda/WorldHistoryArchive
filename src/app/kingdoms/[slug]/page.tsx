@@ -9,8 +9,8 @@ import kingsData from '@/data/kings.json';
 import sitesData from '@/data/sites.json';
 
 interface King {
-  id: string;
   name: string;
+  slug: string;
   reign: string;
   kingdom: string;
   notes?: string;
@@ -44,7 +44,7 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
   }
 
   // Filter kings for this kingdom
-  const kingdomKings = kingsData.filter((king: King) => 
+  const kingdomKings = kingsData.filter((king: any) => 
     king.kingdom === kingdom.id ||
     king.kingdom.toLowerCase().includes(kingdom.name.toLowerCase()) ||
     kingdom.name.toLowerCase().includes(king.kingdom.toLowerCase())

@@ -1,1222 +1,176 @@
 [
-  {
-    "name": "Vijaya",
-    "slug": "vijaya",
-    "kingdom": "tambapanni",
-    "reign": "543–505 BCE",
-    "id": "vijaya"
-  },
-  {
-    "name": "Upatissa (regent)",
-    "slug": "upatissa-regent",
-    "kingdom": "tambapanni",
-    "reign": "505–504 BCE",
-    "id": "upatissa-regent"
-  },
-  {
-    "name": "Panduvasudeva",
-    "slug": "panduvasudeva",
-    "kingdom": "upatissa-nuwara",
-    "reign": "504–474 BCE",
-    "id": "panduvasudeva"
-  },
-  {
-    "name": "Abhaya",
-    "slug": "abhaya",
-    "kingdom": "upatissa-nuwara",
-    "reign": "474–454 BCE",
-    "id": "abhaya"
-  },
-  {
-    "name": "Tissa (regent)",
-    "slug": "tissa-regent",
-    "kingdom": "upatissa-nuwara",
-    "reign": "454–437 BCE",
-    "id": "tissa-regent"
-  },
-  {
-    "name": "Pandukabhaya",
-    "slug": "pandukabhaya",
-    "kingdom": "anuradhapura",
-    "reign": "437–367 BCE",
-    "id": "pandukabhaya"
-  },
-  {
-    "name": "Mutasiva",
-    "slug": "mutasiva",
-    "kingdom": "anuradhapura",
-    "reign": "367–307 BCE",
-    "id": "mutasiva"
-  },
-  {
-    "name": "Devanampiya Tissa",
-    "slug": "devanampiya-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "307–267 BCE",
-    "id": "devanampiya-tissa",
-    "internationalConnections": "Contemporary and ally of Emperor Ashoka of the Mauryan Empire (India). Ashoka sent his son Mahinda to introduce Buddhism to Sri Lanka during Tissa's reign, establishing deep diplomatic and religious ties between the two kingdoms.",
-    "media": []
-  },
-  {
-    "name": "Uttiya",
-    "slug": "uttiya",
-    "kingdom": "anuradhapura",
-    "reign": "267–257 BCE",
-    "id": "uttiya"
-  },
-  {
-    "name": "Mahasiva",
-    "slug": "mahasiva",
-    "kingdom": "anuradhapura",
-    "reign": "257–247 BCE",
-    "id": "mahasiva"
-  },
-  {
-    "name": "Suratissa",
-    "slug": "suratissa",
-    "kingdom": "anuradhapura",
-    "reign": "247–237 BCE",
-    "id": "suratissa"
-  },
-  {
-    "name": "Sena and Guttika",
-    "slug": "sena-guttika",
-    "kingdom": "anuradhapura",
-    "reign": "237–215 BCE",
-    "id": "sena-guttika"
-  },
-  {
-    "name": "Asela",
-    "slug": "asela",
-    "kingdom": "anuradhapura",
-    "reign": "215–205 BCE",
-    "id": "asela"
-  },
-  {
-    "name": "Elara (Chola/Tamil)",
-    "slug": "elara",
-    "kingdom": "anuradhapura",
-    "reign": "205–161 BCE",
-    "id": "elara"
-  },
-  {
-    "name": "Kavan Tissa",
-    "slug": "kavan-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "c. 2nd c. BCE",
-    "id": "kavan-tissa"
-  },
-  {
-    "name": "Dutugemunu",
-    "slug": "dutugemunu",
-    "kingdom": "anuradhapura",
-    "reign": "161–137 BCE",
-    "id": "dutugemunu"
-  },
-  {
-    "name": "Saddha Tissa",
-    "slug": "saddha-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "137–119 BCE",
-    "id": "saddha-tissa"
-  },
-  {
-    "name": "Thulatthana",
-    "slug": "thulatthana",
-    "kingdom": "anuradhapura",
-    "reign": "119 BCE",
-    "id": "thulatthana"
-  },
-  {
-    "name": "Lanja Tissa",
-    "slug": "lanja-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "119–109 BCE",
-    "id": "lanja-tissa"
-  },
-  {
-    "name": "Khallata Naga",
-    "slug": "khallata-naga",
-    "kingdom": "anuradhapura",
-    "reign": "109–103 BCE",
-    "id": "khallata-naga"
-  },
-  {
-    "name": "Valagamba (Vattagamani Abhaya)",
-    "slug": "valagamba",
-    "kingdom": "anuradhapura",
-    "reign": "103, 89–77 BCE",
-    "id": "valagamba"
-  },
-  {
-    "name": "Pulahatta",
-    "slug": "pulahatta",
-    "kingdom": "anuradhapura",
-    "reign": "103–100 BCE",
-    "id": "pulahatta"
-  },
-  {
-    "name": "Bahiya",
-    "slug": "bahiya",
-    "kingdom": "anuradhapura",
-    "reign": "100–98 BCE",
-    "id": "bahiya"
-  },
-  {
-    "name": "Panya Mara",
-    "slug": "panya-mara",
-    "kingdom": "anuradhapura",
-    "reign": "98–91 BCE",
-    "id": "panya-mara"
-  },
-  {
-    "name": "Pilaya Mara",
-    "slug": "pilaya-mara",
-    "kingdom": "anuradhapura",
-    "reign": "91–90 BCE",
-    "id": "pilaya-mara"
-  },
-  {
-    "name": "Dathika",
-    "slug": "dathika",
-    "kingdom": "anuradhapura",
-    "reign": "90–89 BCE",
-    "id": "dathika"
-  },
-  {
-    "name": "Mahakuli Mahatissa",
-    "slug": "mahakuli-mahatissa",
-    "kingdom": "anuradhapura",
-    "reign": "77–63 BCE",
-    "id": "mahakuli-mahatissa"
-  },
-  {
-    "name": "Chora Naga",
-    "slug": "chora-naga",
-    "kingdom": "anuradhapura",
-    "reign": "63–51 BCE",
-    "id": "chora-naga"
-  },
-  {
-    "name": "Kuda Tissa",
-    "slug": "kuda-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "51–48 BCE",
-    "id": "kuda-tissa"
-  },
-  {
-    "name": "Siva I (first)",
-    "slug": "siva-i-first",
-    "kingdom": "anuradhapura",
-    "reign": "48–47 BCE",
-    "id": "siva-i-first"
-  },
-  {
-    "name": "Vatuka",
-    "slug": "vatuka",
-    "kingdom": "anuradhapura",
-    "reign": "47 BCE",
-    "id": "vatuka"
-  },
-  {
-    "name": "Darubhatika Tissa",
-    "slug": "darubhatika-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "47 BCE",
-    "id": "darubhatika-tissa"
-  },
-  {
-    "name": "Niliya",
-    "slug": "niliya",
-    "kingdom": "anuradhapura",
-    "reign": "47–46 BCE",
-    "id": "niliya"
-  },
-  {
-    "name": "Anula (Queen)",
-    "slug": "anula",
-    "kingdom": "anuradhapura",
-    "reign": "46–44 BCE",
-    "id": "anula"
-  },
-  {
-    "name": "Kutakanna Tissa",
-    "slug": "kutakanna-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "44 BCE–22 BCE",
-    "id": "kutakanna-tissa"
-  },
-  {
-    "name": "Bhatikabhaya Abhaya",
-    "slug": "bhatikabhaya-abhaya",
-    "kingdom": "anuradhapura",
-    "reign": "22 BCE–7 CE",
-    "id": "bhatikabhaya-abhaya"
-  },
-  {
-    "name": "Mahadathika Mahanaga",
-    "slug": "mahadathika-mahanaga",
-    "kingdom": "anuradhapura",
-    "reign": "7–19 CE",
-    "id": "mahadathika-mahanaga"
-  },
-  {
-    "name": "Amandagamani Abhaya",
-    "slug": "amandagamani-abhaya",
-    "kingdom": "anuradhapura",
-    "reign": "19–29 CE",
-    "id": "amandagamani-abhaya"
-  },
-  {
-    "name": "Kanirajanu Tissa",
-    "slug": "kanirajanu-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "29–32 CE",
-    "id": "kanirajanu-tissa"
-  },
-  {
-    "name": "Chulabhaya",
-    "slug": "chulabhaya",
-    "kingdom": "anuradhapura",
-    "reign": "32–33 CE",
-    "id": "chulabhaya"
-  },
-  {
-    "name": "Sivali",
-    "slug": "sivali",
-    "kingdom": "anuradhapura",
-    "reign": "33 CE",
-    "id": "sivali"
-  },
-  {
-    "name": "Ilanaga",
-    "slug": "ilanaga",
-    "kingdom": "anuradhapura",
-    "reign": "33–43 CE",
-    "id": "ilanaga"
-  },
-  {
-    "name": "Chandamukha Siva",
-    "slug": "chandamukha-siva",
-    "kingdom": "anuradhapura",
-    "reign": "43–52 CE",
-    "id": "chandamukha-siva"
-  },
-  {
-    "name": "Yassalalaka Tissa",
-    "slug": "yassalalaka-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "52–60 CE",
-    "id": "yassalalaka-tissa"
-  },
-  {
-    "name": "Subharaja",
-    "slug": "subharaja",
-    "kingdom": "anuradhapura",
-    "reign": "60–67 CE",
-    "id": "subharaja"
-  },
-  {
-    "name": "Vasabha",
-    "slug": "vasabha",
-    "kingdom": "anuradhapura",
-    "reign": "67–111 CE",
-    "id": "vasabha"
-  },
-  {
-    "name": "Vankanasika Tissa",
-    "slug": "vankanasika-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "111–114 CE",
-    "id": "vankanasika-tissa"
-  },
-  {
-    "name": "Gajabahu I",
-    "slug": "gajabahu-i",
-    "kingdom": "anuradhapura",
-    "reign": "114–136 CE",
-    "id": "gajabahu-i"
-  },
-  {
-    "name": "Mahallaka Naga",
-    "slug": "mahallaka-naga",
-    "kingdom": "anuradhapura",
-    "reign": "136–139 CE",
-    "id": "mahallaka-naga"
-  },
-  {
-    "name": "Bhatika Tissa",
-    "slug": "bhatika-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "139–167 CE",
-    "id": "bhatika-tissa"
-  },
-  {
-    "name": "Kanittha Tissa",
-    "slug": "kanittha-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "167–186 CE",
-    "id": "kanittha-tissa"
-  },
-  {
-    "name": "Cula Naga",
-    "slug": "cula-naga",
-    "kingdom": "anuradhapura",
-    "reign": "186–191 CE",
-    "id": "cula-naga"
-  },
-  {
-    "name": "Kuda Naga",
-    "slug": "kuda-naga",
-    "kingdom": "anuradhapura",
-    "reign": "191–196 CE",
-    "id": "kuda-naga"
-  },
-  {
-    "name": "Siri Naga I",
-    "slug": "siri-naga-i",
-    "kingdom": "anuradhapura",
-    "reign": "196–215 CE",
-    "id": "siri-naga-i"
-  },
-  {
-    "name": "Abhaya Naga",
-    "slug": "abhaya-naga",
-    "kingdom": "anuradhapura",
-    "reign": "215–237 CE",
-    "id": "abhaya-naga"
-  },
-  {
-    "name": "Siri Naga II",
-    "slug": "siri-naga-ii",
-    "kingdom": "anuradhapura",
-    "reign": "237–245 CE",
-    "id": "siri-naga-ii"
-  },
-  {
-    "name": "Voharika Tissa",
-    "slug": "voharika-tissa",
-    "kingdom": "anuradhapura",
-    "reign": "245–247 CE",
-    "id": "voharika-tissa"
-  },
-  {
-    "name": "Abhaya Naga II",
-    "slug": "abhaya-naga-ii",
-    "kingdom": "anuradhapura",
-    "reign": "247–249 CE",
-    "id": "abhaya-naga-ii"
-  },
-  {
-    "name": "Siri Naga III",
-    "slug": "siri-naga-iii",
-    "kingdom": "anuradhapura",
-    "reign": "249–251 CE",
-    "id": "siri-naga-iii"
-  },
-  {
-    "name": "Vijaya Kumara",
-    "slug": "vijaya-kumara",
-    "kingdom": "anuradhapura",
-    "reign": "251–252 CE",
-    "id": "vijaya-kumara"
-  },
-  {
-    "name": "Sangha Tissa I",
-    "slug": "sangha-tissa-i",
-    "kingdom": "anuradhapura",
-    "reign": "252–254 CE",
-    "id": "sangha-tissa-i"
-  },
-  {
-    "name": "Siri Sangha Bodhi I",
-    "slug": "siri-sangha-bodhi-i",
-    "kingdom": "anuradhapura",
-    "reign": "254–256 CE",
-    "id": "siri-sangha-bodhi-i"
-  },
-  {
-    "name": "Gothabhaya",
-    "slug": "gothabhaya",
-    "kingdom": "anuradhapura",
-    "reign": "256–264 CE",
-    "id": "gothabhaya"
-  },
-  {
-    "name": "Jettha Tissa II",
-    "slug": "jettha-tissa-ii",
-    "kingdom": "anuradhapura",
-    "reign": "264–273 CE",
-    "id": "jettha-tissa-ii"
-  },
-  {
-    "name": "Mahasena",
-    "slug": "mahasena",
-    "kingdom": "anuradhapura",
-    "reign": "273–301 CE",
-    "id": "mahasena"
-  },
-  {
-    "name": "Siri Meghavanna",
-    "slug": "siri-meghavanna",
-    "kingdom": "anuradhapura",
-    "reign": "301–328 CE",
-    "id": "siri-meghavanna"
-  },
-  {
-    "name": "Jettha Tissa III",
-    "slug": "jettha-tissa-iii",
-    "kingdom": "anuradhapura",
-    "reign": "328–337 CE",
-    "id": "jettha-tissa-iii"
-  },
-  {
-    "name": "Buddhadasa",
-    "slug": "buddhadasa",
-    "kingdom": "anuradhapura",
-    "reign": "337–365 CE",
-    "id": "buddhadasa"
-  },
-  {
-    "name": "Upatissa I",
-    "slug": "upatissa-i",
-    "kingdom": "anuradhapura",
-    "reign": "365–406 CE",
-    "id": "upatissa-i"
-  },
-  {
-    "name": "Mahanama",
-    "slug": "mahanama",
-    "kingdom": "anuradhapura",
-    "reign": "406–428 CE",
-    "id": "mahanama"
-  },
-  {
-    "name": "Siva II (second)",
-    "slug": "siva-ii-second",
-    "kingdom": "anuradhapura",
-    "reign": "428–430 CE",
-    "id": "siva-ii-second"
-  },
-  {
-    "name": "Pandu (Tamil)",
-    "slug": "pandu-tamil",
-    "kingdom": "anuradhapura",
-    "reign": "430–432 CE",
-    "id": "pandu-tamil"
-  },
-  {
-    "name": "Parindu (Tamil)",
-    "slug": "parindu-tamil",
-    "kingdom": "anuradhapura",
-    "reign": "432 CE",
-    "id": "parindu-tamil"
-  },
-  {
-    "name": "Khudda Parinda (Tamil)",
-    "slug": "khudda-parinda-tamil",
-    "kingdom": "anuradhapura",
-    "reign": "432–434 CE",
-    "id": "khudda-parinda-tamil"
-  },
-  {
-    "name": "Tiritara (Tamil)",
-    "slug": "tiritara-tamil",
-    "kingdom": "anuradhapura",
-    "reign": "434 CE",
-    "id": "tiritara-tamil"
-  },
-  {
-    "name": "Dathiya (Tamil)",
-    "slug": "dathiya-tamil",
-    "kingdom": "anuradhapura",
-    "reign": "434–436 CE",
-    "id": "dathiya-tamil"
-  },
-  {
-    "name": "Pithiya (Tamil)",
-    "slug": "pithiya-tamil",
-    "kingdom": "anuradhapura",
-    "reign": "436–437 CE",
-    "id": "pithiya-tamil"
-  },
-  {
-    "name": "Dhatusena",
-    "slug": "dhatusena",
-    "kingdom": "anuradhapura",
-    "reign": "455–473 CE",
-    "id": "dhatusena"
-  },
-  {
-    "name": "Kashyapa I",
-    "slug": "kashyapa-i",
-    "kingdom": "sigiriya",
-    "reign": "473–495 CE",
-    "id": "kashyapa-i"
-  },
-  {
-    "name": "Moggallana I",
-    "slug": "moggallana-i",
-    "kingdom": "sigiriya",
-    "reign": "495–512 CE",
-    "id": "moggallana-i"
-  },
-  {
-    "name": "Kumara Dhatusena",
-    "slug": "kumara-dhatusena",
-    "kingdom": "anuradhapura",
-    "reign": "512–524 CE",
-    "id": "kumara-dhatusena"
-  },
-  {
-    "name": "Kittisena",
-    "slug": "kittisena",
-    "kingdom": "anuradhapura",
-    "reign": "524 CE",
-    "id": "kittisena"
-  },
-  {
-    "name": "Siva I",
-    "slug": "siva-i-524",
-    "kingdom": "anuradhapura",
-    "reign": "524–525 CE",
-    "id": "siva-i-524"
-  },
-  {
-    "name": "Upatissa II",
-    "slug": "upatissa-ii",
-    "kingdom": "anuradhapura",
-    "reign": "525–526 CE",
-    "id": "upatissa-ii"
-  },
-  {
-    "name": "Silakala Ambosamanera",
-    "slug": "silakala-ambosamanera",
-    "kingdom": "anuradhapura",
-    "reign": "526–539 CE",
-    "id": "silakala-ambosamanera"
-  },
-  {
-    "name": "Aggabodhi I",
-    "slug": "aggabodhi-i",
-    "kingdom": "anuradhapura",
-    "reign": "564–598 CE",
-    "id": "aggabodhi-i"
-  },
-  {
-    "name": "Kassapa II",
-    "slug": "kassapa-ii",
-    "kingdom": "anuradhapura",
-    "reign": "602–608 CE",
-    "id": "kassapa-ii"
-  },
-  {
-    "name": "Aggabodhi II",
-    "slug": "aggabodhi-ii",
-    "kingdom": "anuradhapura",
-    "reign": "608–618 CE",
-    "id": "aggabodhi-ii"
-  },
-  {
-    "name": "Sangha Tissa II",
-    "slug": "sangha-tissa-ii",
-    "kingdom": "anuradhapura",
-    "reign": "608–614 CE",
-    "id": "sangha-tissa-ii"
-  },
-  {
-    "name": "Dathopa Tissa I",
-    "slug": "dathopa-tissa-i",
-    "kingdom": "anuradhapura",
-    "reign": "614–623 CE",
-    "id": "dathopa-tissa-i"
-  },
-  {
-    "name": "Aggabodhi III",
-    "slug": "aggabodhi-iii",
-    "kingdom": "anuradhapura",
-    "reign": "626–636 CE",
-    "id": "aggabodhi-iii"
-  },
-  {
-    "name": "Kassapa III",
-    "slug": "kassapa-iii",
-    "kingdom": "anuradhapura",
-    "reign": "732–738 CE",
-    "id": "kassapa-iii"
-  },
-  {
-    "name": "Mahinda I",
-    "slug": "mahinda-i",
-    "kingdom": "anuradhapura",
-    "reign": "738–746 CE",
-    "id": "mahinda-i"
-  },
-  {
-    "name": "Aggabodhi VI",
-    "slug": "aggabodhi-vi",
-    "kingdom": "anuradhapura",
-    "reign": "771–781 CE",
-    "id": "aggabodhi-vi"
-  },
-  {
-    "name": "Mahinda II",
-    "slug": "mahinda-ii",
-    "kingdom": "anuradhapura",
-    "reign": "781–797 CE",
-    "id": "mahinda-ii"
-  },
-  {
-    "name": "Siri Sangha Bodhi II",
-    "slug": "siri-sangha-bodhi-ii",
-    "kingdom": "anuradhapura",
-    "reign": "797–801 CE",
-    "id": "siri-sangha-bodhi-ii"
-  },
-  {
-    "name": "Mahinda III",
-    "slug": "mahinda-iii",
-    "kingdom": "anuradhapura",
-    "reign": "801–804 CE",
-    "id": "mahinda-iii"
-  },
-  {
-    "name": "Dappula I",
-    "slug": "dappula-i",
-    "kingdom": "anuradhapura",
-    "reign": "804–835 CE",
-    "id": "dappula-i"
-  },
-  {
-    "name": "Dappula II",
-    "slug": "dappula-ii",
-    "kingdom": "anuradhapura",
-    "reign": "835–836 CE",
-    "id": "dappula-ii"
-  },
-  {
-    "name": "Sena I",
-    "slug": "sena-i",
-    "kingdom": "anuradhapura",
-    "reign": "833–853 CE",
-    "id": "sena-i"
-  },
-  {
-    "name": "Sena II",
-    "slug": "sena-ii",
-    "kingdom": "anuradhapura",
-    "reign": "853–887 CE",
-    "id": "sena-ii"
-  },
-  {
-    "name": "Udaya I",
-    "slug": "udaya-i",
-    "kingdom": "anuradhapura",
-    "reign": "887–898 CE",
-    "id": "udaya-i"
-  },
-  {
-    "name": "Kassapa IV",
-    "slug": "kassapa-iv",
-    "kingdom": "anuradhapura",
-    "reign": "898–914 CE",
-    "id": "kassapa-iv"
-  },
-  {
-    "name": "Kassapa V",
-    "slug": "kassapa-v",
-    "kingdom": "anuradhapura",
-    "reign": "914–923 CE",
-    "id": "kassapa-v"
-  },
-  {
-    "name": "Dappula IV",
-    "slug": "dappula-iv",
-    "kingdom": "anuradhapura",
-    "reign": "923–924 CE",
-    "id": "dappula-iv"
-  },
-  {
-    "name": "Kassapa VI",
-    "slug": "kassapa-vi",
-    "kingdom": "anuradhapura",
-    "reign": "924–935 CE",
-    "id": "kassapa-vi"
-  },
-  {
-    "name": "Sena III",
-    "slug": "sena-iii",
-    "kingdom": "anuradhapura",
-    "reign": "936–945 CE",
-    "id": "sena-iii"
-  },
-  {
-    "name": "Udaya II",
-    "slug": "udaya-ii",
-    "kingdom": "anuradhapura",
-    "reign": "946–954 CE",
-    "id": "udaya-ii"
-  },
-  {
-    "name": "Sena IV",
-    "slug": "sena-iv",
-    "kingdom": "anuradhapura",
-    "reign": "954–956 CE",
-    "id": "sena-iv"
-  },
-  {
-    "name": "Mahinda IV",
-    "slug": "mahinda-iv",
-    "kingdom": "anuradhapura",
-    "reign": "956–972 CE",
-    "id": "mahinda-iv"
-  },
-  {
-    "name": "Sena V",
-    "slug": "sena-v",
-    "kingdom": "anuradhapura",
-    "reign": "972–975 CE",
-    "id": "sena-v"
-  },
-  {
-    "name": "Mahinda V",
-    "slug": "mahinda-v",
-    "kingdom": "anuradhapura",
-    "reign": "982–1017 CE",
-    "id": "mahinda-v"
-  },
-  {
-    "name": "Vijayabahu I",
-    "slug": "vijayabahu-i",
-    "kingdom": "polonnaruwa",
-    "reign": "1055–1110",
-    "id": "vijayabahu-i"
-  },
-  {
-    "name": "Jayabahu I",
-    "slug": "jayabahu-i",
-    "kingdom": "polonnaruwa",
-    "reign": "1110–1111",
-    "id": "jayabahu-i"
-  },
-  {
-    "name": "Vikramabahu I",
-    "slug": "vikramabahu-i",
-    "kingdom": "polonnaruwa",
-    "reign": "1111–1132",
-    "id": "vikramabahu-i"
-  },
-  {
-    "name": "Gajabahu II",
-    "slug": "gajabahu-ii",
-    "kingdom": "polonnaruwa",
-    "reign": "1132–1153",
-    "id": "gajabahu-ii"
-  },
-  {
-    "name": "Parakramabahu I",
-    "slug": "parakramabahu-i",
-    "kingdom": "polonnaruwa",
-    "reign": "1153–1186",
-    "id": "parakramabahu-i"
-  },
-  {
-    "name": "Nissanka Malla",
-    "slug": "nissanka-malla",
-    "kingdom": "polonnaruwa",
-    "reign": "1187–1196",
-    "id": "nissanka-malla"
-  },
-  {
-    "name": "Sahasa Malla",
-    "slug": "sahasa-malla",
-    "kingdom": "polonnaruwa",
-    "reign": "1200–1202",
-    "id": "sahasa-malla"
-  },
-  {
-    "name": "Kalyanavati",
-    "slug": "kalyanavati",
-    "kingdom": "polonnaruwa",
-    "reign": "1202–1208",
-    "id": "kalyanavati"
-  },
-  {
-    "name": "Dharmasoka",
-    "slug": "dharmasoka",
-    "kingdom": "polonnaruwa",
-    "reign": "1208–1209",
-    "id": "dharmasoka"
-  },
-  {
-    "name": "Anikanga",
-    "slug": "anikanga",
-    "kingdom": "polonnaruwa",
-    "reign": "1209",
-    "id": "anikanga"
-  },
-  {
-    "name": "Lilavati",
-    "slug": "lilavati",
-    "kingdom": "polonnaruwa",
-    "reign": "1197–1200, 1209–1210, 1211–1212",
-    "id": "lilavati"
-  },
-  {
-    "name": "Lokissara",
-    "slug": "lokissara",
-    "kingdom": "polonnaruwa",
-    "reign": "1210–1211",
-    "id": "lokissara"
-  },
-  {
-    "name": "Parakrama Pandya II",
-    "slug": "parakrama-pandya-ii",
-    "kingdom": "polonnaruwa",
-    "reign": "1212–1215",
-    "id": "parakrama-pandya-ii"
-  },
-  {
-    "name": "Kalinga Magha",
-    "slug": "kalinga-magha-polonnaruwa",
-    "kingdom": "polonnaruwa",
-    "reign": "1215–1236",
-    "id": "kalinga-magha-polonnaruwa"
-  },
-  {
-    "name": "Vijayabahu III",
-    "slug": "vijayabahu-iii",
-    "kingdom": "dambadeniya",
-    "reign": "1236–1270",
-    "id": "vijayabahu-iii"
-  },
-  {
-    "name": "Parakramabahu II",
-    "slug": "parakramabahu-ii",
-    "kingdom": "dambadeniya",
-    "reign": "1270–1284",
-    "id": "parakramabahu-ii"
-  },
-  {
-    "name": "Bhuvanaikabahu I",
-    "slug": "bhuvanaikabahu-i",
-    "kingdom": "yapahuwa",
-    "reign": "1284–1291",
-    "id": "bhuvanaikabahu-i"
-  },
-  {
-    "name": "Parakramabahu IV",
-    "slug": "parakramabahu-iv",
-    "kingdom": "yapahuwa",
-    "reign": "1291–1302",
-    "id": "parakramabahu-iv"
-  },
-  {
-    "name": "Bhuvanaikabahu II",
-    "slug": "bhuvanaikabahu-ii",
-    "kingdom": "kurunegala",
-    "reign": "1302–1326",
-    "id": "bhuvanaikabahu-ii"
-  },
-  {
-    "name": "Vijayabahu V",
-    "slug": "vijayabahu-v",
-    "kingdom": "kurunegala",
-    "reign": "1326–1341",
-    "id": "vijayabahu-v"
-  },
-  {
-    "name": "Bhuvanaikabahu IV",
-    "slug": "bhuvanaikabahu-iv",
-    "kingdom": "gampola",
-    "reign": "1341–1351",
-    "id": "bhuvanaikabahu-iv"
-  },
-  {
-    "name": "Parakramabahu V",
-    "slug": "parakramabahu-v",
-    "kingdom": "gampola",
-    "reign": "1351–1353",
-    "id": "parakramabahu-v"
-  },
-  {
-    "name": "Vikramabahu III",
-    "slug": "vikramabahu-iii",
-    "kingdom": "gampola",
-    "reign": "1357–1374",
-    "id": "vikramabahu-iii"
-  },
-  {
-    "name": "Bhuvanaikabahu V",
-    "slug": "bhuvanaikabahu-v",
-    "kingdom": "gampola",
-    "reign": "1372–1391",
-    "id": "bhuvanaikabahu-v"
-  },
-  {
-    "name": "Vira Alakesvara",
-    "slug": "vira-alakesvara",
-    "kingdom": "gampola",
-    "reign": "1391–1392",
-    "id": "vira-alakesvara"
-  },
-  {
-    "name": "Parakramabahu VI",
-    "slug": "parakramabahu-vi",
-    "kingdom": "kotte",
-    "reign": "1412–1467",
-    "id": "parakramabahu-vi"
-  },
-  {
-    "name": "Bhuvanaikabahu VI",
-    "slug": "bhuvanaikabahu-vi",
-    "kingdom": "kotte",
-    "reign": "1467–1472",
-    "id": "bhuvanaikabahu-vi"
-  },
-  {
-    "name": "Parakramabahu VII",
-    "slug": "parakramabahu-vii",
-    "kingdom": "kotte",
-    "reign": "1472–1480",
-    "id": "parakramabahu-vii"
-  },
-  {
-    "name": "Parakramabahu VIII",
-    "slug": "parakramabahu-viii",
-    "kingdom": "kotte",
-    "reign": "1484–1518",
-    "id": "parakramabahu-viii"
-  },
-  {
-    "name": "Dharma Parakramabahu IX",
-    "slug": "dharma-parakramabahu-ix",
-    "kingdom": "kotte",
-    "reign": "1518–1521",
-    "id": "dharma-parakramabahu-ix"
-  },
-  {
-    "name": "Vijayabahu VI",
-    "slug": "vijayabahu-vi",
-    "kingdom": "kotte",
-    "reign": "1521",
-    "id": "vijayabahu-vi"
-  },
-  {
-    "name": "Bhuvanaikabahu VII",
-    "slug": "bhuvanaikabahu-vii",
-    "kingdom": "kotte",
-    "reign": "1521–1551",
-    "id": "bhuvanaikabahu-vii"
-  },
-  {
-    "name": "Dharmapala",
-    "slug": "dharmapala",
-    "kingdom": "kotte",
-    "reign": "1551–1597",
-    "id": "dharmapala"
-  },
-  {
-    "name": "Mayadunne",
-    "slug": "mayadunne",
-    "kingdom": "sitawaka",
-    "reign": "1521–1581",
-    "id": "mayadunne"
-  },
-  {
-    "name": "Rajasinha I",
-    "slug": "rajasinha-i",
-    "kingdom": "sitawaka",
-    "reign": "1581–1593",
-    "id": "rajasinha-i"
-  },
-  {
-    "name": "Senasammata Vikramabahu",
-    "slug": "senasammata-vikramabahu",
-    "kingdom": "kandyan",
-    "reign": "1469–1511",
-    "id": "senasammata-vikramabahu"
-  },
-  {
-    "name": "Jayaweera Astana",
-    "slug": "jayaweera-astana",
-    "kingdom": "kandyan",
-    "reign": "1511–1552",
-    "id": "jayaweera-astana"
-  },
-  {
-    "name": "Karaliadde Bandara",
-    "slug": "karaliadde-bandara",
-    "kingdom": "kandyan",
-    "reign": "1551–1581",
-    "id": "karaliadde-bandara"
-  },
-  {
-    "name": "Don Juan Bandara",
-    "slug": "don-juan-bandara",
-    "kingdom": "kandyan",
-    "reign": "1581–1590",
-    "id": "don-juan-bandara"
-  },
-  {
-    "name": "Vimaladharmasuriya I",
-    "slug": "vimaladharmasuriya-i",
-    "kingdom": "kandyan",
-    "reign": "1590–1604",
-    "id": "vimaladharmasuriya-i"
-  },
-  {
-    "name": "Senarat",
-    "slug": "senarat",
-    "kingdom": "kandyan",
-    "reign": "1604–1635",
-    "id": "senarat"
-  },
-  {
-    "name": "Rajasinha II",
-    "slug": "rajasinha-ii",
-    "kingdom": "kandyan",
-    "reign": "1635–1687",
-    "id": "rajasinha-ii"
-  },
-  {
-    "name": "Vimaladharmasuriya II",
-    "slug": "vimaladharmasuriya-ii",
-    "kingdom": "kandyan",
-    "reign": "1687–1707",
-    "id": "vimaladharmasuriya-ii"
-  },
-  {
-    "name": "Narendra Sinha",
-    "slug": "narendra-sinha",
-    "kingdom": "kandyan",
-    "reign": "1707–1739",
-    "id": "narendra-sinha"
-  },
-  {
-    "name": "Sri Vijaya Rajasinha",
-    "slug": "sri-vijaya-rajasinha",
-    "kingdom": "kandyan",
-    "reign": "1739–1747",
-    "id": "sri-vijaya-rajasinha"
-  },
-  {
-    "name": "Kirti Sri Rajasinha",
-    "slug": "kirti-sri-rajasinha",
-    "kingdom": "kandyan",
-    "reign": "1747–1781",
-    "id": "kirti-sri-rajasinha"
-  },
-  {
-    "name": "Rajadhi Rajasinha",
-    "slug": "rajadhi-rajasinha",
-    "kingdom": "kandyan",
-    "reign": "1781–1798",
-    "id": "rajadhi-rajasinha"
-  },
-  {
-    "name": "Sri Vikrama Rajasinha",
-    "slug": "sri-vikrama-rajasinha",
-    "kingdom": "kandyan",
-    "reign": "1798–1815",
-    "id": "sri-vikrama-rajasinha"
-  },
-  {
-    "name": "Kalinga Magha",
-    "slug": "kalinga-magha-jaffna",
-    "kingdom": "jaffna",
-    "reign": "1215–1236",
-    "id": "kalinga-magha-jaffna"
-  },
-  {
-    "name": "Cinkai Aryan I",
-    "slug": "cinkai-aryan-i",
-    "kingdom": "jaffna",
-    "reign": "1277–1284",
-    "id": "cinkai-aryan-i"
-  },
-  {
-    "name": "Varodaya Cinkai Aryan",
-    "slug": "varodaya-cinkai-aryan",
-    "kingdom": "jaffna",
-    "reign": "1284–1292",
-    "id": "varodaya-cinkai-aryan"
-  },
-  {
-    "name": "Cinkai Aryan II",
-    "slug": "cinkai-aryan-ii",
-    "kingdom": "jaffna",
-    "reign": "1292–1342",
-    "id": "cinkai-aryan-ii"
-  },
-  {
-    "name": "Vickrama Cinkai Aryan",
-    "slug": "vickrama-cinkai-aryan",
-    "kingdom": "jaffna",
-    "reign": "1342–1380",
-    "id": "vickrama-cinkai-aryan"
-  },
-  {
-    "name": "Varodaya Cinkai Aryan III",
-    "slug": "varodaya-cinkai-aryan-iii",
-    "kingdom": "jaffna",
-    "reign": "1380–1410",
-    "id": "varodaya-cinkai-aryan-iii"
-  },
-  {
-    "name": "Martanda Cinkai Aryan",
-    "slug": "martanda-cinkai-aryan",
-    "kingdom": "jaffna",
-    "reign": "1410–1440",
-    "id": "martanda-cinkai-aryan"
-  },
-  {
-    "name": "Kanakasooriya Cinkai Aryan I",
-    "slug": "kanakasooriya-cinkai-aryan-i",
-    "kingdom": "jaffna",
-    "reign": "1440–1467",
-    "id": "kanakasooriya-cinkai-aryan-i"
-  },
-  {
-    "name": "Singai Pararasasekaran VI",
-    "slug": "singai-pararasasekaran-vi",
-    "kingdom": "jaffna",
-    "reign": "1467–1519",
-    "id": "singai-pararasasekaran-vi"
-  },
-  {
-    "name": "Pararacacekaran VII",
-    "slug": "pararacacekaran-vii",
-    "kingdom": "jaffna",
-    "reign": "1519–1561",
-    "id": "pararacacekaran-vii"
-  },
-  {
-    "name": "Cankili I",
-    "slug": "cankili-i",
-    "kingdom": "jaffna",
-    "reign": "1561–1565",
-    "id": "cankili-i"
-  },
-  {
-    "name": "Puviraja Pandaram",
-    "slug": "puviraja-pandaram",
-    "kingdom": "jaffna",
-    "reign": "1565",
-    "id": "puviraja-pandaram"
-  },
-  {
-    "name": "Periyapillai",
-    "slug": "periyapillai",
-    "kingdom": "jaffna",
-    "reign": "1565–1582",
-    "id": "periyapillai"
-  },
-  {
-    "name": "Cankili II",
-    "slug": "cankili-ii",
-    "kingdom": "jaffna",
-    "reign": "1617–1619",
-    "id": "cankili-ii"
-  }
+  {"name": "Vijaya", "slug": "vijaya", "kingdom": "tambapanni", "reign": "543–505 BCE"},
+  {"name": "Upatissa (regent)", "slug": "upatissa-regent", "kingdom": "tambapanni", "reign": "505–504 BCE"},
+  {"name": "Panduvasudeva", "slug": "panduvasudeva", "kingdom": "upatissa-nuwara", "reign": "504–474 BCE"},
+  {"name": "Abhaya", "slug": "abhaya", "kingdom": "upatissa-nuwara", "reign": "474–454 BCE"},
+  {"name": "Tissa (regent)", "slug": "tissa-regent", "kingdom": "upatissa-nuwara", "reign": "454–437 BCE"},
+  {"name": "Pandukabhaya", "slug": "pandukabhaya", "kingdom": "anuradhapura", "reign": "437–367 BCE"},
+  {"name": "Mutasiva", "slug": "mutasiva", "kingdom": "anuradhapura", "reign": "367–307 BCE"},
+  {"name": "Devanampiya Tissa", "slug": "devanampiya-tissa", "kingdom": "anuradhapura", "reign": "307–267 BCE", "internationalConnections": "Contemporary and ally of Emperor Ashoka of the Mauryan Empire (India). Ashoka sent his son Mahinda to introduce Buddhism to Sri Lanka during Tissa's reign, establishing deep diplomatic and religious ties between the two kingdoms.", "media": []},
+  {"name": "Uttiya", "slug": "uttiya", "kingdom": "anuradhapura", "reign": "267–257 BCE"},
+  {"name": "Mahasiva", "slug": "mahasiva", "kingdom": "anuradhapura", "reign": "257–247 BCE"},
+  {"name": "Suratissa", "slug": "suratissa", "kingdom": "anuradhapura", "reign": "247–237 BCE"},
+  {"name": "Sena and Guttika", "slug": "sena-guttika", "kingdom": "anuradhapura", "reign": "237–215 BCE"},
+  {"name": "Asela", "slug": "asela", "kingdom": "anuradhapura", "reign": "215–205 BCE"},
+  {"name": "Elara (Chola/Tamil)", "slug": "elara", "kingdom": "anuradhapura", "reign": "205–161 BCE"},
+  {"name": "Kavan Tissa", "slug": "kavan-tissa", "kingdom": "ruhuna", "reign": "c. 2nd c. BCE"},
+  {"name": "Dutugemunu", "slug": "dutugemunu", "kingdom": "anuradhapura", "reign": "161–137 BCE"},
+  {"name": "Saddha Tissa", "slug": "saddha-tissa", "kingdom": "anuradhapura", "reign": "137–119 BCE"},
+  {"name": "Thulatthana", "slug": "thulatthana", "kingdom": "anuradhapura", "reign": "119 BCE"},
+  {"name": "Lanja Tissa", "slug": "lanja-tissa", "kingdom": "anuradhapura", "reign": "119–109 BCE"},
+  {"name": "Khallata Naga", "slug": "khallata-naga", "kingdom": "anuradhapura", "reign": "109–103 BCE"},
+  {"name": "Valagamba (Vattagamani Abhaya)", "slug": "valagamba", "kingdom": "anuradhapura", "reign": "103, 89–77 BCE"},
+  {"name": "Pulahatta", "slug": "pulahatta", "kingdom": "anuradhapura", "reign": "103–100 BCE"},
+  {"name": "Bahiya", "slug": "bahiya", "kingdom": "anuradhapura", "reign": "100–98 BCE"},
+  {"name": "Panya Mara", "slug": "panya-mara", "kingdom": "anuradhapura", "reign": "98–91 BCE"},
+  {"name": "Pilaya Mara", "slug": "pilaya-mara", "kingdom": "anuradhapura", "reign": "91–90 BCE"},
+  {"name": "Dathika", "slug": "dathika", "kingdom": "anuradhapura", "reign": "90–89 BCE"},
+  {"name": "Mahakuli Mahatissa", "slug": "mahakuli-mahatissa", "kingdom": "anuradhapura", "reign": "77–63 BCE"},
+  {"name": "Chora Naga", "slug": "chora-naga", "kingdom": "anuradhapura", "reign": "63–51 BCE"},
+  {"name": "Kuda Tissa", "slug": "kuda-tissa", "kingdom": "anuradhapura", "reign": "51–48 BCE"},
+  {"name": "Siva I (first)", "slug": "siva-i-first", "kingdom": "anuradhapura", "reign": "48–47 BCE"},
+  {"name": "Vatuka", "slug": "vatuka", "kingdom": "anuradhapura", "reign": "47 BCE"},
+  {"name": "Darubhatika Tissa", "slug": "darubhatika-tissa", "kingdom": "anuradhapura", "reign": "47 BCE"},
+  {"name": "Niliya", "slug": "niliya", "kingdom": "anuradhapura", "reign": "47–46 BCE"},
+  {"name": "Anula (Queen)", "slug": "anula", "kingdom": "anuradhapura", "reign": "46–44 BCE"},
+  {"name": "Kutakanna Tissa", "slug": "kutakanna-tissa", "kingdom": "anuradhapura", "reign": "44 BCE–22 BCE"},
+  {"name": "Bhatikabhaya Abhaya", "slug": "bhatikabhaya-abhaya", "kingdom": "anuradhapura", "reign": "22 BCE–7 CE"},
+  {"name": "Mahadathika Mahanaga", "slug": "mahadathika-mahanaga", "kingdom": "anuradhapura", "reign": "7–19 CE"},
+  {"name": "Amandagamani Abhaya", "slug": "amandagamani-abhaya", "kingdom": "anuradhapura", "reign": "19–29 CE"},
+  {"name": "Kanirajanu Tissa", "slug": "kanirajanu-tissa", "kingdom": "anuradhapura", "reign": "29–32 CE"},
+  {"name": "Chulabhaya", "slug": "chulabhaya", "kingdom": "anuradhapura", "reign": "32–33 CE"},
+  {"name": "Sivali", "slug": "sivali", "kingdom": "anuradhapura", "reign": "33 CE"},
+  {"name": "Ilanaga", "slug": "ilanaga", "kingdom": "anuradhapura", "reign": "33–43 CE"},
+  {"name": "Chandamukha Siva", "slug": "chandamukha-siva", "kingdom": "anuradhapura", "reign": "43–52 CE"},
+  {"name": "Yassalalaka Tissa", "slug": "yassalalaka-tissa", "kingdom": "anuradhapura", "reign": "52–60 CE"},
+  {"name": "Subharaja", "slug": "subharaja", "kingdom": "anuradhapura", "reign": "60–67 CE"},
+  {"name": "Vasabha", "slug": "vasabha", "kingdom": "anuradhapura", "reign": "67–111 CE"},
+  {"name": "Vankanasika Tissa", "slug": "vankanasika-tissa", "kingdom": "anuradhapura", "reign": "111–114 CE"},
+  {"name": "Gajabahu I", "slug": "gajabahu-i", "kingdom": "anuradhapura", "reign": "114–136 CE"},
+  {"name": "Mahallaka Naga", "slug": "mahallaka-naga", "kingdom": "anuradhapura", "reign": "136–139 CE"},
+  {"name": "Bhatika Tissa", "slug": "bhatika-tissa", "kingdom": "anuradhapura", "reign": "139–167 CE"},
+  {"name": "Kanittha Tissa", "slug": "kanittha-tissa", "kingdom": "anuradhapura", "reign": "167–186 CE"},
+  {"name": "Cula Naga", "slug": "cula-naga", "kingdom": "anuradhapura", "reign": "186–191 CE"},
+  {"name": "Kuda Naga", "slug": "kuda-naga", "kingdom": "anuradhapura", "reign": "191–196 CE"},
+  {"name": "Siri Naga I", "slug": "siri-naga-i", "kingdom": "anuradhapura", "reign": "196–215 CE"},
+  {"name": "Abhaya Naga", "slug": "abhaya-naga", "kingdom": "anuradhapura", "reign": "215–237 CE"},
+  {"name": "Siri Naga II", "slug": "siri-naga-ii", "kingdom": "anuradhapura", "reign": "237–245 CE"},
+  {"name": "Voharika Tissa", "slug": "voharika-tissa", "kingdom": "anuradhapura", "reign": "245–247 CE"},
+  {"name": "Abhaya Naga II", "slug": "abhaya-naga-ii", "kingdom": "anuradhapura", "reign": "247–249 CE"},
+  {"name": "Siri Naga III", "slug": "siri-naga-iii", "kingdom": "anuradhapura", "reign": "249–251 CE"},
+  {"name": "Vijaya Kumara", "slug": "vijaya-kumara", "kingdom": "anuradhapura", "reign": "251–252 CE"},
+  {"name": "Sangha Tissa I", "slug": "sangha-tissa-i", "kingdom": "anuradhapura", "reign": "252–254 CE"},
+  {"name": "Siri Sangha Bodhi I", "slug": "siri-sangha-bodhi-i", "kingdom": "anuradhapura", "reign": "254–256 CE"},
+  {"name": "Gothabhaya", "slug": "gothabhaya", "kingdom": "anuradhapura", "reign": "256–264 CE"},
+  {"name": "Jettha Tissa II", "slug": "jettha-tissa-ii", "kingdom": "anuradhapura", "reign": "264–273 CE"},
+  {"name": "Mahasena", "slug": "mahasena", "kingdom": "anuradhapura", "reign": "273–301 CE"},
+  {"name": "Siri Meghavanna", "slug": "siri-meghavanna", "kingdom": "anuradhapura", "reign": "301–328 CE"},
+  {"name": "Jettha Tissa III", "slug": "jettha-tissa-iii", "kingdom": "anuradhapura", "reign": "328–337 CE"},
+  {"name": "Buddhadasa", "slug": "buddhadasa", "kingdom": "anuradhapura", "reign": "337–365 CE"},
+  {"name": "Upatissa I", "slug": "upatissa-i", "kingdom": "anuradhapura", "reign": "365–406 CE"},
+  {"name": "Mahanama", "slug": "mahanama", "kingdom": "anuradhapura", "reign": "406–428 CE"},
+  {"name": "Siva II (second)", "slug": "siva-ii-second", "kingdom": "anuradhapura", "reign": "428–430 CE"},
+  {"name": "Pandu (Tamil)", "slug": "pandu-tamil", "kingdom": "anuradhapura", "reign": "430–432 CE"},
+  {"name": "Parindu (Tamil)", "slug": "parindu-tamil", "kingdom": "anuradhapura", "reign": "432 CE"},
+  {"name": "Khudda Parinda (Tamil)", "slug": "khudda-parinda-tamil", "kingdom": "anuradhapura", "reign": "432–434 CE"},
+  {"name": "Tiritara (Tamil)", "slug": "tiritara-tamil", "kingdom": "anuradhapura", "reign": "434 CE"},
+  {"name": "Dathiya (Tamil)", "slug": "dathiya-tamil", "kingdom": "anuradhapura", "reign": "434–436 CE"},
+  {"name": "Pithiya (Tamil)", "slug": "pithiya-tamil", "kingdom": "anuradhapura", "reign": "436–437 CE"},
+  {"name": "Dhatusena", "slug": "dhatusena", "kingdom": "anuradhapura", "reign": "455–473 CE"},
+  {"name": "Kashyapa I", "slug": "kashyapa-i", "kingdom": "sigiriya", "reign": "473–495 CE"},
+  {"name": "Moggallana I", "slug": "moggallana-i", "kingdom": "sigiriya", "reign": "495–512 CE"},
+  {"name": "Kumara Dhatusena", "slug": "kumara-dhatusena", "kingdom": "anuradhapura", "reign": "512–524 CE"},
+  {"name": "Kittisena", "slug": "kittisena", "kingdom": "anuradhapura", "reign": "524 CE"},
+  {"name": "Siva I", "slug": "siva-i-524", "kingdom": "anuradhapura", "reign": "524–525 CE"},
+  {"name": "Upatissa II", "slug": "upatissa-ii", "kingdom": "anuradhapura", "reign": "525–526 CE"},
+  {"name": "Silakala Ambosamanera", "slug": "silakala-ambosamanera", "kingdom": "anuradhapura", "reign": "526–539 CE"},
+  {"name": "Aggabodhi I", "slug": "aggabodhi-i", "kingdom": "anuradhapura", "reign": "564–598 CE"},
+  {"name": "Kassapa II", "slug": "kassapa-ii", "kingdom": "anuradhapura", "reign": "602–608 CE"},
+  {"name": "Aggabodhi II", "slug": "aggabodhi-ii", "kingdom": "anuradhapura", "reign": "608–618 CE"},
+  {"name": "Sangha Tissa II", "slug": "sangha-tissa-ii", "kingdom": "anuradhapura", "reign": "608–614 CE"},
+  {"name": "Dathopa Tissa I", "slug": "dathopa-tissa-i", "kingdom": "anuradhapura", "reign": "614–623 CE"},
+  {"name": "Aggabodhi III", "slug": "aggabodhi-iii", "kingdom": "anuradhapura", "reign": "626–636 CE"},
+  {"name": "Kassapa III", "slug": "kassapa-iii", "kingdom": "anuradhapura", "reign": "732–738 CE"},
+  {"name": "Mahinda I", "slug": "mahinda-i", "kingdom": "anuradhapura", "reign": "738–746 CE"},
+  {"name": "Aggabodhi VI", "slug": "aggabodhi-vi", "kingdom": "anuradhapura", "reign": "771–781 CE"},
+  {"name": "Mahinda II", "slug": "mahinda-ii", "kingdom": "anuradhapura", "reign": "781–797 CE"},
+  {"name": "Siri Sangha Bodhi II", "slug": "siri-sangha-bodhi-ii", "kingdom": "anuradhapura", "reign": "797–801 CE"},
+  {"name": "Mahinda III", "slug": "mahinda-iii", "kingdom": "anuradhapura", "reign": "801–804 CE"},
+  {"name": "Dappula I", "slug": "dappula-i", "kingdom": "anuradhapura", "reign": "804–835 CE"},
+  {"name": "Dappula II", "slug": "dappula-ii", "kingdom": "anuradhapura", "reign": "835–836 CE"},
+  {"name": "Sena I", "slug": "sena-i", "kingdom": "anuradhapura", "reign": "833–853 CE"},
+  {"name": "Sena II", "slug": "sena-ii", "kingdom": "anuradhapura", "reign": "853–887 CE"},
+  {"name": "Udaya I", "slug": "udaya-i", "kingdom": "anuradhapura", "reign": "887–898 CE"},
+  {"name": "Kassapa IV", "slug": "kassapa-iv", "kingdom": "anuradhapura", "reign": "898–914 CE"},
+  {"name": "Kassapa V", "slug": "kassapa-v", "kingdom": "anuradhapura", "reign": "914–923 CE"},
+  {"name": "Dappula IV", "slug": "dappula-iv", "kingdom": "anuradhapura", "reign": "923–924 CE"},
+  {"name": "Kassapa VI", "slug": "kassapa-vi", "kingdom": "anuradhapura", "reign": "924–935 CE"},
+  {"name": "Sena III", "slug": "sena-iii", "kingdom": "anuradhapura", "reign": "936–945 CE"},
+  {"name": "Udaya II", "slug": "udaya-ii", "kingdom": "anuradhapura", "reign": "946–954 CE"},
+  {"name": "Sena IV", "slug": "sena-iv", "kingdom": "anuradhapura", "reign": "954–956 CE"},
+  {"name": "Mahinda IV", "slug": "mahinda-iv", "kingdom": "anuradhapura", "reign": "956–972 CE"},
+  {"name": "Sena V", "slug": "sena-v", "kingdom": "anuradhapura", "reign": "972–975 CE"},
+  {"name": "Mahinda V", "slug": "mahinda-v", "kingdom": "anuradhapura", "reign": "982–1017 CE"},
+  {"name": "Vijayabahu I", "slug": "vijayabahu-i", "kingdom": "polonnaruwa", "reign": "1055–1110"},
+  {"name": "Jayabahu I", "slug": "jayabahu-i", "kingdom": "polonnaruwa", "reign": "1110–1111"},
+  {"name": "Vikramabahu I", "slug": "vikramabahu-i", "kingdom": "polonnaruwa", "reign": "1111–1132"},
+  {"name": "Gajabahu II", "slug": "gajabahu-ii", "kingdom": "polonnaruwa", "reign": "1132–1153"},
+  {"name": "Parakramabahu I", "slug": "parakramabahu-i", "kingdom": "polonnaruwa", "reign": "1153–1186"},
+  {"name": "Nissanka Malla", "slug": "nissanka-malla", "kingdom": "polonnaruwa", "reign": "1187–1196"},
+  {"name": "Sahasa Malla", "slug": "sahasa-malla", "kingdom": "polonnaruwa", "reign": "1200–1202"},
+  {"name": "Kalyanavati", "slug": "kalyanavati", "kingdom": "polonnaruwa", "reign": "1202–1208"},
+  {"name": "Dharmasoka", "slug": "dharmasoka", "kingdom": "polonnaruwa", "reign": "1208–1209"},
+  {"name": "Anikanga", "slug": "anikanga", "kingdom": "polonnaruwa", "reign": "1209"},
+  {"name": "Lilavati", "slug": "lilavati", "kingdom": "polonnaruwa", "reign": "1197–1200, 1209–1210, 1211–1212"},
+  {"name": "Lokissara", "slug": "lokissara", "kingdom": "polonnaruwa", "reign": "1210–1211"},
+  {"name": "Parakrama Pandya II", "slug": "parakrama-pandya-ii", "kingdom": "polonnaruwa", "reign": "1212–1215"},
+  {"name": "Kalinga Magha", "slug": "kalinga-magha-polonnaruwa", "kingdom": "polonnaruwa", "reign": "1215–1236"},
+  {"name": "Vijayabahu III", "slug": "vijayabahu-iii", "kingdom": "dambadeniya", "reign": "1236–1270"},
+  {"name": "Parakramabahu II", "slug": "parakramabahu-ii", "kingdom": "dambadeniya", "reign": "1270–1284"},
+  {"name": "Bhuvanaikabahu I", "slug": "bhuvanaikabahu-i", "kingdom": "yapahuwa", "reign": "1284–1291"},
+  {"name": "Parakramabahu IV", "slug": "parakramabahu-iv", "kingdom": "yapahuwa", "reign": "1291–1302"},
+  {"name": "Bhuvanaikabahu II", "slug": "bhuvanaikabahu-ii", "kingdom": "kurunegala", "reign": "1302–1326"},
+  {"name": "Vijayabahu V", "slug": "vijayabahu-v", "kingdom": "kurunegala", "reign": "1326–1341"},
+  {"name": "Bhuvanaikabahu IV", "slug": "bhuvanaikabahu-iv", "kingdom": "gampola", "reign": "1341–1351"},
+  {"name": "Parakramabahu V", "slug": "parakramabahu-v", "kingdom": "gampola", "reign": "1351–1353"},
+  {"name": "Vikramabahu III", "slug": "vikramabahu-iii", "kingdom": "gampola", "reign": "1357–1374"},
+  {"name": "Bhuvanaikabahu V", "slug": "bhuvanaikabahu-v", "kingdom": "gampola", "reign": "1372–1391"},
+  {"name": "Vira Alakesvara", "slug": "vira-alakesvara", "kingdom": "gampola", "reign": "1391–1392"},
+  {"name": "Parakramabahu VI", "slug": "parakramabahu-vi", "kingdom": "kotte", "reign": "1412–1467"},
+  {"name": "Bhuvanaikabahu VI", "slug": "bhuvanaikabahu-vi", "kingdom": "kotte", "reign": "1467–1472"},
+  {"name": "Parakramabahu VII", "slug": "parakramabahu-vii", "kingdom": "kotte", "reign": "1472–1480"},
+  {"name": "Parakramabahu VIII", "slug": "parakramabahu-viii", "kingdom": "kotte", "reign": "1484–1518"},
+  {"name": "Dharma Parakramabahu IX", "slug": "dharma-parakramabahu-ix", "kingdom": "kotte", "reign": "1518–1521"},
+  {"name": "Vijayabahu VI", "slug": "vijayabahu-vi", "kingdom": "kotte", "reign": "1521"},
+  {"name": "Bhuvanaikabahu VII", "slug": "bhuvanaikabahu-vii", "kingdom": "kotte", "reign": "1521–1551"},
+  {"name": "Dharmapala", "slug": "dharmapala", "kingdom": "kotte", "reign": "1551–1597"},
+  {"name": "Mayadunne", "slug": "mayadunne", "kingdom": "sitawaka", "reign": "1521–1581"},
+  {"name": "Rajasinha I", "slug": "rajasinha-i", "kingdom": "sitawaka", "reign": "1581–1593"},
+  {"name": "Senasammata Vikramabahu", "slug": "senasammata-vikramabahu", "kingdom": "kandyan", "reign": "1469–1511"},
+  {"name": "Jayaweera Astana", "slug": "jayaweera-astana", "kingdom": "kandyan", "reign": "1511–1552"},
+  {"name": "Karaliadde Bandara", "slug": "karaliadde-bandara", "kingdom": "kandyan", "reign": "1551–1581"},
+  {"name": "Don Juan Bandara", "slug": "don-juan-bandara", "kingdom": "kandyan", "reign": "1581–1590"},
+  {"name": "Vimaladharmasuriya I", "slug": "vimaladharmasuriya-i", "kingdom": "kandyan", "reign": "1590–1604"},
+  {"name": "Senarat", "slug": "senarat", "kingdom": "kandyan", "reign": "1604–1635"},
+  {"name": "Rajasinha II", "slug": "rajasinha-ii", "kingdom": "kandyan", "reign": "1635–1687"},
+  {"name": "Vimaladharmasuriya II", "slug": "vimaladharmasuriya-ii", "kingdom": "kandyan", "reign": "1687–1707"},
+  {"name": "Narendra Sinha", "slug": "narendra-sinha", "kingdom": "kandyan", "reign": "1707–1739"},
+  {"name": "Sri Vijaya Rajasinha", "slug": "sri-vijaya-rajasinha", "kingdom": "kandyan", "reign": "1739–1747"},
+  {"name": "Kirti Sri Rajasinha", "slug": "kirti-sri-rajasinha", "kingdom": "kandyan", "reign": "1747–1781"},
+  {"name": "Rajadhi Rajasinha", "slug": "rajadhi-rajasinha", "kingdom": "kandyan", "reign": "1781–1798"},
+  {"name": "Sri Vikrama Rajasinha", "slug": "sri-vikrama-rajasinha", "kingdom": "kandyan", "reign": "1798–1815"},
+  {"name": "Kalinga Magha", "slug": "kalinga-magha-jaffna", "kingdom": "jaffna", "reign": "1215–1236"},
+  {"name": "Cinkai Aryan I", "slug": "cinkai-aryan-i", "kingdom": "jaffna", "reign": "1277–1284"},
+  {"name": "Varodaya Cinkai Aryan", "slug": "varodaya-cinkai-aryan", "kingdom": "jaffna", "reign": "1284–1292"},
+  {"name": "Cinkai Aryan II", "slug": "cinkai-aryan-ii", "kingdom": "jaffna", "reign": "1292–1342"},
+  {"name": "Vickrama Cinkai Aryan", "slug": "vickrama-cinkai-aryan", "kingdom": "jaffna", "reign": "1342–1380"},
+  {"name": "Varodaya Cinkai Aryan III", "slug": "varodaya-cinkai-aryan-iii", "kingdom": "jaffna", "reign": "1380–1410"},
+  {"name": "Martanda Cinkai Aryan", "slug": "martanda-cinkai-aryan", "kingdom": "jaffna", "reign": "1410–1440"},
+  {"name": "Kanakasooriya Cinkai Aryan I", "slug": "kanakasooriya-cinkai-aryan-i", "kingdom": "jaffna", "reign": "1440–1467"},
+  {"name": "Singai Pararasasekaran VI", "slug": "singai-pararasasekaran-vi", "kingdom": "jaffna", "reign": "1467–1519"},
+  {"name": "Pararacacekaran VII", "slug": "pararacacekaran-vii", "kingdom": "jaffna", "reign": "1519–1561"},
+  {"name": "Cankili I", "slug": "cankili-i", "kingdom": "jaffna", "reign": "1561–1565"},
+  {"name": "Puviraja Pandaram", "slug": "puviraja-pandaram", "kingdom": "jaffna", "reign": "1565"},
+  {"name": "Periyapillai", "slug": "periyapillai", "kingdom": "jaffna", "reign": "1565–1582"},
+  {"name": "Cankili II", "slug": "cankili-ii", "kingdom": "jaffna", "reign": "1617–1619"}
 ]

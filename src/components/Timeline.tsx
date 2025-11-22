@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 interface TimelineKing {
-  id: string;
+  slug: string;
   name: string;
   reign: string;
 }
@@ -19,13 +19,13 @@ export default function Timeline({ kings }: TimelineProps) {
       {/* Timeline items */}
       <div className="space-y-6">
         {kings.map((king, index) => (
-          <div key={king.id} className="relative pl-20">
+          <div key={king.slug} className="relative pl-20">
             {/* Timeline dot */}
             <div className="absolute left-6 top-2 w-5 h-5 rounded-full bg-[var(--accent)] border-4 border-white dark:border-gray-900 shadow-lg" />
             
             {/* Timeline content */}
             <Link 
-              href={`/kings/${king.id}`}
+              href={`/kings/${king.slug}`}
               className="block group"
             >
               <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 shadow-sm hover:shadow-md transition-all hover:border-[var(--accent)] hover:-translate-y-1">

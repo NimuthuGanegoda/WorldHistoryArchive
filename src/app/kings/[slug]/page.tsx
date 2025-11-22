@@ -6,7 +6,6 @@ import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
 
 interface King {
-  id: string;
   name: string;
   slug: string;
   kingdom: string;
@@ -27,13 +26,13 @@ interface King {
 
 export async function generateStaticParams() {
   return kingsData.map((king) => ({
-    slug: king.id,
+    slug: king.slug,
   }));
 }
 
 export default async function KingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const king = kingsData.find((k: King) => k.id === slug) as King | undefined;
+  const king = kingsData.find((k: any) => k.slug === slug) as King | undefined;
   
   if (!king) {
     notFound();

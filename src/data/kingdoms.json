@@ -2,6 +2,7 @@
   {"id": "tambapanni", "name": "Tambapanni", "period": "543–505 BCE", "description": "Earliest settlement under Vijaya"},
   {"id": "upatissa-nuwara", "name": "Upatissa Nuwara", "period": "504–437 BCE", "description": "Interim capital after Vijaya period"},
   {"id": "anuradhapura", "name": "Anuradhapura", "period": "437 BCE – 1017 CE", "description": "First major kingdom; irrigation & Buddhist center"},
+  {"id": "ruhuna", "name": "Ruhuna", "period": "200 BCE – 1200 CE", "description": "Southern kingdom; base of resistance movements"},
   {"id": "sigiriya", "name": "Sigiriya", "period": "473–512 CE", "description": "Fortress/palace period under Kashyapa I"},
   {"id": "polonnaruwa", "name": "Polonnaruwa", "period": "1055–1236 CE", "description": "Medieval capital; advanced irrigation"},
   {"id": "dambadeniya", "name": "Dambadeniya", "period": "1236–1284 CE", "description": "Transitional capital after Chola conflicts"},
