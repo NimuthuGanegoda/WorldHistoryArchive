@@ -79,15 +79,6 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
             </div>
           )}
 
-          {king.biography && (
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold mb-3">Biography</h2>
-              <div className="prose dark:prose-invert max-w-none">
-                <p className="mb-4 text-lg leading-relaxed">{king.biography}</p>
-              </div>
-            </div>
-          )}
-
           {king.sections && king.sections.length > 0 && (
             <div className="mb-6">
               {king.sections.map((section: any, idx: number) => (
