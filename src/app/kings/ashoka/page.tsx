@@ -35,8 +35,8 @@ export default function KingAshokaPage() {
             allowFullScreen
           ></iframe>
         </div>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
-          Playlist courtesy of YouTube. For more about Ashoka's connection to Sri Lanka, see <Link href="/kings/devanampiya-tissa" className="underline">King Devanampiya Tissa</Link>.
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+          Playlist courtesy of YouTube. For more about Ashoka&apos;s connection to Sri Lanka, see <Link href="/kings/devanampiya-tissa" className="underline">King Devanampiya Tissa</Link>.
         </p>
       </section>
     </main>
