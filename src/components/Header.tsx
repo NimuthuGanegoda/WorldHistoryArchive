@@ -56,6 +56,18 @@ export default function Header() {
             >
               Connections
             </Link>
+            <Link
+              href="/historical-maps"
+              className="text-[12px] font-normal text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+            >
+              Historical Maps
+            </Link>
+            <Link
+              href="/dharma-asoka-show"
+              className="text-[12px] font-normal text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+            >
+              Dharma Asoka Show
+            </Link>
           </div>
         </div>
       </nav>
