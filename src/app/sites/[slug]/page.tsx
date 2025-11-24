@@ -44,8 +44,8 @@ export default async function SitePage({ params }: { params: Promise<{ slug: str
 
   // Find the kingdom
   const kingdom = kingdomsData.find((k) => 
-    site.kingdom.toLowerCase().includes(k.name.toLowerCase()) ||
-    k.name.toLowerCase().includes(site.kingdom.toLowerCase())
+    site.kingdom.toLowerCase().includes(k.title.toLowerCase()) ||
+    k.title.toLowerCase().includes(site.kingdom.toLowerCase())
   );
 
   return (
@@ -72,7 +72,7 @@ export default async function SitePage({ params }: { params: Promise<{ slug: str
           <section className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mb-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div><strong>Kingdom:</strong> {kingdom ? (
-                <Link href={`/kingdoms/${kingdom.id}`} className="text-[var(--accent)] hover:underline">
+                <Link href={`/kingdoms/${kingdom.slug}`} className="text-[var(--accent)] hover:underline">
                   {site.kingdom}
                 </Link>
               ) : site.kingdom}</div>

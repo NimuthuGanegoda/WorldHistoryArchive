@@ -4,10 +4,13 @@ import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
 
 interface King {
-  name: string;
+  title: string;
   slug: string;
   kingdom: string;
   reign: string;
+  biography?: string;
+  sections?: any[];
+  notes?: string;
   internationalConnections?: string;
   media?: {
     type: 'youtube' | 'vimeo' | 'embed';
@@ -38,20 +41,20 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
 
   // Find the kingdom
   const kingdom = kingdomsData.find((k) => 
-    king.kingdom.toLowerCase().includes(k.name.toLowerCase()) ||
-    k.name.toLowerCase().includes(king.kingdom.toLowerCase())
+    king.kingdom.toLowerCase().includes(k.title.toLowerCase()) ||
+    k.title.toLowerCase().includes(king.kingdom.toLowerCase())
   );
 
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
-          ...(kingdom ? [{ label: kingdom.name, href: `/kingdoms/${kingdom.id}` }] : []),
+          ...(kingdom ? [{ label: kingdom.title, href: `/kingdoms/${kingdom.slug}` }] : []),
           { label: king.name }
         ]} />
         
         <article>
-          <h1 className="text-4xl font-bold mb-4">{king.name}</h1>
+          <h1 className="text-4xl font-bold mb-4">{king.title}</h1>
           
           <section className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-6 text-sm">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -190,7 +193,7 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
 
           {!king.biography && !king.sections && !king.notes && !king.media && !king.locations && (
             <p className="text-gray-600 dark:text-gray-400">
-              Detailed biography for {king.name} is being researched and will be added soon.
+              Detailed biography for {king.title} is being researched and will be added soon.
             </p>
           )}
         </article>

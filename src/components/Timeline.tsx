@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 interface TimelineKing {
   slug: string;
-  name: string;
+  title: string;
   reign: string;
 }
 
@@ -32,7 +32,7 @@ export default function Timeline({ kings }: TimelineProps) {
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-[var(--accent)] group-hover:underline">
-                      {king.name}
+                      {king.title}
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                       Reign: {king.reign}

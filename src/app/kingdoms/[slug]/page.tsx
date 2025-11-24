@@ -15,10 +15,11 @@ interface King {
 }
 
 interface Kingdom {
-  id: string;
-  name: string;
-  period: string;
-  description: string;
+  slug: string;
+  title: string;
+  reign: string;
+  biography: string;
+  sections?: any[];
   mapUrl?: string;
   locations?: {
     name: string;
@@ -29,13 +30,13 @@ interface Kingdom {
 
 export async function generateStaticParams() {
   return kingdomsData.map((kingdom) => ({
-    slug: kingdom.id,
+    slug: kingdom.slug,
   }));
 }
 
 export default async function KingdomPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const kingdom = kingdomsData.find((k) => k.id === slug);
+  const kingdom = kingdomsData.find((k) => k.slug === slug);
   
   if (!kingdom) {
     notFound();
@@ -43,32 +44,32 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
 
   // Filter kings for this kingdom
   const kingdomKings = kingsData.filter((king: any) => 
-    king.kingdom === kingdom.id ||
-    king.kingdom.toLowerCase().includes(kingdom.name.toLowerCase()) ||
-    kingdom.name.toLowerCase().includes(king.kingdom.toLowerCase())
+    king.kingdom === kingdom.slug ||
+    king.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
+    kingdom.title.toLowerCase().includes(king.kingdom.toLowerCase())
   );
 
   // Filter sites for this kingdom
   const kingdomSites = (sitesData as any[]).filter((site: any) => 
-    site.kingdom.toLowerCase() === kingdom.id.toLowerCase() ||
-    site.kingdom.toLowerCase().includes(kingdom.name.toLowerCase()) ||
-    kingdom.name.toLowerCase().includes(site.kingdom.toLowerCase())
+    site.kingdom && (site.kingdom.toLowerCase() === kingdom.slug.toLowerCase() ||
+    site.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
+    kingdom.title.toLowerCase().includes(site.kingdom.toLowerCase()))
   );
 
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
-          { label: kingdom.name }
+          { label: kingdom.title }
         ]} />
         
         <article>
-          <h1 className="text-4xl font-bold mb-4">{kingdom.name} Kingdom</h1>
-          <p className="text-lg mb-6">{kingdom.description}</p>
+          <h1 className="text-4xl font-bold mb-4">{kingdom.title}</h1>
+          <p className="text-lg mb-6">{kingdom.biography}</p>
           
-          {kingdom.period && (
+          {kingdom.reign && (
             <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-6">
-              <strong>Period:</strong> {kingdom.period}
+              <strong>Period:</strong> {kingdom.reign}
             </div>
           )}
 
@@ -80,7 +81,7 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
                     src={(kingdom as any).mapUrl}
-                    title={`Map of ${kingdom.name}`}
+                    title={`Map of ${kingdom.title}`}
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
@@ -96,7 +97,7 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
               <h2 className="text-2xl font-bold mb-4">Important Sites</h2>
               <div className="grid grid-cols-1 gap-6">
                 {(kingdom as any).locations.map((location: any, index: number) => (
-                  <div key={`${kingdom.id}-location-${index}`} className="card overflow-hidden">
+                  <div key={`${kingdom.slug}-location-${index}`} className="card overflow-hidden">
                     <div className="p-4 bg-gray-50 dark:bg-gray-800">
                       <h3 className="font-semibold text-lg mb-1">📍 {location.name}</h3>
                       {location.description && (

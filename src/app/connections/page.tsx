@@ -3,7 +3,7 @@ import Link from 'next/link';
 import kingsData from '@/data/kings.json';
 
 interface King {
-  name: string;
+  title: string;
   slug: string;
   kingdom: string;
   reign: string;
@@ -39,7 +39,7 @@ export default function ConnectionsPage() {
                 <div>
                   <h2 className="text-2xl font-bold mb-1">
                     <Link href={`/kings/${king.slug}`} className="hover:text-[var(--accent)] transition-colors">
-                      {king.name}
+                      {king.title}
                     </Link>
                   </h2>
                   <p className="text-sm text-gray-600 dark:text-gray-400 capitalize">
