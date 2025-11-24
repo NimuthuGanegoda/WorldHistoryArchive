@@ -4,9 +4,16 @@ This directory contains all historical content in **JSON format** - a structured
 
 ## Files
 
+### Data Files
 - **`kings.json`** - Array of 188 king objects with complete biographical data
 - **`kingdoms.json`** - Array of 15 kingdom objects with historical information
+- **`sites.json`** - Historical and archaeological sites
 - **`complete.json`** - Combined file with metadata and all data in one place
+
+### Page Data Files
+- **`index.json`** - Home page data with kingdom overview
+- **`kingdoms-list.json`** - Kingdoms listing page data
+- **`kings-list.json`** - Kings listing page data
 
 ## Structure
 
