@@ -51,7 +51,7 @@ export default function Header() {
               Sites
             </Link>
             <Link
-              href="/connections"
+              href="/political-connections"
               className="text-[12px] font-normal text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
             >
               Connections
