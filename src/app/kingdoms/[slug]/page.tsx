@@ -28,6 +28,18 @@ interface Kingdom {
   }[];
 }
 
+// Function to extract start year from reign string for sorting
+function extractStartYear(reign: string): number {
+  if (!reign) return 9999;
+  const match = reign.match(/(\d+)/);
+  if (!match) return 9999;
+  const year = parseInt(match[1]);
+  if (reign.includes('BCE') || reign.includes('BC')) {
+    return -year;
+  }
+  return year;
+}
+
 export async function generateStaticParams() {
   return kingdomsData.map((kingdom) => ({
     slug: kingdom.slug,
@@ -47,7 +59,10 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
     king.kingdom === kingdom.slug ||
     king.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
     kingdom.title.toLowerCase().includes(king.kingdom.toLowerCase())
-  );
+  ).sort((a: any, b: any) => {
+    // Sort by chronological order
+    return extractStartYear(a.reign) - extractStartYear(b.reign);
+  });
 
   // Filter sites for this kingdom
   const kingdomSites = (sitesData as any[]).filter((site: any) => 
