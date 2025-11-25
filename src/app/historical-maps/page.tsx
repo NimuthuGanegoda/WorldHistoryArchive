@@ -12,6 +12,9 @@ export default function HistoricalMapsPage() {
       <p className="mb-6 text-gray-700 dark:text-gray-300">
         Explore historical regions and ancient kingdom boundaries of Sri Lanka using the interactive map below (powered by <a href="https://www.oldmapsonline.org/" target="_blank" rel="noopener noreferrer" className="underline">Old Maps Online</a>):
       </p>
+      <p className="mb-4 text-yellow-800 dark:text-yellow-300 font-medium">
+        Tip: Use the timeline slider below the map to explore different historical periods.
+      </p>
       <div className="w-full aspect-video mb-8" style={{minHeight: '500px'}}>
         <iframe
           src="https://www.oldmapsonline.org/en/history/regions#position=6.2609/7.592/81.406&year=483"
