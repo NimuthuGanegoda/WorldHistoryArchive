@@ -62,12 +62,6 @@ export default function Header() {
             >
               Historical Maps
             </Link>
-            <Link
-              href="/dharma-asoka-show"
-              className="text-[12px] font-normal text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-            >
-              Dharma Asoka Show
-            </Link>
           </div>
         </div>
       </nav>
