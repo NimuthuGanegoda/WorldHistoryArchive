@@ -13,7 +13,7 @@ export default function KingAshokaPage() {
         Emperor Ashoka, also known as Dharma Asoka, was one of the greatest rulers of the Mauryan Empire in India (reigned c. 268–232 BCE). After witnessing the devastation of the Kalinga War, Ashoka embraced Buddhism and became a model of righteous and compassionate rule. He is renowned for spreading Buddhism across Asia and for his policies of non-violence, tolerance, and welfare for all beings.
       </p>
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Ashoka's Impact on Sri Lanka</h2>
+        <h2 className="text-2xl font-semibold mb-2">Ashoka&apos;s Impact on Sri Lanka</h2>
         <ul className="list-disc pl-6 text-gray-700 dark:text-gray-300">
           <li>Sent his son, Arahat Mahinda, to Sri Lanka, leading to the official introduction of Buddhism during the reign of King Devanampiya Tissa.</li>
           <li>Sent his daughter, Sanghamitta, who brought a sapling of the sacred Bodhi Tree from Bodh Gaya, which was planted in Anuradhapura and is still venerated today.</li>
