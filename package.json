@@ -4,13 +4,16 @@
   "private": true,
   "description": "Next.js application for Sri Lankan historical kingdoms and monarchs.",
   "scripts": {
-    "dev": "next dev",
+    "dev": "HOST=127.0.0.1 PORT=3000 next dev",
+    "dev:secure": "HOST=127.0.0.1 PORT=3000 NEXT_TELEMETRY_DISABLED=1 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "validate": "node scripts/validate.js",
     "export:md": "node scripts/export-markdown.js output-md",
-    "deploy": "next build && touch out/.nojekyll && git add -f out && git commit -m 'Deploy to GitHub Pages' && git subtree push --prefix out origin gh-pages"
+    "deploy": "next build && touch out/.nojekyll && git add -f out && git commit -m 'Deploy to GitHub Pages' && git subtree push --prefix out origin gh-pages",
+    "security:audit": "npm audit",
+    "security:fix": "npm audit fix"
   },
   "dependencies": {
     "react": "^19.0.0",
