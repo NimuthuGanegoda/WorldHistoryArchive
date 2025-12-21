@@ -1,0 +1,107 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/app/_not-found/page-2b61ae5e2f3c263e.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/css/b4b2a2f820f43f41.css",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/layout-e3972738657eca0a.js"
+    ],
+    "/connections/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/connections/page-f4140a2151d1d3ef.js"
+    ],
+    "/sites/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/sites/page-f4140a2151d1d3ef.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/page-9d5b9adaaecedf3d.js"
+    ],
+    "/historical-maps/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/app/historical-maps/page-2a0e73b168eddc59.js"
+    ],
+    "/kings/ashoka/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/kings/ashoka/page-cf2615c711a957ad.js"
+    ],
+    "/dharma-asoka-show/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/dharma-asoka-show/page-cf2615c711a957ad.js"
+    ],
+    "/sites/[slug]/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/sites/[slug]/page-f4140a2151d1d3ef.js"
+    ],
+    "/kingdoms/[slug]/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/kingdoms/[slug]/page-f4140a2151d1d3ef.js"
+    ],
+    "/kings/[slug]/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/kings/[slug]/page-cf2615c711a957ad.js"
+    ],
+    "/political-connections/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/political-connections/page-cf2615c711a957ad.js"
+    ],
+    "/timeline/page": [
+      "static/chunks/webpack-2eb758dea75faf50.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-293e44824f2ec188.js",
+      "static/chunks/main-app-a36015e42ada312d.js",
+      "static/chunks/619-ba102abea3e3d0e4.js",
+      "static/chunks/app/timeline/page-cf2615c711a957ad.js"
+    ]
+  }
+}

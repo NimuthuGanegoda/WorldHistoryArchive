@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/connections/page": "app/connections/page.js",
+  "/sites/page": "app/sites/page.js",
+  "/page": "app/page.js",
+  "/historical-maps/page": "app/historical-maps/page.js",
+  "/kings/ashoka/page": "app/kings/ashoka/page.js",
+  "/dharma-asoka-show/page": "app/dharma-asoka-show/page.js",
+  "/sites/[slug]/page": "app/sites/[slug]/page.js",
+  "/kingdoms/[slug]/page": "app/kingdoms/[slug]/page.js",
+  "/kings/[slug]/page": "app/kings/[slug]/page.js",
+  "/political-connections/page": "app/political-connections/page.js",
+  "/timeline/page": "app/timeline/page.js"
+}

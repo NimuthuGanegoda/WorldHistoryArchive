@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/connections/page": "/connections",
+  "/sites/page": "/sites",
+  "/page": "/",
+  "/historical-maps/page": "/historical-maps",
+  "/kings/ashoka/page": "/kings/ashoka",
+  "/dharma-asoka-show/page": "/dharma-asoka-show",
+  "/sites/[slug]/page": "/sites/[slug]",
+  "/kingdoms/[slug]/page": "/kingdoms/[slug]",
+  "/kings/[slug]/page": "/kings/[slug]",
+  "/political-connections/page": "/political-connections",
+  "/timeline/page": "/timeline"
+}
