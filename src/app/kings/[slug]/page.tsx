@@ -50,7 +50,7 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
           ...(kingdom ? [{ label: kingdom.title, href: `/kingdoms/${kingdom.slug}` }] : []),
-          { label: king.name }
+          { label: king.title }
         ]} />
         
         <article>
@@ -113,7 +113,7 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
               <h2 className="text-2xl font-bold mb-4">Media & Films</h2>
               <div className="grid grid-cols-1 gap-6">
                 {king.media.map((item: any, index: number) => (
-                  <div key={`${king.id}-media-${index}`} className="card overflow-hidden">
+                    <div key={`${king.slug}-media-${index}`} className="card overflow-hidden">
                     {item.title && (
                       <div className="p-4 bg-gray-50 dark:bg-gray-800">
                         <h3 className="font-semibold">{item.title}</h3>
@@ -124,7 +124,7 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
                         <iframe
                           className="absolute top-0 left-0 w-full h-full"
                           src={`https://www.youtube.com/embed/${item.url}`}
-                          title={item.title || `Video about ${king.name}`}
+                          title={item.title || `Video about ${king.title}`}
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                         />
@@ -133,7 +133,7 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
                         <iframe
                           className="absolute top-0 left-0 w-full h-full"
                           src={`https://player.vimeo.com/video/${item.url}`}
-                          title={item.title || `Video about ${king.name}`}
+                          title={item.title || `Video about ${king.title}`}
                           allow="autoplay; fullscreen; picture-in-picture"
                           allowFullScreen
                         />
@@ -142,7 +142,7 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
                         <iframe
                           className="absolute top-0 left-0 w-full h-full"
                           src={item.url}
-                          title={item.title || `Video about ${king.name}`}
+                          title={item.title || `Video about ${king.title}`}
                           allowFullScreen
                         />
                       )}
@@ -158,7 +158,7 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
               <h2 className="text-2xl font-bold mb-4">Historical Locations</h2>
               <div className="grid grid-cols-1 gap-6">
                 {king.locations.map((location: any, index: number) => (
-                  <div key={`${king.id}-location-${index}`} className="card overflow-hidden">
+                <div key={`${king.slug}-location-${index}`} className="card overflow-hidden">
                     <div className="p-4 bg-gray-50 dark:bg-gray-800">
                       <h3 className="font-semibold text-lg mb-1">📍 {location.name}</h3>
                       {location.description && (
