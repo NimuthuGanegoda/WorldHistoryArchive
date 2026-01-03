@@ -1,176 +1,1221 @@
 [
-  {"name": "King Vijaya", "slug": "vijaya", "kingdom": "tambapanni", "reign": "543–505 BCE", "biography": "King Vijaya is the legendary first king of Sri Lanka, known for founding the Sinhalese people. According to the Mahāvaṃsa, he was the son of King Sinhabahu of Sinhapura in India. Due to his unruly behavior, he was banished with 700 followers. They landed in Lanka, at a site named Tambapanni, on the day of the Buddha's Parinirvana. There, he and his followers defeated the native Yakkhas with the help of the Yakkha princess Kuveni, whom he married. He established the Kingdom of Tambapanni, but later abandoned Kuveni and their two children to marry a princess from the Pandyan kingdom in Madurai, India, to legitimize his rule. His followers also married women from Madurai. This union is considered the origin of the Sinhalese people. He ruled for 38 years, and his reign is marked as the beginning of the recorded history of Sri Lanka."},
-  {"name": "Upatissa (regent)", "slug": "upatissa-regent", "kingdom": "tambapanni", "reign": "505–504 BCE", "biography": "Upatissa was a chief minister of King Vijaya and the regent of Sri Lanka for one year after Vijaya's death. He was the foremost of the ministers and founded the city of Upatissa Nuwara, which became the second capital of the kingdom. He governed the kingdom from this city while awaiting the arrival of Vijaya's designated successor, Panduvasudeva, from India. His regency was a crucial transitional period that ensured the continuity of the monarchy."},
-  {"name": "King Panduvasudeva", "slug": "panduvasudeva", "kingdom": "upatissa-nuwara", "reign": "504–474 BCE", "biography": "Panduvasudeva was the first monarch of the Kingdom of Upatissa Nuwara, reigning for 30 years. He was the nephew of his predecessor, King Vijaya, and was summoned from Sinhapura, India, to continue the royal lineage. He arrived in Sri Lanka with 32 followers and later married Princess Buddhakachchana, a relative of the Buddha, who arrived with her own retinue. Their marriage and his coronation solidified the Vijayan dynasty. Together, they had ten sons and one daughter, Unmada Chitra. His reign was foundational for the new kingdom, establishing a stable succession and strengthening ties with Indian royalty."},
-  {"name": "King Abhaya", "slug": "abhaya", "kingdom": "upatissa-nuwara", "reign": "474–454 BCE", "biography": "Abhaya was the eldest son of King Panduvasudeva and succeeded his father as the king of Upatissa Nuwara, ruling for 20 years. He was chosen by his brothers to be the monarch and was known as a just and benevolent ruler. His reign ended when he was deposed by his nephew, Pandukabhaya, who feared that Abhaya would not cede the throne. Despite this, Pandukabhaya later appointed him to the position of 'Nagaraguttika' or guardian of the capital city, Anuradhapura, demonstrating a level of reconciliation and respect between them."},
-  {"name": "Tissa (regent)", "slug": "tissa-regent", "kingdom": "upatissa-nuwara", "reign": "454–437 BCE", "biography": "Tissa was the younger brother of King Abhaya and became the regent of Upatissa Nuwara after Abhaya was deposed. He was one of the ten sons of King Panduvasudeva. His time as regent was defined by a prolonged power struggle with his nephew, Pandukabhaya, the son of their sister Unmada Chitra. Tissa and his other brothers waged war against Pandukabhaya for seventeen years, a conflict that ultimately ended in Tissa's defeat and death. His regency represents the final period of the Upatissa Nuwara kingdom before the capital shifted to Anuradhapura under Pandukabhaya."},
-  {"name": "King Pandukabhaya", "slug": "pandukabhaya", "kingdom": "anuradhapura", "reign": "437–367 BCE", "biography": "Pandukabhaya is a legendary king of Sri Lanka and the first monarch of the Anuradhapura Kingdom. His story is one of destiny and perseverance; born to Princess Unmada Chitra, he was hidden at birth to protect him from his uncles, who had been foretold that he would kill them. Raised in secrecy, he eventually waged a seventeen-year war against his uncles, defeated them, and unified the island. He established Anuradhapura as his capital, a city he meticulously planned and developed. His reign of 70 years was marked by significant achievements, including the construction of reservoirs (such as the Abhaya Wewa), the establishment of a formal administrative system, and the peaceful integration of different clans. He is considered one of the most important early kings of Sri Lanka."},
-  {"name": "King Mutasiva", "slug": "mutasiva", "kingdom": "anuradhapura", "reign": "367–307 BCE", "biography": "Mutasiva was a king of the Anuradhapura Kingdom who enjoyed a long and peaceful reign of 60 years. He was the son of the illustrious King Pandukabhaya. His most significant contribution was the creation of the Mahamevnāwa (Great Clouds) Park in Anuradhapura, a beautifully landscaped garden that he laid out with fruit and flowering trees. This park would later become a site of immense religious importance, as it was where the sacred Bodhi tree was planted during the reign of his successor. Mutasiva had ten sons and two daughters, and several of his sons, including Devanampiya Tissa, Uttiya, and Mahasiva, would go on to rule the kingdom in succession."},
-  {"name": "King Devanampiya Tissa", "slug": "devanampiya-tissa", "kingdom": "anuradhapura", "reign": "307–267 BCE", "biography": "Devanampiya Tissa, whose name means 'Beloved of the Gods,' was a pivotal monarch of the Anuradhapura Kingdom, best known for officially introducing Buddhism to Sri Lanka. He was the son of King Mutasiva and maintained a close friendship with the Mauryan Emperor Ashoka of India. The most significant event of his reign was the arrival of Arahat Mahinda, Ashoka's son, who converted the king and his court to Buddhism at the historic site of Mihintale. Following his conversion, Devanampiya Tissa became a great patron of the faith, establishing the Mahavihara monastery and building the Thuparama stupa, the first of its kind in Sri Lanka. His reign also saw the arrival of Sanghamitta, Ashoka's daughter, who brought a sapling of the sacred Bodhi Tree from Bodh Gaya, which was planted in Anuradhapura and is revered to this day. His actions firmly rooted Buddhism in Sri Lankan soil, shaping the island's culture and history for centuries.", "media": []},
-  {"name": "King Uttiya", "slug": "uttiya", "kingdom": "anuradhapura", "reign": "267–257 BCE", "biography": "Uttiya was a king of the Anuradhapura Kingdom who succeeded his elder brother, the renowned King Devanampiya Tissa. His ten-year reign is historically significant primarily because it marks the passing of the two central figures who introduced Buddhism to Sri Lanka: Arahant Mahinda and his sister, Sanghamitta Theri. Arahant Mahinda passed away in the eighth year of Uttiya's reign, and the king held a grand funeral for him, building a stupa on the site of his cremation at Mihintale. Sanghamitta Theri passed away the following year, and she was also honored with a stupa. These events underscore the consolidation of Buddhism as the state religion during his time."},
-  {"name": "King Mahasiva", "slug": "mahasiva", "kingdom": "anuradhapura", "reign": "257–247 BCE", "biography": "Mahasiva was a king of the Anuradhapura Kingdom who reigned for ten years. He was another son of King Mutasiva and ascended the throne after his brother Uttiya. Like his brothers who reigned before him, Mahasiva was a pious king. According to the chronicles, he was a great supporter of the monk Bhaddasala, for whom he built the Bhaddasala temple in Anuradhapura. His reign is noted for its stability and continuation of the royal family's patronage of Buddhism. He was succeeded by his younger brother, Suratissa."},
-  {"name": "King Suratissa", "slug": "suratissa", "kingdom": "anuradhapura", "reign": "247–237 BCE", "biography": "Suratissa was a king of the Anuradhapura Kingdom who succeeded his elder brother, Mahasiva. He was a devout follower of Buddhism and is credited with building numerous viharas (monasteries) throughout his kingdom, totaling around 500 religious shrines. His reign, however, came to an abrupt and violent end. Two horse traders from South India, named Sena and Guttika, mounted an invasion, defeated King Suratissa in battle, and usurped the throne. This event marks the first recorded instance of a foreign invasion and rule over the Anuradhapura Kingdom, breaking the Vijayan dynasty for a period of 22 years."},
-  {"name": "Sena and Guttika", "slug": "sena-guttika", "kingdom": "anuradhapura", "reign": "237–215 BCE", "biography": "Sena and Guttika were two Tamil horse traders from South India who became the first recorded foreign rulers of Anuradhapura. After arriving on the island for trade, they organized an army, defeated and killed King Suratissa, and usurped the Sinhalese throne. They ruled jointly for 22 years. The chronicles describe their reign as unrighteous and oppressive, a period during which the local populace suffered. Their rule was eventually ended by Asela, the younger brother of the slain King Suratissa, who raised an army and defeated the two invaders to restore the Vijayan dynasty."},
-  {"name": "King Asela", "slug": "asela", "kingdom": "anuradhapura", "reign": "215–205 BCE", "biography": "Asela was a king of the Anuradhapura Kingdom who heroically restored the Vijayan dynasty after a period of foreign rule. He was the youngest of the nine sons of King Mutasiva. After the two Tamil invaders, Sena and Guttika, had ruled for 22 years, Asela raised an army, defeated them in battle, and reclaimed the throne for the Sinhalese. He ruled from Anuradhapura for ten years. However, his reign was also brought to an end by another invasion from South India, led by a Chola prince named Elara, who defeated and killed Asela to become the next ruler."},
-  {"name": "King Elara (Chola/Tamil)", "slug": "elara", "kingdom": "anuradhapura", "reign": "205–161 BCE", "biography": "Elara was a Chola prince from South India who invaded Sri Lanka and took the throne of the Anuradhapura Kingdom by defeating King Asela. Despite being an invader, Elara is renowned in Sri Lankan history for his exceptionally just and impartial rule, which lasted for 44 years. The Mahavamsa chronicle, though a Sinhalese Buddhist text, praises him for his righteousness and describes his 'Bell of Justice,' which citizens could ring to demand his personal attention for any grievance. The most famous legend tells of him ordering the execution of his own son as retribution for a calf that the son's chariot had accidentally killed. His long reign was eventually challenged by the Sinhalese prince Dutugemunu from the south. The conflict culminated in a legendary duel between the two kings on elephant-back, where the elderly Elara was finally defeated and killed. Dutugemunu, in a mark of great respect, had a monument built for Elara and ordered that all should pay respect to it."},
-  {"name": "King Kavan Tissa", "slug": "kavan-tissa", "kingdom": "ruhuna", "reign": "c. 2nd c. BCE", "biography": "Kavan Tissa was the king of the southern kingdom of Ruhuna during the period when the northern Anuradhapura Kingdom was under the rule of the Chola king Elara. He is most famously remembered as the father of the heroic Sinhalese king, Dutugemunu. While his son would later wage the war to unify the island, Kavan Tissa's reign was crucial in preparing for this conflict. A shrewd and pious ruler, he focused on strengthening his kingdom from within. He built numerous temples and viharas, fostering a strong sense of national and religious unity. He also gathered the resources and manpower necessary for a future war, including recruiting the 'Ten Giant Warriors' (Dasha Maha Yodhayo) who would later become instrumental in his son's campaign. His strategic foresight laid the essential groundwork for the eventual defeat of Elara and the reunification of Sri Lanka."},
-  {"name": "King Dutugemunu", "slug": "dutugemunu", "kingdom": "anuradhapura", "reign": "161–137 BCE", "biography": "Dutugemunu is one of the most celebrated heroes in Sri Lankan history, revered for liberating and unifying the island under a single banner. As the son of King Kavan Tissa of Ruhuna, he was driven from a young age by the desire to expel the Chola king Elara, who ruled Anuradhapura. After his father's death and a brief conflict with his own brother, Tissa, Dutugemunu launched his famous campaign. Aided by his loyal war elephant, Kandula, and his 'Ten Giant Warriors,' he waged a series of battles, culminating in a legendary elephant-back duel where he defeated and killed the elderly King Elara. Despite being an adversary, Dutugemunu showed great respect for Elara's bravery, building a monument in his honor. As king, Dutugemunu became a great patron of Buddhism, initiating the construction of some of the most iconic structures in Anuradhapura, including the massive Ruwanwelisaya stupa and the magnificent nine-story Lovamahapaya (Brazen Palace). His reign is considered a golden age of Sinhalese nationalism and religious devotion."},
-  {"name": "King Saddha Tissa", "slug": "saddha-tissa", "kingdom": "anuradhapura", "reign": "137–119 BCE"},
-  {"name": "King Thulatthana", "slug": "thulatthana", "kingdom": "anuradhapura", "reign": "119 BCE"},
-  {"name": "King Lanja Tissa", "slug": "lanja-tissa", "kingdom": "anuradhapura", "reign": "119–109 BCE"},
-  {"name": "King Khallata Naga", "slug": "khallata-naga", "kingdom": "anuradhapura", "reign": "109–103 BCE"},
-  {"name": "King Valagamba (Vattagamani Abhaya)", "slug": "valagamba", "kingdom": "anuradhapura", "reign": "103, 89–77 BCE"},
-  {"name": "King Pulahatta", "slug": "pulahatta", "kingdom": "anuradhapura", "reign": "103–100 BCE"},
-  {"name": "King Bahiya", "slug": "bahiya", "kingdom": "anuradhapura", "reign": "100–98 BCE"},
-  {"name": "King Panya Mara", "slug": "panya-mara", "kingdom": "anuradhapura", "reign": "98–91 BCE"},
-  {"name": "King Pilaya Mara", "slug": "pilaya-mara", "kingdom": "anuradhapura", "reign": "91–90 BCE"},
-  {"name": "King Dathika", "slug": "dathika", "kingdom": "anuradhapura", "reign": "90–89 BCE"},
-  {"name": "King Mahakuli Mahatissa", "slug": "mahakuli-mahatissa", "kingdom": "anuradhapura", "reign": "77–63 BCE"},
-  {"name": "King Chora Naga", "slug": "chora-naga", "kingdom": "anuradhapura", "reign": "63–51 BCE"},
-  {"name": "King Kuda Tissa", "slug": "kuda-tissa", "kingdom": "anuradhapura", "reign": "51–48 BCE"},
-  {"name": "King Siva I (first)", "slug": "siva-i-first", "kingdom": "anuradhapura", "reign": "48–47 BCE"},
-  {"name": "King Vatuka", "slug": "vatuka", "kingdom": "anuradhapura", "reign": "47 BCE"},
-  {"name": "King Darubhatika Tissa", "slug": "darubhatika-tissa", "kingdom": "anuradhapura", "reign": "47 BCE"},
-  {"name": "King Niliya", "slug": "niliya", "kingdom": "anuradhapura", "reign": "47–46 BCE"},
-  {"name": "Queen Anula", "slug": "anula", "kingdom": "anuradhapura", "reign": "46–44 BCE"},
-  {"name": "King Kutakanna Tissa", "slug": "kutakanna-tissa", "kingdom": "anuradhapura", "reign": "44 BCE–22 BCE"},
-  {"name": "King Bhatikabhaya Abhaya", "slug": "bhatikabhaya-abhaya", "kingdom": "anuradhapura", "reign": "22 BCE–7 CE"},
-  {"name": "King Mahadathika Mahanaga", "slug": "mahadathika-mahanaga", "kingdom": "anuradhapura", "reign": "7–19 CE"},
-  {"name": "King Amandagamani Abhaya", "slug": "amandagamani-abhaya", "kingdom": "anuradhapura", "reign": "19–29 CE"},
-  {"name": "King Kanirajanu Tissa", "slug": "kanirajanu-tissa", "kingdom": "anuradhapura", "reign": "29–32 CE"},
-  {"name": "King Chulabhaya", "slug": "chulabhaya", "kingdom": "anuradhapura", "reign": "32–33 CE"},
-  {"name": "Queen Sivali", "slug": "sivali", "kingdom": "anuradhapura", "reign": "33 CE"},
-  {"name": "King Ilanaga", "slug": "ilanaga", "kingdom": "anuradhapura", "reign": "33–43 CE"},
-  {"name": "King Chandamukha Siva", "slug": "chandamukha-siva", "kingdom": "anuradhapura", "reign": "43–52 CE"},
-  {"name": "King Yassalalaka Tissa", "slug": "yassalalaka-tissa", "kingdom": "anuradhapura", "reign": "52–60 CE"},
-  {"name": "King Subharaja", "slug": "subharaja", "kingdom": "anuradhapura", "reign": "60–67 CE"},
-  {"name": "King Vasabha", "slug": "vasabha", "kingdom": "anuradhapura", "reign": "67–111 CE"},
-  {"name": "King Vankanasika Tissa", "slug": "vankanasika-tissa", "kingdom": "anuradhapura", "reign": "111–114 CE"},
-  {"name": "King Gajabahu I", "slug": "gajabahu-i", "kingdom": "anuradhapura", "reign": "114–136 CE"},
-  {"name": "King Mahallaka Naga", "slug": "mahallaka-naga", "kingdom": "anuradhapura", "reign": "136–139 CE"},
-  {"name": "King Bhatika Tissa", "slug": "bhatika-tissa", "kingdom": "anuradhapura", "reign": "139–167 CE"},
-  {"name": "King Kanittha Tissa", "slug": "kanittha-tissa", "kingdom": "anuradhapura", "reign": "167–186 CE"},
-  {"name": "King Cula Naga", "slug": "cula-naga", "kingdom": "anuradhapura", "reign": "186–191 CE"},
-  {"name": "King Kuda Naga", "slug": "kuda-naga", "kingdom": "anuradhapura", "reign": "191–196 CE"},
-  {"name": "King Siri Naga I", "slug": "siri-naga-i", "kingdom": "anuradhapura", "reign": "196–215 CE"},
-  {"name": "King Abhaya Naga", "slug": "abhaya-naga", "kingdom": "anuradhapura", "reign": "215–237 CE"},
-  {"name": "King Siri Naga II", "slug": "siri-naga-ii", "kingdom": "anuradhapura", "reign": "237–245 CE"},
-  {"name": "King Voharika Tissa", "slug": "voharika-tissa", "kingdom": "anuradhapura", "reign": "245–247 CE"},
-  {"name": "King Abhaya Naga II", "slug": "abhaya-naga-ii", "kingdom": "anuradhapura", "reign": "247–249 CE"},
-  {"name": "King Siri Naga III", "slug": "siri-naga-iii", "kingdom": "anuradhapura", "reign": "249–251 CE"},
-  {"name": "King Vijaya Kumara", "slug": "vijaya-kumara", "kingdom": "anuradhapura", "reign": "251–252 CE"},
-  {"name": "King Sangha Tissa I", "slug": "sangha-tissa-i", "kingdom": "anuradhapura", "reign": "252–254 CE"},
-  {"name": "King Siri Sangha Bodhi I", "slug": "siri-sangha-bodhi-i", "kingdom": "anuradhapura", "reign": "254–256 CE"},
-  {"name": "King Gothabhaya", "slug": "gothabhaya", "kingdom": "anuradhapura", "reign": "256–264 CE"},
-  {"name": "King Jettha Tissa II", "slug": "jettha-tissa-ii", "kingdom": "anuradhapura", "reign": "264–273 CE"},
-  {"name": "King Mahasena", "slug": "mahasena", "kingdom": "anuradhapura", "reign": "273–301 CE"},
-  {"name": "King Siri Meghavanna", "slug": "siri-meghavanna", "kingdom": "anuradhapura", "reign": "301–328 CE"},
-  {"name": "King Jettha Tissa III", "slug": "jettha-tissa-iii", "kingdom": "anuradhapura", "reign": "328–337 CE"},
-  {"name": "King Buddhadasa", "slug": "buddhadasa", "kingdom": "anuradhapura", "reign": "337–365 CE"},
-  {"name": "King Upatissa I", "slug": "upatissa-i", "kingdom": "anuradhapura", "reign": "365–406 CE"},
-  {"name": "King Mahanama", "slug": "mahanama", "kingdom": "anuradhapura", "reign": "406–428 CE"},
-  {"name": "King Siva II (second)", "slug": "siva-ii-second", "kingdom": "anuradhapura", "reign": "428–430 CE"},
-  {"name": "King Pandu (Tamil)", "slug": "pandu-tamil", "kingdom": "anuradhapura", "reign": "430–432 CE"},
-  {"name": "King Parindu (Tamil)", "slug": "parindu-tamil", "kingdom": "anuradhapura", "reign": "432 CE"},
-  {"name": "King Khudda Parinda (Tamil)", "slug": "khudda-parinda-tamil", "kingdom": "anuradhapura", "reign": "432–434 CE"},
-  {"name": "King Tiritara (Tamil)", "slug": "tiritara-tamil", "kingdom": "anuradhapura", "reign": "434 CE"},
-  {"name": "King Dathiya (Tamil)", "slug": "dathiya-tamil", "kingdom": "anuradhapura", "reign": "434–436 CE"},
-  {"name": "King Pithiya (Tamil)", "slug": "pithiya-tamil", "kingdom": "anuradhapura", "reign": "436–437 CE"},
-  {"name": "King Dhatusena", "slug": "dhatusena", "kingdom": "anuradhapura", "reign": "455–473 CE"},
-  {"name": "King Kashyapa I", "slug": "kashyapa-i", "kingdom": "sigiriya", "reign": "473–495 CE"},
-  {"name": "King Moggallana I", "slug": "moggallana-i", "kingdom": "sigiriya", "reign": "495–512 CE"},
-  {"name": "King Kumara Dhatusena", "slug": "kumara-dhatusena", "kingdom": "anuradhapura", "reign": "512–524 CE"},
-  {"name": "King Kittisena", "slug": "kittisena", "kingdom": "anuradhapura", "reign": "524 CE"},
-  {"name": "King Siva I", "slug": "siva-i-524", "kingdom": "anuradhapura", "reign": "524–525 CE"},
-  {"name": "King Upatissa II", "slug": "upatissa-ii", "kingdom": "anuradhapura", "reign": "525–526 CE"},
-  {"name": "King Silakala Ambosamanera", "slug": "silakala-ambosamanera", "kingdom": "anuradhapura", "reign": "526–539 CE"},
-  {"name": "King Aggabodhi I", "slug": "aggabodhi-i", "kingdom": "anuradhapura", "reign": "564–598 CE"},
-  {"name": "King Kassapa II", "slug": "kassapa-ii", "kingdom": "anuradhapura", "reign": "602–608 CE"},
-  {"name": "King Aggabodhi II", "slug": "aggabodhi-ii", "kingdom": "anuradhapura", "reign": "608–618 CE"},
-  {"name": "King Sangha Tissa II", "slug": "sangha-tissa-ii", "kingdom": "anuradhapura", "reign": "608–614 CE"},
-  {"name": "King Dathopa Tissa I", "slug": "dathopa-tissa-i", "kingdom": "anuradhapura", "reign": "614–623 CE"},
-  {"name": "King Aggabodhi III", "slug": "aggabodhi-iii", "kingdom": "anuradhapura", "reign": "626–636 CE"},
-  {"name": "King Kassapa III", "slug": "kassapa-iii", "kingdom": "anuradhapura", "reign": "732–738 CE"},
-  {"name": "King Mahinda I", "slug": "mahinda-i", "kingdom": "anuradhapura", "reign": "738–746 CE"},
-  {"name": "King Aggabodhi VI", "slug": "aggabodhi-vi", "kingdom": "anuradhapura", "reign": "771–781 CE"},
-  {"name": "King Mahinda II", "slug": "mahinda-ii", "kingdom": "anuradhapura", "reign": "781–797 CE"},
-  {"name": "King Siri Sangha Bodhi II", "slug": "siri-sangha-bodhi-ii", "kingdom": "anuradhapura", "reign": "797–801 CE"},
-  {"name": "King Mahinda III", "slug": "mahinda-iii", "kingdom": "anuradhapura", "reign": "801–804 CE"},
-  {"name": "King Dappula I", "slug": "dappula-i", "kingdom": "anuradhapura", "reign": "804–835 CE"},
-  {"name": "King Dappula II", "slug": "dappula-ii", "kingdom": "anuradhapura", "reign": "835–836 CE"},
-  {"name": "King Sena I", "slug": "sena-i", "kingdom": "anuradhapura", "reign": "833–853 CE"},
-  {"name": "King Sena II", "slug": "sena-ii", "kingdom": "anuradhapura", "reign": "853–887 CE"},
-  {"name": "King Udaya I", "slug": "udaya-i", "kingdom": "anuradhapura", "reign": "887–898 CE"},
-  {"name": "King Kassapa IV", "slug": "kassapa-iv", "kingdom": "anuradhapura", "reign": "898–914 CE"},
-  {"name": "King Kassapa V", "slug": "kassapa-v", "kingdom": "anuradhapura", "reign": "914–923 CE"},
-  {"name": "King Dappula IV", "slug": "dappula-iv", "kingdom": "anuradhapura", "reign": "923–924 CE"},
-  {"name": "King Kassapa VI", "slug": "kassapa-vi", "kingdom": "anuradhapura", "reign": "924–935 CE"},
-  {"name": "King Sena III", "slug": "sena-iii", "kingdom": "anuradhapura", "reign": "936–945 CE"},
-  {"name": "King Udaya II", "slug": "udaya-ii", "kingdom": "anuradhapura", "reign": "946–954 CE"},
-  {"name": "King Sena IV", "slug": "sena-iv", "kingdom": "anuradhapura", "reign": "954–956 CE"},
-  {"name": "King Mahinda IV", "slug": "mahinda-iv", "kingdom": "anuradhapura", "reign": "956–972 CE"},
-  {"name": "King Sena V", "slug": "sena-v", "kingdom": "anuradhapura", "reign": "972–975 CE"},
-  {"name": "King Mahinda V", "slug": "mahinda-v", "kingdom": "anuradhapura", "reign": "982–1017 CE"},
-  {"name": "King Vijayabahu I", "slug": "vijayabahu-i", "kingdom": "polonnaruwa", "reign": "1055–1110"},
-  {"name": "King Jayabahu I", "slug": "jayabahu-i", "kingdom": "polonnaruwa", "reign": "1110–1111"},
-  {"name": "King Vikramabahu I", "slug": "vikramabahu-i", "kingdom": "polonnaruwa", "reign": "1111–1132"},
-  {"name": "King Gajabahu II", "slug": "gajabahu-ii", "kingdom": "polonnaruwa", "reign": "1132–1153"},
-  {"name": "King Parakramabahu I", "slug": "parakramabahu-i", "kingdom": "polonnaruwa", "reign": "1153–1186"},
-  {"name": "King Nissanka Malla", "slug": "nissanka-malla", "kingdom": "polonnaruwa", "reign": "1187–1196"},
-  {"name": "King Sahasa Malla", "slug": "sahasa-malla", "kingdom": "polonnaruwa", "reign": "1200–1202"},
-  {"name": "Queen Kalyanavati", "slug": "kalyanavati", "kingdom": "polonnaruwa", "reign": "1202–1208"},
-  {"name": "King Dharmasoka", "slug": "dharmasoka", "kingdom": "polonnaruwa", "reign": "1208–1209"},
-  {"name": "King Anikanga", "slug": "anikanga", "kingdom": "polonnaruwa", "reign": "1209"},
-  {"name": "Queen Lilavati", "slug": "lilavati", "kingdom": "polonnaruwa", "reign": "1197–1200, 1209–1210, 1211–1212"},
-  {"name": "King Lokissara", "slug": "lokissara", "kingdom": "polonnaruwa", "reign": "1210–1211"},
-  {"name": "King Parakrama Pandya II", "slug": "parakrama-pandya-ii", "kingdom": "polonnaruwa", "reign": "1212–1215"},
-  {"name": "King Kalinga Magha", "slug": "kalinga-magha-polonnaruwa", "kingdom": "polonnaruwa", "reign": "1215–1236"},
-  {"name": "King Vijayabahu III", "slug": "vijayabahu-iii", "kingdom": "dambadeniya", "reign": "1236–1270"},
-  {"name": "King Parakramabahu II", "slug": "parakramabahu-ii", "kingdom": "dambadeniya", "reign": "1270–1284"},
-  {"name": "King Bhuvanaikabahu I", "slug": "bhuvanaikabahu-i", "kingdom": "yapahuwa", "reign": "1284–1291"},
-  {"name": "King Parakramabahu IV", "slug": "parakramabahu-iv", "kingdom": "yapahuwa", "reign": "1291–1302"},
-  {"name": "King Bhuvanaikabahu II", "slug": "bhuvanaikabahu-ii", "kingdom": "kurunegala", "reign": "1302–1326"},
-  {"name": "King Vijayabahu V", "slug": "vijayabahu-v", "kingdom": "kurunegala", "reign": "1326–1341"},
-  {"name": "King Bhuvanaikabahu IV", "slug": "bhuvanaikabahu-iv", "kingdom": "gampola", "reign": "1341–1351"},
-  {"name": "King Parakramabahu V", "slug": "parakramabahu-v", "kingdom": "gampola", "reign": "1351–1353"},
-  {"name": "King Vikramabahu III", "slug": "vikramabahu-iii", "kingdom": "gampola", "reign": "1357–1374"},
-  {"name": "King Bhuvanaikabahu V", "slug": "bhuvanaikabahu-v", "kingdom": "gampola", "reign": "1372–1391"},
-  {"name": "King Vira Alakesvara", "slug": "vira-alakesvara", "kingdom": "gampola", "reign": "1391–1392"},
-  {"name": "King Parakramabahu VI", "slug": "parakramabahu-vi", "kingdom": "kotte", "reign": "1412–1467"},
-  {"name": "King Bhuvanaikabahu VI", "slug": "bhuvanaikabahu-vi", "kingdom": "kotte", "reign": "1467–1472"},
-  {"name": "King Parakramabahu VII", "slug": "parakramabahu-vii", "kingdom": "kotte", "reign": "1472–1480"},
-  {"name": "King Parakramabahu VIII", "slug": "parakramabahu-viii", "kingdom": "kotte", "reign": "1484–1518"},
-  {"name": "King Dharma Parakramabahu IX", "slug": "dharma-parakramabahu-ix", "kingdom": "kotte", "reign": "1518–1521"},
-  {"name": "King Vijayabahu VI", "slug": "vijayabahu-vi", "kingdom": "kotte", "reign": "1521"},
-  {"name": "King Bhuvanaikabahu VII", "slug": "bhuvanaikabahu-vii", "kingdom": "kotte", "reign": "1521–1551"},
-  {"name": "King Dharmapala", "slug": "dharmapala", "kingdom": "kotte", "reign": "1551–1597"},
-  {"name": "King Mayadunne", "slug": "mayadunne", "kingdom": "sitawaka", "reign": "1521–1581"},
-  {"name": "King Rajasinha I", "slug": "rajasinha-i", "kingdom": "sitawaka", "reign": "1581–1593"},
-  {"name": "King Senasammata Vikramabahu", "slug": "senasammata-vikramabahu", "kingdom": "kandyan", "reign": "1469–1511"},
-  {"name": "King Jayaweera Astana", "slug": "jayaweera-astana", "kingdom": "kandyan", "reign": "1511–1552"},
-  {"name": "King Karaliadde Bandara", "slug": "karaliadde-bandara", "kingdom": "kandyan", "reign": "1551–1581"},
-  {"name": "King Don Juan Bandara", "slug": "don-juan-bandara", "kingdom": "kandyan", "reign": "1581–1590"},
-  {"name": "King Vimaladharmasuriya I", "slug": "vimaladharmasuriya-i", "kingdom": "kandyan", "reign": "1590–1604"},
-  {"name": "King Senarat", "slug": "senarat", "kingdom": "kandyan", "reign": "1604–1635"},
-  {"name": "King Rajasinha II", "slug": "rajasinha-ii", "kingdom": "kandyan", "reign": "1635–1687"},
-  {"name": "King Vimaladharmasuriya II", "slug": "vimaladharmasuriya-ii", "kingdom": "kandyan", "reign": "1687–1707"},
-  {"name": "King Narendra Sinha", "slug": "narendra-sinha", "kingdom": "kandyan", "reign": "1707–1739"},
-  {"name": "King Sri Vijaya Rajasinha", "slug": "sri-vijaya-rajasinha", "kingdom": "kandyan", "reign": "1739–1747"},
-  {"name": "King Kirti Sri Rajasinha", "slug": "kirti-sri-rajasinha", "kingdom": "kandyan", "reign": "1747–1781"},
-  {"name": "King Rajadhi Rajasinha", "slug": "rajadhi-rajasinha", "kingdom": "kandyan", "reign": "1781–1798"},
-  {"name": "King Sri Vikrama Rajasinha", "slug": "sri-vikrama-rajasinha", "kingdom": "kandyan", "reign": "1798–1815"},
-  {"name": "King Kalinga Magha", "slug": "kalinga-magha-jaffna", "kingdom": "jaffna", "reign": "1215–1236"},
-  {"name": "King Cinkai Aryan I", "slug": "cinkai-aryan-i", "kingdom": "jaffna", "reign": "1277–1284"},
-  {"name": "King Varodaya Cinkai Aryan", "slug": "varodaya-cinkai-aryan", "kingdom": "jaffna", "reign": "1284–1292"},
-  {"name": "King Cinkai Aryan II", "slug": "cinkai-aryan-ii", "kingdom": "jaffna", "reign": "1292–1342"},
-  {"name": "King Vickrama Cinkai Aryan", "slug": "vickrama-cinkai-aryan", "kingdom": "jaffna", "reign": "1342–1380"},
-  {"name": "King Varodaya Cinkai Aryan III", "slug": "varodaya-cinkai-aryan-iii", "kingdom": "jaffna", "reign": "1380–1410"},
-  {"name": "King Martanda Cinkai Aryan", "slug": "martanda-cinkai-aryan", "kingdom": "jaffna", "reign": "1410–1440"},
-  {"name": "King Kanakasooriya Cinkai Aryan I", "slug": "kanakasooriya-cinkai-aryan-i", "kingdom": "jaffna", "reign": "1440–1467"},
-  {"name": "King Singai Pararasasekaran VI", "slug": "singai-pararasasekaran-vi", "kingdom": "jaffna", "reign": "1467–1519"},
-  {"name": "King Pararacacekaran VII", "slug": "pararacacekaran-vii", "kingdom": "jaffna", "reign": "1519–1561"},
-  {"name": "King Cankili I", "slug": "cankili-i", "kingdom": "jaffna", "reign": "1561–1565"},
-  {"name": "King Puviraja Pandaram", "slug": "puviraja-pandaram", "kingdom": "jaffna", "reign": "1565"},
-  {"name": "King Periyapillai", "slug": "periyapillai", "kingdom": "jaffna", "reign": "1565–1582"},
-  {"name": "King Cankili II", "slug": "cankili-ii", "kingdom": "jaffna", "reign": "1617–1619"}
+  {
+    "name": "King Vijaya",
+    "slug": "vijaya",
+    "kingdom": "tambapanni",
+    "reign": "543–505 BCE",
+    "biography": "King Vijaya is the legendary first king of Sri Lanka, known for founding the Sinhalese people. According to the Mahāvaṃsa, he was the son of King Sinhabahu of Sinhapura in India. Due to his unruly behavior, he was banished with 700 followers. They landed in Lanka, at a site named Tambapanni, on the day of the Buddha's Parinirvana. There, he and his followers defeated the native Yakkhas with the help of the Yakkha princess Kuveni, whom he married. He established the Kingdom of Tambapanni, but later abandoned Kuveni and their two children to marry a princess from the Pandyan kingdom in Madurai, India, to legitimize his rule. His followers also married women from Madurai. This union is considered the origin of the Sinhalese people. He ruled for 38 years, and his reign is marked as the beginning of the recorded history of Sri Lanka."
+  },
+  {
+    "name": "Upatissa (regent)",
+    "slug": "upatissa-regent",
+    "kingdom": "tambapanni",
+    "reign": "505–504 BCE",
+    "biography": "Upatissa was a chief minister of King Vijaya and the regent of Sri Lanka for one year after Vijaya's death. He was the foremost of the ministers and founded the city of Upatissa Nuwara, which became the second capital of the kingdom. He governed the kingdom from this city while awaiting the arrival of Vijaya's designated successor, Panduvasudeva, from India. His regency was a crucial transitional period that ensured the continuity of the monarchy."
+  },
+  {
+    "name": "King Panduvasudeva",
+    "slug": "panduvasudeva",
+    "kingdom": "upatissa-nuwara",
+    "reign": "504–474 BCE",
+    "biography": "Panduvasudeva was the first monarch of the Kingdom of Upatissa Nuwara, reigning for 30 years. He was the nephew of his predecessor, King Vijaya, and was summoned from Sinhapura, India, to continue the royal lineage. He arrived in Sri Lanka with 32 followers and later married Princess Buddhakachchana, a relative of the Buddha, who arrived with her own retinue. Their marriage and his coronation solidified the Vijayan dynasty. Together, they had ten sons and one daughter, Unmada Chitra. His reign was foundational for the new kingdom, establishing a stable succession and strengthening ties with Indian royalty."
+  },
+  {
+    "name": "King Abhaya",
+    "slug": "abhaya",
+    "kingdom": "upatissa-nuwara",
+    "reign": "474–454 BCE",
+    "biography": "Abhaya was the eldest son of King Panduvasudeva and succeeded his father as the king of Upatissa Nuwara, ruling for 20 years. He was chosen by his brothers to be the monarch and was known as a just and benevolent ruler. His reign ended when he was deposed by his nephew, Pandukabhaya, who feared that Abhaya would not cede the throne. Despite this, Pandukabhaya later appointed him to the position of 'Nagaraguttika' or guardian of the capital city, Anuradhapura, demonstrating a level of reconciliation and respect between them."
+  },
+  {
+    "name": "Tissa (regent)",
+    "slug": "tissa-regent",
+    "kingdom": "upatissa-nuwara",
+    "reign": "454–437 BCE",
+    "biography": "Tissa was the younger brother of King Abhaya and became the regent of Upatissa Nuwara after Abhaya was deposed. He was one of the ten sons of King Panduvasudeva. His time as regent was defined by a prolonged power struggle with his nephew, Pandukabhaya, the son of their sister Unmada Chitra. Tissa and his other brothers waged war against Pandukabhaya for seventeen years, a conflict that ultimately ended in Tissa's defeat and death. His regency represents the final period of the Upatissa Nuwara kingdom before the capital shifted to Anuradhapura under Pandukabhaya."
+  },
+  {
+    "name": "King Pandukabhaya",
+    "slug": "pandukabhaya",
+    "kingdom": "anuradhapura",
+    "reign": "437–367 BCE",
+    "biography": "Pandukabhaya is a legendary king of Sri Lanka and the first monarch of the Anuradhapura Kingdom. His story is one of destiny and perseverance; born to Princess Unmada Chitra, he was hidden at birth to protect him from his uncles, who had been foretold that he would kill them. Raised in secrecy, he eventually waged a seventeen-year war against his uncles, defeated them, and unified the island. He established Anuradhapura as his capital, a city he meticulously planned and developed. His reign of 70 years was marked by significant achievements, including the construction of reservoirs (such as the Abhaya Wewa), the establishment of a formal administrative system, and the peaceful integration of different clans. He is considered one of the most important early kings of Sri Lanka."
+  },
+  {
+    "name": "King Mutasiva",
+    "slug": "mutasiva",
+    "kingdom": "anuradhapura",
+    "reign": "367–307 BCE",
+    "biography": "Mutasiva was a king of the Anuradhapura Kingdom who enjoyed a long and peaceful reign of 60 years. He was the son of the illustrious King Pandukabhaya. His most significant contribution was the creation of the Mahamevnāwa (Great Clouds) Park in Anuradhapura, a beautifully landscaped garden that he laid out with fruit and flowering trees. This park would later become a site of immense religious importance, as it was where the sacred Bodhi tree was planted during the reign of his successor. Mutasiva had ten sons and two daughters, and several of his sons, including Devanampiya Tissa, Uttiya, and Mahasiva, would go on to rule the kingdom in succession."
+  },
+  {
+    "name": "King Devanampiya Tissa",
+    "slug": "devanampiya-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "307–267 BCE",
+    "biography": "Devanampiya Tissa, whose name means 'Beloved of the Gods,' was a pivotal monarch of the Anuradhapura Kingdom, best known for officially introducing Buddhism to Sri Lanka. He was the son of King Mutasiva and maintained a close friendship with the Mauryan Emperor Ashoka of India. The most significant event of his reign was the arrival of Arahat Mahinda, Ashoka's son, who converted the king and his court to Buddhism at the historic site of Mihintale. Following his conversion, Devanampiya Tissa became a great patron of the faith, establishing the Mahavihara monastery and building the Thuparama stupa, the first of its kind in Sri Lanka. His reign also saw the arrival of Sanghamitta, Ashoka's daughter, who brought a sapling of the sacred Bodhi Tree from Bodh Gaya, which was planted in Anuradhapura and is revered to this day. His actions firmly rooted Buddhism in Sri Lankan soil, shaping the island's culture and history for centuries.",
+    "media": []
+  },
+  {
+    "name": "King Uttiya",
+    "slug": "uttiya",
+    "kingdom": "anuradhapura",
+    "reign": "267–257 BCE",
+    "biography": "Uttiya was a king of the Anuradhapura Kingdom who succeeded his elder brother, the renowned King Devanampiya Tissa. His ten-year reign is historically significant primarily because it marks the passing of the two central figures who introduced Buddhism to Sri Lanka: Arahant Mahinda and his sister, Sanghamitta Theri. Arahant Mahinda passed away in the eighth year of Uttiya's reign, and the king held a grand funeral for him, building a stupa on the site of his cremation at Mihintale. Sanghamitta Theri passed away the following year, and she was also honored with a stupa. These events underscore the consolidation of Buddhism as the state religion during his time."
+  },
+  {
+    "name": "King Mahasiva",
+    "slug": "mahasiva",
+    "kingdom": "anuradhapura",
+    "reign": "257–247 BCE",
+    "biography": "Mahasiva was a king of the Anuradhapura Kingdom who reigned for ten years. He was another son of King Mutasiva and ascended the throne after his brother Uttiya. Like his brothers who reigned before him, Mahasiva was a pious king. According to the chronicles, he was a great supporter of the monk Bhaddasala, for whom he built the Bhaddasala temple in Anuradhapura. His reign is noted for its stability and continuation of the royal family's patronage of Buddhism. He was succeeded by his younger brother, Suratissa."
+  },
+  {
+    "name": "King Suratissa",
+    "slug": "suratissa",
+    "kingdom": "anuradhapura",
+    "reign": "247–237 BCE",
+    "biography": "Suratissa was a king of the Anuradhapura Kingdom who succeeded his elder brother, Mahasiva. He was a devout follower of Buddhism and is credited with building numerous viharas (monasteries) throughout his kingdom, totaling around 500 religious shrines. His reign, however, came to an abrupt and violent end. Two horse traders from South India, named Sena and Guttika, mounted an invasion, defeated King Suratissa in battle, and usurped the throne. This event marks the first recorded instance of a foreign invasion and rule over the Anuradhapura Kingdom, breaking the Vijayan dynasty for a period of 22 years."
+  },
+  {
+    "name": "Sena and Guttika",
+    "slug": "sena-guttika",
+    "kingdom": "anuradhapura",
+    "reign": "237–215 BCE",
+    "biography": "Sena and Guttika were two Tamil horse traders from South India who became the first recorded foreign rulers of Anuradhapura. After arriving on the island for trade, they organized an army, defeated and killed King Suratissa, and usurped the Sinhalese throne. They ruled jointly for 22 years. The chronicles describe their reign as unrighteous and oppressive, a period during which the local populace suffered. Their rule was eventually ended by Asela, the younger brother of the slain King Suratissa, who raised an army and defeated the two invaders to restore the Vijayan dynasty."
+  },
+  {
+    "name": "King Asela",
+    "slug": "asela",
+    "kingdom": "anuradhapura",
+    "reign": "215–205 BCE",
+    "biography": "Asela was a king of the Anuradhapura Kingdom who heroically restored the Vijayan dynasty after a period of foreign rule. He was the youngest of the nine sons of King Mutasiva. After the two Tamil invaders, Sena and Guttika, had ruled for 22 years, Asela raised an army, defeated them in battle, and reclaimed the throne for the Sinhalese. He ruled from Anuradhapura for ten years. However, his reign was also brought to an end by another invasion from South India, led by a Chola prince named Elara, who defeated and killed Asela to become the next ruler."
+  },
+  {
+    "name": "King Elara (Chola/Tamil)",
+    "slug": "elara",
+    "kingdom": "anuradhapura",
+    "reign": "205–161 BCE",
+    "biography": "Elara was a Chola prince from South India who invaded Sri Lanka and took the throne of the Anuradhapura Kingdom by defeating King Asela. Despite being an invader, Elara is renowned in Sri Lankan history for his exceptionally just and impartial rule, which lasted for 44 years. The Mahavamsa chronicle, though a Sinhalese Buddhist text, praises him for his righteousness and describes his 'Bell of Justice,' which citizens could ring to demand his personal attention for any grievance. The most famous legend tells of him ordering the execution of his own son as retribution for a calf that the son's chariot had accidentally killed. His long reign was eventually challenged by the Sinhalese prince Dutugemunu from the south. The conflict culminated in a legendary duel between the two kings on elephant-back, where the elderly Elara was finally defeated and killed. Dutugemunu, in a mark of great respect, had a monument built for Elara and ordered that all should pay respect to it."
+  },
+  {
+    "name": "King Kavan Tissa",
+    "slug": "kavan-tissa",
+    "kingdom": "ruhuna",
+    "reign": "c. 2nd c. BCE",
+    "biography": "Kavan Tissa was the king of the southern kingdom of Ruhuna during the period when the northern Anuradhapura Kingdom was under the rule of the Chola king Elara. He is most famously remembered as the father of the heroic Sinhalese king, Dutugemunu. While his son would later wage the war to unify the island, Kavan Tissa's reign was crucial in preparing for this conflict. A shrewd and pious ruler, he focused on strengthening his kingdom from within. He built numerous temples and viharas, fostering a strong sense of national and religious unity. He also gathered the resources and manpower necessary for a future war, including recruiting the 'Ten Giant Warriors' (Dasha Maha Yodhayo) who would later become instrumental in his son's campaign. His strategic foresight laid the essential groundwork for the eventual defeat of Elara and the reunification of Sri Lanka."
+  },
+  {
+    "name": "King Dutugemunu",
+    "slug": "dutugemunu",
+    "kingdom": "anuradhapura",
+    "reign": "161–137 BCE",
+    "biography": "Dutugemunu is one of the most celebrated heroes in Sri Lankan history, revered for liberating and unifying the island under a single banner. As the son of King Kavan Tissa of Ruhuna, he was driven from a young age by the desire to expel the Chola king Elara, who ruled Anuradhapura. After his father's death and a brief conflict with his own brother, Tissa, Dutugemunu launched his famous campaign. Aided by his loyal war elephant, Kandula, and his 'Ten Giant Warriors,' he waged a series of battles, culminating in a legendary elephant-back duel where he defeated and killed the elderly King Elara. Despite being an adversary, Dutugemunu showed great respect for Elara's bravery, building a monument in his honor. As king, Dutugemunu became a great patron of Buddhism, initiating the construction of some of the most iconic structures in Anuradhapura, including the massive Ruwanwelisaya stupa and the magnificent nine-story Lovamahapaya (Brazen Palace). His reign is considered a golden age of Sinhalese nationalism and religious devotion."
+  },
+  {
+    "name": "King Saddha Tissa",
+    "slug": "saddha-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "137–119 BCE",
+    "biography": "Saddha Tissa (137–119 BCE), younger brother of Dutugemunu, inherited a newly unified Anuradhapura where monumental Buddhist projects and hydraulic expansion had accelerated. His reign focused on consolidation: safeguarding stupas (notably Ruwanwelisaya), completing ancillary monastic buildings, and standardizing maintenance of irrigation networks. Chronicles imply he preserved the ideological synthesis of kingship and Buddhist patronage without embarking on the dramatic military campaigns of his predecessor. Stability and infrastructural continuity define his legacy, providing a calm pivot between the heroic age of conquest and subsequent routine governance."
+  },
+  {
+    "name": "King Thulatthana",
+    "slug": "thulatthana",
+    "kingdom": "anuradhapura",
+    "reign": "119 BCE",
+    "biography": "Thulatthana (119 BCE) ruled so briefly that no major inscriptions or enduring public works are attributed to him. His accession—likely through established dynastic succession protocols—illustrates episodic short reigns during intervals of political recalibration. The lack of chronicler censure suggests administrative normality rather than upheaval; he functions historically as a temporal bridge between longer-reigning monarchs, reflecting the fragility of immediate succession in late 2nd century BCE Anuradhapura."
+  },
+  {
+    "name": "King Lanja Tissa",
+    "slug": "lanja-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "119–109 BCE",
+    "biography": "Lanja Tissa (119–109 BCE) governed during a period of internal court faction balancing after rapid turnover. His decade suggests adequate consolidation of elite and monastic support. While grand architectural feats are not directly tied to him, he maintained existing stupas and irrigation works—essential for agrarian surplus. Chronic silence on controversy implies effective, moderate stewardship. His reign contributed to restoring rhythm to state administration after successive short-lived predecessors."
+  },
+  {
+    "name": "King Khallata Naga",
+    "slug": "khallata-naga",
+    "kingdom": "anuradhapura",
+    "reign": "109–103 BCE",
+    "biography": "Khallata Naga (109–103 BCE) appears in chronicles with minimal elaboration, signifying a reign categorized by continuity rather than innovation. Operating within a matured hydraulic economy, he likely oversaw routine desilting cycles of reservoirs and reaffirmed monastery grants. Absence of polemical narrative indicates neither sectarian conflict nor foreign incursion dominated his years. His historical value lies in sustaining dynastic legitimacy through uneventful governance."
+  },
+  {
+    "name": "King Valagamba (Vattagamani Abhaya)",
+    "slug": "valagamba",
+    "kingdom": "anuradhapura",
+    "reign": "103, 89–77 BCE",
+    "biography": "Valagamba (Vattagamani Abhaya) first lost the throne in 103 BCE amid South Indian challenger pressure and internal instability, then reclaimed it (89–77 BCE) after prolonged exile. His restoration symbolizes resilience and strategic regional alliance building in Ruhuna. During his second reign, the Buddhist Sangha reputedly commenced transcription of portions of the Tipitaka at Aluvihara—transitioning oral canon toward written preservation (a tradition later expanded). He reinforced monastic endowments and stabilized agrarian tax flows ravaged by previous disruptions. His narrative frames themes of exile, religious textual safeguarding, and political rejuvenation."
+  },
+  {
+    "name": "King Pulahatta",
+    "slug": "pulahatta",
+    "kingdom": "anuradhapura",
+    "reign": "103–100 BCE",
+    "biography": "Pulahatta (103–100 BCE) participated in the brief line of usurpers following Valagamba’s early overthrow. Foreign-aligned or opportunistic military backing enabled his rise. His government, lacking enduring cultural or hydraulic markers, is remembered chiefly as part of the interregnum that fractured legitimate dynastic continuity. Removal by Bahiya demonstrates rapid turnover symptomatic of low internal legitimacy."
+  },
+  {
+    "name": "King Bahiya",
+    "slug": "bahiya",
+    "kingdom": "anuradhapura",
+    "reign": "100–98 BCE",
+    "biography": "Bahiya (100–98 BCE) continued the transient sequence of rulers during the Valagamba interregnum. His short span underscores factional competition rather than systemic collapse—the agrarian base persisted though central authority flickered. Bahiya’s inability to institutionalize support led to replacement by Panya Mara, reaffirming volatility until Valagamba’s restoration consolidated rule."
+  },
+  {
+    "name": "King Panya Mara",
+    "slug": "panya-mara",
+    "kingdom": "anuradhapura",
+    "reign": "98–91 BCE",
+    "biography": "Panya Mara (98–91 BCE) further exemplifies the chain of ephemeral rulers preceding Valagamba’s return. Chronicles emphasize duration over deeds; thus his historical interpretation revolves around absence—no major reforms, monuments, or doctrinal shifts recorded. His reign deepens the pattern of contested sovereignty that later legitimizes Valagamba’s narrative of rightful reclamation."
+  },
+  {
+    "name": "King Pilaya Mara",
+    "slug": "pilaya-mara",
+    "kingdom": "anuradhapura",
+    "reign": "91–90 BCE",
+    "biography": "Pilaya Mara (91–90 BCE) held power briefly within the competitive milieu of post-overthrow Anuradhapura. Administrative machinery likely functioned in minimalist preservation mode: collecting staple grain levies, guarding central storehouses, and placating monastic communities sufficiently to avoid open revolt. Swift succession afterward signals limited coalition breadth."
+  },
+  {
+    "name": "King Dathika",
+    "slug": "dathika",
+    "kingdom": "anuradhapura",
+    "reign": "90–89 BCE",
+    "biography": "Dathika (90–89 BCE) remains a near-anonymous figure whose reign length inhibited structural imprint. His presence in lists documents continuity of contested rulership rather than personal accomplishment. The effectiveness of irrigation and temple economies during such brief tenures depended on entrenched local stewards rather than royal initiative."
+  },
+  {
+    "name": "King Mahakuli Mahatissa",
+    "slug": "mahakuli-mahatissa",
+    "kingdom": "anuradhapura",
+    "reign": "77–63 BCE",
+    "biography": "Mahakuli Mahatissa (77–63 BCE), succeeding the turbulence preceding Valagamba’s stabilized era, presided over a phase of consolidation. He reinforced revenue normalization—reaffirming land grants and ensuring reservoir maintenance cycles resumed predictably. Though not associated with fresh monumental edifices, he helped diffuse lingering factionalism by emphasizing continuity of Buddhist patronage and administrative routine."
+  },
+  {
+    "name": "King Chora Naga",
+    "slug": "chora-naga",
+    "kingdom": "anuradhapura",
+    "reign": "63–51 BCE",
+    "biography": "Chora Naga (63–51 BCE) appears in sources with limited detail aside from tenure markers. His rule, falling in a less militarily tumultuous interval, implies a focus on sustaining irrigation distribution and temple provisioning. The scarcity of narrative embellishment suggests neither severe crisis nor transformative innovation—an embodiment of functional dynastic persistence."
+  },
+  {
+    "name": "King Kuda Tissa",
+    "slug": "kuda-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "51–48 BCE",
+    "biography": "Kuda Tissa (51–48 BCE) held a short reign likely dominated by maintaining existing royal obligations: ritual sponsorship, adjudication of land boundary disputes, and sustaining granary logistics. Lack of inscriptions or chronicler anecdote points to minimal deviation from inherited policy frameworks. His historical significance is cumulative, preserving the chain leading into late 1st century BCE governance."
+  },
+  {
+    "name": "King Siva I (first)",
+    "slug": "siva-i-first",
+    "kingdom": "anuradhapura",
+    "reign": "48–47 BCE",
+    "biography": "Siva I (48–47 BCE) represents a brief transitional kingship. In the absence of recorded doctrinal controversy or external invasion, he likely functioned as an interim stabilizer. The ephemeral nature of his reign underscores the adaptability of bureaucratic and monastic networks to rapid royal turnover without systemic collapse."
+  },
+  {
+    "name": "King Vatuka",
+    "slug": "vatuka",
+    "kingdom": "anuradhapura",
+    "reign": "47 BCE",
+    "biography": "Vatuka (47 BCE) is noted only by name and year, exemplifying ultrashort succession anomalies. His accession and displacement highlight intense elite competition—possibly between military commanders or regional noble lineages. Such flash reigns rarely possess capacity for infrastructure or religious initiatives; continuity rested with entrenched local officials."
+  },
+  {
+    "name": "King Darubhatika Tissa",
+    "slug": "darubhatika-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "47 BCE",
+    "biography": "Darubhatika Tissa (47 BCE) followed Vatuka within the same year, signaling unresolved contention. His reign’s brevity precluded distinctive royal projects. Chronic preservation of his name serves as evidence of persistent dynastic recording practices even amidst rapid claimant cycling."
+  },
+  {
+    "name": "King Niliya",
+    "slug": "niliya",
+    "kingdom": "anuradhapura",
+    "reign": "47–46 BCE",
+    "biography": "Niliya (47–46 BCE) marginally extended stability beyond single-year transitions, yet still too short for major programmatic undertakings. Administrative survival relied on irrigation steward autonomy and monastic land management continuity. His rule contributes a temporal buffer before the dramatic sequence culminating in Queen Anula."
+  },
+  {
+    "name": "Queen Anula",
+    "slug": "anula",
+    "kingdom": "anuradhapura",
+    "reign": "46–44 BCE",
+    "biography": "Queen Anula (46–44 BCE), one of the earliest documented female rulers in Sri Lankan chronicles, ascended through court intrigue after a series of short-lived male reigns. Later sources portray her with moralistic coloration—accusations of poisoning spouses—reflecting gendered narrative framing more than verifiable forensic truth. Her tenure marks a rare female assertion of sovereignty, illustrating the permeability of succession norms during volatility. She demonstrates that royal authority, while ideologically male-coded, could be appropriated amid elite fragmentation."
+  },
+  {
+    "name": "King Kutakanna Tissa",
+    "slug": "kutakanna-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "44 BCE–22 BCE",
+    "biography": "Kutakanna Tissa (44 BCE–22 BCE) restored longer-duration kingship following rapid turnover. His extended reign enabled re-coordination of taxation, temple endowments, and reservoir maintenance cycles. He likely undertook refurbishment of earlier hydraulic structures to stabilize agrarian yield. Reign longevity suggests success in rebuilding elite consensus eroded by preceding instability and integrating monastic interests with palace governance."
+  },
+  {
+    "name": "King Bhatikabhaya Abhaya",
+    "slug": "bhatikabhaya-abhaya",
+    "kingdom": "anuradhapura",
+    "reign": "22 BCE–7 CE",
+    "biography": "Bhatikabhaya Abhaya (22 BCE–7 CE) governed across the BCE–CE temporal threshold, presiding over incremental infrastructural upkeep and sustained Buddhist patronage. Chronicles associate his era with continuing embellishment of religious precincts rather than large new constructions. His reign length implies effective succession legitimization and administrative harmony among regional landholding families."
+  },
+  {
+    "name": "King Mahadathika Mahanaga",
+    "slug": "mahadathika-mahanaga",
+    "kingdom": "anuradhapura",
+    "reign": "7–19 CE",
+    "biography": "Mahadathika Mahanaga (7–19 CE) maintained continuity into the early Common Era, a period where Anuradhapura’s hydraulic base matured further. He likely authorized periodic reservoir desilting and reinforced monastic legal privileges (immunity over certain lands). His rule exemplifies evolutionary rather than revolutionary kingship—refining inherited systems."
+  },
+  {
+    "name": "King Amandagamani Abhaya",
+    "slug": "amandagamani-abhaya",
+    "kingdom": "anuradhapura",
+    "reign": "19–29 CE",
+    "biography": "Amandagamani Abhaya (19–29 CE) appears in textual tradition emphasizing piety. While specific projects are sparsely detailed, he is framed as a maintainer king—upholding ritual sponsorship cycles, safeguarding relic shrines, and ensuring equitable grain levy application. His legacy lies in continuity of the religious-state symbiosis crucial for legitimacy."
+  },
+  {
+    "name": "King Kanirajanu Tissa",
+    "slug": "kanirajanu-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "29–32 CE",
+    "biography": "Kanirajanu Tissa (29–32 CE) ruled briefly; chronicles occasionally allude to severity in justice administration, though context is ambiguous and possibly moralizing. Structural impacts remain undocumented. His reign’s abrupt end suggests contested acceptance among elites, feeding the pattern of intermittent short tenures."
+  },
+  {
+    "name": "King Chulabhaya",
+    "slug": "chulabhaya",
+    "kingdom": "anuradhapura",
+    "reign": "32–33 CE",
+    "biography": "Chulabhaya (32–33 CE) had an almost token-length reign. The speed of succession indicates unresolved factional dynamics rather than systemic breakdown—agrarian and monastic institutions persisted. Historical treatment of his rule is an exercise in recognizing administrative inertia beyond royal personality."
+  },
+  {
+    "name": "Queen Sivali",
+    "slug": "sivali",
+    "kingdom": "anuradhapura",
+    "reign": "33 CE",
+    "biography": "Queen Sivali (33 CE) stands alongside Queen Anula as evidence that female rulership, though rare, emerged during succession turbulence. Her extremely short tenure limited capacity for policy imprint; nevertheless, her recorded sovereignty underscores fluidity in late early-era dynastic transitions and the potential elevation of royal women during crises."
+  },
+  {
+    "name": "King Ilanaga",
+    "slug": "ilanaga",
+    "kingdom": "anuradhapura",
+    "reign": "33–43 CE",
+    "biography": "Ilanaga (33–43 CE) governed for a decade, allowing modest infrastructural reinforcement. Chronicles note his patronage of monastic communities and continuation of irrigation upkeep. His decade provided breathing space after the volatility marked by Queens Anula and Sivali, contributing to dynastic stabilization through moderate piety and administrative routine."
+  },
+  {
+    "name": "King Chandamukha Siva",
+    "slug": "chandamukha-siva",
+    "kingdom": "anuradhapura",
+    "reign": "43–52 CE",
+    "biography": "Chandamukha Siva (43–52 CE) reigned during a quieter mid-1st century CE interval. Textual sources imply steady maintenance of Buddhist establishments and reservoir systems without major construction bursts. His rule exemplifies the administrative baseline—taxation, adjudication, ritual sponsorship—that sustained Anuradhapura's agrarian economy."
+  },
+  {
+    "name": "King Yassalalaka Tissa",
+    "slug": "yassalalaka-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "52–60 CE",
+    "biography": "Yassalalaka Tissa (52–60 CE) presided over a period of hydraulic refinement. Chronicles credit him with modest temple donations and reservoir repair. His tenure represents incremental reinforcement rather than dramatic innovation, upholding the ritual-economic equilibrium between palace and Sangha."
+  },
+  {
+    "name": "King Subharaja",
+    "slug": "subharaja",
+    "kingdom": "anuradhapura",
+    "reign": "60–67 CE",
+    "biography": "Subharaja (60–67 CE) ruled briefly without major inscriptional or architectural monuments. His reign likely focused on ensuring irrigation schedules, resolving land disputes, and honoring existing monastic endowments. Continuity over change characterizes his historical imprint."
+  },
+  {
+    "name": "King Vasabha",
+    "slug": "vasabha",
+    "kingdom": "anuradhapura",
+    "reign": "67–111 CE",
+    "biography": "Vasabha (67–111 CE) stands as a pivotal hydraulic innovator, credited with constructing eleven major reservoirs (tanks) that expanded Anuradhapura's irrigable acreage significantly. His lengthy 44-year reign enabled systemic agrarian intensification: improved water distribution, higher rice yields, and stronger revenue flows. He also sponsored numerous temples, embedding his legitimacy within both material prosperity and Buddhist merit-making. Vasabha's engineering legacy influenced subsequent kings' emphasis on tank construction as royal duty."
+  },
+  {
+    "name": "King Vankanasika Tissa",
+    "slug": "vankanasika-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "111–114 CE",
+    "biography": "Vankanasika Tissa (111–114 CE) followed Vasabha's infrastructure-heavy tenure with a short reign focused on maintaining new irrigation networks. His brief rule limited grand initiatives, yet he sustained the momentum of hydraulic stewardship, ensuring desilting and repair work continued."
+  },
+  {
+    "name": "King Gajabahu I",
+    "slug": "gajabahu-i",
+    "kingdom": "anuradhapura",
+    "reign": "114–136 CE",
+    "biography": "Gajabahu I (114–136 CE) is renowned in tradition for a legendary military expedition to South India—rescuing captive Sinhalese and acquiring the sacred relic of the Tooth of the Buddha (alternative traditions vary on relic acquisition timing). His reign emphasized both martial prowess and religious patronage, reinforcing monastic establishments and tank maintenance. Gajabahu's narrative blends historical kern with heroic embellishment, illustrating how kingship integrated military valor and Buddhist devotion."
+  },
+  {
+    "name": "King Mahallaka Naga",
+    "slug": "mahallaka-naga",
+    "kingdom": "anuradhapura",
+    "reign": "136–139 CE",
+    "biography": "Mahallaka Naga (136–139 CE) had a short three-year tenure following Gajabahu I's dynamic rule. Limited textual detail suggests continuity governance: upholding irrigation cycles, temple grants, and routine administration. His reign functions as a bridging phase before Bhatika Tissa's longer consolidation."
+  },
+  {
+    "name": "King Bhatika Tissa",
+    "slug": "bhatika-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "139–167 CE",
+    "biography": "Bhatika Tissa (139–167 CE) enjoyed a lengthy 28-year reign, facilitating sustained infrastructural investment. He commissioned additional reservoirs, expanded monastery precincts, and reinforced legal protections for monastic lands. His era exemplifies mature Anuradhapura governance: hydraulic-agrarian surplus funding religious patronage, legitimizing kingship through merit accumulation."
+  },
+  {
+    "name": "King Kanittha Tissa",
+    "slug": "kanittha-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "167–186 CE",
+    "biography": "Kanittha Tissa (167–186 CE) continued the pattern of tank construction and temple sponsorship established by predecessors. His 19-year reign enabled incremental expansion of irrigation networks and maintenance of existing stupas. Chronicles note his piety and adherence to Theravāda orthodoxy, sustaining the symbiotic state-Sangha relationship."
+  },
+  {
+    "name": "King Cula Naga",
+    "slug": "cula-naga",
+    "kingdom": "anuradhapura",
+    "reign": "186–191 CE",
+    "biography": "Cula Naga (186–191 CE) presided briefly, maintaining administrative continuity. His five-year tenure focused on routine governance: ensuring reservoir maintenance, collecting agrarian levies, and sponsoring monastic rituals. Absence of chronicler criticism implies effective if unremarkable stewardship."
+  },
+  {
+    "name": "King Kuda Naga",
+    "slug": "kuda-naga",
+    "kingdom": "anuradhapura",
+    "reign": "191–196 CE",
+    "biography": "Kuda Naga (191–196 CE) similarly governed for five years without major transformative projects. His rule sustained the agrarian-monastic equilibrium, ensuring water distribution equity and temple provisioning. Historical interpretation centers on continuity and administrative functionality."
+  },
+  {
+    "name": "King Siri Naga I",
+    "slug": "siri-naga-i",
+    "kingdom": "anuradhapura",
+    "reign": "196–215 CE",
+    "biography": "Siri Naga I (196–215 CE) enjoyed a 19-year reign enabling sustained hydraulic and religious investment. He reinforced earlier reservoirs, sponsored stupa restoration, and maintained legal frameworks protecting monastic autonomy. His tenure exemplifies the mature Anuradhapura model: kingship legitimized through Buddhist patronage and agrarian prosperity."
+  },
+  {
+    "name": "King Abhaya Naga",
+    "slug": "abhaya-naga",
+    "kingdom": "anuradhapura",
+    "reign": "215–237 CE",
+    "biography": "Abhaya Naga (215–237 CE) governed for 22 years, a duration permitting incremental infrastructural refinement. He authorized reservoir repairs, monastery endowments, and routine administration. Chronicles emphasize his piety and judicial fairness, sustaining the ideological synthesis of righteous kingship and Buddhist virtue."
+  },
+  {
+    "name": "King Siri Naga II",
+    "slug": "siri-naga-ii",
+    "kingdom": "anuradhapura",
+    "reign": "237–245 CE",
+    "biography": "Siri Naga II (237–245 CE) ruled for eight years, maintaining continuity after Abhaya Naga's extended tenure. His reign focused on sustaining irrigation networks and temple provisioning. Limited textual detail implies effective routine governance without dramatic reforms or crises."
+  },
+  {
+    "name": "King Voharika Tissa",
+    "slug": "voharika-tissa",
+    "kingdom": "anuradhapura",
+    "reign": "245–247 CE",
+    "biography": "Voharika Tissa (245–247 CE) is noted in chronicles for measures against extremist ascetic factions—possibly Mahayana or heterodox Theravāda sects perceived as destabilizing orthodox monastic hierarchy. His brief two-year reign's doctrinal interventions reflect ongoing tension between royal authority and diverse monastic groups. His policies set context for subsequent rulers navigating religious pluralism."
+  },
+  {
+    "name": "King Abhaya Naga II",
+    "slug": "abhaya-naga-ii",
+    "kingdom": "anuradhapura",
+    "reign": "247–249 CE",
+    "biography": "Abhaya Naga II (also known as Abhaya Naga) succeeded his brother, King Voharika Tissa, after a period of conflict. According to historical accounts, he fled to India, raised a Tamil mercenary army, and returned to defeat his brother. Upon ascending the throne, he married Voharika Tissa's queen. To regain the favor of the Buddhist clergy and the populace, he performed acts of charity, such as distributing robes to monks. His reign is noted for the construction of a stone pavilion at the Lovamahapaya and a stone wall around the Sri Maha Bodhi."
+  },
+  {
+    "name": "King Siri Naga III",
+    "slug": "siri-naga-iii",
+    "kingdom": "anuradhapura",
+    "reign": "249–251 CE",
+    "biography": "Siri Naga III (249–251 CE) ruled briefly after Abhaya Naga II's short tenure. His two-year reign likely focused on administrative stabilization following rapid succession. Limited inscriptional evidence suggests continuity governance: maintaining irrigation, temple grants, and routine adjudication."
+  },
+  {
+    "name": "King Vijaya Kumara",
+    "slug": "vijaya-kumara",
+    "kingdom": "anuradhapura",
+    "reign": "251–252 CE",
+    "biography": "Vijaya Kumara (251–252 CE) held an ephemeral one-year reign. The speed of succession indicates either elite contestation or health-related turnover. His rule's brevity precluded significant policy imprints; administrative continuity relied on entrenched bureaucratic and monastic networks."
+  },
+  {
+    "name": "King Sangha Tissa I",
+    "slug": "sangha-tissa-i",
+    "kingdom": "anuradhapura",
+    "reign": "252–254 CE",
+    "biography": "Sangha Tissa I (252–254 CE) governed for two years within a sequence of short reigns. His name suggests monastic patronage emphasis, though specific projects remain undocumented. The era reflects persistent dynastic fragility requiring frequent succession adjustments."
+  },
+  {
+    "name": "King Siri Sangha Bodhi I",
+    "slug": "siri-sangha-bodhi-i",
+    "kingdom": "anuradhapura",
+    "reign": "254–256 CE",
+    "biography": "Siri Sangha Bodhi I (254–256 CE) ruled briefly, his name blending royal and Buddhist honorifics. His two-year tenure likely emphasized monastic donations and ritual sponsorship to legitimize claim amid rapid turnover. Limited narrative detail underscores the challenge of leaving lasting marks during ultrashort reigns."
+  },
+  {
+    "name": "King Gothabhaya",
+    "slug": "gothabhaya",
+    "kingdom": "anuradhapura",
+    "reign": "256–264 CE",
+    "biography": "Gothabhaya (256–264 CE) enjoyed an eight-year reign, enabling modest infrastructural consolidation. Chronicles note his support for monastic communities and continuation of irrigation maintenance. His tenure provided stability after preceding rapid succession, facilitating administrative rhythm restoration."
+  },
+  {
+    "name": "King Jettha Tissa II",
+    "slug": "jettha-tissa-ii",
+    "kingdom": "anuradhapura",
+    "reign": "264–273 CE",
+    "biography": "Jettha Tissa II (264–273 CE) governed for nine years, sustaining hydraulic and religious infrastructure. His reign likely involved reservoir desilting, temple refurbishment, and routine governance. The absence of dramatic events in sources implies effective, moderate kingship."
+  },
+  {
+    "name": "King Mahasena",
+    "slug": "mahasena",
+    "kingdom": "anuradhapura",
+    "reign": "273–301 CE",
+    "biography": "Mahasena (273–301 CE) is a transformative figure whose 28-year reign combined massive hydraulic engineering with controversial religious politics. He constructed sixteen major reservoirs, including the colossal Minneriya tank, dramatically expanding irrigable land. However, his early alignment with Mahayana-leaning factions sparked conflict with orthodox Theravāda monasteries—he reportedly destroyed the Mahavihara monastery briefly before reconciliation. His reign illustrates the volatile intersection of sectarian politics, royal patronage, and infrastructural ambition. Despite controversy, his hydraulic legacy profoundly shaped Anuradhapura's agrarian base."
+  },
+  {
+    "name": "King Siri Meghavanna",
+    "slug": "siri-meghavanna",
+    "kingdom": "anuradhapura",
+    "reign": "301–328 CE",
+    "biography": "Siri Meghavanna (301–328 CE) is celebrated for hosting the sacred Tooth Relic of the Buddha, brought from India and enshrined in Anuradhapura—a pivotal moment elevating the city's religious centrality. His 27-year reign emphasized monastic reconciliation after Mahasena's sectarian conflicts, restoring Mahavihara and reinforcing Theravāda orthodoxy. He also maintained hydraulic infrastructure and sponsored temple construction, embedding his legitimacy in both relic custodianship and merit-making."
+  },
+  {
+    "name": "King Jettha Tissa III",
+    "slug": "jettha-tissa-iii",
+    "kingdom": "anuradhapura",
+    "reign": "328–337 CE",
+    "biography": "Jettha Tissa III (328–337 CE) ruled for nine years, sustaining the religious and hydraulic equilibrium established by Siri Meghavanna. His tenure focused on Tooth Relic veneration, monastic patronage, and irrigation upkeep. Chronicles emphasize continuity and piety, reflecting stable governance post-sectarian turbulence."
+  },
+  {
+    "name": "King Buddhadasa",
+    "slug": "buddhadasa",
+    "kingdom": "anuradhapura",
+    "reign": "337–365 CE",
+    "biography": "Buddhadasa (337–365 CE) is renowned as a physician-king, credited with establishing hospitals (teaching healing practices) and integrating Ayurvedic medicine into state welfare. His 28-year reign combined medical innovation, Buddhist patronage, and hydraulic maintenance. Tradition portrays him treating patients personally, embodying the ideal of compassionate kingship. His legacy merges statecraft with healing, illustrating the breadth of royal responsibilities in Anuradhapura."
+  },
+  {
+    "name": "King Upatissa I",
+    "slug": "upatissa-i",
+    "kingdom": "anuradhapura",
+    "reign": "365–406 CE",
+    "biography": "Upatissa I (365–406 CE) enjoyed a lengthy 41-year reign, enabling sustained infrastructural investment. He commissioned reservoirs, restored temples, and reinforced monastic endowments. His era represents mature Anuradhapura stability: agrarian surplus, Tooth Relic veneration, and Theravāda orthodoxy synthesizing into a durable state model. Chronicles praise his piety and judicial fairness."
+  },
+  {
+    "name": "King Mahanama",
+    "slug": "mahanama",
+    "kingdom": "anuradhapura",
+    "reign": "406–428 CE",
+    "biography": "Mahanama (406–428 CE) ruled during a transitional period marked by increasing South Indian incursions. His 22-year reign focused on defensive fortification, monastic patronage, and irrigation maintenance. His era witnessed early signs of external pressure that would later disrupt Anuradhapura, yet he sustained internal stability through traditional legitimization mechanisms: Buddhist merit and hydraulic stewardship."
+  },
+  {
+    "name": "King Siva II (second)",
+    "slug": "siva-ii-second",
+    "kingdom": "anuradhapura",
+    "reign": "428–430 CE",
+    "biography": "Siva II (428–430 CE) had a brief two-year reign amid escalating South Indian interference. His tenure marks the onset of a tumultuous period where Tamil invasions challenged Anuradhapura sovereignty. Limited inscriptional evidence suggests his rule ended violently, initiating a sequence of Tamil usurpers."
+  },
+  {
+    "name": "King Pandu (Tamil)",
+    "slug": "pandu-tamil",
+    "kingdom": "anuradhapura",
+    "reign": "430–432 CE",
+    "biography": "Pandu (430–432 CE), a Tamil invader, usurped the throne during a period of Anuradhapura fragility. His brief two-year rule lacked enduring administrative or cultural imprints; chronicles frame him as an illegitimate oppressor. His reign exemplifies external opportunism exploiting internal weaknesses, setting a pattern of Tamil intervention that recurred periodically."
+  },
+  {
+    "name": "King Parindu (Tamil)",
+    "slug": "parindu-tamil",
+    "kingdom": "anuradhapura",
+    "reign": "432 CE",
+    "biography": "Parindu (432 CE) ruled momentarily as part of the Tamil usurpation wave. His ultrashort tenure reflects rapid factional cycling among invaders rather than stable governance. Chronicles provide minimal detail beyond his foreign origin and swift displacement."
+  },
+  {
+    "name": "King Khudda Parinda (Tamil)",
+    "slug": "khudda-parinda-tamil",
+    "kingdom": "anuradhapura",
+    "reign": "432–434 CE",
+    "biography": "Khudda Parinda (432–434 CE) continued the Tamil interregnum for two years. His rule, lacking inscriptional corroboration, is remembered chiefly as part of the foreign occupation sequence disrupting Anuradhapura's Sinhalese dynasty. Limited administrative continuity characterized this volatile interval."
+  },
+  {
+    "name": "King Tiritara (Tamil)",
+    "slug": "tiritara-tamil",
+    "kingdom": "anuradhapura",
+    "reign": "434 CE",
+    "biography": "Tiritara (434 CE) held power momentarily within the Tamil usurpation chain. His reign's brevity underscores intense competition among invaders and persistent Sinhalese resistance. Chronicles emphasize foreign oppression rather than governance achievements."
+  },
+  {
+    "name": "King Dathiya (Tamil)",
+    "slug": "dathiya-tamil",
+    "kingdom": "anuradhapura",
+    "reign": "434–436 CE",
+    "biography": "Dathiya (434–436 CE) ruled for two years during the prolonged Tamil occupation. His tenure, like predecessors, lacked enduring cultural or infrastructural markers. Chronicles frame the entire Tamil sequence as illegitimate interregnum, awaiting restoration of rightful Sinhalese kingship."
+  },
+  {
+    "name": "King Pithiya (Tamil)",
+    "slug": "pithiya-tamil",
+    "kingdom": "anuradhapura",
+    "reign": "436–437 CE",
+    "biography": "Pithiya (436–437 CE) concluded the Tamil usurpation period with a brief one-year rule. His displacement marked the end of nearly a decade of foreign control, setting the stage for Dhatusena's restorative campaign and the re-establishment of Sinhalese sovereignty."
+  },
+  {
+    "name": "King Dhatusena",
+    "slug": "dhatusena",
+    "kingdom": "anuradhapura",
+    "reign": "455–473 CE",
+    "biography": "Dhatusena (455–473 CE) is a heroic restorative figure who expelled Tamil invaders and reclaimed Anuradhapura for Sinhalese rule. His 18-year reign emphasized hydraulic grandeur: he constructed the massive Kala Wewa reservoir, a monumental engineering feat supplying vast irrigation networks. He also restored monasteries damaged during occupation and reinforced Theravāda orthodoxy. However, his reign ended tragically when his son Kashyapa I, fearing disinheritance, imprisoned and killed him. Dhatusena's legacy blends liberation heroism, hydraulic innovation, and familial tragedy."
+  },
+  {
+    "name": "King Kashyapa I",
+    "slug": "kashyapa-i",
+    "kingdom": "sigiriya",
+    "reign": "473–495 CE",
+    "biography": "Kashyapa I (473–495 CE) is one of Sri Lanka's most enigmatic rulers, infamous for patricide and famed for constructing Sigiriya—a fortress-palace atop a monolithic rock. After murdering his father Dhatusena and usurping the throne, he relocated the capital to Sigiriya, creating a defensive stronghold adorned with frescoes and hydraulic gardens. His 22-year reign blended paranoia (fearing his exiled brother Moggallana's vengeance) with artistic brilliance. Eventually, Moggallana returned with an army; Kashyapa I died in battle. His legacy is dual: architectural genius marred by moral transgression, illustrating the tension between aesthetic achievement and ethical kingship."
+  },
+  {
+    "name": "King Moggallana I",
+    "slug": "moggallana-i",
+    "kingdom": "sigiriya",
+    "reign": "495–512 CE",
+    "biography": "Moggallana I (495–512 CE) reclaimed the throne from his brother Kashyapa I after defeating him in battle. His 17-year reign focused on restoring Anuradhapura as the capital, abandoning Sigiriya's fortress isolation. He emphasized Buddhist reconciliation, sponsoring monastic communities and reinforcing orthodox Theravāda practices. His rule sought to legitimize his succession through piety and administrative normalization, distancing his reign from Kashyapa's parricide stigma."
+  },
+  {
+    "name": "King Kumara Dhatusena",
+    "slug": "kumara-dhatusena",
+    "kingdom": "anuradhapura",
+    "reign": "512–524 CE",
+    "biography": "Kumara Dhatusena (512–524 CE) ruled for twelve years, sustaining the post-Sigiriya restoration. His reign maintained irrigation networks, temple patronage, and administrative continuity. Chronicles emphasize piety and stability, framing his tenure as consolidation after the turbulent Kashyapa-Moggallana conflict."
+  },
+  {
+    "name": "King Kittisena",
+    "slug": "kittisena",
+    "kingdom": "anuradhapura",
+    "reign": "524 CE",
+    "biography": "Kittisena (524 CE) ruled momentarily, his reign lasting less than a year. The brevity indicates succession instability or health-related turnover. Limited textual evidence precludes detailed reconstruction; his historical role is primarily temporal bridging."
+  },
+  {
+    "name": "King Siva I",
+    "slug": "siva-i-524",
+    "kingdom": "anuradhapura",
+    "reign": "524–525 CE",
+    "biography": "Siva I (524–525 CE) governed briefly for one year. His short tenure likely focused on administrative maintenance rather than transformative projects. The rapid succession pattern in this period reflects ongoing elite contestation or demographic volatility among royals."
+  },
+  {
+    "name": "King Upatissa II",
+    "slug": "upatissa-ii",
+    "kingdom": "anuradhapura",
+    "reign": "525–526 CE",
+    "biography": "Upatissa II (525–526 CE) held a one-year reign within a sequence of short tenures. His rule sustained routine governance: irrigation upkeep, temple provisioning, and adjudication. The era's rapid turnover underscores fragility in 6th-century dynastic succession."
+  },
+  {
+    "name": "King Silakala Ambosamanera",
+    "slug": "silakala-ambosamanera",
+    "kingdom": "anuradhapura",
+    "reign": "526–539 CE",
+    "biography": "Silakala Ambosamanera (526–539 CE) ruled for thirteen years, enabling modest consolidation. His reign likely focused on monastic patronage (suggested by his name's Buddhist resonance) and irrigation maintenance. Limited inscriptional detail implies steady, unremarkable governance—a stabilizing phase after preceding rapid succession."
+  },
+  {
+    "name": "King Aggabodhi I",
+    "slug": "aggabodhi-i",
+    "kingdom": "anuradhapura",
+    "reign": "564–598 CE",
+    "biography": "Aggabodhi I (564–598 CE) enjoyed a lengthy 34-year reign, facilitating sustained infrastructural and religious investment. He commissioned reservoirs, restored stupas, and reinforced monastic legal privileges. His era represents mature 6th-century Anuradhapura: hydraulic-agrarian surplus funding Buddhist patronage, legitimizing kingship through merit accumulation and administrative effectiveness."
+  },
+  {
+    "name": "King Kassapa II",
+    "slug": "kassapa-ii",
+    "kingdom": "anuradhapura",
+    "reign": "602–608 CE",
+    "biography": "Kassapa II (602–608 CE) ruled for six years, maintaining continuity after Aggabodhi I's long tenure. His reign focused on routine governance: irrigation maintenance, temple endowments, and judicial administration. Chronicles note his piety, suggesting adherence to established Buddhist patronage norms."
+  },
+  {
+    "name": "King Aggabodhi II",
+    "slug": "aggabodhi-ii",
+    "kingdom": "anuradhapura",
+    "reign": "608–618 CE",
+    "biography": "Aggabodhi II (608–618 CE) governed for ten years, sustaining hydraulic and religious infrastructure. His tenure involved reservoir upkeep, monastery sponsorship, and administrative routine. The era's relative stability enabled continuity of Anuradhapura's agrarian-monastic equilibrium."
+  },
+  {
+    "name": "King Sangha Tissa II",
+    "slug": "sangha-tissa-ii",
+    "kingdom": "anuradhapura",
+    "reign": "608–614 CE",
+    "biography": "Sangha Tissa II (608–614 CE) ruled concurrently or sequentially with overlapping dates in sources, indicating possible co-regency or regional fragmentation. His six-year association with power emphasized monastic patronage. Chronological ambiguities in texts complicate precise reconstruction."
+  },
+  {
+    "name": "King Dathopa Tissa I",
+    "slug": "dathopa-tissa-i",
+    "kingdom": "anuradhapura",
+    "reign": "614–623 CE",
+    "biography": "Dathopa Tissa I (614–623 CE) governed for nine years, maintaining administrative and religious continuity. His reign focused on irrigation maintenance, temple grants, and routine adjudication. Chronicles emphasize piety and stability, reflecting effective governance in early 7th-century Anuradhapura."
+  },
+  {
+    "name": "King Aggabodhi III",
+    "slug": "aggabodhi-iii",
+    "kingdom": "anuradhapura",
+    "reign": "626–636 CE",
+    "biography": "Aggabodhi III (626–636 CE) ruled for ten years, sustaining the hydraulic-monastic synthesis. His tenure involved reservoir repairs, monastic endowments, and administrative routine. The era's stability enabled continuation of Anuradhapura's mature governance model."
+  },
+  {
+    "name": "King Kassapa III",
+    "slug": "kassapa-iii",
+    "kingdom": "anuradhapura",
+    "reign": "732–738 CE",
+    "biography": "Kassapa III (732–738 CE) governed for six years in the 8th century. His reign maintained irrigation networks and temple patronage amid increasing regional fragmentation pressures. Limited textual detail suggests routine governance focused on sustaining inherited infrastructural and religious frameworks."
+  },
+  {
+    "name": "King Mahinda I",
+    "slug": "mahinda-i",
+    "kingdom": "anuradhapura",
+    "reign": "738–746 CE",
+    "biography": "Mahinda I (738–746 CE) ruled for eight years, emphasizing Buddhist patronage and hydraulic maintenance. His reign sustained Anuradhapura's agrarian base through reservoir upkeep and monastic endowments. Chronicles note his piety, framing him within the tradition of merit-making kingship."
+  },
+  {
+    "name": "King Aggabodhi VI",
+    "slug": "aggabodhi-vi",
+    "kingdom": "anuradhapura",
+    "reign": "771–781 CE",
+    "biography": "Aggabodhi VI (771–781 CE) governed for ten years, maintaining continuity in late 8th-century Anuradhapura. His tenure focused on irrigation maintenance, temple provisioning, and administrative routine. The era reflects sustained governance patterns despite broader regional shifts."
+  },
+  {
+    "name": "King Mahinda II",
+    "slug": "mahinda-ii",
+    "kingdom": "anuradhapura",
+    "reign": "781–797 CE",
+    "biography": "Mahinda II (781–797 CE) ruled for sixteen years, enabling infrastructural consolidation. His reign involved reservoir repairs, monastic sponsorship, and routine administration. Chronicles emphasize stability and piety, sustaining the traditional state-Sangha synthesis."
+  },
+  {
+    "name": "King Siri Sangha Bodhi II",
+    "slug": "siri-sangha-bodhi-ii",
+    "kingdom": "anuradhapura",
+    "reign": "797–801 CE",
+    "biography": "Siri Sangha Bodhi II (797–801 CE) governed briefly for four years. His reign maintained hydraulic and religious infrastructure amid late 8th-century transitions. Limited narrative detail implies effective routine governance without dramatic reforms."
+  },
+  {
+    "name": "King Mahinda III",
+    "slug": "mahinda-iii",
+    "kingdom": "anuradhapura",
+    "reign": "801–804 CE",
+    "biography": "Mahinda III (801–804 CE) ruled for three years, sustaining administrative and religious continuity. His brief tenure focused on irrigation upkeep and temple patronage. The era's rapid succession reflects ongoing elite dynamics in early 9th-century Anuradhapura."
+  },
+  {
+    "name": "King Dappula I",
+    "slug": "dappula-i",
+    "kingdom": "anuradhapura",
+    "reign": "804–835 CE",
+    "biography": "Dappula I (804–835 CE) enjoyed a lengthy 31-year reign, facilitating sustained infrastructural investment. He commissioned reservoirs, restored stupas, and reinforced monastic endowments. His era represents stable early 9th-century governance, sustaining Anuradhapura's agrarian-monastic equilibrium through traditional legitimization mechanisms."
+  },
+  {
+    "name": "King Dappula II",
+    "slug": "dappula-ii",
+    "kingdom": "anuradhapura",
+    "reign": "835–836 CE",
+    "biography": "Dappula II (835–836 CE) ruled for one year, his brief tenure limiting significant policy imprints. His reign likely focused on administrative maintenance and routine governance. The short duration suggests succession instability or health factors."
+  },
+  {
+    "name": "King Sena I",
+    "slug": "sena-i",
+    "kingdom": "anuradhapura",
+    "reign": "833–853 CE",
+    "biography": "Sena I (833–853 CE) governed for twenty years (note chronological overlap with Dappula II in sources, indicating possible co-regency or textual ambiguity). His lengthy tenure enabled hydraulic and monastic investment, sustaining irrigation networks and temple patronage. Chronicles emphasize stability and piety."
+  },
+  {
+    "name": "King Sena II",
+    "slug": "sena-ii",
+    "kingdom": "anuradhapura",
+    "reign": "853–887 CE",
+    "biography": "Sena II (853–887 CE) enjoyed a robust 34-year reign, one of the longest in late Anuradhapura history. His tenure facilitated sustained infrastructural consolidation: reservoir maintenance, monastic endowments, and administrative routine. His era represents mature 9th-century governance, balancing hydraulic stewardship with Buddhist patronage."
+  },
+  {
+    "name": "King Udaya I",
+    "slug": "udaya-i",
+    "kingdom": "anuradhapura",
+    "reign": "887–898 CE",
+    "biography": "Udaya I (887–898 CE) ruled for eleven years, maintaining continuity after Sena II's extended tenure. His reign focused on irrigation upkeep, temple provisioning, and routine administration. Chronicles note stability, sustaining the traditional state-Sangha synthesis."
+  },
+  {
+    "name": "King Kassapa IV",
+    "slug": "kassapa-iv",
+    "kingdom": "anuradhapura",
+    "reign": "898–914 CE",
+    "biography": "Kassapa IV (898–914 CE) governed for sixteen years, enabling modest infrastructural investment. His tenure involved reservoir repairs, monastic sponsorship, and administrative routine. The era's stability facilitated continuation of Anuradhapura's agrarian-monastic equilibrium."
+  },
+  {
+    "name": "King Kassapa V",
+    "slug": "kassapa-v",
+    "kingdom": "anuradhapura",
+    "reign": "914–923 CE",
+    "biography": "Kassapa V (914–923 CE) ruled for nine years, sustaining hydraulic and religious infrastructure. His reign maintained irrigation networks, temple endowments, and judicial administration. Chronicles emphasize continuity and piety, reflecting effective routine governance."
+  },
+  {
+    "name": "King Dappula IV",
+    "slug": "dappula-iv",
+    "kingdom": "anuradhapura",
+    "reign": "923–924 CE",
+    "biography": "Dappula IV (923–924 CE) held a brief one-year reign. His tenure's brevity limited significant policy imprints; administrative continuity relied on entrenched bureaucratic networks. The rapid succession indicates ongoing elite contestation."
+  },
+  {
+    "name": "King Kassapa VI",
+    "slug": "kassapa-vi",
+    "kingdom": "anuradhapura",
+    "reign": "924–935 CE",
+    "biography": "Kassapa VI (924–935 CE) governed for eleven years, maintaining administrative and religious continuity. His reign focused on irrigation maintenance, temple patronage, and routine adjudication. The era reflects sustained governance patterns in early 10th-century Anuradhapura."
+  },
+  {
+    "name": "King Sena III",
+    "slug": "sena-iii",
+    "kingdom": "anuradhapura",
+    "reign": "936–945 CE",
+    "biography": "Sena III (936–945 CE) ruled for nine years, sustaining hydraulic and monastic infrastructure. His tenure involved reservoir upkeep, monastery sponsorship, and administrative routine. Chronicles note stability, continuing the traditional state-Sangha equilibrium."
+  },
+  {
+    "name": "King Udaya II",
+    "slug": "udaya-ii",
+    "kingdom": "anuradhapura",
+    "reign": "946–954 CE",
+    "biography": "Udaya II (946–954 CE) governed for eight years, maintaining continuity in mid-10th-century Anuradhapura. His reign focused on irrigation maintenance, temple provisioning, and routine administration. Limited narrative detail implies effective governance without dramatic transformations."
+  },
+  {
+    "name": "King Sena IV",
+    "slug": "sena-iv",
+    "kingdom": "anuradhapura",
+    "reign": "954–956 CE",
+    "biography": "Sena IV (954–956 CE) ruled briefly for two years. His tenure sustained administrative and religious infrastructure amid ongoing succession dynamics. The short duration reflects persistent elite volatility in late Anuradhapura."
+  },
+  {
+    "name": "King Mahinda IV",
+    "slug": "mahinda-iv",
+    "kingdom": "anuradhapura",
+    "reign": "956–972 CE",
+    "biography": "Mahinda IV (956–972 CE) enjoyed a sixteen-year reign, enabling sustained infrastructural consolidation. His tenure involved reservoir repairs, monastic endowments, and administrative routine. Chronicles emphasize piety and stability, sustaining Anuradhapura's traditional governance model."
+  },
+  {
+    "name": "King Sena V",
+    "slug": "sena-v",
+    "kingdom": "anuradhapura",
+    "reign": "972–975 CE",
+    "biography": "Sena V (972–975 CE) governed briefly for three years. His reign maintained hydraulic and religious infrastructure amid late 10th-century transitions. Limited textual detail suggests routine governance focused on continuity."
+  },
+  {
+    "name": "King Mahinda V",
+    "slug": "mahinda-v",
+    "kingdom": "anuradhapura",
+    "reign": "982–1017 CE",
+    "biography": "Mahinda V (982–1017 CE) represents the tragic denouement of Anuradhapura's millennial reign. His 35-year nominal rule witnessed escalating Chola invasions from South India, culminating in the sacking of Anuradhapura (993 CE) and his eventual capture. Unable to defend the capital, the kingdom fragmented; the Tooth Relic and royal authority migrated southward. His reign marks the end of Anuradhapura as the primary capital, transitioning power toward Polonnaruwa. Mahinda V's legacy is one of systemic collapse—external pressure overwhelming an aging hydraulic state."
+  },
+  {
+    "name": "King Vijayabahu I",
+    "slug": "vijayabahu-i",
+    "kingdom": "polonnaruwa",
+    "reign": "1055–1110",
+    "biography": "Vijayabahu I (1055–1110) is the heroic liberator who expelled Chola occupation and established Polonnaruwa as the new capital. After decades of guerrilla resistance based in Ruhuna, he unified the island and drove out foreign forces. His 55-year reign focused on restoration: rebuilding monasteries destroyed during occupation, re-ordaining the Sangha (bringing monks from Burma to revive ordination lineages), and constructing new irrigation works around Polonnaruwa. His reign symbolizes Sinhalese resilience and the adaptive relocation of state power to a more defensible inland capital."
+  },
+  {
+    "name": "King Jayabahu I",
+    "slug": "jayabahu-i",
+    "kingdom": "polonnaruwa",
+    "reign": "1110–1111",
+    "biography": "Jayabahu I (1110–1111) ruled briefly for one year after Vijayabahu I's lengthy tenure. His short reign limited significant policy imprints; succession dynamics likely dominated his brief rule. Administrative continuity relied on established bureaucratic networks."
+  },
+  {
+    "name": "King Vikramabahu I",
+    "slug": "vikramabahu-i",
+    "kingdom": "polonnaruwa",
+    "reign": "1111–1132",
+    "biography": "Vikramabahu I (1111–1132) governed for 21 years, consolidating Polonnaruwa's infrastructure. His reign involved irrigation expansion, monastic patronage, and administrative stabilization. He navigated internal succession disputes and regional power balancing, sustaining the restored Sinhalese kingdom's fragile equilibrium."
+  },
+  {
+    "name": "King Gajabahu II",
+    "slug": "gajabahu-ii",
+    "kingdom": "polonnaruwa",
+    "reign": "1132–1153",
+    "biography": "Gajabahu II (1132–1153) ruled for 21 years, maintaining Polonnaruwa's hydraulic and monastic infrastructure. His reign focused on reservoir maintenance, temple sponsorship, and administrative routine. Chronicles note stability, enabling the groundwork for Parakramabahu I's subsequent grandeur."
+  },
+  {
+    "name": "King Parakramabahu I",
+    "slug": "parakramabahu-i",
+    "kingdom": "polonnaruwa",
+    "reign": "1153–1186",
+    "biography": "Parakramabahu I (1153–1186), known as 'Parakramabahu the Great,' is Polonnaruwa's most celebrated monarch. His 33-year reign transformed the capital into a hydraulic and architectural marvel: constructing the massive Parakrama Samudra reservoir, magnificent palace complexes, and ornate Buddhist temples (Vatadage, Lankathilaka). He unified fractious regional kingdoms, conducted military campaigns into South India and Burma, and patronized literature and the arts. His famous maxim—'Not a drop of water should reach the sea without serving man'—epitomizes his hydraulic vision. His reign represents Polonnaruwa's zenith: political unity, economic prosperity, and cultural brilliance."
+  },
+  {
+    "name": "King Nissanka Malla",
+    "slug": "nissanka-malla",
+    "kingdom": "polonnaruwa",
+    "reign": "1187–1196",
+    "biography": "Nissanka Malla (1187–1196) ruled for nine years, sustaining Polonnaruwa's grandeur after Parakramabahu I's death. He commissioned numerous inscriptions proclaiming his piety and legitimacy (he was not of direct royal lineage, requiring extra legitimization). He built temples, sponsored festivals, and maintained irrigation works. His reign emphasized continuity through ostentatious Buddhist patronage, yet underlying succession instability began surfacing."
+  },
+  {
+    "name": "King Sahasa Malla",
+    "slug": "sahasa-malla",
+    "kingdom": "polonnaruwa",
+    "reign": "1200–1202",
+    "biography": "Sahasa Malla (1200–1202) ruled briefly for two years amid escalating succession conflicts. His tenure marked the onset of Polonnaruwa's rapid dynastic fragmentation. Limited administrative consolidation occurred; his reign functions as a transitional phase before the chaotic sequence involving queens and short-lived claimants."
+  },
+  {
+    "name": "Queen Kalyanavati",
+    "slug": "kalyanavati",
+    "kingdom": "polonnaruwa",
+    "reign": "1202–1208",
+    "biography": "Queen Kalyanavati (1202–1208) governed for six years, one of the rare female rulers in Polonnaruwa. Her reign reflects succession turbulence following Nissanka Malla's lineage collapse. She maintained administrative continuity through court alliances, yet her tenure underscores the dynasty's fragility. Her rule illustrates female sovereignty emerging during male succession voids."
+  },
+  {
+    "name": "King Dharmasoka",
+    "slug": "dharmasoka",
+    "kingdom": "polonnaruwa",
+    "reign": "1208–1209",
+    "biography": "Dharmasoka (1208–1209) ruled for one year within the chaotic late Polonnaruwa succession. His brief tenure limited policy imprints; rapid turnover characterized this volatile period. Administrative survival relied on entrenched local networks."
+  },
+  {
+    "name": "King Anikanga",
+    "slug": "anikanga",
+    "kingdom": "polonnaruwa",
+    "reign": "1209",
+    "biography": "Anikanga (1209) held power momentarily, ruling less than a year. His ultrashort tenure exemplifies the extreme instability preceding Polonnaruwa's abandonment. Succession contestation dominated political life, precluding governance effectiveness."
+  },
+  {
+    "name": "Queen Lilavati",
+    "slug": "lilavati",
+    "kingdom": "polonnaruwa",
+    "reign": "1197–1200, 1209–1210, 1211–1212",
+    "biography": "Queen Lilavati ruled in three separate intervals (1197–1200, 1209–1210, 1211–1212), an extraordinary pattern of repeated accession and displacement. Her tenures reflect intense factional struggle among Polonnaruwa elites. Despite instability, she maintained administrative continuity through strategic court alliances. Her repeated sovereignty underscores both female political agency and the dynasty's terminal fragmentation."
+  },
+  {
+    "name": "King Lokissara",
+    "slug": "lokissara",
+    "kingdom": "polonnaruwa",
+    "reign": "1210–1211",
+    "biography": "Lokissara (1210–1211) ruled for one year within the chaotic late Polonnaruwa sequence. His brief tenure reflects ongoing succession contestation. Limited textual evidence precludes detailed reconstruction; his role was primarily temporal bridging amid volatility."
+  },
+  {
+    "name": "King Parakrama Pandya II",
+    "slug": "parakrama-pandya-ii",
+    "kingdom": "polonnaruwa",
+    "reign": "1212–1215",
+    "biography": "Parakrama Pandya II (1212–1215) ruled briefly before Kalinga Magha's devastating invasion. His three-year tenure marked Polonnaruwa's final gasp as a stable capital. Administrative effectiveness waned amid external threats and internal fragmentation, setting the stage for catastrophic foreign intervention."
+  },
+  {
+    "name": "King Kalinga Magha",
+    "slug": "kalinga-magha-polonnaruwa",
+    "kingdom": "polonnaruwa",
+    "reign": "1215–1236",
+    "biography": "Kalinga Magha (1215–1236) was an invader from Kalinga (East India) who conquered Polonnaruwa and ruled for 21 years. Chronicles describe his reign as brutal and destructive: monasteries were desecrated, irrigation systems neglected, and the Sinhalese population fled southward. His occupation forced the permanent abandonment of Polonnaruwa as the capital, fragmenting the kingdom into competing regional powers (Dambadeniya, Yapahuwa, Kurunegala). Kalinga Magha's invasion marks a watershed: ending the classical hydraulic kingdoms centered on Anuradhapura-Polonnaruwa and initiating a decentralized, mobile capital era."
+  },
+  {
+    "name": "King Vijayabahu III",
+    "slug": "vijayabahu-iii",
+    "kingdom": "dambadeniya",
+    "reign": "1236–1270",
+    "biography": "Vijayabahu III (1236–1270) established Dambadeniya as the new capital after expelling Kalinga Magha's forces from Polonnaruwa. His 34-year reign focused on reconstruction: rebuilding monasteries, restoring Buddhist ordination lineages, and fortifying the new capital. Operating from a smaller hydraulic base, he adapted kingship to a more modest scale—emphasizing religious legitimacy and regional alliance-building over grand irrigation projects. His reign symbolizes Sinhalese resilience and adaptive state reformation."
+  },
+  {
+    "name": "King Parakramabahu II",
+    "slug": "parakramabahu-ii",
+    "kingdom": "dambadeniya",
+    "reign": "1270–1284",
+    "biography": "Parakramabahu II (1270–1284) ruled from Dambadeniya for fourteen years, sustaining the restoration initiated by Vijayabahu III. He repelled South Indian incursions, patronized Buddhist scholarship, and maintained regional irrigation networks. His reign emphasized military defense and cultural revival, adapting to the post-Polonnaruwa fragmented landscape."
+  },
+  {
+    "name": "King Bhuvanaikabahu I",
+    "slug": "bhuvanaikabahu-i",
+    "kingdom": "yapahuwa",
+    "reign": "1284–1291",
+    "biography": "Bhuvanaikabahu I (1284–1291) relocated the capital to Yapahuwa, a fortified rock stronghold, in response to ongoing South Indian threats. His seven-year reign focused on defensive fortification and safeguarding the Tooth Relic. The capital shift reflects strategic adaptation to persistent external pressure, prioritizing security over hydraulic expansion."
+  },
+  {
+    "name": "King Parakramabahu IV",
+    "slug": "parakramabahu-iv",
+    "kingdom": "yapahuwa",
+    "reign": "1291–1302",
+    "biography": "Parakramabahu IV (1291–1302) continued ruling from Yapahuwa for eleven years. His reign maintained Buddhist patronage and regional irrigation, navigating the challenges of a mobile, defensive kingship model. Limited grand construction reflects the era's focus on survival over expansion."
+  },
+  {
+    "name": "King Bhuvanaikabahu II",
+    "slug": "bhuvanaikabahu-ii",
+    "kingdom": "kurunegala",
+    "reign": "1302–1326",
+    "biography": "Bhuvanaikabahu II (1302–1326) shifted the capital again, this time to Kurunegala, ruling for 24 years. His lengthy tenure enabled modest infrastructural consolidation within the new regional center. He maintained monastic patronage and irrigation upkeep, adapting traditional kingship to a decentralized territorial reality."
+  },
+  {
+    "name": "King Vijayabahu V",
+    "slug": "vijayabahu-v",
+    "kingdom": "kurunegala",
+    "reign": "1326–1341",
+    "biography": "Vijayabahu V (1326–1341) ruled from Kurunegala for fifteen years, sustaining administrative and religious continuity. His reign focused on maintaining Buddhist establishments and regional irrigation networks. The era reflects ongoing adaptation to the post-Polonnaruwa fragmented political landscape."
+  },
+  {
+    "name": "King Bhuvanaikabahu IV",
+    "slug": "bhuvanaikabahu-iv",
+    "kingdom": "gampola",
+    "reign": "1341–1351",
+    "biography": "Bhuvanaikabahu IV (1341–1351) relocated the capital to Gampola, ruling for ten years. His reign emphasized Buddhist patronage and regional fortification amid persistent South Indian interference. The capital shift illustrates continued strategic adaptation to external threats."
+  },
+  {
+    "name": "King Parakramabahu V",
+    "slug": "parakramabahu-v",
+    "kingdom": "gampola",
+    "reign": "1351–1353",
+    "biography": "Parakramabahu V (1351–1353) ruled briefly from Gampola for two years. His short tenure limited significant policy imprints; succession dynamics and regional power balancing dominated his rule. Administrative continuity relied on established local networks."
+  },
+  {
+    "name": "King Vikramabahu III",
+    "slug": "vikramabahu-iii",
+    "kingdom": "gampola",
+    "reign": "1357–1374",
+    "biography": "Vikramabahu III (1357–1374) governed from Gampola for seventeen years, enabling modest infrastructural consolidation. His reign maintained monastic patronage, regional irrigation, and defensive fortification. The era reflects sustained adaptation to decentralized governance."
+  },
+  {
+    "name": "King Bhuvanaikabahu V",
+    "slug": "bhuvanaikabahu-v",
+    "kingdom": "gampola",
+    "reign": "1372–1391",
+    "biography": "Bhuvanaikabahu V (1372–1391) ruled from Gampola for nineteen years, sustaining Buddhist establishments and regional irrigation. His lengthy tenure facilitated administrative stability amid the fragmented political landscape. Chronicles note his piety and judicial fairness."
+  },
+  {
+    "name": "King Vira Alakesvara",
+    "slug": "vira-alakesvara",
+    "kingdom": "gampola",
+    "reign": "1391–1392",
+    "biography": "Vira Alakesvara (1391–1392) ruled briefly for one year from Gampola. His short tenure marked a transitional phase before the Kotte kingdom's ascendancy. Limited administrative consolidation occurred; regional power dynamics dominated."
+  },
+  {
+    "name": "King Parakramabahu VI",
+    "slug": "parakramabahu-vi",
+    "kingdom": "kotte",
+    "reign": "1412–1467",
+    "biography": "Parakramabahu VI (1412–1467) is the last king to unify the entire island, ruling from Kotte for 55 years. His reign represents a renaissance: he reconquered the northern Jaffna kingdom, patronized Sinhalese literature (fostering a literary golden age), and maintained robust regional irrigation. His court became a cultural center, producing major poetic and historical works. His death marked the end of island-wide unity; subsequent kings ruled only the southwest lowlands."
+  },
+  {
+    "name": "King Bhuvanaikabahu VI",
+    "slug": "bhuvanaikabahu-vi",
+    "kingdom": "kotte",
+    "reign": "1467–1472",
+    "biography": "Bhuvanaikabahu VI (1467–1472) ruled from Kotte for five years after Parakramabahu VI's death. His brief reign witnessed the kingdom's territorial fragmentation: regional powers asserted independence, ending unified rule. Administrative focus shifted to maintaining southwestern lowland control."
+  },
+  {
+    "name": "King Parakramabahu VII",
+    "slug": "parakramabahu-vii",
+    "kingdom": "kotte",
+    "reign": "1472–1480",
+    "biography": "Parakramabahu VII (1472–1480) governed from Kotte for eight years, sustaining the reduced kingdom's infrastructure. His reign focused on regional irrigation, Buddhist patronage, and defensive alliances. The era reflects adaptation to permanent territorial fragmentation."
+  },
+  {
+    "name": "King Parakramabahu VIII",
+    "slug": "parakramabahu-viii",
+    "kingdom": "kotte",
+    "reign": "1484–1518",
+    "biography": "Parakramabahu VIII (1484–1518) ruled from Kotte for 34 years, enabling sustained regional consolidation. His lengthy tenure maintained Buddhist establishments, irrigation networks, and administrative routine. The era witnessed early Portuguese contact, foreshadowing colonial intervention."
+  },
+  {
+    "name": "King Dharma Parakramabahu IX",
+    "slug": "dharma-parakramabahu-ix",
+    "kingdom": "kotte",
+    "reign": "1518–1521",
+    "biography": "Dharma Parakramabahu IX (1518–1521) ruled briefly for three years from Kotte. His reign marked the onset of Portuguese interference in Sri Lankan politics. Limited administrative autonomy characterized his rule; external European pressure began reshaping regional dynamics."
+  },
+  {
+    "name": "King Vijayabahu VI",
+    "slug": "vijayabahu-vi",
+    "kingdom": "kotte",
+    "reign": "1521",
+    "biography": "Vijayabahu VI (1521) ruled momentarily for less than a year. His ultrashort tenure reflects intense succession volatility amid Portuguese meddling. Administrative continuity relied on entrenched court networks."
+  },
+  {
+    "name": "King Bhuvanaikabahu VII",
+    "slug": "bhuvanaikabahu-vii",
+    "kingdom": "kotte",
+    "reign": "1521–1551",
+    "biography": "Bhuvanaikabahu VII (1521–1551) ruled from Kotte for thirty years amid escalating Portuguese influence. His reign witnessed the kingdom's division into three competing centers (Kotte, Sitawaka, Kandy), each vying for legitimacy. He navigated Portuguese alliances pragmatically, maintaining regional Buddhist patronage while adapting to European commercial and military pressures."
+  },
+  {
+    "name": "King Dharmapala",
+    "slug": "dharmapala",
+    "kingdom": "kotte",
+    "reign": "1551–1597",
+    "biography": "Dharmapala (1551–1597) was the last king of Kotte, ruling for 46 years as a Portuguese client. Converted to Catholicism and renamed Dom João Dharmapala, he ceded his kingdom to Portugal upon death, formalizing colonial annexation. His reign symbolizes the collapse of independent Sinhalese kingship in the lowlands, transitioning sovereignty to European colonial powers. His legacy is contested: collaboration enabling survival versus betrayal of Buddhist heritage."
+  },
+  {
+    "name": "King Mayadunne",
+    "slug": "mayadunne",
+    "kingdom": "sitawaka",
+    "reign": "1521–1581",
+    "biography": "Mayadunne (1521–1581) established the Sitawaka kingdom in opposition to Portuguese-aligned Kotte. His 60-year reign emphasized militant resistance to European encroachment and aggressive expansion against rival Sinhalese kingdoms. He waged prolonged warfare against Kotte and the emerging Kandyan kingdom, positioning Sitawaka as the anti-colonial standard-bearer. His military campaigns and fortification projects reflect adaptive kingship under colonial pressure."
+  },
+  {
+    "name": "King Rajasinha I",
+    "slug": "rajasinha-i",
+    "kingdom": "sitawaka",
+    "reign": "1581–1593",
+    "biography": "Rajasinha I (1581–1593) succeeded Mayadunne in Sitawaka, ruling for twelve years with fierce anti-Portuguese militancy. He conquered Kotte temporarily, besieged Portuguese forts, and attempted to eliminate Christian influence. However, internal overextension and succession disputes weakened Sitawaka; after his death, the kingdom collapsed. His reign represents the zenith and denouement of militant Sinhalese resistance based in Sitawaka."
+  },
+  {
+    "name": "King Senasammata Vikramabahu",
+    "slug": "senasammata-vikramabahu",
+    "kingdom": "kandyan",
+    "reign": "1469–1511",
+    "biography": "Senasammata Vikramabahu (1469–1511) is traditionally regarded as the founder of the Kandyan kingdom, establishing an independent highland realm. His 42-year reign focused on fortifying the central highlands, creating a defensible capital resistant to lowland invasions. He laid the foundation for Kandy's survival as the last independent Sinhalese kingdom during the colonial era."
+  },
+  {
+    "name": "King Jayaweera Astana",
+    "slug": "jayaweera-astana",
+    "kingdom": "kandyan",
+    "reign": "1511–1552",
+    "biography": "Jayaweera Astana (1511–1552) ruled the Kandyan kingdom for 41 years, consolidating highland independence. His reign navigated pressures from coastal Portuguese expansion and rival Sinhalese kingdoms (Kotte, Sitawaka). He maintained Buddhist orthodoxy and regional irrigation, establishing Kandy's identity as the guardian of Sinhalese-Buddhist tradition."
+  },
+  {
+    "name": "King Karaliadde Bandara",
+    "slug": "karaliadde-bandara",
+    "kingdom": "kandyan",
+    "reign": "1551–1581",
+    "biography": "Karaliadde Bandara (1551–1581) ruled Kandy for thirty years amid intensifying Portuguese and Sitawaka threats. His reign emphasized defensive fortification and strategic alliances. He safeguarded the Tooth Relic (brought to Kandy during this era), elevating the kingdom's religious legitimacy as the protector of Buddhism's most sacred symbol."
+  },
+  {
+    "name": "King Don Juan Bandara",
+    "slug": "don-juan-bandara",
+    "kingdom": "kandyan",
+    "reign": "1581–1590",
+    "biography": "Don Juan Bandara (1581–1590) ruled Kandy for nine years as a Portuguese client, converted to Catholicism. His collaboration with Portuguese forces against Sitawaka's Rajasinha I illustrates the complex alliance politics of the era. However, his Christian conversion alienated traditionalist nobility, contributing to his eventual overthrow."
+  },
+  {
+    "name": "King Vimaladharmasuriya I",
+    "slug": "vimaladharmasuriya-i",
+    "kingdom": "kandyan",
+    "reign": "1590–1604",
+    "biography": "Vimaladharmasuriya I (1590–1604) seized the Kandyan throne, restoring Buddhist legitimacy after Don Juan Bandara's Christian interlude. His fourteen-year reign emphasized anti-Portuguese resistance, monastic revival, and highland fortification. He married a Portuguese-captured princess (Dona Catarina), legitimizing his rule through royal lineage. His reign solidified Kandy as the bastion of Sinhalese-Buddhist independence."
+  },
+  {
+    "name": "King Senarat",
+    "slug": "senarat",
+    "kingdom": "kandyan",
+    "reign": "1604–1635",
+    "biography": "Senarat (1604–1635) ruled Kandy for 31 years, navigating Portuguese military pressure and internal succession disputes. His lengthy reign maintained highland independence through strategic defensive warfare and diplomatic maneuvering. He reinforced Buddhist institutions and irrigation networks, sustaining Kandy's role as the protector of Sinhalese culture."
+  },
+  {
+    "name": "King Rajasinha II",
+    "slug": "rajasinha-ii",
+    "kingdom": "kandyan",
+    "reign": "1635–1687",
+    "biography": "Rajasinha II (1635–1687) is one of Kandy's most celebrated monarchs, ruling for 52 years. He formed a strategic alliance with the Dutch (who displaced Portuguese control of coastal regions), using European rivalry to preserve highland autonomy. His reign witnessed military campaigns, administrative reforms, and Buddhist patronage. He commissioned the Dalada Maligawa (Temple of the Tooth), cementing Kandy's religious centrality. His diplomacy balanced European powers, ensuring Kandyan independence."
+  },
+  {
+    "name": "King Vimaladharmasuriya II",
+    "slug": "vimaladharmasuriya-ii",
+    "kingdom": "kandyan",
+    "reign": "1687–1707",
+    "biography": "Vimaladharmasuriya II (1687–1707) ruled Kandy for twenty years, sustaining the kingdom's independence amid Dutch coastal dominance. His reign focused on Buddhist patronage, highland irrigation, and defensive fortification. He navigated Dutch commercial pressures pragmatically, maintaining autonomy through diplomatic balancing."
+  },
+  {
+    "name": "King Narendra Sinha",
+    "slug": "narendra-sinha",
+    "kingdom": "kandyan",
+    "reign": "1707–1739",
+    "biography": "Narendra Sinha (1707–1739) governed Kandy for 32 years, the last king of the original Sinhalese dynasty. His reign emphasized Buddhist scholarship, monastic reform, and architectural patronage. Without a male heir, succession passed to his South Indian (Nayakkar) relatives, transitioning the dynasty. His era represents the culmination of traditional Sinhalese Kandyan kingship."
+  },
+  {
+    "name": "King Sri Vijaya Rajasinha",
+    "slug": "sri-vijaya-rajasinha",
+    "kingdom": "kandyan",
+    "reign": "1739–1747",
+    "biography": "Sri Vijaya Rajasinha (1739–1747), the first Nayakkar king, ruled for eight years. Though of South Indian Tamil origin, he adopted Sinhalese-Buddhist kingship norms, patronizing monasteries and safeguarding the Tooth Relic. His accession illustrates the adaptability of Kandyan sovereignty—legitimacy derived from Buddhist merit-making and relic custodianship rather than strictly ethnic lineage."
+  },
+  {
+    "name": "King Kirti Sri Rajasinha",
+    "slug": "kirti-sri-rajasinha",
+    "kingdom": "kandyan",
+    "reign": "1747–1781",
+    "biography": "Kirti Sri Rajasinha (1747–1781) ruled Kandy for 34 years, presiding over a Buddhist renaissance. He invited monks from Siam (Thailand) to restore higher ordination lineages (Upasampada), revitalizing the Sangha. His reign sponsored temple construction, literary patronage, and the Esala Perahera festival's elaboration. Despite his Tamil origins, he became a champion of Sinhalese-Buddhist culture, illustrating kingship's religious-cultural foundations transcending ethnicity."
+  },
+  {
+    "name": "King Rajadhi Rajasinha",
+    "slug": "rajadhi-rajasinha",
+    "kingdom": "kandyan",
+    "reign": "1781–1798",
+    "biography": "Rajadhi Rajasinha (1781–1798) ruled Kandy for seventeen years, maintaining Buddhist patronage and highland autonomy. His reign navigated Dutch coastal dominance and internal court factionalism. He sponsored monastic scholarship and temple maintenance, sustaining Kandyan cultural identity."
+  },
+  {
+    "name": "King Sri Vikrama Rajasinha",
+    "slug": "sri-vikrama-rajasinha",
+    "kingdom": "kandyan",
+    "reign": "1798–1815",
+    "biography": "Sri Vikrama Rajasinha (1798–1815) was the last king of Kandy, ruling for seventeen years before British annexation. His reign witnessed escalating conflict with the British Empire, who controlled coastal regions. Internal dissent among Kandyan nobles, exploited by British agents, weakened his authority. In 1815, a combination of British military pressure and noble betrayal led to his capture and exile. The Kandyan Convention (1815) formalized British colonial rule over the entire island, ending two millennia of independent Sinhalese kingship. His reign symbolizes the final stand and ultimate collapse of indigenous sovereignty."
+  },
+  {
+    "name": "King Kalinga Magha",
+    "slug": "kalinga-magha-jaffna",
+    "kingdom": "jaffna",
+    "reign": "1215–1236",
+    "biography": "Kalinga Magha (1215–1236) also established influence in the Jaffna peninsula during his Polonnaruwa occupation, though detailed governance records are sparse. His presence contributed to the northern region's distinct Tamil-Hindu political identity, setting foundations for the subsequent Jaffna kingdom's emergence."
+  },
+  {
+    "name": "King Cinkai Aryan I",
+    "slug": "cinkai-aryan-i",
+    "kingdom": "jaffna",
+    "reign": "1277–1284",
+    "biography": "Cinkai Aryan I (1277–1284) is traditionally regarded as founding the Aryacakravarti dynasty in Jaffna. His seven-year reign established a Tamil-Hindu kingdom in the northern peninsula, distinct from southern Sinhalese-Buddhist polities. He laid foundations for Jaffna's enduring cultural and political autonomy."
+  },
+  {
+    "name": "King Varodaya Cinkai Aryan",
+    "slug": "varodaya-cinkai-aryan",
+    "kingdom": "jaffna",
+    "reign": "1284–1292",
+    "biography": "Varodaya Cinkai Aryan (1284–1292) ruled Jaffna for eight years, consolidating the Aryacakravarti dynasty. His reign focused on fortification, Hindu temple patronage, and maritime trade development. Jaffna's strategic coastal position enabled commercial prosperity through South Indian and Southeast Asian trade networks."
+  },
+  {
+    "name": "King Cinkai Aryan II",
+    "slug": "cinkai-aryan-ii",
+    "kingdom": "jaffna",
+    "reign": "1292–1342",
+    "biography": "Cinkai Aryan II (1292–1342) enjoyed a lengthy fifty-year reign, facilitating sustained Jaffna kingdom consolidation. His tenure emphasized Hindu religious patronage, maritime commerce, and administrative stabilization. His era represents Jaffna's emergence as a significant regional power."
+  },
+  {
+    "name": "King Vickrama Cinkai Aryan",
+    "slug": "vickrama-cinkai-aryan",
+    "kingdom": "jaffna",
+    "reign": "1342–1380",
+    "biography": "Vickrama Cinkai Aryan (1342–1380) ruled Jaffna for 38 years, sustaining the kingdom's commercial and cultural prosperity. His reign maintained Hindu temple networks, maritime trade infrastructure, and regional autonomy vis-à-vis southern Sinhalese kingdoms."
+  },
+  {
+    "name": "King Varodaya Cinkai Aryan III",
+    "slug": "varodaya-cinkai-aryan-iii",
+    "kingdom": "jaffna",
+    "reign": "1380–1410",
+    "biography": "Varodaya Cinkai Aryan III (1380–1410) governed Jaffna for thirty years, navigating the fragmented post-Polonnaruwa Sri Lankan political landscape. His reign emphasized maritime trade expansion, Hindu patronage, and defensive fortification against southern expansionist pressures."
+  },
+  {
+    "name": "King Martanda Cinkai Aryan",
+    "slug": "martanda-cinkai-aryan",
+    "kingdom": "jaffna",
+    "reign": "1410–1440",
+    "biography": "Martanda Cinkai Aryan (1410–1440) ruled Jaffna for thirty years, sustaining the kingdom's commercial networks and Hindu religious institutions. His era witnessed Parakramabahu VI's expansionist campaigns from Kotte, creating tension but ultimately maintaining Jaffna's autonomy."
+  },
+  {
+    "name": "King Kanakasooriya Cinkai Aryan I",
+    "slug": "kanakasooriya-cinkai-aryan-i",
+    "kingdom": "jaffna",
+    "reign": "1440–1467",
+    "biography": "Kanakasooriya Cinkai Aryan I (1440–1467) governed Jaffna for 27 years during Parakramabahu VI's island reunification efforts. His reign ultimately saw Jaffna's conquest by Kotte forces, ending temporary autonomy. After Parakramabahu VI's death, Jaffna regained independence."
+  },
+  {
+    "name": "King Singai Pararasasekaran VI",
+    "slug": "singai-pararasasekaran-vi",
+    "kingdom": "jaffna",
+    "reign": "1467–1519",
+    "biography": "Singai Pararasasekaran VI (1467–1519) ruled Jaffna for 52 years, restoring and consolidating kingdom independence after Kotte control ended. His lengthy reign enabled infrastructural investment, Hindu temple patronage, and maritime trade expansion. His era represents Jaffna's mature kingdom phase."
+  },
+  {
+    "name": "King Pararacacekaran VII",
+    "slug": "pararacacekaran-vii",
+    "kingdom": "jaffna",
+    "reign": "1519–1561",
+    "biography": "Pararacacekaran VII (1519–1561) governed Jaffna for 42 years during early Portuguese contact. His reign navigated European commercial intrusion and attempted missionary activity. He maintained Hindu orthodoxy and regional autonomy, resisting Portuguese political interference."
+  },
+  {
+    "name": "King Cankili I",
+    "slug": "cankili-i",
+    "kingdom": "jaffna",
+    "reign": "1561–1565",
+    "biography": "Cankili I (1561–1565) ruled Jaffna for four turbulent years, fiercely resisting Portuguese encroachment. He executed Portuguese-converted Catholics and expelled missionaries, asserting Hindu sovereignty. His militant stance provoked Portuguese military retaliation, leading to his eventual overthrow."
+  },
+  {
+    "name": "King Puviraja Pandaram",
+    "slug": "puviraja-pandaram",
+    "kingdom": "jaffna",
+    "reign": "1565",
+    "biography": "Puviraja Pandaram (1565) ruled Jaffna momentarily as a Portuguese client after Cankili I's overthrow. His brief tenure reflects Portuguese attempts to install compliant rulers. Indigenous resistance prevented lasting control."
+  },
+  {
+    "name": "King Periyapillai",
+    "slug": "periyapillai",
+    "kingdom": "jaffna",
+    "reign": "1565–1582",
+    "biography": "Periyapillai (1565–1582) ruled Jaffna for seventeen years, balancing Portuguese pressure with indigenous autonomy. His reign maintained Hindu institutions while navigating European commercial and missionary interference. His tenure represents pragmatic adaptation to colonial pressures."
+  },
+  {
+    "name": "King Cankili II",
+    "slug": "cankili-ii",
+    "kingdom": "jaffna",
+    "reign": "1617–1619",
+    "biography": "Cankili II (1617–1619) was the last independent king of Jaffna, ruling for two years before Portuguese conquest. His reign witnessed fierce resistance to colonial annexation, but superior Portuguese military force prevailed. His capture and execution in 1619 ended the Jaffna kingdom, formalizing Portuguese colonial rule over the northern peninsula. His defeat symbolizes the erasure of indigenous Tamil-Hindu sovereignty in Sri Lanka's north."
+  }
 ]
