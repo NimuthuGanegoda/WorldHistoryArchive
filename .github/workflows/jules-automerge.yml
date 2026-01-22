@@ -10,10 +10,10 @@ permissions:
 jobs:
   automerge:
     runs-on: ubuntu-latest
-    # Replace 'google-jules[bot]' with the exact username Jules uses in your PRs
+    # Target only the Jules bot
     if: github.event.pull_request.user.login == 'google-jules[bot]'
     steps:
-      - name: Enable auto-merge
+      - name: Enable Auto-merge
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
