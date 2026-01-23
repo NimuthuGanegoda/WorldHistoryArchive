@@ -1,125 +1,79 @@
-# Sri Lanka History Data
+# Sri Lanka History Wiki
 
-Data-centric repository cataloging Sri Lankan historical kingdoms and monarchs. This version focuses purely on structured JSON so the dataset can be reused in apps, visualizations, or static site generators.
+A Next.js web application dedicated to cataloging and visualizing the history of Sri Lankan kingdoms, monarchs, and archaeological sites.
 
-Note: All prior example HTML pages were removed (data-only mode requested). Regeneration of site output can be done externally with a static site generator consuming the JSON.
+This project aims to provide an accessible, structured, and interactive way to explore Sri Lanka's rich historical timeline, moving beyond static text to a data-driven experience.
 
-## Project Goals
+## Website Goals
 
-- Provide clear navigation from Kingdom → Monarch → Detailed History.
-- Keep content static, fast, and accessible (semantic HTML, responsive layout, WCAG-friendly structure).
-- Enable future enhancements (client-side search, filtering, timeline visualizations) via a minimal JS layer.
+- **Interactive Exploration**: Navigate easily from Kingdom to Monarch to specific historical details.
+- **Structured Data**: Utilize a robust JSON schema to ensure historical data is consistent and machine-readable.
+- **Performance & Accessibility**: Built with Next.js and Tailwind CSS for a fast, responsive, and accessible user experience.
+- **Educational Resource**: Serve as a reliable reference for students, historians, and enthusiasts.
 
-## Data Schema
+## Architecture & Data
 
-Two primary files will be introduced:
+The website is powered by static JSON data located in `src/data/`. This separation of data and UI allows for easy updates and potential reuse of the dataset.
 
-```text
-data/
-  kingdoms.json  # Array of kingdom objects
-  kings.json     # Array of king objects
-```
+Key data files:
+- `src/data/kingdoms.json`: Definitions of major historical kingdoms (e.g., Anuradhapura, Polonnaruwa).
+- `src/data/kings.json`: Detailed records of monarchs, including reigns, biographies, and connections.
+- `src/data/sites.json`: Archaeological sites and their historical context.
 
-### kingdoms.json (schema)
-```jsonc
-{
-  "id": "anuradhapura",        // slug identifier
-  "name": "Anuradhapura",      // display name
-  "era": "437 BCE – 1017 CE",  // inclusive date range
-  "region": "North Central Province", // optional
-  "notes": "First major kingdom; irrigation & Buddhist center"
-}
-```
+*Note: The root `data/` directory contains source/legacy datasets and is used by some utility scripts.*
 
-### kings.json (schema)
-```jsonc
-{
-  "name": "Dutugemunu",
-  "slug": "dutugemunu",              // derived, lowercase kebab
-  "kingdom": "anuradhapura",         // foreign key to kingdoms.id
-  "reign": "161–137 BCE",            // original textual reign
-  "startYear": -161,                  // negative for BCE (optional parse)
-  "endYear": -137,                    // negative for BCE (optional parse)
-  "categories": ["unification","architecture"], // tags
-  "notes": "Unified much of Sri Lanka; major Buddhist works"
-}
-```
+## Getting Started
 
-If years cannot be confidently parsed they will be omitted from `startYear`/`endYear` but the textual `reign` preserved.
+To run the application locally:
 
-## Content Roadmap (Data Mode)
+1.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
 
-- Populate `kingdoms.json` with all major kingdoms (Tambapanni, Upatissa Nuwara, Anuradhapura, Sigiriya phase, Polonnaruwa, Dambadeniya, Yapahuwa, Kurunegala, Gampola, Kotte, Sitawaka, Kandyan, Jaffna).
-- Populate `kings.json` from provided chronological list.
-- Add optional `sources` field per king for citations.
-- Provide a script to validate referential integrity (kingdom slug existence).
-- Publish versioned releases (e.g., `v0.1.0`) for downstream consumption.
+2.  **Start Development Server**
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+3.  **Build for Production**
+    ```bash
+    npm run build
+    ```
 
 ## Contributing
 
-1. Fork the repository.
-2. Add or update entries in `data/kingdoms.json` or `data/kings.json` following schema.
-3. Maintain alphabetical or chronological ordering as indicated in file header comments (to be added).
-4. Include `sources` array when adding new historical assertions.
-5. Run validation script (planned) before PR submission.
+We welcome contributions to improve the data accuracy or website features.
 
-## Data Integrity & Sources
+1.  **Fork the repository.**
+2.  **Update Data**:
+    - Edit files in `src/data/` to add or correct historical information.
+    - Ensure you follow the existing schema structure.
+3.  **Validate**: Run the validation script to check for data integrity.
+    ```bash
+    npm run validate
+    ```
+4.  **Submit a Pull Request**.
 
-Primary narrative sources include the Mahavamsa, Culavamsa, archaeological survey reports, and peer-reviewed historiography. Pages will gradually incorporate citation footnotes to distinguish legend from corroborated history.
+## Utilities & CLI
 
-## Accessibility Guidelines
+The project includes utility scripts in `src/cli.js` and `scripts/` to help manage the data.
 
-- Use `<caption>` for complex tables (planned addition).
-- Provide descriptive link text (avoid "click here").
-- Maintain color contrast (checked against WCAG AA).
-- Keyboard focus states preserved.
+- **Validate Data**: `npm run validate`
+- **Export Markdown**: `npm run export:md`
+- **CLI Tools**:
+    ```bash
+    # List kingdoms
+    node src/cli.js list-kingdoms
 
-## Future Automation
-
-Static site generators or visualization layers can ingest these JSON files to produce timelines, maps, or multilingual interfaces. Tooling included: `scripts/validate.js` (referential integrity) and `scripts/export-markdown.js` (derives Markdown summaries). No HTML artifacts are kept in the repo.
-
-## CLI Usage
-
-Install locally (dev):
-```bash
-npm install
-```
-
-Run validation:
-```bash
-npm run validate
-```
-
-List kingdoms:
-```bash
-node src/cli.js list-kingdoms
-```
-
-List kings of Anuradhapura:
-```bash
-node src/cli.js list-kings anuradhapura
-```
-
-Find king by name fragment:
-```bash
-node src/cli.js find-king tissa
-```
-
-Export Markdown set:
-```bash
-npm run export:md
-```
-
-Global install (optional):
-```bash
-npm link
-slhistory list-kingdoms
-```
+    # Find a king
+    node src/cli.js find-king <name>
+    ```
 
 ## License
 
-Content is provided for educational purposes. (Formal license to be decided.)
+Content is provided for educational purposes.
 
 ---
-© 2025 Sri Lanka History Wiki (Work in progress)
-Maintained by Jules
+© 2025 Sri Lanka History Wiki
