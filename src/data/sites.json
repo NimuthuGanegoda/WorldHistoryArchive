@@ -15,7 +15,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.3500,
+      "lng": 80.3964
+    }
   },
   {
     "id": "jetavanaramaya",
@@ -33,7 +37,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.3514,
+      "lng": 80.4036
+    }
   },
   {
     "id": "abhayagiri-dagoba",
@@ -51,7 +59,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.3708,
+      "lng": 80.3956
+    }
   },
   {
     "id": "sigiriya-rock-fortress",
@@ -69,7 +81,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.9570,
+      "lng": 80.7603
+    }
   },
   {
     "id": "sri-maha-bodhi",
@@ -87,7 +103,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.3447,
+      "lng": 80.3967
+    }
   },
   {
     "id": "temple-of-tooth",
@@ -105,7 +125,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.2936,
+      "lng": 80.6413
+    }
   },
   {
     "id": "polonnaruwa-vatadage",
@@ -123,7 +147,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.9483,
+      "lng": 81.0008
+    }
   },
   {
     "id": "gal-vihara",
@@ -141,7 +169,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.9658,
+      "lng": 81.0069
+    }
   },
   {
     "id": "dambulla-cave-temple",
@@ -159,7 +191,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.8565,
+      "lng": 80.6485
+    }
   },
   {
     "id": "lovamahapaya",
@@ -177,7 +213,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.3444,
+      "lng": 80.3961
+    }
   },
   {
     "id": "thuparamaya",
@@ -195,7 +235,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.3567,
+      "lng": 80.3961
+    }
   },
   {
     "id": "isurumuniya",
@@ -213,7 +257,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.3331,
+      "lng": 80.3900
+    }
   },
   {
     "id": "mihintale",
@@ -231,7 +279,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.3508,
+      "lng": 80.5103
+    }
   },
   {
     "id": "lankatilaka-temple",
@@ -249,7 +301,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.2338,
+      "lng": 80.5650
+    }
   },
   {
     "id": "embekka-devalaya",
@@ -267,7 +323,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.2197,
+      "lng": 80.5703
+    }
   },
   {
     "id": "gadaladeniya-temple",
@@ -285,7 +345,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.2589,
+      "lng": 80.5547
+    }
   },
   {
     "id": "yapahuwa-rock-fortress",
@@ -303,7 +367,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.8286,
+      "lng": 80.3075
+    }
   },
   {
     "id": "parakrama-samudra",
@@ -321,7 +389,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.9333,
+      "lng": 80.9667
+    }
   },
   {
     "id": "royal-palace-polonnaruwa",
@@ -339,7 +411,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.9458,
+      "lng": 81.0003
+    }
   },
   {
     "id": "rankot-vehera",
@@ -357,7 +433,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.9567,
+      "lng": 81.0039
+    }
   },
   {
     "id": "kiri-vehera",
@@ -375,7 +455,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 7.9589,
+      "lng": 81.0042
+    }
   },
   {
     "id": "medirigiriya-vatadage",
@@ -393,7 +477,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.1389,
+      "lng": 80.9922
+    }
   },
   {
     "id": "avukana-buddha",
@@ -411,7 +499,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.0167,
+      "lng": 80.5333
+    }
   },
   {
     "id": "ritigala-monastery",
@@ -429,7 +521,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.1167,
+      "lng": 80.6500
+    }
   },
   {
     "id": "buduruwagala",
@@ -447,7 +543,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 6.7039,
+      "lng": 81.0778
+    }
   },
   {
     "id": "nallur-kovil",
@@ -465,7 +565,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 9.6742,
+      "lng": 80.0294
+    }
   },
   {
     "id": "kelaniya-temple",
@@ -483,7 +587,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 6.9500,
+      "lng": 79.9167
+    }
   },
   {
     "id": "lankarama",
@@ -501,7 +609,11 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.3611,
+      "lng": 80.3931
+    }
   },
   {
     "id": "mirisawetiya",
@@ -519,6 +631,10 @@
     "significance": "",
     "currentStatus": "",
     "googleMapsUrl": "",
-    "media": []
+    "media": [],
+    "coordinates": {
+      "lat": 8.3447,
+      "lng": 80.3886
+    }
   }
 ]
