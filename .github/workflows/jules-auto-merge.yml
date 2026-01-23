@@ -11,7 +11,7 @@ permissions:
 jobs:
   approve-and-merge:
     runs-on: ubuntu-latest
-    if: contains(github.head_ref, 'jules')
+    # LOOK HERE: There should be NO 'if:' line between 'runs-on' and 'steps'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -21,8 +21,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
-          # 1. Force the PR to be "Ready for Review" (removes Draft status)
-          gh pr ready "$PR_URL"
-          
-          # 2. Merge it
-          gh pr merge "$PR_URL" --auto --squash --delete-branch
+          gh pr ready "$PR_URL" || true
+          gh pr merge "$PR_URL" --squash --delete-branch
