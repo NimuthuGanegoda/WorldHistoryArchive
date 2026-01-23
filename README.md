@@ -122,3 +122,4 @@ Content is provided for educational purposes. (Formal license to be decided.)
 
 ---
 © 2025 Sri Lanka History Wiki (Work in progress)
+Maintained by Jules
