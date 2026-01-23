@@ -3,6 +3,9 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
 
+// Create a map for O(1) kingdom lookup
+const kingdomsMap = new Map(kingdomsData.map((k) => [k.slug, k]));
+
 interface King {
   title: string;
   slug: string;
@@ -40,10 +43,7 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
   }
 
   // Find the kingdom
-  const kingdom = kingdomsData.find((k) => 
-    king.kingdom.toLowerCase().includes(k.title.toLowerCase()) ||
-    k.title.toLowerCase().includes(king.kingdom.toLowerCase())
-  );
+  const kingdom = kingdomsMap.get(king.kingdom);
 
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
@@ -59,7 +59,7 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
           <section className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-6 text-sm">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <div><strong>Reign:</strong> {king.reign}</div>
-              <div><strong>Kingdom:</strong> {king.kingdom}</div>
+              <div><strong>Kingdom:</strong> {kingdom ? kingdom.title : king.kingdom}</div>
             </div>
           </section>
 
