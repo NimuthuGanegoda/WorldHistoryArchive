@@ -47,10 +47,13 @@ function extractStartYear(reign: string): number {
   return year;
 }
 
-export default function TimelinePage() {
-  const kings = kingsData as any[];
-  const eras = groupKingsByEra(kings);
+// Pre-compute eras and kingdom map at module scope
+const kings = kingsData as any[];
+const eras = groupKingsByEra(kings);
+// Create Map for O(1) lookup using 'id' (which corresponds to king.kingdom slug)
+const kingdomMap = new Map(kingdomsData.map((k: any) => [k.id, k]));
 
+export default function TimelinePage() {
   return (
     <main className="max-w-7xl mx-auto py-6 px-5">
       <div className="mb-8">
@@ -69,7 +72,7 @@ export default function TimelinePage() {
             
             <div className="space-y-4">
               {eraKings.map((king: any) => {
-                const kingdom = kingdomsData.find((k: any) => k.slug === king.kingdom);
+                const kingdom = kingdomMap.get(king.kingdom);
                 
                 return (
                   <div 
@@ -82,10 +85,10 @@ export default function TimelinePage() {
                       </div>
                       {kingdom && (
                         <Link 
-                          href={`/kingdoms/${kingdom.slug}`}
+                          href={`/kingdoms/${kingdom.id}`}
                           className="text-xs text-gray-600 dark:text-gray-400 hover:text-[var(--accent)] hover:underline"
                         >
-                          {kingdom.title}
+                          {kingdom.name}
                         </Link>
                       )}
                     </div>
