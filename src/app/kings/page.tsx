@@ -10,10 +10,10 @@ interface King {
   kingdom: string;
 }
 
-export default function KingsIndex() {
-  const kings = (kingsData as King[]).slice().sort((a, b) => a.title.localeCompare(b.title));
-  const kingdomTitles = new Map((kingdomsData as any[]).map((k) => [k.slug, k.title]));
+const kings = (kingsData as King[]).slice().sort((a, b) => a.title.localeCompare(b.title));
+const kingdomTitles = new Map((kingdomsData as any[]).map((k) => [k.slug, k.title]));
 
+export default function KingsIndex() {
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Kings' }]} />
