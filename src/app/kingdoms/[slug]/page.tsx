@@ -58,14 +58,13 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
   }
 
   // Filter kings for this kingdom
-  const kingdomKings = kingsData.filter((king: any) => 
-    king.kingdom === kingdom.slug ||
-    king.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
-    kingdom.title.toLowerCase().includes(king.kingdom.toLowerCase())
-  ).sort((a: any, b: any) => {
-    // Sort by chronological order
-    return extractStartYear(a.reign) - extractStartYear(b.reign);
-  });
+  const filteredKings = kingsData.filter((king: any) => king.kingdom === kingdom.slug);
+
+  // Sort by chronological order using Schwartzian transform to minimize regex operations
+  const kingdomKings = filteredKings
+    .map((king: any) => ({ king, startYear: extractStartYear(king.reign) }))
+    .sort((a, b) => a.startYear - b.startYear)
+    .map((item) => item.king);
 
   // Filter sites for this kingdom
   const kingdomSites = (sitesData as any[]).filter((site: any) => 
