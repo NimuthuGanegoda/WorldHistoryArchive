@@ -13,9 +13,11 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         accent: {
-          DEFAULT: "#006f7d",
-          alt: "#b55d00",
+          DEFAULT: "#0071e3",
         },
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'sans-serif'],
       },
     },
   },
