@@ -28,10 +28,13 @@ interface Kingdom {
   }[];
 }
 
+// Pre-compile regex for better performance in sort operations
+const YEAR_REGEX = /(\d+)/;
+
 // Function to extract start year from reign string for sorting
 function extractStartYear(reign: string): number {
   if (!reign) return 9999;
-  const match = reign.match(/(\d+)/);
+  const match = reign.match(YEAR_REGEX);
   if (!match) return 9999;
   const year = parseInt(match[1]);
   if (reign.includes('BCE') || reign.includes('BC')) {
