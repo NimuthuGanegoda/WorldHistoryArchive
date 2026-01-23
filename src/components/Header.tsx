@@ -19,7 +19,7 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'glass border-b border-gray-200/50 dark:border-white/10'
+          ? 'glass'
           : 'bg-transparent'
       }`}
     >

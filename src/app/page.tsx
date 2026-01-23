@@ -129,24 +129,24 @@ export default function Home() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="max-w-[980px] mx-auto text-center px-5 py-32 fade-in">
-          <h1 className="apple-headline mb-5">
+        <div className="max-w-[980px] mx-auto text-center px-5 py-32 fade-in flex flex-col items-center">
+          <h1 className="apple-headline mb-6">
             World History Archive
           </h1>
-          <p className="apple-subheadline mb-10 max-w-2xl mx-auto fade-in-delay-1">
+          <p className="apple-subheadline mb-12 max-w-2xl mx-auto fade-in-delay-1">
             Explore the rich history and heritage of Sri Lankan kingdoms and rulers from ancient times to the colonial era. 
             Discover {kings.length} kings across {kingdoms.length} kingdoms.
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
+          <div className="flex gap-4 justify-center flex-wrap fade-in-delay-1">
             <Link 
               href="/kings" 
-              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="btn-primary"
             >
               Explore Kings
             </Link>
             <Link 
               href="/timeline" 
-              className="inline-block px-6 py-3 bg-gray-800 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors"
+              className="btn-secondary"
             >
               View Timeline
             </Link>
@@ -155,12 +155,12 @@ export default function Home() {
       </section>
 
       {/* Featured Kings Section */}
-      <section className="py-20 bg-white dark:bg-[#0a0a0a]">
+      <section className="py-24 bg-gray-50 dark:bg-[#121212]">
         <div className="max-w-[980px] mx-auto px-5">
-          <h2 className="text-[32px] font-semibold mb-4 text-gray-900 dark:text-white text-center">
+          <h2 className="text-[32px] md:text-[40px] font-semibold mb-4 text-center tracking-tight">
             Featured Rulers
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-8">
+          <p className="text-center text-gray-500 mb-12 text-lg">
             Discover the legendary kings who shaped Sri Lankan history
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -168,39 +168,39 @@ export default function Home() {
               <Link
                 key={king.slug}
                 href={`/kings/${king.slug}`}
-                className="scroll-animate opacity-0 translate-y-8 block p-6 bg-gray-50 dark:bg-[#1a1a1a] rounded-xl hover:shadow-lg transition-all hover:scale-105"
+                className="scroll-animate opacity-0 translate-y-8 block card hover:shadow-xl"
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                <h3 className="text-xl font-semibold mb-2">
                   {king.title}
                 </h3>
-                <p className="text-sm text-blue-600 dark:text-blue-400 mb-3">
+                <p className="text-sm text-[#0071e3] font-medium mb-3">
                   {king.reign}
                 </p>
-                <p className="text-gray-600 dark:text-gray-400 line-clamp-3">
+                <p className="text-gray-500 text-[15px] leading-relaxed line-clamp-3">
                   {king.biography.substring(0, 150)}...
                 </p>
               </Link>
             ))}
           </div>
-          <div className="text-center mt-8">
+          <div className="text-center mt-12">
             <Link 
               href="/kings/vijaya" 
-              className="inline-block text-blue-600 dark:text-blue-400 hover:underline"
+              className="inline-flex items-center text-[#0071e3] hover:underline font-medium"
             >
-              View all {kings.length} rulers →
+              View all {kings.length} rulers <span className="ml-1">→</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Kingdoms Grid */}
-      <section className="py-20 bg-gray-50/50 dark:bg-[#0a0a0a]">
+      <section className="py-24 bg-[var(--background)]">
         <div className="max-w-[980px] mx-auto px-5">
-          <h2 className="text-[32px] font-semibold mb-4 text-gray-900 dark:text-white text-center">
+          <h2 className="text-[32px] md:text-[40px] font-semibold mb-4 text-center tracking-tight">
             Historical Kingdoms
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-8">
+          <p className="text-center text-gray-500 mb-12 text-lg">
             From legendary Tambapanni to the mighty Kandyan Kingdom
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -222,30 +222,30 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-white dark:bg-[#1a1a1a]">
+      <section className="py-24 bg-gray-50 dark:bg-[#121212]">
         <div className="max-w-[980px] mx-auto px-5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="scroll-animate opacity-0 translate-y-8">
-              <div className="text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+              <div className="text-5xl font-bold text-[#0071e3] mb-2">
                 {kings.length}
               </div>
-              <div className="text-gray-600 dark:text-gray-400">
+              <div className="text-gray-500 font-medium">
                 Historical Rulers
               </div>
             </div>
             <div className="scroll-animate opacity-0 translate-y-8" style={{ transitionDelay: '100ms' }}>
-              <div className="text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+              <div className="text-5xl font-bold text-[#0071e3] mb-2">
                 {kingdoms.length}
               </div>
-              <div className="text-gray-600 dark:text-gray-400">
+              <div className="text-gray-500 font-medium">
                 Kingdoms
               </div>
             </div>
             <div className="scroll-animate opacity-0 translate-y-8" style={{ transitionDelay: '200ms' }}>
-              <div className="text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+              <div className="text-5xl font-bold text-[#0071e3] mb-2">
                 2000+
               </div>
-              <div className="text-gray-600 dark:text-gray-400">
+              <div className="text-gray-500 font-medium">
                 Years of History
               </div>
             </div>
