@@ -66,9 +66,7 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
 
   // Filter sites for this kingdom
   const kingdomSites = (sitesData as any[]).filter((site: any) => 
-    site.kingdom && (site.kingdom.toLowerCase() === kingdom.slug.toLowerCase() ||
-    site.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
-    kingdom.title.toLowerCase().includes(site.kingdom.toLowerCase()))
+    site.kingdomSlug === kingdom.slug
   );
 
   return (
