@@ -2,12 +2,14 @@ name: Auto-merge Jules
 
 on:
   pull_request:
-    types: [opened]
+    # ADDED: 'synchronize' and 'reopened' so it runs if you update the code too
+    types: [opened, synchronize, reopened]
 
 jobs:
   approve-and-merge:
     runs-on: ubuntu-latest
-    if: startsWith(github.head_ref, 'jules/') # Only runs for Jules branches
+    # CHANGED: Now checks if 'jules' appears ANYWHERE in the branch name
+    if: contains(github.head_ref, 'jules')
     steps:
       - name: Checkout
         uses: actions/checkout@v3
