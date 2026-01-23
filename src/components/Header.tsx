@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,6 +52,12 @@ export default function Header() {
               Sites
             </Link>
             <Link
+              href="/map"
+              className="text-[12px] font-normal text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+            >
+              Map
+            </Link>
+            <Link
               href="/political-connections"
               className="text-[12px] font-normal text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
             >
@@ -62,6 +69,7 @@ export default function Header() {
             >
               Historical Maps
             </Link>
+            <ThemeToggle />
           </div>
         </div>
       </nav>
