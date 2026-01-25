@@ -62,6 +62,7 @@ export default function TimelinePage() {
   // Use pre-computed eras
   const eras = STATIC_ERAS;
 
+export default function TimelinePage() {
   return (
     <main className="max-w-7xl mx-auto py-6 px-5">
       <div className="mb-8">

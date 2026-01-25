@@ -17,6 +17,13 @@ interface King {
 interface Kingdom {
   slug: string;
   title: string;
+  reign: string;
+  biography: string;
+  sections: {
+    heading: string;
+    content: string[];
+    infoBoxes: any[];
+  }[];
 }
 
 export default function Home() {
@@ -51,79 +58,33 @@ export default function Home() {
   // Get featured kings (first 6)
   const featuredKings = kings.slice(0, 6);
 
-  // Map kingdoms to cards with descriptions
-  const kingdomCards = [
-    {
-      slug: 'tambapanni',
-      name: 'Tambapanni',
-      description: 'The legendary first kingdom founded by Prince Vijaya.'
-    },
-    {
-      slug: 'upatissa-nuwara',
-      name: 'Upatissa Nuwara',
-      description: 'Early kingdom preceding Anuradhapura.'
-    },
-    {
-      slug: 'anuradhapura',
-      name: 'Anuradhapura',
-      description: 'Ancient capital; cradle of early Sinhalese civilization.'
-    },
-    {
-      slug: 'ruhuna',
-      name: 'Ruhuna',
-      description: 'Southern kingdom; base of resistance movements.'
-    },
-    {
-      slug: 'sigiriya',
-      name: 'Sigiriya',
-      description: 'Fortress kingdom of Kashyapa I, known for its rock palace.'
-    },
-    {
-      slug: 'polonnaruwa',
-      name: 'Polonnaruwa',
-      description: 'Medieval capital noted for irrigation and architecture.'
-    },
-    {
-      slug: 'dambadeniya',
-      name: 'Dambadeniya',
-      description: 'Kingdom that arose after Polonnaruwa.'
-    },
-    {
-      slug: 'yapahuwa',
-      name: 'Yapahuwa',
-      description: 'Brief capital known for its ornate palace.'
-    },
-    {
-      slug: 'kurunegala',
-      name: 'Kurunegala',
-      description: 'Transitional kingdom in the medieval period.'
-    },
-    {
-      slug: 'gampola',
-      name: 'Gampola',
-      description: 'Kingdom in the central hills.'
-    },
-    {
-      slug: 'kotte',
-      name: 'Kotte',
-      description: 'Late medieval kingdom; rise of trade and literature.'
-    },
-    {
-      slug: 'sitawaka',
-      name: 'Sitawaka',
-      description: 'Rival kingdom to Kotte, known for military prowess.'
-    },
-    {
-      slug: 'kandyan',
-      name: 'Kandyan',
-      description: 'Last independent kingdom until 1815; rich cultural heritage.'
-    },
-    {
-      slug: 'jaffna',
-      name: 'Jaffna',
-      description: 'Tamil kingdom in the northern peninsula.'
-    }
-  ];
+  // Map kingdoms to cards with descriptions and sort chronologically
+  const kingdomCards = kingdoms
+    .map((kingdom) => {
+      const description =
+        kingdom.sections?.[0]?.content?.[0] ||
+        kingdom.biography ||
+        'A historical kingdom of Sri Lanka.';
+
+      return {
+        slug: kingdom.slug,
+        name: kingdom.title,
+        description,
+        reign: kingdom.reign,
+      };
+    })
+    .sort((a, b) => {
+      const getStartYear = (reign: string) => {
+        const match = reign.match(/(\d+)/);
+        if (!match) return 0;
+        let year = parseInt(match[0], 10);
+        if (reign.includes('BCE')) {
+          year = -year;
+        }
+        return year;
+      };
+      return getStartYear(a.reign) - getStartYear(b.reign);
+    });
 
   return (
     <main className="min-h-screen">
