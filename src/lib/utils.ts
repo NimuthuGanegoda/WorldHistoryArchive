@@ -1,3 +1,7 @@
+// Hoisted regex patterns to avoid recompilation
+const CENTURY_REGEX = /(\d+)(?:st|nd|rd|th)?\s*(?:c\.|century|c\b)/;
+const YEAR_REGEX = /(\d+)/;
+
 export function parseStartYear(reign: string): number {
   if (!reign) return 9999;
 
@@ -6,7 +10,7 @@ export function parseStartYear(reign: string): number {
 
   // Handle "Century" cases (e.g., "2nd Century BCE", "c. 2nd c. BCE")
   // Matches: number + optional ordinal suffix + optional space + "c" or "century"
-  const centuryMatch = normalized.match(/(\d+)(?:st|nd|rd|th)?\s*(?:c\.|century|c\b)/);
+  const centuryMatch = normalized.match(CENTURY_REGEX);
 
   if (centuryMatch) {
     const century = parseInt(centuryMatch[1], 10);
@@ -21,7 +25,7 @@ export function parseStartYear(reign: string): number {
 
   // Handle standard cases (e.g., "543–505 BCE", "1017–1070 CE")
   // Just extract the first number found
-  const match = reign.match(/(\d+)/);
+  const match = reign.match(YEAR_REGEX);
   if (!match) return 9999;
 
   let year = parseInt(match[0], 10);

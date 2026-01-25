@@ -27,6 +27,31 @@ interface Kingdom {
   }[];
 }
 
+// Hoist static data transformations to module scope
+// This prevents expensive re-calculation on every render
+const kings = kingsData as King[];
+const kingdoms = kingdomsData as Kingdom[];
+
+// Get featured kings (first 6)
+const featuredKings = kings.slice(0, 6);
+
+// Map kingdoms to cards with descriptions and sort chronologically
+const kingdomCards = kingdoms
+  .map((kingdom) => {
+    const description =
+      kingdom.sections?.[0]?.content?.[0] ||
+      kingdom.biography ||
+      'A historical kingdom of Sri Lanka.';
+
+    return {
+      slug: kingdom.slug,
+      name: kingdom.title,
+      description,
+      reign: kingdom.reign,
+    };
+  })
+  .sort((a, b) => parseStartYear(a.reign) - parseStartYear(b.reign));
+
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
@@ -52,29 +77,6 @@ export default function Home() {
 
     return () => observerRef.current?.disconnect();
   }, []);
-
-  const kings = kingsData as King[];
-  const kingdoms = kingdomsData as Kingdom[];
-
-  // Get featured kings (first 6)
-  const featuredKings = kings.slice(0, 6);
-
-  // Map kingdoms to cards with descriptions and sort chronologically
-  const kingdomCards = kingdoms
-    .map((kingdom) => {
-      const description =
-        kingdom.sections?.[0]?.content?.[0] ||
-        kingdom.biography ||
-        'A historical kingdom of Sri Lanka.';
-
-      return {
-        slug: kingdom.slug,
-        name: kingdom.title,
-        description,
-        reign: kingdom.reign,
-      };
-    })
-    .sort((a, b) => parseStartYear(a.reign) - parseStartYear(b.reign));
 
   return (
     <main className="min-h-screen">
