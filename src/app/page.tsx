@@ -5,6 +5,7 @@ import Link from 'next/link';
 import KingdomCard from '@/components/KingdomCard';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
+import { parseStartYear } from '@/lib/utils';
 
 interface King {
   slug: string;
@@ -73,18 +74,7 @@ export default function Home() {
         reign: kingdom.reign,
       };
     })
-    .sort((a, b) => {
-      const getStartYear = (reign: string) => {
-        const match = reign.match(/(\d+)/);
-        if (!match) return 0;
-        let year = parseInt(match[0], 10);
-        if (reign.includes('BCE')) {
-          year = -year;
-        }
-        return year;
-      };
-      return getStartYear(a.reign) - getStartYear(b.reign);
-    });
+    .sort((a, b) => parseStartYear(a.reign) - parseStartYear(b.reign));
 
   return (
     <main className="min-h-screen">

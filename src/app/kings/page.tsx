@@ -2,6 +2,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
 import Link from 'next/link';
+import { parseStartYear } from '@/lib/utils';
 
 interface King {
   slug: string;
@@ -10,7 +11,7 @@ interface King {
   kingdom: string;
 }
 
-const kings = (kingsData as King[]).slice().sort((a, b) => a.title.localeCompare(b.title));
+const kings = (kingsData as King[]).slice().sort((a, b) => parseStartYear(a.reign) - parseStartYear(b.reign));
 const kingdomTitles = new Map((kingdomsData as any[]).map((k) => [k.slug, k.title]));
 
 export default function KingsIndex() {

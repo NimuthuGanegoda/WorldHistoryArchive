@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
+import { parseStartYear } from '@/lib/utils';
 
 export const metadata = {
   title: 'Historical Timeline | Sri Lanka History',
@@ -18,7 +19,7 @@ function groupKingsByEra(kings: any[]) {
   };
 
   kings.forEach(king => {
-    const year = extractStartYear(king.reign);
+    const year = parseStartYear(king.reign);
     
     if (year < 250) {
       eras['Ancient Period (543 BCE - 250 CE)'].push(king);
@@ -33,18 +34,12 @@ function groupKingsByEra(kings: any[]) {
     }
   });
 
-  return eras;
-}
+  // Sort kings within each era chronologically
+  Object.keys(eras).forEach((key) => {
+    (eras as any)[key].sort((a: any, b: any) => parseStartYear(a.reign) - parseStartYear(b.reign));
+  });
 
-function extractStartYear(reign: string): number {
-  if (!reign) return 9999;
-  const match = reign.match(/(\d+)/);
-  if (!match) return 9999;
-  const year = parseInt(match[1]);
-  if (reign.includes('BCE') || reign.includes('BC')) {
-    return -year;
-  }
-  return year;
+  return eras;
 }
 
 // Pre-compute data at module scope
