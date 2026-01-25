@@ -7,6 +7,24 @@ export const metadata = {
   description: 'Complete chronological timeline of Sri Lankan monarchs from 543 BCE to 1815 CE',
 };
 
+// Hoist regex patterns to avoid recompilation
+const YEAR_REGEX = /(\d+)/;
+const BCE_REGEX = /BCE|BC/;
+
+// Pre-compute kingdoms map for O(1) lookup
+const kingdomsMap = new Map(kingdomsData.map((k: any) => [k.slug, k]));
+
+function extractStartYear(reign: string): number {
+  if (!reign) return 9999;
+  const match = reign.match(YEAR_REGEX);
+  if (!match) return 9999;
+  const year = parseInt(match[1]);
+  if (BCE_REGEX.test(reign)) {
+    return -year;
+  }
+  return year;
+}
+
 // Group kings by era
 function groupKingsByEra(kings: any[]) {
   const eras = {
@@ -36,20 +54,13 @@ function groupKingsByEra(kings: any[]) {
   return eras;
 }
 
-function extractStartYear(reign: string): number {
-  if (!reign) return 9999;
-  const match = reign.match(/(\d+)/);
-  if (!match) return 9999;
-  const year = parseInt(match[1]);
-  if (reign.includes('BCE') || reign.includes('BC')) {
-    return -year;
-  }
-  return year;
-}
+// Pre-compute eras since data is static
+const STATIC_ERAS = groupKingsByEra(kingsData as any[]);
 
 export default function TimelinePage() {
   const kings = kingsData as any[];
-  const eras = groupKingsByEra(kings);
+  // Use pre-computed eras
+  const eras = STATIC_ERAS;
 
   return (
     <main className="max-w-7xl mx-auto py-6 px-5">
@@ -69,7 +80,8 @@ export default function TimelinePage() {
             
             <div className="space-y-4">
               {eraKings.map((king: any) => {
-                const kingdom = kingdomsData.find((k: any) => k.slug === king.kingdom);
+                // O(1) lookup instead of O(N) find
+                const kingdom = kingdomsMap.get(king.kingdom);
                 
                 return (
                   <div 
