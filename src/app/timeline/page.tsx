@@ -60,12 +60,12 @@ function groupKingsByEra(kings: any[]) {
   return eras;
 }
 
-export default function TimelinePage() {
-  const kings = kingsData as any[];
-  // Use pre-computed eras
-  const eras = STATIC_ERAS;
+const STATIC_ERAS = groupKingsByEra(kingsData as any[]);
 
 export default function TimelinePage() {
+  const kings = kingsData as any[];
+  const eras = STATIC_ERAS;
+
   return (
     <main className="max-w-7xl mx-auto py-6 px-5">
       <div className="mb-8">
