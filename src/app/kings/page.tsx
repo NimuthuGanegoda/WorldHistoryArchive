@@ -11,7 +11,11 @@ interface King {
   kingdom: string;
 }
 
-const kings = (kingsData as King[]).slice().sort((a, b) => parseStartYear(a.reign) - parseStartYear(b.reign));
+// Use Schwartzian transform to optimize sorting performance
+const kings = (kingsData as King[])
+  .map((king) => ({ king, year: parseStartYear(king.reign) }))
+  .sort((a, b) => a.year - b.year)
+  .map((item) => item.king);
 const kingdomTitles = new Map((kingdomsData as any[]).map((k) => [k.slug, k.title]));
 
 export default function KingsIndex() {

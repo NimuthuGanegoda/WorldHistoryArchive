@@ -36,25 +36,34 @@ function groupKingsByEra(kings: any[]) {
     'Colonial Era (1600 CE - 1815 CE)': [] as any[],
   };
 
-  kings.forEach(king => {
-    const year = parseStartYear(king.reign);
+  // Pre-calculate years for O(N) sort performance instead of O(N log N) regex parsing
+  const kingsWithYear = kings.map(king => ({
+    king,
+    year: parseStartYear(king.reign)
+  }));
+
+  kingsWithYear.forEach(item => {
+    const { year } = item;
     
     if (year < 250) {
-      eras['Ancient Period (543 BCE - 250 CE)'].push(king);
+      eras['Ancient Period (543 BCE - 250 CE)'].push(item);
     } else if (year < 1017) {
-      eras['Classical Period (250 CE - 1017 CE)'].push(king);
+      eras['Classical Period (250 CE - 1017 CE)'].push(item);
     } else if (year < 1400) {
-      eras['Medieval Period (1017 CE - 1400 CE)'].push(king);
+      eras['Medieval Period (1017 CE - 1400 CE)'].push(item);
     } else if (year < 1600) {
-      eras['Late Medieval Period (1400 CE - 1600 CE)'].push(king);
+      eras['Late Medieval Period (1400 CE - 1600 CE)'].push(item);
     } else {
-      eras['Colonial Era (1600 CE - 1815 CE)'].push(king);
+      eras['Colonial Era (1600 CE - 1815 CE)'].push(item);
     }
   });
 
-  // Sort kings within each era chronologically
+  // Sort kings within each era chronologically using pre-calculated year
   Object.keys(eras).forEach((key) => {
-    (eras as any)[key].sort((a: any, b: any) => parseStartYear(a.reign) - parseStartYear(b.reign));
+    const eraList = (eras as any)[key];
+    eraList.sort((a: any, b: any) => a.year - b.year);
+    // Unwrap back to original king objects
+    (eras as any)[key] = eraList.map((item: any) => item.king);
   });
 
   return eras;
