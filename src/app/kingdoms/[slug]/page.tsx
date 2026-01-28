@@ -5,6 +5,7 @@ import Link from 'next/link';
 import kingdomsData from '@/data/kingdoms.json';
 import kingsData from '@/data/kings.json';
 import sitesData from '@/data/sites.json';
+import { parseStartYear } from '@/lib/utils';
 
 interface King {
   name: string;
@@ -28,20 +29,29 @@ interface Kingdom {
   }[];
 }
 
-// Pre-compile regex for better performance in sort operations
-const YEAR_REGEX = /(\d+)/;
+// Optimization: Pre-compute lookups for O(1) access
+const kingdomsMap = new Map(kingdomsData.map((k) => [k.slug, k]));
+const kingdomKingsMap = new Map();
+const kingdomSitesMap = new Map();
 
-// Function to extract start year from reign string for sorting
-function extractStartYear(reign: string): number {
-  if (!reign) return 9999;
-  const match = reign.match(YEAR_REGEX);
-  if (!match) return 9999;
-  const year = parseInt(match[1]);
-  if (reign.includes('BCE') || reign.includes('BC')) {
-    return -year;
-  }
-  return year;
-}
+// Initialize maps once
+kingdomsData.forEach((kingdom) => {
+  // Pre-filter and sort kings for this kingdom
+  const kKings = kingsData
+    .filter((king: any) => king.kingdom === kingdom.slug)
+    .map((king: any) => ({ king, year: parseStartYear(king.reign) }))
+    .sort((a, b) => a.year - b.year)
+    .map((item) => item.king);
+  kingdomKingsMap.set(kingdom.slug, kKings);
+
+  // Pre-filter sites for this kingdom
+  const kSites = (sitesData as any[]).filter((site: any) =>
+    site.kingdom && (site.kingdom.toLowerCase() === kingdom.slug.toLowerCase() ||
+    site.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
+    kingdom.title.toLowerCase().includes(site.kingdom.toLowerCase()))
+  );
+  kingdomSitesMap.set(kingdom.slug, kSites);
+});
 
 export async function generateStaticParams() {
   return kingdomsData.map((kingdom) => ({
@@ -51,27 +61,17 @@ export async function generateStaticParams() {
 
 export default async function KingdomPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const kingdom = kingdomsData.find((k) => k.slug === slug);
+
+  // O(1) Lookup
+  const kingdom = kingdomsMap.get(slug);
   
   if (!kingdom) {
     notFound();
   }
 
-  // Filter kings for this kingdom
-  const filteredKings = kingsData.filter((king: any) => king.kingdom === kingdom.slug);
-
-  // Sort by chronological order using Schwartzian transform to minimize regex operations
-  const kingdomKings = filteredKings
-    .map((king: any) => ({ king, startYear: extractStartYear(king.reign) }))
-    .sort((a, b) => a.startYear - b.startYear)
-    .map((item) => item.king);
-
-  // Filter sites for this kingdom
-  const kingdomSites = (sitesData as any[]).filter((site: any) => 
-    site.kingdom && (site.kingdom.toLowerCase() === kingdom.slug.toLowerCase() ||
-    site.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
-    kingdom.title.toLowerCase().includes(site.kingdom.toLowerCase()))
-  );
+  // O(1) Lookup
+  const kingdomKings = kingdomKingsMap.get(slug) || [];
+  const kingdomSites = kingdomSitesMap.get(slug) || [];
 
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
