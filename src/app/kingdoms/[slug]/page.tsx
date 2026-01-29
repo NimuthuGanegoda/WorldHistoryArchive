@@ -35,21 +35,50 @@ const kingdomKingsMap = new Map();
 const kingdomSitesMap = new Map();
 
 // Initialize maps once
+// Optimization: Bolt ⚡ optimized grouping from O(N*K) to O(N) using Map lookups
+const kingsByKingdom = new Map<string, any[]>();
+(kingsData as any[]).forEach((king) => {
+  if (!kingsByKingdom.has(king.kingdom)) {
+    kingsByKingdom.set(king.kingdom, []);
+  }
+  kingsByKingdom.get(king.kingdom)?.push(king);
+});
+
+// Pre-process kingdoms for faster site matching
+const processedKingdoms = kingdomsData.map((k) => ({
+  slug: k.slug,
+  slugLower: k.slug.toLowerCase(),
+  titleLower: k.title.toLowerCase(),
+}));
+
+const sitesByKingdom = new Map<string, any[]>();
+processedKingdoms.forEach((pk) => sitesByKingdom.set(pk.slug, []));
+
+(sitesData as any[]).forEach((site) => {
+  if (!site.kingdom) return;
+  const siteKingdomLower = site.kingdom.toLowerCase();
+
+  processedKingdoms.forEach((pk) => {
+    if (
+      siteKingdomLower === pk.slugLower ||
+      siteKingdomLower.includes(pk.titleLower) ||
+      pk.titleLower.includes(siteKingdomLower)
+    ) {
+      sitesByKingdom.get(pk.slug)?.push(site);
+    }
+  });
+});
+
 kingdomsData.forEach((kingdom) => {
-  // Pre-filter and sort kings for this kingdom
-  const kKings = kingsData
-    .filter((king: any) => king.kingdom === kingdom.slug)
+  // Get grouped kings and sort
+  const kKings = (kingsByKingdom.get(kingdom.slug) || [])
     .map((king: any) => ({ king, year: parseStartYear(king.reign) }))
     .sort((a, b) => a.year - b.year)
     .map((item) => item.king);
   kingdomKingsMap.set(kingdom.slug, kKings);
 
-  // Pre-filter sites for this kingdom
-  const kSites = (sitesData as any[]).filter((site: any) =>
-    site.kingdom && (site.kingdom.toLowerCase() === kingdom.slug.toLowerCase() ||
-    site.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
-    kingdom.title.toLowerCase().includes(site.kingdom.toLowerCase()))
-  );
+  // Get grouped sites
+  const kSites = sitesByKingdom.get(kingdom.slug) || [];
   kingdomSitesMap.set(kingdom.slug, kSites);
 });
 
