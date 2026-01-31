@@ -6,6 +6,10 @@ import kingdomsData from '@/data/kingdoms.json';
 // Create a map for O(1) kingdom lookup
 const kingdomsMap = new Map(kingdomsData.map((k) => [k.slug, k]));
 
+// Optimization: Pre-compute kings map for O(1) lookup
+// Replaces O(N) Array.find with O(1) Map.get
+const kingsMap = new Map(kingsData.map((k) => [k.slug, k]));
+
 interface King {
   title: string;
   slug: string;
@@ -36,7 +40,7 @@ export async function generateStaticParams() {
 
 export default async function KingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const king = kingsData.find((k: any) => k.slug === slug) as King | undefined;
+  const king = kingsMap.get(slug) as King | undefined;
   
   if (!king) {
     notFound();
