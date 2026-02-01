@@ -28,6 +28,33 @@ interface Site {
   [key: string]: any;
 }
 
+// Optimization: Hoist Map creation for O(1) lookups
+const sitesMap = new Map(sitesData.map((s) => [s.id, s]));
+
+// Optimization: Pre-compute Site -> Kingdom mapping to avoid O(N*M) lookups per request
+const siteKingdomMap = new Map();
+
+// Helper to prepare kingdoms for efficient searching
+const preparedKingdoms = kingdomsData.map(k => ({
+  original: k,
+  titleLower: k.title.toLowerCase(),
+}));
+
+sitesData.forEach(site => {
+  if (!site.kingdom) return;
+  const siteKingdomLower = site.kingdom.toLowerCase();
+
+  // Fuzzy match kingdom
+  const kingdom = preparedKingdoms.find(k =>
+    siteKingdomLower.includes(k.titleLower) ||
+    k.titleLower.includes(siteKingdomLower)
+  );
+
+  if (kingdom) {
+    siteKingdomMap.set(site.id, kingdom.original);
+  }
+});
+
 export async function generateStaticParams() {
   return sitesData.map((site) => ({
     slug: site.id,
@@ -36,17 +63,14 @@ export async function generateStaticParams() {
 
 export default async function SitePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const site = sitesData.find((s: Site) => s.id === slug) as Site | undefined;
+  const site = sitesMap.get(slug) as Site | undefined;
   
   if (!site) {
     notFound();
   }
 
-  // Find the kingdom
-  const kingdom = kingdomsData.find((k) => 
-    site.kingdom.toLowerCase().includes(k.title.toLowerCase()) ||
-    k.title.toLowerCase().includes(site.kingdom.toLowerCase())
-  );
+  // O(1) Lookup
+  const kingdom = siteKingdomMap.get(site.id);
 
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
