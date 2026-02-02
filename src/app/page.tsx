@@ -1,8 +1,6 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import KingdomCard from '@/components/KingdomCard';
+import AnimationObserver from '@/components/AnimationObserver';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
 import { parseStartYear } from '@/lib/utils';
@@ -53,31 +51,6 @@ const kingdomCards = kingdoms
   .sort((a, b) => parseStartYear(a.reign) - parseStartYear(b.reign));
 
 export default function Home() {
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            observerRef.current?.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
-    );
-
-    const elements = document.querySelectorAll('.scroll-animate');
-    elements.forEach((el) => {
-      if (!el.classList.contains('animate-in')) {
-        observerRef.current?.observe(el);
-      }
-    });
-
-    return () => observerRef.current?.disconnect();
-  }, []);
-
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -205,6 +178,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <AnimationObserver />
     </main>
   );
 }
