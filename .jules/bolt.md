@@ -9,3 +9,7 @@
 ## 2026-02-05 - [Pre-computing Fuzzy Matches]
 **Learning:** When linking datasets via fuzzy logic (e.g. string inclusion), doing it inside the render loop is O(N*M). For static data, pre-compute the relationships into a Map at module scope.
 **Action:** Identify fuzzy relationships (like `site.kingdom` string matching) and resolve them into a `Map<ID, RelatedEntity>` once at startup.
+
+## 2026-02-17 - [Optimized Regex & Schwartzian Transform]
+**Learning:** `Array.sort` calls the comparator O(N log N) times. If the comparator involves Regex or string manipulation (like `toLowerCase()`), it creates massive overhead.
+**Action:** Use case-insensitive Regex (`/pattern/i`) to avoid `toLowerCase()` allocations. Combine with Schwartzian transform (map-sort-map) to run expensive parsing only once per item (O(N)).

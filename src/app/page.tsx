@@ -46,9 +46,11 @@ const kingdomCards = kingdoms
       name: kingdom.title,
       description,
       reign: kingdom.reign,
+      // Optimization: Calculate year once for sorting (Schwartzian transform)
+      year: parseStartYear(kingdom.reign),
     };
   })
-  .sort((a, b) => parseStartYear(a.reign) - parseStartYear(b.reign));
+  .sort((a, b) => a.year - b.year);
 
 export default function Home() {
   return (
