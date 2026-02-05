@@ -40,18 +40,32 @@ const preparedKingdoms = kingdomsData.map(k => ({
   titleLower: k.title.toLowerCase(),
 }));
 
+// Optimization: Create lookup map for O(1) matching
+const kingdomLookup = new Map<string, typeof kingdomsData[0]>();
+kingdomsData.forEach((k) => {
+  kingdomLookup.set(k.slug, k);
+  kingdomLookup.set(k.slug.toLowerCase(), k);
+  kingdomLookup.set(k.title.toLowerCase(), k);
+});
+
 sitesData.forEach(site => {
   if (!site.kingdom) return;
   const siteKingdomLower = site.kingdom.toLowerCase();
 
-  // Fuzzy match kingdom
-  const kingdom = preparedKingdoms.find(k =>
-    siteKingdomLower.includes(k.titleLower) ||
-    k.titleLower.includes(siteKingdomLower)
-  );
+  // Optimization: Bolt ⚡ O(1) exact match lookup
+  let kingdom = kingdomLookup.get(siteKingdomLower);
+
+  if (!kingdom) {
+    // Fallback: O(M) fuzzy matching
+    const match = preparedKingdoms.find(k =>
+      siteKingdomLower.includes(k.titleLower) ||
+      k.titleLower.includes(siteKingdomLower)
+    );
+    if (match) kingdom = match.original;
+  }
 
   if (kingdom) {
-    siteKingdomMap.set(site.id, kingdom.original);
+    siteKingdomMap.set(site.id, kingdom);
   }
 });
 
