@@ -1,6 +1,6 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
-import kingsData from '@/data/kings.json';
+import { getKings, getCountries } from '@/lib/data';
 
 interface King {
   title: string;
@@ -11,20 +11,28 @@ interface King {
   [key: string]: any;
 }
 
-export default function ConnectionsPage() {
+export async function generateStaticParams() {
+  const countries = getCountries();
+  return countries.map(c => ({ country: c.slug }));
+}
+
+export default async function ConnectionsPage({ params }: { params: Promise<{ country: string }> }) {
+  const { country } = await params;
+  const kingsData = getKings(country);
+
   const kingsWithConnections = kingsData.filter((king: any) => king.internationalConnections);
 
   return (
     <main className="max-w-7xl mx-auto py-6 px-5">
       <Breadcrumbs items={[
-        { label: 'Home', href: '/' },
+        { label: 'Home', href: `/${country}` },
         { label: 'International Connections' }
       ]} />
 
       <div className="hero-section text-center mb-16">
         <h1 className="apple-headline mb-4">International Connections</h1>
         <p className="apple-subheadline text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Explore the diplomatic, religious, and political relationships between Sri Lankan monarchs and international empires
+          Explore the diplomatic, religious, and political relationships between monarchs and international empires
         </p>
       </div>
 
@@ -33,7 +41,7 @@ export default function ConnectionsPage() {
         <div className="card p-6 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 flex flex-col md:flex-row items-center gap-6">
           <div className="flex-1">
             <h2 className="text-2xl font-bold mb-1">
-              <Link href="/kings/ashoka" className="hover:text-[var(--accent)] transition-colors">
+              <Link href={`/${country}/kings/ashoka`} className="hover:text-[var(--accent)] transition-colors">
                 Emperor Ashoka (Dharma Asoka)
               </Link>
             </h2>
@@ -41,7 +49,7 @@ export default function ConnectionsPage() {
             <p className="text-gray-700 dark:text-gray-300 mb-2">
               Ashoka was one of the greatest rulers of ancient India. After the Kalinga War, he embraced Buddhism and became a model of righteous rule. He sent his son Mahinda and daughter Sanghamitta to Sri Lanka, introducing Buddhism and the sacred Bodhi tree to the island, forging a lasting spiritual and cultural connection.
             </p>
-            <Link href="/kings/ashoka" className="inline-block mt-2 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors">Read More & Watch Video</Link>
+            <Link href={`/${country}/kings/ashoka`} className="inline-block mt-2 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors">Read More & Watch Video</Link>
           </div>
           <div className="w-full md:w-96 aspect-video">
             <iframe
@@ -68,7 +76,7 @@ export default function ConnectionsPage() {
             <div className="flex items-start justify-between mb-4">
               <div>
                 <h2 className="text-2xl font-bold mb-1">
-                  <Link href={`/kings/${king.slug}`} className="hover:text-[var(--accent)] transition-colors">
+                  <Link href={`/${country}/kings/${king.slug}`} className="hover:text-[var(--accent)] transition-colors">
                     {king.title}
                   </Link>
                 </h2>

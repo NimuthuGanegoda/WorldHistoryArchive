@@ -1,11 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
-const kingsPath = path.join(__dirname, '../data/kings.json');
+const kingsPath = path.join(__dirname, '../src/data/sri-lanka/kings.json');
 const enrichedPath = path.join(__dirname, '../data/enriched-biographies.json');
 
 if (!fs.existsSync(enrichedPath)) {
   console.error(`Error: Enriched biographies file not found at ${enrichedPath}`);
+  process.exit(1);
+}
+
+if (!fs.existsSync(kingsPath)) {
+  console.error(`Error: Kings file not found at ${kingsPath}`);
   process.exit(1);
 }
 

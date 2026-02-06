@@ -8,9 +8,10 @@ interface TimelineKing {
 
 interface TimelineProps {
   readonly kings: TimelineKing[];
+  readonly countrySlug: string;
 }
 
-export default function Timeline({ kings }: TimelineProps) {
+export default function Timeline({ kings, countrySlug }: TimelineProps) {
   return (
     <div className="relative">
       {/* Timeline line */}
@@ -25,7 +26,7 @@ export default function Timeline({ kings }: TimelineProps) {
             
             {/* Timeline content */}
             <Link 
-              href={`/kings/${king.slug}`}
+              href={`/${countrySlug}/kings/${king.slug}`}
               className="block group"
             >
               <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 shadow-sm hover:shadow-md transition-all hover:border-[var(--accent)] hover:-translate-y-1">

@@ -1,14 +1,6 @@
 import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import kingsData from '@/data/kings.json';
-import kingdomsData from '@/data/kingdoms.json';
-
-// Create a map for O(1) kingdom lookup
-const kingdomsMap = new Map(kingdomsData.map((k) => [k.slug, k]));
-
-// Optimization: Pre-compute kings map for O(1) lookup
-// Replaces O(N) Array.find with O(1) Map.get
-const kingsMap = new Map(kingsData.map((k) => [k.slug, k]));
+import { getKings, getKingdoms, getCountries } from '@/lib/data';
 
 interface King {
   title: string;
@@ -29,31 +21,41 @@ interface King {
     description?: string;
     googleMapsUrl: string;
   }[];
-  [key: string]: any; // Allow additional properties
+  [key: string]: any;
 }
 
 export async function generateStaticParams() {
-  return kingsData.map((king) => ({
-    slug: king.slug,
-  }));
+  const countries = getCountries();
+  const params = [];
+  for (const country of countries) {
+    const kings = getKings(country.slug);
+    for (const king of kings) {
+      params.push({ country: country.slug, slug: king.slug });
+    }
+  }
+  return params;
 }
 
-export default async function KingPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const king = kingsMap.get(slug) as King | undefined;
+export default async function KingPage({ params }: { params: Promise<{ country: string, slug: string }> }) {
+  const { country, slug } = await params;
+
+  const kingsData = getKings(country);
+  const kingdomsData = getKingdoms(country);
+
+  const king = kingsData.find((k: any) => k.slug === slug) as King | undefined;
   
   if (!king) {
     notFound();
   }
 
   // Find the kingdom
-  const kingdom = kingdomsMap.get(king.kingdom);
+  const kingdom = kingdomsData.find((k: any) => k.slug === king.kingdom);
 
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
-          { label: 'Home', href: '/' },
-          ...(kingdom ? [{ label: kingdom.title, href: `/kingdoms/${kingdom.slug}` }] : []),
+          { label: 'Home', href: `/${country}` },
+          ...(kingdom ? [{ label: kingdom.title, href: `/${country}/kingdoms/${kingdom.slug}` }] : []),
           { label: king.title }
         ]} />
         

@@ -4,7 +4,6 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { useEffect, useState } from 'react';
-import sites from '@/data/sites.json';
 
 // Fix for default marker icon
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -39,7 +38,22 @@ function LocationMarker() {
   );
 }
 
-export default function Map() {
+interface Site {
+  id: string;
+  name: string;
+  kingdom: string;
+  type: string;
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
+}
+
+interface MapProps {
+  sites: Site[];
+}
+
+export default function Map({ sites }: MapProps) {
   return (
     <MapContainer center={[7.8731, 80.7718]} zoom={8} scrollWheelZoom={true} className="h-full w-full rounded-xl z-0">
       <TileLayer
