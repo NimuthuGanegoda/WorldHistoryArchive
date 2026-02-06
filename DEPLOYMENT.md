@@ -105,6 +105,16 @@ These file changes **automatically trigger a rebuild and deploy**:
   npm run build
   ```
   
+- ✅ **NEVER use Google Fonts** - they cause build failures:
+  ```bash
+  # ❌ DO NOT USE:
+  import { Inter } from 'next/font/google'
+  
+  # ✅ USE INSTEAD:
+  className="font-sans"  // Tailwind system fonts
+  ```
+  **Why?** The deployment environment cannot access `fonts.googleapis.com`, causing all builds to fail. A pre-build check (`scripts/check-no-google-fonts.js`) will prevent this automatically.
+  
 - ✅ Keep dependencies in `package.json` synced with imports:
   - If you add a new package: `npm install package-name`
   - Update `package.json` automatically gets committed
