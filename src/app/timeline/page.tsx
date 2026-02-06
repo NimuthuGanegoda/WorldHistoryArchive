@@ -87,7 +87,7 @@ export default function TimelinePage() {
       <div className="space-y-12">
         {Object.entries(eras).map(([eraName, eraKings]) => (
           <section key={eraName}>
-            <h2 className="text-3xl font-bold mb-6 text-[var(--accent)] border-b-2 border-[var(--accent)] pb-2">
+            <h2 className="text-3xl font-bold mb-6 text-accent border-b-2 border-accent pb-2">
               {eraName}
             </h2>
             
@@ -102,13 +102,13 @@ export default function TimelinePage() {
                     className="flex items-start gap-6 p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                   >
                     <div className="flex-shrink-0 w-40">
-                      <div className="text-sm font-semibold text-[var(--accent)]">
+                      <div className="text-sm font-semibold text-accent">
                         {king.reign}
                       </div>
                       {kingdom && (
                         <Link 
                           href={`/kingdoms/${kingdom.slug}`}
-                          className="text-xs text-gray-600 dark:text-gray-400 hover:text-[var(--accent)] hover:underline"
+                          className="text-xs text-gray-600 dark:text-gray-400 hover:text-accent hover:underline"
                         >
                           {kingdom.title}
                         </Link>
@@ -120,7 +120,7 @@ export default function TimelinePage() {
                         href={`/kings/${king.slug}`}
                         className="group"
                       >
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-[var(--accent)] transition-colors">
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
                           {king.title}
                         </h3>
                         <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">

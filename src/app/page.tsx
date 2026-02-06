@@ -113,7 +113,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-12">
             <Link 
-              href="/kings/vijaya" 
+              href="/kings"
               className="inline-flex items-center text-[#0071e3] hover:underline font-medium"
             >
               View all {kings.length} rulers <span className="ml-1">→</span>
