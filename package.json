@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "HOST=127.0.0.1 PORT=3000 next dev",
     "dev:secure": "HOST=127.0.0.1 PORT=3000 NEXT_TELEMETRY_DISABLED=1 next dev",
+    "prebuild": "node scripts/check-no-google-fonts.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

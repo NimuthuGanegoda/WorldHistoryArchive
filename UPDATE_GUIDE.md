@@ -83,6 +83,32 @@ npm run build
 
 If you get errors, fix them locally, then push.
 
+### ⚠️ Common Build Issues to Avoid
+
+**1. Never Use Google Fonts**
+```bash
+# ❌ DO NOT USE - This will cause build failures:
+import { Inter } from 'next/font/google'
+
+# ✅ USE INSTEAD - Tailwind system fonts:
+className="font-sans"
+```
+
+**Why?** The build environment has restricted network access and cannot fetch from `fonts.googleapis.com`. This causes all builds to fail.
+
+**2. Check Dependencies**
+Always ensure new packages are in `package.json`:
+```bash
+npm install package-name
+git add package.json package-lock.json
+```
+
+**3. Validate Data Files**
+Before pushing JSON changes:
+```bash
+npm run validate
+```
+
 ---
 
 ## If Something Goes Wrong
