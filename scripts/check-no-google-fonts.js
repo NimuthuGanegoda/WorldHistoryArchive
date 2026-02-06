@@ -25,7 +25,7 @@ function checkFile(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
   const errors = [];
   
-  patterns.forEach((pattern, index) => {
+  patterns.forEach((pattern) => {
     if (pattern.test(content)) {
       errors.push({
         file: filePath,
