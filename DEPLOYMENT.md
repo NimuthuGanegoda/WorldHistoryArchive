@@ -173,7 +173,7 @@ The site uses:
 - ✅ Static generation for all pages
 - ✅ Tailwind CSS for optimized styling
 - ✅ Next.js image optimization (unoptimized for static export)
-- ✅ Gzip compression (configured in `_headers`)
+- ✅ Gzip compression (provided automatically by GitHub Pages/CDN; no `_headers` configuration needed)
 
 ## Need Help?
 
