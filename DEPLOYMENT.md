@@ -1,197 +1,159 @@
-# Automatic Deployment Guide
+# Deployment Guide
 
-This website is configured for **automatic continuous deployment** to GitHub Pages. Every time you push changes to the `main` branch, the website is automatically rebuilt and deployed.
+## Overview
 
-## How It Works
+This website automatically deploys to GitHub Pages at **https://srilankanhistory.dev/** when changes are pushed to the `main` branch.
 
-### Automatic Deployment Process
+## Deployment Workflow
 
-1. **Push to `main` branch** → GitHub Actions workflow triggers automatically
-2. **Install dependencies** (`npm ci`) → Ensures consistent builds
-3. **Build the application** (`npm run build`) → Generates optimized static files
-4. **Deploy to GitHub Pages** → Live website updates within 1-2 minutes
+The deployment is handled by a single GitHub Actions workflow: `.github/workflows/nextjs.yml`
 
-### GitHub Actions Workflows
+### How It Works
 
-Two workflows handle the deployment:
+1. **Trigger**: Automatically runs when code is pushed to `main` branch
+2. **Build**: Compiles Next.js application and generates static pages (output: export mode)
+3. **Deploy**: Uploads the `./out` directory to GitHub Pages
+4. **Live**: Website updates in 1-2 minutes
 
-- **`.github/workflows/nextjs.yml`** - Primary deployment workflow
-- **`.github/workflows/deploy.yml`** - Backup deployment workflow
+### Workflow Configuration
 
-Both workflows trigger on:
-- ✅ Every push to the `main` branch
-- ✅ Manual trigger via "Run workflow" button in GitHub
+```yaml
+# .github/workflows/nextjs.yml
+jobs:
+  build:
+    - Checkout code
+    - Install dependencies (npm ci)
+    - Build Next.js app (npm run build)
+    - Upload artifact
+    
+  deploy:
+    - Deploy to GitHub Pages
+    environment: github-pages  # Required!
+```
 
-## Making Updates
+## Important Configuration Rules
 
-### Simple Workflow
+### ✅ DO
 
+1. **Single Deployment Workflow**: Only use `.github/workflows/nextjs.yml` for deployment
+2. **System Fonts**: Use Tailwind's `font-sans` (never use Google Fonts)
+3. **Static Export**: Keep `output: 'export'` in `next.config.ts`
+4. **Test Locally**: Always run `npm run build` before pushing
+
+### ❌ DON'T
+
+1. **No Duplicate Workflows**: Never create additional deployment workflows (e.g., `deploy.yml`)
+2. **No Google Fonts**: Never import from `next/font/google` - builds fail in restricted environments
+3. **No External Font CDNs**: Avoid external dependencies that may be blocked
+
+## Build Requirements
+
+### Prerequisites
+- Node.js 18 or higher
+- npm (comes with Node.js)
+
+### Build Commands
 ```bash
-# 1. Make your changes
-# Edit data files, components, or pages
-
-# 2. Commit changes
-git add .
-git commit -m "Update description of your changes"
-
-# 3. Push to GitHub
-git push origin main
-
-# Done! ✨ Your website will auto-deploy in 1-2 minutes
+npm install          # Install dependencies
+npm run build        # Build for production
+npm run validate     # Validate data integrity
+npm run lint         # Check code quality
 ```
 
-### What Gets Updated
-
-These file changes **automatically trigger a rebuild and deploy**:
-
-- **Data files**: `src/data/*.json` (kings, kingdoms, sites)
-- **Components**: `src/components/**`
-- **Pages**: `src/app/**`
-- **Styles**: `src/app/globals.css`, `tailwind.config.ts`
-- **Dependencies**: `package.json` (if new packages added)
-
-### Monitoring Deployment Status
-
-**Option 1: GitHub Actions Tab**
-```
-1. Go to: https://github.com/NimuthuGanegoda/WorldHistoryArchive/actions
-2. See the workflow run status
-3. Click on a run to see detailed logs
-```
-
-**Option 2: Direct Verification**
-- Visit https://srilankanhistory.dev/ to verify changes are live
-- Changes typically appear within 1-2 minutes after push
-
-## Common Tasks
-
-### Add a New King/Kingdom/Site
-
-1. Edit the JSON file in `src/data/`:
-   ```bash
-   nano src/data/kings.json      # Add new king entry
-   nano src/data/kingdoms.json   # Add new kingdom entry
-   nano src/data/sites.json      # Add new archaeological site
-   ```
-
-2. Commit and push:
-   ```bash
-   git add src/data/
-   git commit -m "Add new historical entry"
-   git push origin main
-   ```
-
-3. Website automatically rebuilds with your changes ✨
-
-### Update Historical Information
-
-1. Edit the relevant JSON file
-2. Commit and push
-3. Changes go live automatically
-
-### Add New Feature/Component
-
-1. Create/modify files in `src/components/` or `src/app/`
-2. Make sure dependencies are in `package.json`
-3. Commit and push
-4. GitHub Actions installs dependencies, builds, and deploys
-
-## Important Notes
-
-⚠️ **Things to Remember:**
-
-- ✅ Always ensure `npm run build` passes locally before pushing:
-  ```bash
-  npm run build
-  ```
-  
-- ✅ **NEVER use Google Fonts** - they cause build failures:
-  ```bash
-  # ❌ DO NOT USE:
-  import { Inter } from 'next/font/google'
-  
-  # ✅ USE INSTEAD:
-  className="font-sans"  // Tailwind system fonts
-  ```
-  **Why?** The deployment environment cannot access `fonts.googleapis.com`, causing all builds to fail. A pre-build check (`scripts/check-no-google-fonts.js`) will prevent this automatically.
-  
-- ✅ Keep dependencies in `package.json` synced with imports:
-  - If you add a new package: `npm install package-name`
-  - Update `package.json` automatically gets committed
-  
-- ✅ The `out/` directory is auto-generated and NOT committed to git
-  - GitHub Actions builds and deploys it automatically
-  - Don't manually edit files in `out/`
+### Build Output
+- **Location**: `./out` directory
+- **Pages**: 248+ static HTML pages
+- **Assets**: Optimized CSS, JS, and images
 
 ## Troubleshooting
 
-### Website Didn't Update After Push
+### Build Failures
 
-**Check deployment status:**
-```bash
-# Visit GitHub Actions to see if workflow is running
-# https://github.com/NimuthuGanegoda/WorldHistoryArchive/actions
+#### Google Fonts Error
+**Error**: `Failed to fetch from Google Fonts`
+**Solution**: Use Tailwind system fonts
+```tsx
+// ❌ DON'T
+import { Inter } from 'next/font/google';
+
+// ✅ DO
+<body className="font-sans">
 ```
 
-**If workflow failed:**
-- Check the error logs in GitHub Actions
-- Common causes:
-  - Missing dependencies in `package.json`
-  - Syntax errors in JSON/TypeScript files
-  - Uncaught build errors
+#### Duplicate Workflow Conflicts
+**Error**: `Missing environment. Ensure your workflow's deployment job has an environment`
+**Solution**: Remove duplicate workflows, keep only `nextjs.yml`
 
-**To fix:**
-```bash
-npm install          # Install all dependencies
-npm run build        # Test build locally
-npm run lint         # Check for linting errors
-git push origin main # Push fix to trigger re-deploy
-```
+#### Network Restrictions
+**Error**: Build hangs or fails to fetch external resources
+**Solution**: Remove all external dependencies (fonts, CDNs, etc.)
 
-### Build Error: Module Not Found
+### Deployment Verification
 
-**Solution:**
-```bash
-# Install missing package
-npm install package-name
+1. **Check Workflow Status**:
+   - Visit: https://github.com/NimuthuGanegoda/WorldHistoryArchive/actions
+   - Look for green checkmarks ✅
 
-# Commit and push
-git add package.json package-lock.json
-git commit -m "Add missing dependency"
-git push origin main
-```
+2. **Check Website**:
+   - Visit: https://srilankanhistory.dev/
+   - Verify your changes are live
 
-## GitHub Pages Configuration
+3. **Check Build Logs**:
+   - Click on workflow run
+   - Review build and deploy job logs
 
-Your site is configured to:
-- **Source**: GitHub Actions workflow artifacts
-- **Domain**: https://srilankanhistory.dev/
-- **SSL**: Automatically enabled
-- **Updates**: Automatic on every push to `main`
+## Custom Domain Setup
 
-### Current Settings
+The website uses a custom domain: `srilankanhistory.dev`
 
-To verify/modify GitHub Pages settings:
-1. Go to https://github.com/NimuthuGanegoda/WorldHistoryArchive/settings/pages
-2. Ensure:
-   - Source: "GitHub Actions"
-   - Custom domain: "srilankanhistory.dev" (if using custom domain)
+### Configuration
+- **CNAME File**: `/CNAME` contains the domain
+- **DNS Settings**: Configured externally at domain registrar
+- **HTTPS**: Automatically enabled by GitHub Pages
 
-## Performance Optimization
+## Performance & Security
 
-The site uses:
-- ✅ Static generation for all pages
-- ✅ Tailwind CSS for optimized styling
-- ✅ Next.js image optimization (unoptimized for static export)
-- ✅ Gzip compression (configured in `_headers`)
+### Build Optimizations
+- Static site generation (SSG)
+- Optimized assets and images
+- Minimal JavaScript bundle
+- CDN delivery via GitHub Pages
 
-## Need Help?
+### Security Headers
+Configured in `next.config.ts` (note: only work in dev mode with static export):
+- Strict-Transport-Security
+- X-Frame-Options: SAMEORIGIN
+- X-Content-Type-Options: nosniff
+- X-XSS-Protection
 
-1. **Check GitHub Actions logs**: Most issues are visible there
-2. **Build locally first**: `npm run build`
-3. **Validate data**: `npm run validate`
-4. **Review recent commits**: `git log --oneline -10`
+For production, configure these headers in your DNS/hosting provider if needed.
+
+## Maintenance
+
+### Regular Tasks
+- ✅ Keep dependencies updated: `npm update`
+- ✅ Test builds before pushing to main
+- ✅ Monitor workflow runs for failures
+- ✅ Validate data integrity: `npm run validate`
+
+### Best Practices
+1. Work on feature branches, not directly on `main`
+2. Test locally before creating pull requests
+3. Review workflow logs if deployment fails
+4. Keep the single workflow pattern (no duplicates)
+
+## Support
+
+If you encounter deployment issues:
+
+1. Check GitHub Actions logs for detailed error messages
+2. Verify local build works: `npm run build`
+3. Ensure no external dependencies (fonts, CDNs) are added
+4. Confirm only `nextjs.yml` workflow exists
 
 ---
 
-**Summary**: Push to `main` → Automatic build & deploy → Website updates! 🚀
+**Last Updated**: February 2026
+**Deployment Method**: GitHub Actions + GitHub Pages
+**Build Time**: ~2-3 minutes
+**Uptime Target**: 99.9%
