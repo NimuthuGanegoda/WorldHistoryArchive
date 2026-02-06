@@ -36,6 +36,7 @@ const kingdoms = kingdomsData as Kingdom[];
 const featuredKings = kings.slice(0, 6);
 
 // Map kingdoms to cards with descriptions and sort chronologically
+// Bolt ⚡ Use Schwartzian transform for O(N) performance instead of O(N log N)
 const kingdomCards = kingdoms
   .map((kingdom) => {
     const description =
@@ -48,9 +49,10 @@ const kingdomCards = kingdoms
       name: kingdom.title,
       description,
       reign: kingdom.reign,
+      year: parseStartYear(kingdom.reign),
     };
   })
-  .sort((a, b) => parseStartYear(a.reign) - parseStartYear(b.reign));
+  .sort((a, b) => a.year - b.year);
 
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
