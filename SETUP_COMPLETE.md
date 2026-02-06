@@ -21,15 +21,10 @@
 
 ### When You Want to Update Your Website:
 
-```
-1. Edit files (data, components, pages)
-   ↓
-2. git add . && git commit -m "Description"
-   ↓
-3. git push origin main
-   ↓
+1. Edit files (data, components, pages).
+2. Run `git add . && git commit -m "Description"`.
+3. Run `git push origin main`.
 4. 🎉 Website updates automatically in 1-2 minutes!
-```
 
 ### That's it! No more manual steps!
 
