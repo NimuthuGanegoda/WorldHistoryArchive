@@ -2,6 +2,7 @@ import Link from 'next/link';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
 import { parseStartYear } from '@/lib/utils';
+import TimelineOverview from '@/components/TimelineOverview';
 
 export const metadata = {
   title: 'Historical Timeline | Sri Lanka History',
@@ -83,6 +84,8 @@ export default function TimelinePage() {
           Complete chronological timeline of Sri Lankan monarchs spanning over 2,300 years
         </p>
       </div>
+
+      <TimelineOverview kings={kingsData as any[]} kingdoms={kingdomsData as any[]} />
 
       <div className="space-y-12">
         {Object.entries(eras).map(([eraName, eraKings]) => (
