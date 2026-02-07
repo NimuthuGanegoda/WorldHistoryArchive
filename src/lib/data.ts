@@ -15,7 +15,7 @@ const dataCache: Record<string, { kings: any[]; kingdoms: any[]; sites: any[] }>
 /**
  * Helper to load a single JSON file, returning empty array if it doesn't exist
  */
-function loadJsonFile(filepath: string, countrySlug: string, filename: string): any[] {
+function loadJsonFile(filepath: string): any[] {
   try {
     return JSON.parse(fs.readFileSync(filepath, 'utf-8'));
   } catch (error) {
@@ -38,9 +38,9 @@ function loadCountryData(countrySlug: string): { kings: any[]; kingdoms: any[]; 
   const dataDir = path.join(process.cwd(), 'src', 'data', countrySlug);
 
   // Load each JSON file
-  const kings = loadJsonFile(path.join(dataDir, 'kings.json'), countrySlug, 'kings.json');
-  const kingdoms = loadJsonFile(path.join(dataDir, 'kingdoms.json'), countrySlug, 'kingdoms.json');
-  const sites = loadJsonFile(path.join(dataDir, 'sites.json'), countrySlug, 'sites.json');
+  const kings = loadJsonFile(path.join(dataDir, 'kings.json'));
+  const kingdoms = loadJsonFile(path.join(dataDir, 'kingdoms.json'));
+  const sites = loadJsonFile(path.join(dataDir, 'sites.json'));
 
   // Cache the loaded data
   const data = { kings, kingdoms, sites };
