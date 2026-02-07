@@ -34,3 +34,34 @@ export function parseStartYear(reign: string): number {
 
   return year;
 }
+
+export function getDailyKings<T>(items: T[], count: number = 6): T[] {
+  // Use UTC date string as seed (YYYY-MM-DD)
+  // This ensures all users see the same kings on the same UTC day
+  const today = new Date().toISOString().split('T')[0];
+
+  // Simple hash function for the date string to create a numerical seed
+  let seed = 0;
+  for (let i = 0; i < today.length; i++) {
+    seed = ((seed << 5) - seed) + today.charCodeAt(i);
+    seed |= 0; // Convert to 32bit integer
+  }
+
+  // Create a copy to avoid mutating the original array
+  const shuffled = [...items];
+  let m = shuffled.length;
+
+  // Simple Linear Congruential Generator (LCG)
+  const random = () => {
+    seed = (seed * 9301 + 49297) % 233280;
+    return Math.abs(seed) / 233280;
+  };
+
+  // Fisher-Yates shuffle with seeded random
+  while (m) {
+    const i = Math.floor(random() * m--);
+    [shuffled[m], shuffled[i]] = [shuffled[i], shuffled[m]];
+  }
+
+  return shuffled.slice(0, count);
+}
