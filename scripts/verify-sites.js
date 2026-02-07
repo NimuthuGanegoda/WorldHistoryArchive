@@ -17,7 +17,14 @@ if (countries) {
       const kings = load(`src/data/${country.slug}/kings.json`);
       const sites = load(`src/data/${country.slug}/sites.json`);
 
-      if (!kings || !sites) return;
+      if (!kings) {
+          errors.push(`[${country.slug}] Could not load kings.json`);
+          return;
+      }
+      if (!sites) {
+          errors.push(`[${country.slug}] Could not load sites.json`);
+          return;
+      }
 
       const kingSlugs = new Set(kings.map(k => k.slug));
 
