@@ -1,6 +1,5 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
-import kingsData from '@/data/kings.json';
-import kingdomsData from '@/data/kingdoms.json';
+import { getKings, getKingdoms, getCountries } from '@/lib/data';
 import Link from 'next/link';
 import { parseStartYear } from '@/lib/utils';
 
@@ -11,17 +10,26 @@ interface King {
   kingdom: string;
 }
 
-// Use Schwartzian transform to optimize sorting performance
-const kings = (kingsData as King[])
-  .map((king) => ({ king, year: parseStartYear(king.reign) }))
-  .sort((a, b) => a.year - b.year)
-  .map((item) => item.king);
-const kingdomTitles = new Map((kingdomsData as any[]).map((k) => [k.slug, k.title]));
+export async function generateStaticParams() {
+  const countries = getCountries();
+  return countries.map(c => ({ country: c.slug }));
+}
 
-export default function KingsIndex() {
+export default async function KingsIndex({ params }: { params: Promise<{ country: string }> }) {
+  const { country } = await params;
+  const kingsData = getKings(country) as King[];
+  const kingdomsData = getKingdoms(country);
+
+  // Use Schwartzian transform to optimize sorting performance
+  const kings = kingsData
+    .map((king) => ({ king, year: parseStartYear(king.reign) }))
+    .sort((a, b) => a.year - b.year)
+    .map((item) => item.king);
+  const kingdomTitles = new Map((kingdomsData as any[]).map((k) => [k.slug, k.title]));
+
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Kings' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: `/${country}` }, { label: 'Kings' }]} />
 
       <header className="mb-6">
         <h1 className="text-4xl font-bold mb-2">All Kings</h1>
@@ -34,7 +42,7 @@ export default function KingsIndex() {
         {kings.map((king) => (
           <Link
             key={king.slug}
-            href={`/kings/${king.slug}`}
+            href={`/${country}/kings/${king.slug}`}
             className="card p-5 hover:shadow-lg transition-shadow"
           >
             <div className="flex flex-col gap-1">

@@ -2,9 +2,7 @@ import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Timeline from '@/components/Timeline';
 import Link from 'next/link';
-import kingdomsData from '@/data/kingdoms.json';
-import kingsData from '@/data/kings.json';
-import sitesData from '@/data/sites.json';
+import { getKingdoms, getKings, getSites, getCountries } from '@/lib/data';
 import { parseStartYear } from '@/lib/utils';
 
 interface King {
@@ -29,100 +27,60 @@ interface Kingdom {
   }[];
 }
 
-// Optimization: Pre-compute lookups for O(1) access
-const kingdomsMap = new Map(kingdomsData.map((k) => [k.slug, k]));
-const kingdomKingsMap = new Map();
-const kingdomSitesMap = new Map();
-
-// Initialize maps once
-// Optimization: Bolt ⚡ optimized grouping from O(N*K) to O(N) using Map lookups
-const kingsByKingdom = new Map<string, any[]>();
-(kingsData as any[]).forEach((king) => {
-  if (!kingsByKingdom.has(king.kingdom)) {
-    kingsByKingdom.set(king.kingdom, []);
-  }
-  kingsByKingdom.get(king.kingdom)?.push(king);
-});
-
-// Pre-process kingdoms for faster site matching
-const processedKingdoms = kingdomsData.map((k) => ({
-  slug: k.slug,
-  slugLower: k.slug.toLowerCase(),
-  titleLower: k.title.toLowerCase(),
-}));
-
-const sitesByKingdom = new Map<string, any[]>();
-processedKingdoms.forEach((pk) => sitesByKingdom.set(pk.slug, []));
-
-// Create lookup map for O(1) matching
-const kingdomLookup = new Map<string, string>();
-processedKingdoms.forEach((pk) => {
-  kingdomLookup.set(pk.slug, pk.slug);
-  kingdomLookup.set(pk.slugLower, pk.slug);
-  kingdomLookup.set(pk.titleLower, pk.slug);
-});
-
-(sitesData as any[]).forEach((site) => {
-  if (!site.kingdom) return;
-  const siteKingdomLower = site.kingdom.toLowerCase();
-
-  // Optimization: Bolt ⚡ O(1) exact match lookup
-  // Matches ~93% of sites instantly without iterating kingdoms
-  const exactMatchSlug = kingdomLookup.get(siteKingdomLower);
-
-  if (exactMatchSlug) {
-    sitesByKingdom.get(exactMatchSlug)?.push(site);
-    return;
-  }
-
-  // Fallback: O(M) fuzzy matching for remaining ~7%
-  processedKingdoms.forEach((pk) => {
-    if (
-      siteKingdomLower.includes(pk.titleLower) ||
-      pk.titleLower.includes(siteKingdomLower)
-    ) {
-      sitesByKingdom.get(pk.slug)?.push(site);
-    }
-  });
-});
-
-kingdomsData.forEach((kingdom) => {
-  // Get grouped kings and sort
-  const kKings = (kingsByKingdom.get(kingdom.slug) || [])
-    .map((king: any) => ({ king, year: parseStartYear(king.reign) }))
-    .sort((a, b) => a.year - b.year)
-    .map((item) => item.king);
-  kingdomKingsMap.set(kingdom.slug, kKings);
-
-  // Get grouped sites
-  const kSites = sitesByKingdom.get(kingdom.slug) || [];
-  kingdomSitesMap.set(kingdom.slug, kSites);
-});
-
 export async function generateStaticParams() {
-  return kingdomsData.map((kingdom) => ({
-    slug: kingdom.slug,
-  }));
+  const countries = getCountries();
+  const params = [];
+  for (const country of countries) {
+    const kingdoms = getKingdoms(country.slug);
+    for (const kingdom of kingdoms) {
+      params.push({ country: country.slug, slug: kingdom.slug });
+    }
+  }
+  return params;
 }
 
-export default async function KingdomPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function KingdomPage({ params }: { params: Promise<{ country: string, slug: string }> }) {
+  const { country, slug } = await params;
 
-  // O(1) Lookup
-  const kingdom = kingdomsMap.get(slug);
-  
+  const kingdomsData = getKingdoms(country);
+  const kingsData = getKings(country);
+  const sitesData = getSites(country);
+
+  const kingdom = kingdomsData.find((k: any) => k.slug === slug);
+
   if (!kingdom) {
     notFound();
   }
 
-  // O(1) Lookup
-  const kingdomKings = kingdomKingsMap.get(slug) || [];
-  const kingdomSites = kingdomSitesMap.get(slug) || [];
+  // Filter kings for this kingdom
+  const kingdomKings = kingsData
+    .filter((k: any) => k.kingdom === slug)
+    .sort((a: any, b: any) => parseStartYear(a.reign) - parseStartYear(b.reign));
+
+  // Filter sites for this kingdom
+  const kingdomSlugLower = kingdom.slug.toLowerCase();
+  const kingdomTitleLower = kingdom.title.toLowerCase();
+
+  const kingdomSites = sitesData.filter((site: any) => {
+    if (!site.kingdom) return false;
+    const siteKingdomLower = site.kingdom.toLowerCase();
+
+    // Exact match
+    if (siteKingdomLower === kingdomSlugLower || siteKingdomLower === kingdomTitleLower) {
+      return true;
+    }
+
+    // Fuzzy match
+    if (siteKingdomLower.includes(kingdomTitleLower) || kingdomTitleLower.includes(siteKingdomLower)) {
+      return true;
+    }
+    return false;
+  });
 
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
-          { label: 'Home', href: '/' },
+          { label: 'Home', href: `/${country}` },
           { label: kingdom.title }
         ]} />
         
@@ -191,7 +149,7 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
                 {kingdomSites.map((site: any) => (
                   <Link 
                     key={site.id}
-                    href={`/sites/${site.id}`}
+                    href={`/${country}/sites/${site.id}`}
                     className="card p-5 hover:scale-105 transition-transform"
                   >
                     <div className="flex items-start gap-4">
@@ -220,7 +178,7 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
           <h2 className="text-2xl font-bold mt-8 mb-6">Monarchs Timeline</h2>
           
           {kingdomKings.length > 0 ? (
-            <Timeline kings={kingdomKings} />
+            <Timeline kings={kingdomKings} countrySlug={country} />
           ) : (
             <p className="text-gray-600 dark:text-gray-400">No monarchs currently listed for this kingdom.</p>
           )}

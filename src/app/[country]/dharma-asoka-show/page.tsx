@@ -1,11 +1,19 @@
 import Link from 'next/link';
+import { getCountries } from '@/lib/data';
 
 export const metadata = {
-  title: 'Dharma Asoka Show | Sri Lanka History',
+  title: 'Dharma Asoka Show',
   description: 'Watch the YouTube playlist about Emperor Ashoka (Dharma Asoka) and his legacy.'
 };
 
-export default function DharmaAsokaShowPage() {
+export async function generateStaticParams() {
+  const countries = getCountries();
+  return countries.map(c => ({ country: c.slug }));
+}
+
+export default async function DharmaAsokaShowPage({ params }: { params: Promise<{ country: string }> }) {
+  const { country } = await params;
+
   return (
     <main className="max-w-3xl mx-auto py-8 px-4">
       <h1 className="text-3xl font-bold mb-4">Dharma Asoka Show</h1>
@@ -25,7 +33,7 @@ export default function DharmaAsokaShowPage() {
         ></iframe>
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-400">
-        Playlist courtesy of YouTube. For more information about Ashoka, see the <Link href="/kings/ashoka" className="underline">Ashoka biography</Link>.
+        Playlist courtesy of YouTube. For more information about Ashoka, see the <Link href={`/${country}/kings/ashoka`} className="underline">Ashoka biography</Link>.
       </p>
     </main>
   );

@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import kingsData from '@/data/kings.json';
+import { getKings, getCountries } from '@/lib/data';
 
 export const metadata = {
-  title: 'Political Connections | Sri Lanka History',
-  description: 'Political relationships, alliances, and rivalries between Sri Lankan monarchs',
+  title: 'Political Connections',
+  description: 'Political relationships, alliances, and rivalries between monarchs',
 };
 
 // Extract political connections from biographies
@@ -11,7 +11,7 @@ function extractPoliticalConnections(kings: any[]) {
   const connections: any[] = [];
   
   kings.forEach(king => {
-    const bio = king.biography + ' ' + king.sections.map((s: any) => s.content.join(' ')).join(' ');
+    const bio = king.biography + ' ' + (king.sections || []).map((s: any) => s.content.join(' ')).join(' ');
     
     // Find mentions of other kings
     kings.forEach(otherKing => {
@@ -93,8 +93,14 @@ const relationshipLabels: any = {
   mentioned: 'Historical Mentions'
 };
 
-export default function PoliticalConnectionsPage() {
-  const kings = kingsData as any[];
+export async function generateStaticParams() {
+  const countries = getCountries();
+  return countries.map(c => ({ country: c.slug }));
+}
+
+export default async function PoliticalConnectionsPage({ params }: { params: Promise<{ country: string }> }) {
+  const { country } = await params;
+  const kings = getKings(country);
   const allConnections = extractPoliticalConnections(kings);
   const grouped = groupByRelationship(allConnections);
 
@@ -103,7 +109,7 @@ export default function PoliticalConnectionsPage() {
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-4">Political Connections</h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
-          Political relationships, family ties, alliances, and rivalries between Sri Lankan monarchs
+          Political relationships, family ties, alliances, and rivalries between monarchs
         </p>
       </div>
 
@@ -142,14 +148,14 @@ export default function PoliticalConnectionsPage() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
                           <Link 
-                            href={`/kings/${conn.from.slug}`}
+                            href={`/${country}/kings/${conn.from.slug}`}
                             className="font-bold text-[var(--accent)] hover:underline"
                           >
                             {conn.from.title}
                           </Link>
                           <span className="text-gray-400">→</span>
                           <Link 
-                            href={`/kings/${conn.to.slug}`}
+                            href={`/${country}/kings/${conn.to.slug}`}
                             className="font-bold text-[var(--accent)] hover:underline"
                           >
                             {conn.to.title}
@@ -176,10 +182,10 @@ export default function PoliticalConnectionsPage() {
       <div className="mt-12 p-6 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded">
         <h3 className="text-lg font-bold mb-2">About Political Connections</h3>
         <p className="text-sm text-gray-700 dark:text-gray-300">
-          This page maps the complex web of political relationships between Sri Lankan monarchs. 
+          This page maps the complex web of political relationships between monarchs.
           These connections include family lineages, succession disputes, military conflicts, 
-          strategic alliances, and historical interactions that shaped the island&apos;s political landscape 
-          over 2,300 years.
+          strategic alliances, and historical interactions that shaped the political landscape
+          over millennia.
         </p>
       </div>
     </main>

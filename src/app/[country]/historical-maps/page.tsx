@@ -1,16 +1,24 @@
 import Link from 'next/link';
+import { getCountries } from '@/lib/data';
 
 export const metadata = {
-  title: 'Historical Maps | Sri Lanka History',
-  description: 'Explore historical regions and ancient kingdom boundaries of Sri Lanka using Old Maps Online.'
+  title: 'Historical Maps',
+  description: 'Explore historical regions and ancient kingdom boundaries.'
 };
 
-export default function HistoricalMapsPage() {
+export async function generateStaticParams() {
+  const countries = getCountries();
+  return countries.map(c => ({ country: c.slug }));
+}
+
+export default async function HistoricalMapsPage({ params }: { params: Promise<{ country: string }> }) {
+  const { country } = await params;
+
   return (
     <main className="max-w-4xl mx-auto py-8 px-4">
       <h1 className="text-3xl font-bold mb-4">Historical Maps</h1>
       <p className="mb-6 text-gray-700 dark:text-gray-300">
-        Explore historical regions and ancient kingdom boundaries of Sri Lanka using the interactive map below (powered by <a href="https://www.oldmapsonline.org/" target="_blank" rel="noopener noreferrer" className="underline">Old Maps Online</a>):
+        Explore historical regions and ancient kingdom boundaries using the interactive map below (powered by <a href="https://www.oldmapsonline.org/" target="_blank" rel="noopener noreferrer" className="underline">Old Maps Online</a>):
       </p>
       <p className="mb-4 text-yellow-800 dark:text-yellow-300 font-medium">
         Tip: Use the timeline slider below the map to explore different historical periods.
@@ -23,7 +31,7 @@ export default function HistoricalMapsPage() {
           style={{ border: '1px solid #ccc', width: '100%', height: '100%' }}
           allowFullScreen
           loading="lazy"
-          title="Old Maps Online - Sri Lanka Historical Regions"
+          title="Old Maps Online - Historical Regions"
         ></iframe>
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-400">

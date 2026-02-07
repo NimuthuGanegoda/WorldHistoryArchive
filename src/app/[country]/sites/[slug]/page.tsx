@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
-import sitesData from '@/data/sites.json';
-import kingdomsData from '@/data/kingdoms.json';
+import { getSites, getKingdoms, getCountries } from '@/lib/data';
 
 interface Site {
   id: string;
@@ -28,69 +27,54 @@ interface Site {
   [key: string]: any;
 }
 
-// Optimization: Hoist Map creation for O(1) lookups
-const sitesMap = new Map(sitesData.map((s) => [s.id, s]));
-
-// Optimization: Pre-compute Site -> Kingdom mapping to avoid O(N*M) lookups per request
-const siteKingdomMap = new Map();
-
-// Helper to prepare kingdoms for efficient searching
-const preparedKingdoms = kingdomsData.map(k => ({
-  original: k,
-  titleLower: k.title.toLowerCase(),
-}));
-
-// Optimization: Create lookup map for O(1) matching
-const kingdomLookup = new Map<string, typeof kingdomsData[0]>();
-kingdomsData.forEach((k) => {
-  kingdomLookup.set(k.slug, k);
-  kingdomLookup.set(k.slug.toLowerCase(), k);
-  kingdomLookup.set(k.title.toLowerCase(), k);
-});
-
-sitesData.forEach(site => {
-  if (!site.kingdom) return;
-  const siteKingdomLower = site.kingdom.toLowerCase();
-
-  // Optimization: Bolt ⚡ O(1) exact match lookup
-  let kingdom = kingdomLookup.get(siteKingdomLower);
-
-  if (!kingdom) {
-    // Fallback: O(M) fuzzy matching
-    const match = preparedKingdoms.find(k =>
-      siteKingdomLower.includes(k.titleLower) ||
-      k.titleLower.includes(siteKingdomLower)
-    );
-    if (match) kingdom = match.original;
-  }
-
-  if (kingdom) {
-    siteKingdomMap.set(site.id, kingdom);
-  }
-});
-
 export async function generateStaticParams() {
-  return sitesData.map((site) => ({
-    slug: site.id,
-  }));
+  const countries = getCountries();
+  const params = [];
+  for (const country of countries) {
+    const sites = getSites(country.slug);
+    for (const site of sites) {
+      params.push({ country: country.slug, slug: site.id });
+    }
+  }
+  return params;
 }
 
-export default async function SitePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const site = sitesMap.get(slug) as Site | undefined;
+export default async function SitePage({ params }: { params: Promise<{ country: string, slug: string }> }) {
+  const { country, slug } = await params;
+
+  const sitesData = getSites(country);
+  const kingdomsData = getKingdoms(country);
+
+  const site = sitesData.find((s: any) => s.id === slug) as Site | undefined;
   
   if (!site) {
     notFound();
   }
 
-  // O(1) Lookup
-  const kingdom = siteKingdomMap.get(site.id);
+  // Kingdom matching logic
+  let kingdom = null;
+  if (site.kingdom) {
+    const siteKingdomLower = site.kingdom.toLowerCase();
+
+    kingdom = kingdomsData.find((k: any) =>
+      k.slug === siteKingdomLower ||
+      k.slug.toLowerCase() === siteKingdomLower ||
+      k.title.toLowerCase() === siteKingdomLower
+    );
+
+    if (!kingdom) {
+      kingdom = kingdomsData.find((k: any) =>
+        siteKingdomLower.includes(k.title.toLowerCase()) ||
+        k.title.toLowerCase().includes(siteKingdomLower)
+      );
+    }
+  }
 
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
-          { label: 'Home', href: '/' },
-          { label: 'Historical Sites', href: '/sites' },
+          { label: 'Home', href: `/${country}` },
+          { label: 'Historical Sites', href: `/${country}/sites` },
           { label: site.name }
         ]} />
         
@@ -110,7 +94,7 @@ export default async function SitePage({ params }: { params: Promise<{ slug: str
           <section className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mb-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div><strong>Kingdom:</strong> {kingdom ? (
-                <Link href={`/kingdoms/${kingdom.slug}`} className="text-[var(--accent)] hover:underline">
+                <Link href={`/${country}/kingdoms/${kingdom.slug}`} className="text-[var(--accent)] hover:underline">
                   {site.kingdom}
                 </Link>
               ) : site.kingdom}</div>
@@ -118,7 +102,7 @@ export default async function SitePage({ params }: { params: Promise<{ slug: str
               <div><strong>Type:</strong> <span className="capitalize">{site.type}</span></div>
               {site.builtBy && (
                 <div><strong>Built By:</strong> {site.builtByKingId ? (
-                  <Link href={`/kings/${site.builtByKingId}`} className="text-[var(--accent)] hover:underline">
+                  <Link href={`/${country}/kings/${site.builtByKingId}`} className="text-[var(--accent)] hover:underline">
                     {site.builtBy}
                   </Link>
                 ) : site.builtBy}</div>

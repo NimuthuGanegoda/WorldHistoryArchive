@@ -4,11 +4,12 @@ interface KingdomCardProps {
   readonly slug: string;
   readonly name: string;
   readonly description: string;
+  readonly countrySlug: string;
 }
 
-export default function KingdomCard({ slug, name, description }: KingdomCardProps) {
+export default function KingdomCard({ slug, name, description, countrySlug }: KingdomCardProps) {
   return (
-    <Link href={`/kingdoms/${slug}`} className="block group">
+    <Link href={`/${countrySlug}/kingdoms/${slug}`} className="block group">
       <div className="card text-center hover:scale-105">
         <div className="text-[56px] mb-4 transition-transform group-hover:scale-110 duration-300">
           🏛️

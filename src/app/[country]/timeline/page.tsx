@@ -1,39 +1,21 @@
 import Link from 'next/link';
-import kingsData from '@/data/kings.json';
-import kingdomsData from '@/data/kingdoms.json';
+import { getKings, getKingdoms, getCountries } from '@/lib/data';
 import { parseStartYear } from '@/lib/utils';
 
 export const metadata = {
-  title: 'Historical Timeline | Sri Lanka History',
-  description: 'Complete chronological timeline of Sri Lankan monarchs from 543 BCE to 1815 CE',
+  title: 'Historical Timeline',
+  description: 'Complete chronological timeline of monarchs.',
 };
-
-// Hoist regex patterns to avoid recompilation
-const YEAR_REGEX = /(\d+)/;
-const BCE_REGEX = /BCE|BC/;
-
-// Pre-compute kingdoms map for O(1) lookup
-const kingdomsMap = new Map(kingdomsData.map((k: any) => [k.slug, k]));
-
-function extractStartYear(reign: string): number {
-  if (!reign) return 9999;
-  const match = reign.match(YEAR_REGEX);
-  if (!match) return 9999;
-  const year = parseInt(match[1]);
-  if (BCE_REGEX.test(reign)) {
-    return -year;
-  }
-  return year;
-}
 
 // Group kings by era
 function groupKingsByEra(kings: any[]) {
   const eras = {
-    'Ancient Period (543 BCE - 250 CE)': [] as any[],
-    'Classical Period (250 CE - 1017 CE)': [] as any[],
-    'Medieval Period (1017 CE - 1400 CE)': [] as any[],
-    'Late Medieval Period (1400 CE - 1600 CE)': [] as any[],
-    'Colonial Era (1600 CE - 1815 CE)': [] as any[],
+    'Ancient Period': [] as any[],
+    'Classical Period': [] as any[],
+    'Medieval Period': [] as any[],
+    'Late Medieval Period': [] as any[],
+    'Colonial Era': [] as any[],
+    'Other': [] as any[]
   };
 
   // Pre-calculate years for O(N) sort performance instead of O(N log N) regex parsing
@@ -45,42 +27,58 @@ function groupKingsByEra(kings: any[]) {
   kingsWithYear.forEach(item => {
     const { year } = item;
     
+    // Using approximated eras for Sri Lanka context.
+    // Ideally this should be configurable per country.
     if (year < 250) {
-      eras['Ancient Period (543 BCE - 250 CE)'].push(item);
+      eras['Ancient Period'].push(item);
     } else if (year < 1017) {
-      eras['Classical Period (250 CE - 1017 CE)'].push(item);
+      eras['Classical Period'].push(item);
     } else if (year < 1400) {
-      eras['Medieval Period (1017 CE - 1400 CE)'].push(item);
+      eras['Medieval Period'].push(item);
     } else if (year < 1600) {
-      eras['Late Medieval Period (1400 CE - 1600 CE)'].push(item);
+      eras['Late Medieval Period'].push(item);
+    } else if (year < 1815) {
+      eras['Colonial Era'].push(item);
     } else {
-      eras['Colonial Era (1600 CE - 1815 CE)'].push(item);
+      eras['Other'].push(item);
     }
   });
 
-  // Sort kings within each era chronologically using pre-calculated year
-  Object.keys(eras).forEach((key) => {
-    const eraList = (eras as any)[key];
-    eraList.sort((a: any, b: any) => a.year - b.year);
-    // Unwrap back to original king objects
-    (eras as any)[key] = eraList.map((item: any) => item.king);
+  // Remove empty eras
+  const filteredEras: Record<string, any[]> = {};
+  Object.keys(eras).forEach(key => {
+    const list = (eras as any)[key];
+    if (list.length > 0) {
+      // Sort
+      list.sort((a: any, b: any) => a.year - b.year);
+      filteredEras[key] = list.map((item: any) => item.king);
+    }
   });
 
-  return eras;
+  return filteredEras;
 }
 
-const STATIC_ERAS = groupKingsByEra(kingsData as any[]);
+export async function generateStaticParams() {
+  const countries = getCountries();
+  return countries.map(c => ({ country: c.slug }));
+}
 
-export default function TimelinePage() {
-  const kings = kingsData as any[];
-  const eras = STATIC_ERAS;
+export default async function TimelinePage({ params }: { params: Promise<{ country: string }> }) {
+  const { country } = await params;
+  const kingsData = getKings(country);
+  const kingdomsData = getKingdoms(country);
+
+  // Pre-compute kingdoms map for O(1) lookup
+  const kingdomsMap = new Map(kingdomsData.map((k: any) => [k.slug, k]));
+
+  const eras = groupKingsByEra(kingsData);
 
   return (
     <main className="max-w-7xl mx-auto py-6 px-5">
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-4">Historical Timeline</h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
-          Complete chronological timeline of Sri Lankan monarchs spanning over 2,300 years
+          Complete chronological timeline of monarchs.
         </p>
       </div>
 
@@ -93,7 +91,7 @@ export default function TimelinePage() {
             
             <div className="space-y-4">
               {eraKings.map((king: any) => {
-                // O(1) lookup instead of O(N) find
+                // O(1) lookup
                 const kingdom = kingdomsMap.get(king.kingdom);
                 
                 return (
@@ -107,7 +105,7 @@ export default function TimelinePage() {
                       </div>
                       {kingdom && (
                         <Link 
-                          href={`/kingdoms/${kingdom.slug}`}
+                          href={`/${country}/kingdoms/${kingdom.slug}`}
                           className="text-xs text-gray-600 dark:text-gray-400 hover:text-accent hover:underline"
                         >
                           {kingdom.title}
@@ -117,7 +115,7 @@ export default function TimelinePage() {
 
                     <div className="flex-1">
                       <Link 
-                        href={`/kings/${king.slug}`}
+                        href={`/${country}/kings/${king.slug}`}
                         className="group"
                       >
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
@@ -143,10 +141,7 @@ export default function TimelinePage() {
       <div className="mt-12 p-6 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded">
         <h3 className="text-lg font-bold mb-2">About This Timeline</h3>
         <p className="text-sm text-gray-700 dark:text-gray-300">
-          This timeline presents {kings.length} monarchs who ruled various kingdoms across Sri Lanka, 
-          from the legendary arrival of Prince Vijaya in 543 BCE to the last Kandyan king in 1815 CE. 
-          The timeline reflects the island&apos;s rich history of shifting capitals, regional kingdoms, 
-          and cultural evolution spanning over two millennia.
+          This timeline presents {kingsData.length} monarchs.
         </p>
       </div>
     </main>

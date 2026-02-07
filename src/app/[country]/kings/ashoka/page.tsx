@@ -1,11 +1,19 @@
 import Link from 'next/link';
+import { getCountries } from '@/lib/data';
 
 export const metadata = {
-  title: 'King Ashoka (Dharma Asoka) | Sri Lanka History',
+  title: 'King Ashoka (Dharma Asoka)',
   description: 'Biography of Emperor Ashoka (Dharma Asoka), his impact on India and Sri Lanka, and related video resources.'
 };
 
-export default function KingAshokaPage() {
+export async function generateStaticParams() {
+  const countries = getCountries();
+  return countries.map(c => ({ country: c.slug }));
+}
+
+export default async function KingAshokaPage({ params }: { params: Promise<{ country: string }> }) {
+  const { country } = await params;
+
   return (
     <main className="max-w-3xl mx-auto py-8 px-4">
       <h1 className="text-3xl font-bold mb-4">King Ashoka (Dharma Asoka)</h1>
@@ -36,7 +44,7 @@ export default function KingAshokaPage() {
           ></iframe>
         </div>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-          Playlist courtesy of YouTube. For more about Ashoka&apos;s connection to Sri Lanka, see <Link href="/kings/devanampiya-tissa" className="underline">King Devanampiya Tissa</Link>.
+          Playlist courtesy of YouTube. For more about Ashoka&apos;s connection to Sri Lanka, see <Link href={`/${country}/kings/devanampiya-tissa`} className="underline">King Devanampiya Tissa</Link>.
         </p>
       </section>
     </main>
