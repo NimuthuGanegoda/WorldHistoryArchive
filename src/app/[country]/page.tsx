@@ -152,8 +152,6 @@ export default async function Home({ params }: Props) {
                 className="scroll-animate opacity-0 translate-y-8"
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
-                {/* KingdomCard needs to know the country for the link, or we wrap it in Link */}
-                {/* KingdomCard source says it contains a Link. Let's check KingdomCard again. */}
                 <KingdomCard
                   slug={kingdom.slug}
                   name={kingdom.name}
