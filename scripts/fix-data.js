@@ -99,23 +99,20 @@ function parseYears(reign) {
   let min = Math.min(...parsedNumbers);
   let max = Math.max(...parsedNumbers);
 
+  // Special handling for Century - do this BEFORE BCE conversion
+  if (/century/i.test(normalized)) {
+      if (max < 20) {
+         min = min * 100 - 99;
+         max = max * 100;
+      }
+  }
+
   // If BCE, convert to negative years for calculation
   if (isBCE) {
     const tempMin = -max;
     const tempMax = -min;
     min = tempMin;
     max = tempMax;
-  }
-
-  // Special handling for Century?
-  if (/century/i.test(normalized)) {
-      if (max < 20) {
-         min = min * 100 - 99;
-         max = max * 100;
-         if (isBCE) {
-             return { min: -200, max: -100 };
-         }
-      }
   }
 
   return { min, max };
