@@ -3,7 +3,7 @@ import KingdomCard from '@/components/KingdomCard';
 import AnimationObserver from '@/components/AnimationObserver';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
-import { parseStartYear } from '@/lib/utils';
+import { parseStartYear, getDailyKings } from '@/lib/utils';
 
 interface King {
   slug: string;
@@ -31,7 +31,8 @@ const kings = kingsData as King[];
 const kingdoms = kingdomsData as Kingdom[];
 
 // Get featured kings (first 6)
-const featuredKings = kings.slice(0, 6);
+// Using getDailyKings ensures these rotate daily based on UTC date
+const featuredKings = getDailyKings(kings, 6);
 
 // Map kingdoms to cards with descriptions and sort chronologically
 const kingdomCards = kingdoms
