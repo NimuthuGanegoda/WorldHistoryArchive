@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import KingdomCard from '@/components/KingdomCard';
 import AnimationObserver from '@/components/AnimationObserver';
+import FeaturedKings from '@/components/FeaturedKings';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
-import { parseStartYear, getDailyKings } from '@/lib/utils';
+import { parseStartYear } from '@/lib/utils';
 
 interface King {
   slug: string;
@@ -29,10 +30,6 @@ interface Kingdom {
 // This prevents expensive re-calculation on every render
 const kings = kingsData as King[];
 const kingdoms = kingdomsData as Kingdom[];
-
-// Get featured kings (first 6)
-// Using getDailyKings ensures these rotate daily based on UTC date
-const featuredKings = getDailyKings(kings, 6);
 
 // Map kingdoms to cards with descriptions and sort chronologically
 const kingdomCards = kingdoms
@@ -92,26 +89,7 @@ export default function Home() {
           <p className="text-center text-gray-500 mb-12 text-lg">
             Discover the legendary kings who shaped Sri Lankan history
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredKings.map((king, idx) => (
-              <Link
-                key={king.slug}
-                href={`/kings/${king.slug}`}
-                className="scroll-animate opacity-0 translate-y-8 block card hover:shadow-xl"
-                style={{ transitionDelay: `${idx * 100}ms` }}
-              >
-                <h3 className="text-xl font-semibold mb-2">
-                  {king.title}
-                </h3>
-                <p className="text-sm text-[#0071e3] font-medium mb-3">
-                  {king.reign}
-                </p>
-                <p className="text-gray-500 text-[15px] leading-relaxed line-clamp-3">
-                  {king.biography.substring(0, 150)}...
-                </p>
-              </Link>
-            ))}
-          </div>
+          <FeaturedKings />
           <div className="text-center mt-12">
             <Link 
               href="/kings"
