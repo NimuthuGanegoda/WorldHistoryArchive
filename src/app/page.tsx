@@ -4,7 +4,7 @@ import AnimationObserver from '@/components/AnimationObserver';
 import FeaturedKings from '@/components/FeaturedKings';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
-import { parseStartYear } from '@/lib/utils';
+import { parseStartYear, getDailyKings } from '@/lib/utils';
 
 interface King {
   slug: string;
@@ -30,6 +30,7 @@ interface Kingdom {
 // This prevents expensive re-calculation on every render
 const kings = kingsData as King[];
 const kingdoms = kingdomsData as Kingdom[];
+const dailyKings = getDailyKings(kings, 6);
 
 // Map kingdoms to cards with descriptions and sort chronologically
 const kingdomCards = kingdoms
@@ -89,7 +90,7 @@ export default function Home() {
           <p className="text-center text-gray-500 mb-12 text-lg">
             Discover the legendary kings who shaped Sri Lankan history
           </p>
-          <FeaturedKings />
+          <FeaturedKings initialKings={dailyKings} />
           <div className="text-center mt-12">
             <Link 
               href="/kings"
