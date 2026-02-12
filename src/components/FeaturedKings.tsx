@@ -22,21 +22,31 @@ export default function FeaturedKings({ initialKings = [] }: FeaturedKingsProps)
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Calculate kings on client mount to ensure fresh daily rotation based on user's time
-    const allKings = kingsData as King[];
-    const daily = getDailyKings(allKings, 6);
+    // Function to check and update daily kings
+    const updateDailyKings = () => {
+      const allKings = kingsData as King[];
+      const daily = getDailyKings(allKings, 6);
 
-    setKings(currentKings => {
-      // If we don't have kings yet, use daily
-      if (currentKings.length === 0) return daily;
+      setKings(currentKings => {
+        // If we don't have kings yet, use daily
+        if (currentKings.length === 0) return daily;
 
-      // Check if the daily list is different from what we have
-      const isDifferent = daily.length !== currentKings.length || daily.some((k, i) => k.slug !== currentKings[i].slug);
+        // Check if the daily list is different from what we have
+        const isDifferent = daily.length !== currentKings.length || daily.some((k, i) => k.slug !== currentKings[i].slug);
 
-      // Only update state if different to avoid unnecessary re-renders
-      return isDifferent ? daily : currentKings;
-    });
-  }, []); // Run once on mount
+        // Only update state if different to avoid unnecessary re-renders
+        return isDifferent ? daily : currentKings;
+      });
+    };
+
+    // Calculate on mount
+    updateDailyKings();
+
+    // Check every minute for date changes (midnight transition)
+    const interval = setInterval(updateDailyKings, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (kings.length === 0 || !containerRef.current) return;
