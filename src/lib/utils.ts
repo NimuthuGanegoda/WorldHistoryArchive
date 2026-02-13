@@ -36,9 +36,9 @@ export function parseStartYear(reign: string): number {
 }
 
 export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new Date()): T[] {
-  // Use local date string (YYYY-MM-DD) from the provided date
-  // This ensures users see kings update at their local midnight
-  const today = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  // Use UTC date string (YYYY-MM-DD) from the provided date
+  // This ensures users see consistent kings globally, aligning with the daily build schedule
+  const today = `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}-${String(date.getUTCDate()).padStart(2, '0')}`;
 
   // Simple hash function for the date string to create a numerical seed
   let seed = 0;
