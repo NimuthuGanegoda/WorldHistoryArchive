@@ -35,6 +35,16 @@ export function parseStartYear(reign: string): number {
   return year;
 }
 
+/**
+ * Deterministically shuffles an array based on the UTC date and returns a slice.
+ * This ensures the "Featured Kings" list updates every day at midnight UTC,
+ * consistent for all users globally and aligned with the daily static build.
+ *
+ * @param items The array of items to shuffle (e.g., kings).
+ * @param count The number of items to return.
+ * @param date The date to use for seeding (default: now).
+ * @returns An array of `count` items, shuffled deterministically.
+ */
 export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new Date()): T[] {
   // Use UTC date string (YYYY-MM-DD) from the provided date
   // This ensures users see consistent kings globally, aligning with the daily build schedule

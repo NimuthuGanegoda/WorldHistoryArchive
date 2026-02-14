@@ -22,6 +22,21 @@ Key data files:
 
 *Note: The root `data/` directory contains source/legacy datasets and is used by some utility scripts.*
 
+## Daily Featured Kings
+
+The "Featured Rulers" section on the homepage automatically updates every day at **UTC midnight**.
+
+- **Mechanism**: A deterministic shuffling algorithm (seeded by the UTC date) selects 6 random kings each day.
+- **Consistency**: All users see the same set of kings on any given UTC day, regardless of their local timezone.
+- **Updates**:
+  - The static site is rebuilt daily via GitHub Actions (cron: `0 0 * * *`) to bake the new daily kings into the HTML for SEO and initial load.
+  - The client-side component (`FeaturedKings`) also checks the date and updates the list dynamically if the cached HTML is stale (e.g., if a user keeps the tab open across midnight).
+
+To verify the rotation logic locally, you can use the verification script:
+```bash
+node scripts/verify-rotation.js
+```
+
 ## Getting Started
 
 To run the application locally:
