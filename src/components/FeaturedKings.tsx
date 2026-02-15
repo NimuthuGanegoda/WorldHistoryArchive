@@ -15,19 +15,22 @@ interface King {
 
 interface FeaturedKingsProps {
   initialKings?: King[];
+  initialDate?: string;
 }
 
-export default function FeaturedKings({ initialKings = [] }: FeaturedKingsProps) {
+export default function FeaturedKings({ initialKings = [], initialDate }: FeaturedKingsProps) {
   const [kings, setKings] = useState<King[]>(initialKings);
+  const [displayDate, setDisplayDate] = useState<string | null>(initialDate || null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Function to check and update daily kings
     const updateDailyKings = () => {
+      const now = new Date();
       const allKings = kingsData as King[];
       // Client-side calculation ensures that if the static build is stale (e.g., visited days later),
       // the displayed kings will update to match the current UTC date.
-      const daily = getDailyKings(allKings, 6);
+      const daily = getDailyKings(allKings, 6, now);
 
       setKings(currentKings => {
         // If we don't have kings yet, use daily
@@ -39,6 +42,8 @@ export default function FeaturedKings({ initialKings = [] }: FeaturedKingsProps)
         // Only update state if different to avoid unnecessary re-renders
         return isDifferent ? daily : currentKings;
       });
+
+      setDisplayDate(now.toISOString());
     };
 
     // Calculate on mount
@@ -82,26 +87,44 @@ export default function FeaturedKings({ initialKings = [] }: FeaturedKingsProps)
     );
   }
 
+  // Format the date for display (UTC)
+  const formattedDate = displayDate
+    ? new Date(displayDate).toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC'
+      })
+    : '';
+
   return (
-    <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {kings.map((king, idx) => (
-        <Link
-          key={king.slug}
-          href={`/kings/${king.slug}`}
-          className="scroll-animate opacity-0 translate-y-8 block card hover:shadow-xl transition-all duration-500 ease-out"
-          style={{ transitionDelay: `${idx * 100}ms` }}
-        >
-          <h3 className="text-xl font-semibold mb-2">
-            {king.title}
-          </h3>
-          <p className="text-sm text-[#0071e3] font-medium mb-3">
-            {king.reign}
-          </p>
-          <p className="text-gray-500 text-[15px] leading-relaxed line-clamp-3 dark:text-gray-400">
-            {king.biography ? king.biography.substring(0, 150) + '...' : ''}
-          </p>
-        </Link>
-      ))}
+    <div className="space-y-8">
+      {formattedDate && (
+        <div className="text-center -mt-8 mb-4 text-[#0071e3] font-medium tracking-wide fade-in uppercase text-sm">
+          {formattedDate}
+        </div>
+      )}
+      <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {kings.map((king, idx) => (
+          <Link
+            key={king.slug}
+            href={`/kings/${king.slug}`}
+            className="scroll-animate opacity-0 translate-y-8 block card hover:shadow-xl transition-all duration-500 ease-out"
+            style={{ transitionDelay: `${idx * 100}ms` }}
+          >
+            <h3 className="text-xl font-semibold mb-2">
+              {king.title}
+            </h3>
+            <p className="text-sm text-[#0071e3] font-medium mb-3">
+              {king.reign}
+            </p>
+            <p className="text-gray-500 text-[15px] leading-relaxed line-clamp-3 dark:text-gray-400">
+              {king.biography ? king.biography.substring(0, 150) + '...' : ''}
+            </p>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
