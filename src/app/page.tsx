@@ -30,7 +30,6 @@ interface Kingdom {
 // This prevents expensive re-calculation on every render
 const kings = kingsData as King[];
 const kingdoms = kingdomsData as Kingdom[];
-const dailyKings = getDailyKings(kings, 6);
 
 // Map kingdoms to cards with descriptions and sort chronologically
 const kingdomCards = kingdoms
@@ -52,6 +51,10 @@ const kingdomCards = kingdoms
   .sort((a, b) => a.year - b.year);
 
 export default function Home() {
+  // Calculate daily kings at build time using the current date
+  const today = new Date();
+  const dailyKings = getDailyKings(kings, 6, today);
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -90,7 +93,7 @@ export default function Home() {
           <p className="text-center text-gray-500 mb-12 text-lg">
             Discover the legendary kings who shaped Sri Lankan history
           </p>
-          <FeaturedKings initialKings={dailyKings} />
+          <FeaturedKings initialKings={dailyKings} initialDate={today.toISOString()} />
           <div className="text-center mt-12">
             <Link 
               href="/kings"
