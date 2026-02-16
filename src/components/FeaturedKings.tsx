@@ -87,14 +87,14 @@ export default function FeaturedKings({ initialKings = [], initialDate }: Featur
     );
   }
 
-  // Format the date for display (UTC)
+  // Format the date for display (Asia/Colombo)
   const formattedDate = displayDate
     ? new Date(displayDate).toLocaleDateString('en-US', {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-        timeZone: 'UTC'
+        timeZone: 'Asia/Colombo'
       })
     : '';
 
