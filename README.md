@@ -24,10 +24,10 @@ Key data files:
 
 ## Daily Featured Kings
 
-The "Featured Rulers" section on the homepage automatically updates every day at **UTC midnight**.
+The "Featured Rulers" section on the homepage automatically updates every day at **Sri Lanka Standard Time (UTC+5:30) midnight**.
 
-- **Mechanism**: A deterministic shuffling algorithm (seeded by the UTC date) selects 6 random kings each day.
-- **Consistency**: All users see the same set of kings on any given UTC day, regardless of their local timezone.
+- **Mechanism**: A deterministic shuffling algorithm (seeded by the date in Asia/Colombo timezone) selects 6 random kings each day.
+- **Consistency**: All users see the same set of kings on any given day (according to Sri Lanka time), ensuring alignment with the historical context.
 - **Updates**:
   - The static site is rebuilt daily via GitHub Actions (cron: `0 0 * * *`) to bake the new daily kings into the HTML for SEO and initial load.
   - The client-side component (`FeaturedKings`) also checks the date and updates the list dynamically if the cached HTML is stale (e.g., if a user keeps the tab open across midnight).
