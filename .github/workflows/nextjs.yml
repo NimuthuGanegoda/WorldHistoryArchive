@@ -6,8 +6,8 @@ on:
       - main
   workflow_dispatch:
   schedule:
-    # Runs at 00:00 UTC every day to rotate "Featured Kings" and keep content fresh
-    - cron: '0 0 * * *'
+    # Runs at 18:30 UTC (midnight Sri Lanka Standard Time) every day to rotate "Featured Kings" immediately
+    - cron: '30 18 * * *'
 
 permissions:
   contents: read
