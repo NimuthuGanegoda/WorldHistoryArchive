@@ -5,8 +5,8 @@ import { parseStartYear } from '@/lib/utils';
 import TimelineOverview from '@/components/TimelineOverview';
 
 export const metadata = {
-  title: 'Historical Timeline | Sri Lanka History',
-  description: 'Complete chronological timeline of Sri Lankan monarchs from 543 BCE to 1815 CE',
+  title: 'Historical Timeline | World History Archive',
+  description: 'Complete chronological timeline of monarchs and rulers from ancient times to the colonial era',
 };
 
 // Hoist regex patterns to avoid recompilation
@@ -30,7 +30,7 @@ function extractStartYear(reign: string): number {
 // Group kings by era
 function groupKingsByEra(kings: any[]) {
   const eras = {
-    'Ancient Period (543 BCE - 250 CE)': [] as any[],
+    'Ancient Period (Before 250 CE)': [] as any[],
     'Classical Period (250 CE - 1017 CE)': [] as any[],
     'Medieval Period (1017 CE - 1400 CE)': [] as any[],
     'Late Medieval Period (1400 CE - 1600 CE)': [] as any[],
@@ -47,7 +47,7 @@ function groupKingsByEra(kings: any[]) {
     const { year } = item;
     
     if (year < 250) {
-      eras['Ancient Period (543 BCE - 250 CE)'].push(item);
+      eras['Ancient Period (Before 250 CE)'].push(item);
     } else if (year < 1017) {
       eras['Classical Period (250 CE - 1017 CE)'].push(item);
     } else if (year < 1400) {
@@ -81,7 +81,7 @@ export default function TimelinePage() {
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-4">Historical Timeline</h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
-          Complete chronological timeline of Sri Lankan monarchs spanning over 2,300 years
+          Complete chronological timeline of monarchs and rulers spanning over 2,300 years
         </p>
       </div>
 
@@ -146,9 +146,8 @@ export default function TimelinePage() {
       <div className="mt-12 p-6 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded">
         <h3 className="text-lg font-bold mb-2">About This Timeline</h3>
         <p className="text-sm text-gray-700 dark:text-gray-300">
-          This timeline presents {kings.length} monarchs who ruled various kingdoms across Sri Lanka, 
-          from the legendary arrival of Prince Vijaya in 543 BCE to the last Kandyan king in 1815 CE. 
-          The timeline reflects the island&apos;s rich history of shifting capitals, regional kingdoms, 
+          This timeline presents {kings.length} monarchs who ruled various kingdoms and empires.
+          The timeline reflects the rich history of shifting powers, regional kingdoms,
           and cultural evolution spanning over two millennia.
         </p>
       </div>

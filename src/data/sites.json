@@ -17,9 +17,10 @@
     "googleMapsUrl": "",
     "media": [],
     "coordinates": {
-      "lat": 8.3500,
+      "lat": 8.35,
       "lng": 80.3964
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "jetavanaramaya",
@@ -41,7 +42,8 @@
     "coordinates": {
       "lat": 8.3514,
       "lng": 80.4036
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "abhayagiri-dagoba",
@@ -63,7 +65,8 @@
     "coordinates": {
       "lat": 8.3708,
       "lng": 80.3956
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "sigiriya-rock-fortress",
@@ -83,9 +86,10 @@
     "googleMapsUrl": "",
     "media": [],
     "coordinates": {
-      "lat": 7.9570,
+      "lat": 7.957,
       "lng": 80.7603
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "sri-maha-bodhi",
@@ -107,7 +111,8 @@
     "coordinates": {
       "lat": 8.3447,
       "lng": 80.3967
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "temple-of-tooth",
@@ -129,7 +134,8 @@
     "coordinates": {
       "lat": 7.2936,
       "lng": 80.6413
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "polonnaruwa-vatadage",
@@ -151,7 +157,8 @@
     "coordinates": {
       "lat": 7.9483,
       "lng": 81.0008
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "gal-vihara",
@@ -173,7 +180,8 @@
     "coordinates": {
       "lat": 7.9658,
       "lng": 81.0069
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "dambulla-cave-temple",
@@ -195,7 +203,8 @@
     "coordinates": {
       "lat": 7.8565,
       "lng": 80.6485
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "lovamahapaya",
@@ -217,7 +226,8 @@
     "coordinates": {
       "lat": 8.3444,
       "lng": 80.3961
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "thuparamaya",
@@ -239,7 +249,8 @@
     "coordinates": {
       "lat": 8.3567,
       "lng": 80.3961
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "isurumuniya",
@@ -260,8 +271,9 @@
     "media": [],
     "coordinates": {
       "lat": 8.3331,
-      "lng": 80.3900
-    }
+      "lng": 80.39
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "mihintale",
@@ -283,7 +295,8 @@
     "coordinates": {
       "lat": 8.3508,
       "lng": 80.5103
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "lankatilaka-temple",
@@ -304,8 +317,9 @@
     "media": [],
     "coordinates": {
       "lat": 7.2338,
-      "lng": 80.5650
-    }
+      "lng": 80.565
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "embekka-devalaya",
@@ -327,7 +341,8 @@
     "coordinates": {
       "lat": 7.2197,
       "lng": 80.5703
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "gadaladeniya-temple",
@@ -349,7 +364,8 @@
     "coordinates": {
       "lat": 7.2589,
       "lng": 80.5547
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "yapahuwa-rock-fortress",
@@ -371,7 +387,8 @@
     "coordinates": {
       "lat": 7.8286,
       "lng": 80.3075
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "parakrama-samudra",
@@ -393,7 +410,8 @@
     "coordinates": {
       "lat": 7.9333,
       "lng": 80.9667
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "royal-palace-polonnaruwa",
@@ -415,7 +433,8 @@
     "coordinates": {
       "lat": 7.9458,
       "lng": 81.0003
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "rankot-vehera",
@@ -437,7 +456,8 @@
     "coordinates": {
       "lat": 7.9567,
       "lng": 81.0039
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "kiri-vehera",
@@ -459,7 +479,8 @@
     "coordinates": {
       "lat": 7.9589,
       "lng": 81.0042
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "medirigiriya-vatadage",
@@ -481,7 +502,8 @@
     "coordinates": {
       "lat": 8.1389,
       "lng": 80.9922
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "avukana-buddha",
@@ -503,7 +525,8 @@
     "coordinates": {
       "lat": 8.0167,
       "lng": 80.5333
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "ritigala-monastery",
@@ -524,8 +547,9 @@
     "media": [],
     "coordinates": {
       "lat": 8.1167,
-      "lng": 80.6500
-    }
+      "lng": 80.65
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "buduruwagala",
@@ -547,7 +571,8 @@
     "coordinates": {
       "lat": 6.7039,
       "lng": 81.0778
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "nallur-kovil",
@@ -569,7 +594,8 @@
     "coordinates": {
       "lat": 9.6742,
       "lng": 80.0294
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "kelaniya-temple",
@@ -589,9 +615,10 @@
     "googleMapsUrl": "",
     "media": [],
     "coordinates": {
-      "lat": 6.9500,
+      "lat": 6.95,
       "lng": 79.9167
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "lankarama",
@@ -613,7 +640,8 @@
     "coordinates": {
       "lat": 8.3611,
       "lng": 80.3931
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "mirisawetiya",
@@ -635,6 +663,21 @@
     "coordinates": {
       "lat": 8.3447,
       "lng": 80.3886
+    },
+    "country": "Sri Lanka"
+  },
+  {
+    "id": "colosseum",
+    "name": "Colosseum",
+    "kingdom": "roman-empire",
+    "country": "Italy",
+    "period": "70–80 CE",
+    "type": "amphitheatre",
+    "builtBy": "Vespasian, Titus",
+    "description": "The Colosseum is an oval amphitheatre in the centre of the city of Rome, Italy.",
+    "coordinates": {
+      "lat": 41.8902,
+      "lng": 12.4922
     }
   }
 ]

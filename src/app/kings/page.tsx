@@ -21,10 +21,10 @@ const kingdomTitles = new Map((kingdomsData as any[]).map((k) => [k.slug, k.titl
 export default function KingsIndex() {
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
-      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Kings' }]} />
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Rulers' }]} />
 
       <header className="mb-6">
-        <h1 className="text-4xl font-bold mb-2">All Kings</h1>
+        <h1 className="text-4xl font-bold mb-2">All Rulers</h1>
         <p className="text-lg text-gray-700 dark:text-gray-300">
           Browse every ruler in the archive. Select any name to open the detailed profile.
         </p>

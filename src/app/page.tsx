@@ -37,7 +37,7 @@ const kingdomCards = kingdoms
     const description =
       kingdom.sections?.[0]?.content?.[0] ||
       kingdom.biography ||
-      'A historical kingdom of Sri Lanka.';
+      'A historical kingdom.';
 
     return {
       slug: kingdom.slug,
@@ -49,6 +49,11 @@ const kingdomCards = kingdoms
     };
   })
   .sort((a, b) => a.year - b.year);
+
+export const metadata = {
+  title: 'World History Archive',
+  description: 'Explore the rich history and heritage of kingdoms and rulers from ancient times to the colonial era.',
+};
 
 export default function Home() {
   // Calculate daily kings at build time using the current date
@@ -64,8 +69,8 @@ export default function Home() {
             World History Archive
           </h1>
           <p className="apple-subheadline mb-12 max-w-2xl mx-auto fade-in-delay-1">
-            Explore the rich history and heritage of Sri Lankan kingdoms and rulers from ancient times to the colonial era. 
-            Discover {kings.length} kings across {kingdoms.length} kingdoms.
+            Explore the rich history and heritage of kingdoms and rulers from ancient times to the colonial era.
+            Discover {kings.length} rulers across {kingdoms.length} kingdoms from around the world.
           </p>
           <div className="flex gap-4 justify-center flex-wrap fade-in-delay-1">
             <Link 
@@ -91,7 +96,7 @@ export default function Home() {
             Featured Rulers
           </h2>
           <p className="text-center text-gray-500 mb-12 text-lg">
-            Discover the legendary kings who shaped Sri Lankan history
+            Discover the legendary rulers who shaped history
           </p>
           <FeaturedKings initialKings={dailyKings} initialDate={today.toISOString()} />
           <div className="text-center mt-12">
@@ -112,7 +117,7 @@ export default function Home() {
             Historical Kingdoms
           </h2>
           <p className="text-center text-gray-500 mb-12 text-lg">
-            From legendary Tambapanni to the mighty Kandyan Kingdom
+            Explore powerful kingdoms and empires from across the ages
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {kingdomCards.map((kingdom, idx) => (

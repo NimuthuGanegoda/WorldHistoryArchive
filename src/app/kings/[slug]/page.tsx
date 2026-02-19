@@ -38,6 +38,22 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const king = kingsMap.get(slug) as King | undefined;
+
+  if (!king) {
+    return {
+      title: 'Ruler Not Found | World History Archive',
+    };
+  }
+
+  return {
+    title: `${king.title} | World History Archive`,
+    description: king.biography || `Historical profile of ${king.title}.`,
+  };
+}
+
 export default async function KingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const king = kingsMap.get(slug) as King | undefined;
