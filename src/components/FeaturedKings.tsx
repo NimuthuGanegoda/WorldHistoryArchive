@@ -29,7 +29,7 @@ export default function FeaturedKings({ initialKings = [], initialDate }: Featur
       const now = new Date();
       const allKings = kingsData as King[];
       // Client-side calculation ensures that if the static build is stale (e.g., visited days later),
-      // the displayed kings will update to match the current UTC date.
+      // the displayed kings will update to match the current Sri Lanka date.
       const daily = getDailyKings(allKings, 6, now);
 
       setKings(currentKings => {
