@@ -38,7 +38,10 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
-          
+
+      - name: Ensure CNAME in /out
+        run: cp public/CNAME out/CNAME
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
