@@ -41,7 +41,7 @@ function LocationMarker() {
 
 export default function Map() {
   return (
-    <MapContainer center={[7.8731, 80.7718]} zoom={8} scrollWheelZoom={true} className="h-full w-full rounded-xl z-0">
+    <MapContainer center={[20, 0]} zoom={2} scrollWheelZoom={true} className="h-full w-full rounded-xl z-0">
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

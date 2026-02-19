@@ -46,9 +46,9 @@ export function parseStartYear(reign: string): number {
  * @returns An array of `count` items, shuffled deterministically.
  */
 export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new Date()): T[] {
-  // Use Sri Lanka time (Asia/Colombo) for date string (YYYY-MM-DD)
-  // This ensures the rotation aligns with the local day in Sri Lanka
-  const options: Intl.DateTimeFormatOptions = { timeZone: 'Asia/Colombo', year: 'numeric', month: '2-digit', day: '2-digit' };
+  // Use UTC for date string (YYYY-MM-DD)
+  // This ensures the rotation aligns with the local day globally
+  const options: Intl.DateTimeFormatOptions = { timeZone: 'UTC', year: 'numeric', month: '2-digit', day: '2-digit' };
   const formatter = new Intl.DateTimeFormat('en-CA', options); // en-CA gives YYYY-MM-DD format
   const today = formatter.format(date);
 
