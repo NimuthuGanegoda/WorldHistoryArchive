@@ -27,7 +27,8 @@
         ]
       }
     ],
-    "internationalConnections": "According to the Mahāvaṃsa, he was the son of King Sinhabahu of Sinhapura in India. He established the Kingdom of Tambapanni, but later abandoned Kuveni and their two children to marry a princess from the Pandyan kingdom in Madurai, India, to legitimize his rule."
+    "internationalConnections": "According to the Mahāvaṃsa, he was the son of King Sinhabahu of Sinhapura in India. He established the Kingdom of Tambapanni, but later abandoned Kuveni and their two children to marry a princess from the Pandyan kingdom in Madurai, India, to legitimize his rule.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "upatissa-regent",
@@ -44,7 +45,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He governed the kingdom from this city while awaiting the arrival of Vijaya's designated successor, Panduvasudeva, from India."
+    "internationalConnections": "He governed the kingdom from this city while awaiting the arrival of Vijaya's designated successor, Panduvasudeva, from India.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "panduvasudeva",
@@ -61,7 +63,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He was the nephew of his predecessor, King Vijaya, and was summoned from Sinhapura, India, to continue the royal lineage. His reign was foundational for the new kingdom, establishing a stable succession and strengthening ties with Indian royalty.."
+    "internationalConnections": "He was the nephew of his predecessor, King Vijaya, and was summoned from Sinhapura, India, to continue the royal lineage. His reign was foundational for the new kingdom, establishing a stable succession and strengthening ties with Indian royalty..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "abhaya",
@@ -77,7 +80,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "tissa-regent",
@@ -93,7 +97,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "pandukabhaya",
@@ -109,7 +114,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "mutasiva",
@@ -125,7 +131,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "devanampiya-tissa",
@@ -142,7 +149,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He was the son of King Mutasiva and maintained a close friendship with the Mauryan Emperor Ashoka of India."
+    "internationalConnections": "He was the son of King Mutasiva and maintained a close friendship with the Mauryan Emperor Ashoka of India.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "uttiya",
@@ -158,7 +166,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "mahasiva",
@@ -174,7 +183,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "suratissa",
@@ -191,7 +201,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Two horse traders from South India, named Sena and Guttika, mounted an invasion, defeated King Suratissa in battle, and usurped the throne. This event marks the first recorded instance of a foreign invasion and rule over the Anuradhapura Kingdom, breaking the Vijayan dynasty for a period of 22 years.."
+    "internationalConnections": "Two horse traders from South India, named Sena and Guttika, mounted an invasion, defeated King Suratissa in battle, and usurped the throne. This event marks the first recorded instance of a foreign invasion and rule over the Anuradhapura Kingdom, breaking the Vijayan dynasty for a period of 22 years..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "sena-guttika",
@@ -208,7 +219,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Sena and Guttika were two Tamil horse traders from South India who became the first recorded foreign rulers of Anuradhapura. After arriving on the island for trade, they organized an army, defeated and killed King Suratissa, and usurped the Sinhalese throne."
+    "internationalConnections": "Sena and Guttika were two Tamil horse traders from South India who became the first recorded foreign rulers of Anuradhapura. After arriving on the island for trade, they organized an army, defeated and killed King Suratissa, and usurped the Sinhalese throne.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "asela",
@@ -225,7 +237,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "However, his reign was also brought to an end by another invasion from South India, led by a Chola prince named Elara, who defeated and killed Asela to become the next ruler.."
+    "internationalConnections": "However, his reign was also brought to an end by another invasion from South India, led by a Chola prince named Elara, who defeated and killed Asela to become the next ruler..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "elara",
@@ -242,7 +255,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Elara was a Chola prince from South India who invaded Sri Lanka and took the throne of the Anuradhapura Kingdom by defeating King Asela."
+    "internationalConnections": "Elara was a Chola prince from South India who invaded Sri Lanka and took the throne of the Anuradhapura Kingdom by defeating King Asela.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "dutugemunu",
@@ -284,7 +298,8 @@
         ]
       }
     ],
-    "internationalConnections": "As the son of King Kavan Tissa of Ruhuna, he was driven from a young age by the desire to expel the Chola king Elara, who ruled Anuradhapura."
+    "internationalConnections": "As the son of King Kavan Tissa of Ruhuna, he was driven from a young age by the desire to expel the Chola king Elara, who ruled Anuradhapura.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "saddha-tissa",
@@ -300,7 +315,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "lanja-tissa",
@@ -316,7 +332,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "thulatthana",
@@ -332,7 +349,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "khallata-naga",
@@ -348,7 +366,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "khallatanaga",
@@ -364,7 +383,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "pulahatta",
@@ -380,7 +400,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "valagamba",
@@ -397,7 +418,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "King Valagamba (Vattagamani Abhaya) (103, 89–77 BCE) – Valagamba first lost the throne in 103 BCE amid South Indian challenger pressure and internal instability, then reclaimed it (89–77 BCE) after prolonged exile. His restoration symbolizes resilience and strategic regional alliance building in Ruhuna."
+    "internationalConnections": "King Valagamba (Vattagamani Abhaya) (103, 89–77 BCE) – Valagamba first lost the throne in 103 BCE amid South Indian challenger pressure and internal instability, then reclaimed it (89–77 BCE) after prolonged exile. His restoration symbolizes resilience and strategic regional alliance building in Ruhuna.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "bahiya",
@@ -413,7 +435,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "panya-mara",
@@ -429,7 +452,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "pilaya-mara",
@@ -445,7 +469,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "dathika",
@@ -461,7 +486,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "vattagamani-abhaya",
@@ -477,7 +503,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "mahakuli-mahatissa",
@@ -493,7 +520,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "chora-naga",
@@ -509,7 +537,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kuda-tissa",
@@ -525,7 +554,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "tissa",
@@ -541,7 +571,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "siva-i-first",
@@ -558,7 +589,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "In the absence of recorded doctrinal controversy or external invasion, he likely functioned as an interim stabilizer."
+    "internationalConnections": "In the absence of recorded doctrinal controversy or external invasion, he likely functioned as an interim stabilizer.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "darubhatika-tissa",
@@ -574,7 +606,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "niliya",
@@ -590,7 +623,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "vatuka",
@@ -606,7 +640,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "anula",
@@ -622,7 +657,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kutakanna-tissa",
@@ -638,7 +674,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "bhatikabhaya-abhaya",
@@ -654,7 +691,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kelanitissa",
@@ -672,7 +710,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kavan-tissa",
@@ -689,7 +728,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Kavan Tissa was the king of the southern kingdom of Ruhuna during the period when the northern Anuradhapura Kingdom was under the rule of the Chola king Elara."
+    "internationalConnections": "Kavan Tissa was the king of the southern kingdom of Ruhuna during the period when the northern Anuradhapura Kingdom was under the rule of the Chola king Elara.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "mahadathika-mahanaga",
@@ -705,7 +745,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "amandagamani-abhaya",
@@ -721,7 +762,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kanirajanu-tissa",
@@ -737,7 +779,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "chulabhaya",
@@ -753,7 +796,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "ilanaga",
@@ -769,7 +813,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "sivali",
@@ -785,7 +830,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "chandamukha-siva",
@@ -801,7 +847,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "yassalalaka-tissa",
@@ -817,7 +864,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "subharaja",
@@ -833,7 +881,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "vasabha",
@@ -849,7 +898,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "vankanasika-tissa",
@@ -865,7 +915,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "gajabahu-i",
@@ -882,7 +933,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "King Gajabahu I (114–136 CE) – Gajabahu I is renowned in tradition for a legendary military expedition to South India—rescuing captive Sinhalese and acquiring the sacred relic of the Tooth of the Buddha (alternative traditions vary on relic acquisition timing)."
+    "internationalConnections": "King Gajabahu I (114–136 CE) – Gajabahu I is renowned in tradition for a legendary military expedition to South India—rescuing captive Sinhalese and acquiring the sacred relic of the Tooth of the Buddha (alternative traditions vary on relic acquisition timing).",
+    "country": "Sri Lanka"
   },
   {
     "slug": "mahallaka-naga",
@@ -898,7 +950,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "bhatika-tissa",
@@ -914,7 +967,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kanittha-tissa",
@@ -930,7 +984,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "cula-naga",
@@ -946,7 +1001,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kuda-naga",
@@ -962,7 +1018,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "siri-naga-i",
@@ -978,7 +1035,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "abhaya-naga",
@@ -994,7 +1052,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "siri-naga-ii",
@@ -1010,7 +1069,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "voharika-tissa",
@@ -1026,7 +1086,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "abhaya-naga-ii",
@@ -1050,7 +1111,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Where specifics are missing, scholarly consensus defaults to broader structural patterns of Anuradhapura governance.."
+    "internationalConnections": "Where specifics are missing, scholarly consensus defaults to broader structural patterns of Anuradhapura governance..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "siri-naga-iii",
@@ -1066,7 +1128,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "vijaya-kumara",
@@ -1082,7 +1145,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "sangha-tissa-i",
@@ -1098,7 +1162,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "siri-sangha-bodhi-i",
@@ -1114,7 +1179,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "gothabhaya",
@@ -1130,7 +1196,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "jettha-tissa-ii",
@@ -1146,7 +1213,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "mahasena",
@@ -1162,7 +1230,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "siri-meghavanna",
@@ -1179,7 +1248,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "King Siri Meghavanna (301–328 CE) – Siri Meghavanna is celebrated for hosting the sacred Tooth Relic of the Buddha, brought from India and enshrined in Anuradhapura—a pivotal moment elevating the city's religious centrality."
+    "internationalConnections": "King Siri Meghavanna (301–328 CE) – Siri Meghavanna is celebrated for hosting the sacred Tooth Relic of the Buddha, brought from India and enshrined in Anuradhapura—a pivotal moment elevating the city's religious centrality.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "jettha-tissa-iii",
@@ -1195,7 +1265,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "buddhadasa",
@@ -1211,7 +1282,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "upatissa-i",
@@ -1227,7 +1299,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "mahanama",
@@ -1244,7 +1317,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Mahanama (406–428 CE) ruled during a transitional period marked by increasing South Indian incursions."
+    "internationalConnections": "Mahanama (406–428 CE) ruled during a transitional period marked by increasing South Indian incursions.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "siva-ii-second",
@@ -1261,7 +1335,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Siva II (428–430 CE) – Siva II (428–430 CE) had a brief two-year reign amid escalating South Indian interference. His tenure marks the onset of a tumultuous period where Tamil invasions challenged Anuradhapura sovereignty."
+    "internationalConnections": "Siva II (428–430 CE) – Siva II (428–430 CE) had a brief two-year reign amid escalating South Indian interference. His tenure marks the onset of a tumultuous period where Tamil invasions challenged Anuradhapura sovereignty.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "pandu-tamil",
@@ -1277,7 +1352,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "khudda-parinda-tamil",
@@ -1293,7 +1369,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "parindu-tamil",
@@ -1309,7 +1386,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "dathiya-tamil",
@@ -1325,7 +1403,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "tiritara-tamil",
@@ -1341,7 +1420,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "pithiya-tamil",
@@ -1357,7 +1437,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "dhatusena",
@@ -1373,7 +1454,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kashyapa-i",
@@ -1402,7 +1484,8 @@
           }
         ]
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "moggallana-i",
@@ -1418,7 +1501,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kumara-dhatusena",
@@ -1434,7 +1518,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "silakala",
@@ -1450,7 +1535,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kittisena",
@@ -1466,7 +1552,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "siva-i-524",
@@ -1482,7 +1569,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "upatissa-ii",
@@ -1498,7 +1586,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "silakala-ambosamanera",
@@ -1514,7 +1603,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "moggallana-ii",
@@ -1530,7 +1620,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "aggabodhi-i",
@@ -1546,7 +1637,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kassapa-ii",
@@ -1562,7 +1654,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "aggabodhi-ii",
@@ -1578,7 +1671,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "sangha-tissa-ii",
@@ -1594,7 +1688,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "dathopa-tissa-i",
@@ -1610,7 +1705,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "siva-ii",
@@ -1626,7 +1722,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "aggabodhi-iii",
@@ -1642,7 +1739,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "dathopatissa-ii",
@@ -1658,7 +1756,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "aggabodhi-iv",
@@ -1675,7 +1774,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Aggabodhi IV ruled for 16 years, focusing on Buddhist scholarship and temple restoration."
+    "internationalConnections": "Aggabodhi IV ruled for 16 years, focusing on Buddhist scholarship and temple restoration.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "kassapa-iii",
@@ -1691,7 +1791,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "mahinda-i",
@@ -1707,7 +1808,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "aggabodhi-vi",
@@ -1723,7 +1825,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "mahinda-ii",
@@ -1739,7 +1842,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "siri-sangha-bodhi-ii",
@@ -1755,7 +1859,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "mahinda-iii",
@@ -1771,7 +1876,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "dappula-i",
@@ -1787,7 +1893,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "sena-i",
@@ -1803,7 +1910,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "dappula-ii",
@@ -1819,7 +1927,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "sena-ii",
@@ -1835,7 +1944,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "udaya-i",
@@ -1851,7 +1961,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kassapa-iv",
@@ -1867,7 +1978,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kassapa-v",
@@ -1883,7 +1995,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "dappula-iv",
@@ -1899,7 +2012,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kassapa-vi",
@@ -1915,7 +2029,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "sena-iii",
@@ -1931,7 +2046,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "udaya-ii",
@@ -1947,7 +2063,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "sena-iv",
@@ -1963,7 +2080,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "mahinda-iv",
@@ -1979,7 +2097,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "sena-v",
@@ -1995,7 +2114,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "mahinda-v",
@@ -2012,7 +2132,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "His 35-year nominal rule witnessed escalating Chola invasions from South India, culminating in the sacking of Anuradhapura (993 CE) and his eventual capture."
+    "internationalConnections": "His 35-year nominal rule witnessed escalating Chola invasions from South India, culminating in the sacking of Anuradhapura (993 CE) and his eventual capture.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "vijayabahu-i",
@@ -2029,7 +2150,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Vijayabahu I is the heroic liberator who expelled Chola occupation and established Polonnaruwa as the new capital. His 55-year reign focused on restoration: rebuilding monasteries destroyed during occupation, re-ordaining the Sangha (bringing monks from Burma to revive ordination lineages), and constructing new irrigation works around Polonnaruwa."
+    "internationalConnections": "Vijayabahu I is the heroic liberator who expelled Chola occupation and established Polonnaruwa as the new capital. His 55-year reign focused on restoration: rebuilding monasteries destroyed during occupation, re-ordaining the Sangha (bringing monks from Burma to revive ordination lineages), and constructing new irrigation works around Polonnaruwa.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "jayabahu-i",
@@ -2045,7 +2167,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "vikramabahu-i",
@@ -2061,7 +2184,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "gajabahu-ii",
@@ -2077,7 +2201,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "parakramabahu-i",
@@ -2094,7 +2219,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He unified fractious regional kingdoms, conducted military campaigns into South India and Burma, and patronized literature and the arts."
+    "internationalConnections": "He unified fractious regional kingdoms, conducted military campaigns into South India and Burma, and patronized literature and the arts.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "nissanka-malla",
@@ -2110,7 +2236,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "lilavati",
@@ -2127,7 +2254,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Despite instability, she maintained administrative continuity through strategic court alliances."
+    "internationalConnections": "Despite instability, she maintained administrative continuity through strategic court alliances.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "sahasa-malla",
@@ -2143,7 +2271,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kalyanavati",
@@ -2160,7 +2289,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "She maintained administrative continuity through court alliances, yet her tenure underscores the dynasty's fragility."
+    "internationalConnections": "She maintained administrative continuity through court alliances, yet her tenure underscores the dynasty's fragility.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "dharmasoka",
@@ -2176,7 +2306,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "anikanga",
@@ -2192,7 +2323,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "lokissara",
@@ -2208,7 +2340,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "parakrama-pandya-ii",
@@ -2225,7 +2358,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Parakrama Pandya II ruled briefly before Kalinga Magha's devastating invasion."
+    "internationalConnections": "Parakrama Pandya II ruled briefly before Kalinga Magha's devastating invasion.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "kalinga-magha-jaffna",
@@ -2242,7 +2376,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Kalinga Magha invaded from South India and established a Tamil Hindu kingdom in Jaffna around 1215, ruling for approximately 40 years."
+    "internationalConnections": "Kalinga Magha invaded from South India and established a Tamil Hindu kingdom in Jaffna around 1215, ruling for approximately 40 years.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "kalinga-magha-polonnaruwa",
@@ -2259,7 +2394,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Kalinga Magha (1215–1236) – Kalinga Magha was an invader from Kalinga (East India) who conquered Polonnaruwa and ruled for 21 years. Kalinga Magha's invasion marks a watershed: ending the classical hydraulic kingdoms centered on Anuradhapura-Polonnaruwa and initiating a decentralized, mobile capital era.."
+    "internationalConnections": "Kalinga Magha (1215–1236) – Kalinga Magha was an invader from Kalinga (East India) who conquered Polonnaruwa and ruled for 21 years. Kalinga Magha's invasion marks a watershed: ending the classical hydraulic kingdoms centered on Anuradhapura-Polonnaruwa and initiating a decentralized, mobile capital era..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "vijayabahu-iii",
@@ -2276,7 +2412,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Vijayabahu III established Dambadeniya as the new capital after expelling Kalinga Magha's forces from Polonnaruwa. Operating from a smaller hydraulic base, he adapted kingship to a more modest scale—emphasizing religious legitimacy and regional alliance-building over grand irrigation projects."
+    "internationalConnections": "Vijayabahu III established Dambadeniya as the new capital after expelling Kalinga Magha's forces from Polonnaruwa. Operating from a smaller hydraulic base, he adapted kingship to a more modest scale—emphasizing religious legitimacy and regional alliance-building over grand irrigation projects.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "kulasekhara",
@@ -2293,7 +2430,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He built Hindu temples, managed trade with South India, and patronized Tamil literature."
+    "internationalConnections": "He built Hindu temples, managed trade with South India, and patronized Tamil literature.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "parakramabahu-ii",
@@ -2310,7 +2448,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He repelled South Indian incursions, patronized Buddhist scholarship, and maintained regional irrigation networks."
+    "internationalConnections": "He repelled South Indian incursions, patronized Buddhist scholarship, and maintained regional irrigation networks.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "bhuvanaikabahu-i",
@@ -2327,7 +2466,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Bhuvanaikabahu I relocated the capital to Yapahuwa, a fortified rock stronghold, in response to ongoing South Indian threats."
+    "internationalConnections": "Bhuvanaikabahu I relocated the capital to Yapahuwa, a fortified rock stronghold, in response to ongoing South Indian threats.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "vira-pandya",
@@ -2344,7 +2484,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Vira Pandya ruled Jaffna for 39 years, expanding its commercial ties with Tamil Nadu and reinforcing Hindu institutions. He oversaw temple construction and irrigation, embedding Jaffna within South Indian cultural networks."
+    "internationalConnections": "Vira Pandya ruled Jaffna for 39 years, expanding its commercial ties with Tamil Nadu and reinforcing Hindu institutions. He oversaw temple construction and irrigation, embedding Jaffna within South Indian cultural networks.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "parakramabahu-iii",
@@ -2360,7 +2501,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "parakramabahu-iv",
@@ -2376,7 +2518,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "bhuvanaikabahu-ii",
@@ -2392,7 +2535,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "jaya-sinha",
@@ -2409,7 +2553,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Jaya Sinha ruled Jaffna for seven years, maintaining Hindu patronage and northern trade."
+    "internationalConnections": "Jaya Sinha ruled Jaffna for seven years, maintaining Hindu patronage and northern trade.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "bhuvanaikabahu-iii",
@@ -2425,7 +2570,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kulasekhara-cinkaiariyan",
@@ -2442,7 +2588,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He sponsored Hindu temples, expanded maritime trade, and maintained autonomy from southern kingdoms."
+    "internationalConnections": "He sponsored Hindu temples, expanded maritime trade, and maintained autonomy from southern kingdoms.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "vijayabahu-v",
@@ -2458,7 +2605,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "bhuvanaikabahu-iv",
@@ -2474,7 +2622,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "parakramabahu-v",
@@ -2490,7 +2639,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "vikramabahu-iii",
@@ -2506,7 +2656,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "alagakkonara",
@@ -2523,7 +2674,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He maintained Hindu institutions and coastal trade, though his reign witnessed growing political competition from southern powers seeking to curb Jaffna's autonomy.."
+    "internationalConnections": "He maintained Hindu institutions and coastal trade, though his reign witnessed growing political competition from southern powers seeking to curb Jaffna's autonomy..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "bhuvanaikabahu-v",
@@ -2539,7 +2691,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "vira-alakesvara-jaffna",
@@ -2556,7 +2709,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He withstood Parakramabahu VI's early military campaigns and preserved northern Tamil independence, maintaining Hindu temples and maritime trade in a fragmented island landscape.."
+    "internationalConnections": "He withstood Parakramabahu VI's early military campaigns and preserved northern Tamil independence, maintaining Hindu temples and maritime trade in a fragmented island landscape..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "vira-alakesvara",
@@ -2573,7 +2727,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Vira Alakesvara ruled Gampola and parts of the south for 14 years, famously confronting a Chinese Ming expedition in 1411."
+    "internationalConnections": "Vira Alakesvara ruled Gampola and parts of the south for 14 years, famously confronting a Chinese Ming expedition in 1411.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "jaya-bahu-pandaram",
@@ -2589,7 +2744,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "parakramabahu-vi",
@@ -2606,7 +2762,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "His reign stands as the final golden age before European colonialism.."
+    "internationalConnections": "His reign stands as the final golden age before European colonialism..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "gunabharnam-pandaram",
@@ -2622,7 +2779,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kanakasuriya-cinkaiariyan",
@@ -2639,7 +2797,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He reasserted autonomy after 1467, revitalizing Hindu institutions and trade."
+    "internationalConnections": "He reasserted autonomy after 1467, revitalizing Hindu institutions and trade.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "jayabahu-ii",
@@ -2655,7 +2814,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "puviraja-pandaram",
@@ -2672,7 +2832,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He sponsored Hindu temples, expanded Tamil scholarship, and managed trade with South India and Arab merchants. His long rule represents Jaffna's last independent golden age before Portuguese intrusion.."
+    "internationalConnections": "He sponsored Hindu temples, expanded Tamil scholarship, and managed trade with South India and Arab merchants. His long rule represents Jaffna's last independent golden age before Portuguese intrusion..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "senasammata-vikramabahu",
@@ -2688,7 +2849,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "bhuvanaikabahu-vi",
@@ -2705,7 +2867,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He upheld monastic patronage and faced Portuguese merchant-explorers beginning to arrive on the coasts."
+    "internationalConnections": "He upheld monastic patronage and faced Portuguese merchant-explorers beginning to arrive on the coasts.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "parakramabahu-vii",
@@ -2722,7 +2885,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Parakramabahu VII's four-year tenure at Kotte saw renewed temple restoration and limited diplomatic ties with neighboring kingdoms. Portuguese traders appeared more frequently at Sri Lankan ports during his reign.."
+    "internationalConnections": "Parakramabahu VII's four-year tenure at Kotte saw renewed temple restoration and limited diplomatic ties with neighboring kingdoms. Portuguese traders appeared more frequently at Sri Lankan ports during his reign..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "parakramabahu-viii",
@@ -2739,7 +2903,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Parakramabahu VIII ruled Kotte for 24 years, a reign marked by Buddhist piety and growing Portuguese commercial influence. He promoted Theravada scholarship and maintained the Tooth Relic, yet could not prevent emerging European entanglements."
+    "internationalConnections": "Parakramabahu VIII ruled Kotte for 24 years, a reign marked by Buddhist piety and growing Portuguese commercial influence. He promoted Theravada scholarship and maintained the Tooth Relic, yet could not prevent emerging European entanglements.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "jayavira-bandara",
@@ -2756,7 +2921,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Jayavira Bandara ruled Kandy for 41 years during the Portuguese conquest of the lowlands. His reign secured Kandy as the last bastion of Sinhalese kingship against colonial encroachment.."
+    "internationalConnections": "Jayavira Bandara ruled Kandy for 41 years during the Portuguese conquest of the lowlands. His reign secured Kandy as the last bastion of Sinhalese kingship against colonial encroachment..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "vijayabahu-vi",
@@ -2773,7 +2939,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He allowed Portuguese traders limited coastal footholds, a fateful concession."
+    "internationalConnections": "He allowed Portuguese traders limited coastal footholds, a fateful concession.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "cinkaiariyan",
@@ -2790,7 +2957,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Cinkaiariyan ruled Jaffna for 42 years amid increasing Portuguese presence on the island. He maintained Hindu traditions and resisted early Portuguese demands, preserving northern autonomy."
+    "internationalConnections": "Cinkaiariyan ruled Jaffna for 42 years amid increasing Portuguese presence on the island. He maintained Hindu traditions and resisted early Portuguese demands, preserving northern autonomy.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "bhuvanaikabahu-vii",
@@ -2807,7 +2975,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Bhuvanaikabahu VII's 30-year reign at Kotte witnessed full-scale Portuguese involvement in island politics. He cultivated alliances with the Portuguese, granting them commercial privileges and a strategic fort at Colombo."
+    "internationalConnections": "Bhuvanaikabahu VII's 30-year reign at Kotte witnessed full-scale Portuguese involvement in island politics. He cultivated alliances with the Portuguese, granting them commercial privileges and a strategic fort at Colombo.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "mayadunne",
@@ -2824,7 +2993,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Mayadunne founded the independent Sitawaka kingdom, resisting Portuguese expansion for 60 years. He waged continuous guerrilla warfare against both Kotte's Portuguese-backed rulers and colonial garrisons."
+    "internationalConnections": "Mayadunne founded the independent Sitawaka kingdom, resisting Portuguese expansion for 60 years. He waged continuous guerrilla warfare against both Kotte's Portuguese-backed rulers and colonial garrisons.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "raigam-bandara",
@@ -2843,7 +3013,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Following the 'Vijayabā Kollaya' in 1521, the Kotte kingdom was divided."
+    "internationalConnections": "Following the 'Vijayabā Kollaya' in 1521, the Kotte kingdom was divided.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "dharmapala",
@@ -2860,7 +3031,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Dharmapala, the last king of Kotte, ruled for 46 years under Portuguese suzerainty. Converted to Catholicism and renamed Dom João, he officially bequeathed the kingdom to Portugal before his death."
+    "internationalConnections": "Dharmapala, the last king of Kotte, ruled for 46 years under Portuguese suzerainty. Converted to Catholicism and renamed Dom João, he officially bequeathed the kingdom to Portugal before his death.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "karaliyadde-bandara",
@@ -2877,7 +3049,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Karaliyadde Bandara's 29-year reign witnessed increasing Portuguese pressure on Kandy and the rise of Sitawaka."
+    "internationalConnections": "Karaliyadde Bandara's 29-year reign witnessed increasing Portuguese pressure on Kandy and the rise of Sitawaka.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "puviraja-pandaram-ii",
@@ -2894,7 +3067,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Puviraja Pandaram II's brief four-year reign saw escalating Portuguese military intervention. He attempted to defend Jaffna's sovereignty, but Portuguese forces captured and deposed him in 1565, installing his rival."
+    "internationalConnections": "Puviraja Pandaram II's brief four-year reign saw escalating Portuguese military intervention. He attempted to defend Jaffna's sovereignty, but Portuguese forces captured and deposed him in 1565, installing his rival.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "kasi-nayinar-cinkaiariyan",
@@ -2911,7 +3085,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Kasi Nayinar Cinkaiariyan was installed by the Portuguese after his predecessor's overthrow, ruling Jaffna as a client for five years. He maintained Hindu ceremonies under Portuguese supervision, but his reign represented a sharp loss of autonomy for the northern kingdom.."
+    "internationalConnections": "Kasi Nayinar Cinkaiariyan was installed by the Portuguese after his predecessor's overthrow, ruling Jaffna as a client for five years. He maintained Hindu ceremonies under Portuguese supervision, but his reign represented a sharp loss of autonomy for the northern kingdom..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "periyapillai",
@@ -2928,7 +3103,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Periyapillai ruled Jaffna for 12 years under Portuguese suzerainty, managing a precarious autonomy. He paid tribute and allowed Portuguese garrisons, yet preserved Hindu worship and local Tamil administration."
+    "internationalConnections": "Periyapillai ruled Jaffna for 12 years under Portuguese suzerainty, managing a precarious autonomy. He paid tribute and allowed Portuguese garrisons, yet preserved Hindu worship and local Tamil administration.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "rajasinha-i",
@@ -2945,7 +3121,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Rajasinha I of Sitawaka waged relentless war against the Portuguese for 12 years, nearly driving them from the island. He besieged Colombo and forced Kotte into submission, but internal strife and Portuguese naval superiority prevented total victory."
+    "internationalConnections": "Rajasinha I of Sitawaka waged relentless war against the Portuguese for 12 years, nearly driving them from the island. He besieged Colombo and forced Kotte into submission, but internal strife and Portuguese naval superiority prevented total victory.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "rajasinha-i-kandyan",
@@ -2962,7 +3139,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He collaborated with Sitawaka's Rajasinha against Portuguese forces, though tensions with his namesake led to instability."
+    "internationalConnections": "He collaborated with Sitawaka's Rajasinha against Portuguese forces, though tensions with his namesake led to instability.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "puviraja-pandaram-iii",
@@ -2979,7 +3157,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Puviraja Pandaram III ruled Jaffna for nine years under tight Portuguese control. He navigated growing colonial demands while attempting to preserve Hindu religious institutions."
+    "internationalConnections": "Puviraja Pandaram III ruled Jaffna for nine years under tight Portuguese control. He navigated growing colonial demands while attempting to preserve Hindu religious institutions.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "ethirimana-cinkam",
@@ -2996,7 +3175,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Ethirimana Cinkam ruled Jaffna for 26 years amid intensifying Portuguese demands. He attempted to balance loyalty to the Portuguese with the preservation of Tamil Hindu culture."
+    "internationalConnections": "Ethirimana Cinkam ruled Jaffna for 26 years amid intensifying Portuguese demands. He attempted to balance loyalty to the Portuguese with the preservation of Tamil Hindu culture.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "vimaladharmasuriya-i",
@@ -3013,7 +3193,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He repulsed Portuguese invasions, restored Buddhist monasticism, and invited Siamese monks to revitalize higher ordination. His reign inaugurated Kandy's enduring resistance to European colonialism.."
+    "internationalConnections": "He repulsed Portuguese invasions, restored Buddhist monasticism, and invited Siamese monks to revitalize higher ordination. His reign inaugurated Kandy's enduring resistance to European colonialism..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "senarat",
@@ -3030,7 +3211,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He resisted Portuguese encirclement, cultivated alliances with Jaffna and regional powers, and enshrined the Tooth Relic. His policies laid the groundwork for Kandy's survival through centuries of colonial warfare.."
+    "internationalConnections": "He resisted Portuguese encirclement, cultivated alliances with Jaffna and regional powers, and enshrined the Tooth Relic. His policies laid the groundwork for Kandy's survival through centuries of colonial warfare..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "cankili-ii",
@@ -3047,7 +3229,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Cankili II, the last independent king of Jaffna, resisted Portuguese conquest for just two years before being captured and executed in 1619. His defiant stand against colonial annexation ended over four centuries of Tamil Hindu kingship in northern Sri Lanka, marking the kingdom's absorption into Portuguese Ceylon.."
+    "internationalConnections": "Cankili II, the last independent king of Jaffna, resisted Portuguese conquest for just two years before being captured and executed in 1619. His defiant stand against colonial annexation ended over four centuries of Tamil Hindu kingship in northern Sri Lanka, marking the kingdom's absorption into Portuguese Ceylon..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "rajasinha-ii",
@@ -3064,7 +3247,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Rajasinha II's monumental 52-year reign expelled the Portuguese from the island with Dutch help, though he inadvertently exchanged one colonial overlord for another."
+    "internationalConnections": "Rajasinha II's monumental 52-year reign expelled the Portuguese from the island with Dutch help, though he inadvertently exchanged one colonial overlord for another.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "vimaladharmasuriya-ii",
@@ -3081,7 +3265,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He navigated increasingly strained relations with the Dutch East India Company, preserved Buddhist traditions, and continued monastic patronage."
+    "internationalConnections": "He navigated increasingly strained relations with the Dutch East India Company, preserved Buddhist traditions, and continued monastic patronage.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "vira-narendra-sinha",
@@ -3098,7 +3283,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Vira Narendra Sinha's 32-year reign saw intensified Dutch encroachment on Kandy's sovereignty. His death ended the old Sinhalese dynasty, leading to the accession of a Nayakkar line from South India.."
+    "internationalConnections": "Vira Narendra Sinha's 32-year reign saw intensified Dutch encroachment on Kandy's sovereignty. His death ended the old Sinhalese dynasty, leading to the accession of a Nayakkar line from South India..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "sri-vijaya-rajasinha",
@@ -3115,7 +3301,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "He continued Buddhist patronage and faced Dutch territorial ambitions. His South Indian lineage initially raised concerns, yet he embraced Theravada Buddhism and secured the dynasty's legitimacy through temple building and ritual sponsorship.."
+    "internationalConnections": "He continued Buddhist patronage and faced Dutch territorial ambitions. His South Indian lineage initially raised concerns, yet he embraced Theravada Buddhism and secured the dynasty's legitimacy through temple building and ritual sponsorship..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "kirti-sri-rajasinha",
@@ -3132,7 +3319,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Kirti Sri Rajasinha's 35-year reign witnessed a Buddhist renaissance; he invited Siamese monks to re-establish higher ordination and sponsored extensive temple construction. Despite Dutch coastal dominance, he preserved Kandy's cultural vibrancy and independence, making his era one of remarkable religious and artistic flourishing.."
+    "internationalConnections": "Kirti Sri Rajasinha's 35-year reign witnessed a Buddhist renaissance; he invited Siamese monks to re-establish higher ordination and sponsored extensive temple construction. Despite Dutch coastal dominance, he preserved Kandy's cultural vibrancy and independence, making his era one of remarkable religious and artistic flourishing..",
+    "country": "Sri Lanka"
   },
   {
     "slug": "rajadhi-rajasinha",
@@ -3149,7 +3337,8 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Rajadhi Rajasinha ruled Kandy for 16 years during the transition from Dutch to British colonial power. He maintained Buddhist rituals, faced internal court intrigue, and witnessed the British annexation of the Dutch territories."
+    "internationalConnections": "Rajadhi Rajasinha ruled Kandy for 16 years during the transition from Dutch to British colonial power. He maintained Buddhist rituals, faced internal court intrigue, and witnessed the British annexation of the Dutch territories.",
+    "country": "Sri Lanka"
   },
   {
     "slug": "sri-vikrama-rajasinha",
@@ -3166,6 +3355,26 @@
         "infoBoxes": []
       }
     ],
-    "internationalConnections": "Sri Vikrama Rajasinha, the last king of Kandy, ruled for 17 years before British annexation in 1815. His autocratic style alienated the nobility, who collaborated with the British to depose him."
+    "internationalConnections": "Sri Vikrama Rajasinha, the last king of Kandy, ruled for 17 years before British annexation in 1815. His autocratic style alienated the nobility, who collaborated with the British to depose him.",
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "augustus",
+    "title": "Emperor Augustus",
+    "reign": "27 BCE – 14 CE",
+    "kingdom": "roman-empire",
+    "country": "Italy",
+    "biography": "Augustus was the first Roman emperor, reigning from 27 BC until his death in AD 14. He founded the Roman Principate, which started the Roman Empire.",
+    "sections": [
+      {
+        "heading": "Biography",
+        "content": [
+          "Augustus was born Gaius Octavius. He was the great-nephew and adopted son of Julius Caesar.",
+          "His reign initiated an era of relative peace known as the Pax Romana."
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "internationalConnections": "Established diplomatic relations with powers as far as India and China."
   }
 ]

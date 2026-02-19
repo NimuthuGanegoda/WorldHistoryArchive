@@ -105,6 +105,22 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const kingdom = kingdomsMap.get(slug);
+
+  if (!kingdom) {
+    return {
+      title: 'Kingdom Not Found | World History Archive',
+    };
+  }
+
+  return {
+    title: `${kingdom.title} | World History Archive`,
+    description: kingdom.biography || `Historical overview of ${kingdom.title}.`,
+  };
+}
+
 export default async function KingdomPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
