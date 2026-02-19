@@ -36,9 +36,9 @@ export function parseStartYear(reign: string): number {
 }
 
 /**
- * Deterministically shuffles an array based on the UTC date and returns a slice.
- * This ensures the "Featured Kings" list updates every day at midnight UTC,
- * consistent for all users globally and aligned with the daily static build.
+ * Deterministically shuffles an array based on the Sri Lanka date and returns a slice.
+ * This ensures the "Featured Kings" list updates every day at midnight Sri Lanka Standard Time (SLST),
+ * consistent for all users globally and aligned with the daily static build (which runs at 18:30 UTC = 00:00 SLST).
  *
  * @param items The array of items to shuffle (e.g., kings).
  * @param count The number of items to return.
@@ -46,9 +46,9 @@ export function parseStartYear(reign: string): number {
  * @returns An array of `count` items, shuffled deterministically.
  */
 export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new Date()): T[] {
-  // Use UTC for date string (YYYY-MM-DD)
-  // This ensures the rotation aligns with the local day globally
-  const options: Intl.DateTimeFormatOptions = { timeZone: 'UTC', year: 'numeric', month: '2-digit', day: '2-digit' };
+  // Use Asia/Colombo for date string (YYYY-MM-DD)
+  // This ensures the rotation aligns with midnight in Sri Lanka
+  const options: Intl.DateTimeFormatOptions = { timeZone: 'Asia/Colombo', year: 'numeric', month: '2-digit', day: '2-digit' };
   const formatter = new Intl.DateTimeFormat('en-CA', options); // en-CA gives YYYY-MM-DD format
   const today = formatter.format(date);
 
