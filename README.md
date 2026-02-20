@@ -31,7 +31,7 @@ The "Featured Rulers" section on the homepage automatically updates every day at
 - **Mechanism**: A deterministic shuffling algorithm (seeded by the date in Asia/Colombo timezone) selects 6 random kings each day.
 - **Consistency**: All users see the same set of kings on any given day (according to Sri Lanka time), ensuring alignment with the historical context.
 - **Updates**:
-  - The static site is rebuilt daily via GitHub Actions (cron: `30 18 * * *`) to bake the new daily kings into the HTML for SEO and initial load. Note: 18:30 UTC corresponds to midnight in Sri Lanka.
+  - The static site is rebuilt daily via GitHub Actions (cron: `0 19 * * *`) to bake the new daily kings into the HTML for SEO and initial load. Note: 19:00 UTC (00:30 SLST) ensures the update happens strictly after midnight in Sri Lanka.
   - The client-side component (`FeaturedKings`) also checks the date and updates the list dynamically if the cached HTML is stale (e.g., if a user keeps the tab open across midnight).
 
 To verify the rotation logic locally, you can use the test command:

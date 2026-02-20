@@ -38,7 +38,7 @@ export function parseStartYear(reign: string): number {
 /**
  * Deterministically shuffles an array based on the Sri Lanka date and returns a slice.
  * This ensures the "Featured Kings" list updates every day at midnight Sri Lanka Standard Time (SLST),
- * consistent for all users globally and aligned with the daily static build (which runs at 18:30 UTC = 00:00 SLST).
+ * consistent for all users globally and aligned with the daily static build (which runs at 19:00 UTC = 00:30 SLST).
  *
  * @param items The array of items to shuffle (e.g., kings).
  * @param count The number of items to return.
