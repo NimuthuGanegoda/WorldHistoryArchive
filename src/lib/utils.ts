@@ -43,12 +43,13 @@ export function parseStartYear(reign: string): number {
  * @param items The array of items to shuffle (e.g., kings).
  * @param count The number of items to return.
  * @param date The date to use for seeding (default: now).
+ * @param timeZone The timezone to use for date calculation (default: 'Asia/Colombo').
  * @returns An array of `count` items, shuffled deterministically.
  */
-export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new Date()): T[] {
-  // Use Asia/Colombo for date string (YYYY-MM-DD)
-  // This ensures the rotation aligns with midnight in Sri Lanka
-  const options: Intl.DateTimeFormatOptions = { timeZone: 'Asia/Colombo', year: 'numeric', month: '2-digit', day: '2-digit' };
+export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new Date(), timeZone: string = 'Asia/Colombo'): T[] {
+  // Use specified timezone (default Asia/Colombo) for date string (YYYY-MM-DD)
+  // This ensures the rotation aligns with midnight in the target timezone
+  const options: Intl.DateTimeFormatOptions = { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' };
   const formatter = new Intl.DateTimeFormat('en-CA', options); // en-CA gives YYYY-MM-DD format
   const today = formatter.format(date);
 
