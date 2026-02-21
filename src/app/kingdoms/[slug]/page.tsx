@@ -28,10 +28,23 @@ interface Kingdom {
   }[];
 }
 
-// Pre-compile regex for better performance in sort operations
-const YEAR_REGEX = /(\d+)/;
+// Optimization: Pre-compute maps for O(1) lookups
+// This avoids O(N) filtering on every request, which is expensive as datasets grow.
+const kingdomsMap = new Map(kingdomsData.map(k => [k.slug, k]));
 
-// Function to extract start year from reign string for sorting
+// Group kings by kingdom
+const kingdomKingsMap = new Map<string, any[]>();
+kingsData.forEach((king: any) => {
+  if (!king.kingdom) return;
+  const kingdomSlug = king.kingdom;
+  if (!kingdomKingsMap.has(kingdomSlug)) {
+    kingdomKingsMap.set(kingdomSlug, []);
+  }
+  kingdomKingsMap.get(kingdomSlug)!.push(king);
+});
+
+// Pre-sort kings for each kingdom to avoid sorting on every request
+const YEAR_REGEX = /(\d+)/;
 function extractStartYear(reign: string): number {
   if (!reign) return 9999;
   const match = reign.match(YEAR_REGEX);
@@ -43,6 +56,45 @@ function extractStartYear(reign: string): number {
   return year;
 }
 
+// Sort kings in the map once
+for (const [slug, kings] of kingdomKingsMap.entries()) {
+  kings.sort((a, b) => extractStartYear(a.reign) - extractStartYear(b.reign));
+}
+
+// Group sites by kingdom
+// Note: Sites filtering logic was complex (fuzzy match).
+// For O(1) speed, we rely on exact matches or pre-computed associations.
+// The original code did fuzzy matching:
+// site.kingdom.toLowerCase() === kingdom.slug.toLowerCase() ||
+// site.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
+// kingdom.title.toLowerCase().includes(site.kingdom.toLowerCase())
+// We will preserve this logic but pre-compute it.
+const kingdomSitesMap = new Map<string, any[]>();
+(sitesData as any[]).forEach((site: any) => {
+  if (!site.kingdom) return;
+  const siteKingdomLower = site.kingdom.toLowerCase();
+
+  // iterate all kingdoms to find matches (this is done once at module load time)
+  kingdomsData.forEach(k => {
+    const kingdomSlug = k.slug;
+    const kingdomTitleLower = k.title.toLowerCase();
+
+    if (siteKingdomLower === kingdomSlug.toLowerCase() ||
+        siteKingdomLower.includes(kingdomTitleLower) ||
+        kingdomTitleLower.includes(siteKingdomLower)) {
+
+      if (!kingdomSitesMap.has(kingdomSlug)) {
+        kingdomSitesMap.set(kingdomSlug, []);
+      }
+      // Avoid duplicates if a site matches multiple rules for the same kingdom
+      const sites = kingdomSitesMap.get(kingdomSlug)!;
+      if (!sites.includes(site)) {
+        sites.push(site);
+      }
+    }
+  });
+});
+
 export async function generateStaticParams() {
   return kingdomsData.map((kingdom) => ({
     slug: kingdom.slug,
@@ -51,27 +103,19 @@ export async function generateStaticParams() {
 
 export default async function KingdomPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const kingdom = kingdomsData.find((k) => k.slug === slug);
+
+  // O(1) Lookup
+  const kingdom = kingdomsMap.get(slug);
   
   if (!kingdom) {
     notFound();
   }
 
-  // Filter kings for this kingdom
-  const filteredKings = kingsData.filter((king: any) => king.kingdom === kingdom.slug);
+  // O(1) Lookup
+  const kingdomKings = kingdomKingsMap.get(slug) || [];
 
-  // Sort by chronological order using Schwartzian transform to minimize regex operations
-  const kingdomKings = filteredKings
-    .map((king: any) => ({ king, startYear: extractStartYear(king.reign) }))
-    .sort((a, b) => a.startYear - b.startYear)
-    .map((item) => item.king);
-
-  // Filter sites for this kingdom
-  const kingdomSites = (sitesData as any[]).filter((site: any) => 
-    site.kingdom && (site.kingdom.toLowerCase() === kingdom.slug.toLowerCase() ||
-    site.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
-    kingdom.title.toLowerCase().includes(site.kingdom.toLowerCase()))
-  );
+  // O(1) Lookup
+  const kingdomSites = kingdomSitesMap.get(slug) || [];
 
   return (
     <main className="max-w-5xl mx-auto py-6 px-5">
