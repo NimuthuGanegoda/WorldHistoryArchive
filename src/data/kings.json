@@ -3376,5 +3376,59 @@
       }
     ],
     "internationalConnections": "Established diplomatic relations with powers as far as India and China."
+  },
+  {
+    "slug": "ramses-ii",
+    "title": "Ramses II",
+    "reign": "1279–1213 BCE",
+    "kingdom": "new-kingdom-egypt",
+    "country": "Egypt",
+    "biography": "Ramses II, also known as Ramses the Great, was the third pharaoh of the Nineteenth Dynasty of Egypt. He is often regarded as the greatest, most celebrated, and most powerful pharaoh of the New Kingdom.",
+    "sections": [
+      {
+        "heading": "Biography",
+        "content": [
+          "Ramses II led several military expeditions into the Levant, reasserting Egyptian control over Canaan.",
+          "He also led expeditions to the south, into Nubia. He celebrated fourteen Sed festivals during his reign, more than any other pharaoh."
+        ],
+        "infoBoxes": []
+      }
+    ]
+  },
+  {
+    "slug": "ashoka",
+    "title": "Ashoka the Great",
+    "reign": "268–232 BCE",
+    "kingdom": "maurya-empire",
+    "country": "India",
+    "biography": "Ashoka was an Indian emperor of the Maurya Dynasty, who ruled almost all of the Indian subcontinent from c. 268 to 232 BCE. He promoted the spread of Buddhism across ancient Asia.",
+    "sections": [
+      {
+        "heading": "Biography",
+        "content": [
+          "After the brutal Kalinga War, Ashoka renounced violence and embraced Buddhism.",
+          "He established a welfare state, built hospitals for people and animals, and erected pillars with edicts promoting morality."
+        ],
+        "infoBoxes": []
+      }
+    ]
+  },
+  {
+    "slug": "qin-shi-huang",
+    "title": "Qin Shi Huang",
+    "reign": "221–210 BCE",
+    "kingdom": "qin-dynasty",
+    "country": "China",
+    "biography": "Qin Shi Huang was the founder of the Qin dynasty and the first emperor of a unified China. He became China's first emperor when he was 38 after the Qin had conquered all of the other Warring States and unified all of China in 221 BC.",
+    "sections": [
+      {
+        "heading": "Biography",
+        "content": [
+          "Qin Shi Huang enacted major economic and political reforms aimed at the standardization of the diverse practices of the earlier Chinese states.",
+          "He is also known for his mausoleum, which includes the Terracotta Army."
+        ],
+        "infoBoxes": []
+      }
+    ]
   }
 ]

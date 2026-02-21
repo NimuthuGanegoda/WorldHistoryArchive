@@ -679,5 +679,53 @@
       "lat": 41.8902,
       "lng": 12.4922
     }
+  },
+  {
+    "id": "abu-simbel",
+    "name": "Abu Simbel",
+    "kingdom": "new-kingdom-egypt",
+    "country": "Egypt",
+    "period": "13th Century BCE",
+    "type": "temple",
+    "builtBy": "Ramses II",
+    "builtByKingId": "ramses-ii",
+    "constructed": "c. 1264 BCE",
+    "description": "Two massive rock-cut temples in the village of Abu Simbel, Aswan Governorate, Upper Egypt.",
+    "coordinates": {
+      "lat": 22.3372,
+      "lng": 31.6258
+    }
+  },
+  {
+    "id": "sanchi-stupa",
+    "name": "Sanchi Stupa",
+    "kingdom": "maurya-empire",
+    "country": "India",
+    "period": "3rd Century BCE",
+    "type": "stupa",
+    "builtBy": "Ashoka",
+    "builtByKingId": "ashoka",
+    "constructed": "3rd Century BCE",
+    "description": "The Great Stupa at Sanchi is one of the oldest stone structures in India and an important monument of Indian architecture.",
+    "coordinates": {
+      "lat": 23.4873,
+      "lng": 77.7418
+    }
+  },
+  {
+    "id": "terracotta-army",
+    "name": "Terracotta Army",
+    "kingdom": "qin-dynasty",
+    "country": "China",
+    "period": "3rd Century BCE",
+    "type": "mausoleum",
+    "builtBy": "Qin Shi Huang",
+    "builtByKingId": "qin-shi-huang",
+    "constructed": "246–208 BCE",
+    "description": "A collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China.",
+    "coordinates": {
+      "lat": 34.3841,
+      "lng": 109.2785
+    }
   }
 ]

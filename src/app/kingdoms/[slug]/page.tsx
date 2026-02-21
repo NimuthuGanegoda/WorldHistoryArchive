@@ -20,6 +20,7 @@ interface Kingdom {
   title: string;
   reign: string;
   biography: string;
+  country?: string;
   sections?: any[];
   mapUrl?: string;
   locations?: {
@@ -146,9 +147,10 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
           <h1 className="text-4xl font-bold mb-4">{kingdom.title}</h1>
           <p className="text-lg mb-6">{kingdom.biography}</p>
           
-          {kingdom.reign && (
-            <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-6">
-              <strong>Period:</strong> {kingdom.reign}
+          {(kingdom.reign || kingdom.country) && (
+            <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+              {kingdom.reign && <div><strong>Period:</strong> {kingdom.reign}</div>}
+              {kingdom.country && <div><strong>Country:</strong> {kingdom.country}</div>}
             </div>
           )}
 

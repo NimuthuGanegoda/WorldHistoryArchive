@@ -4,14 +4,19 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { getDailyKings } from '@/lib/utils';
 import kingsData from '@/data/kings.json';
+import kingdomsData from '@/data/kingdoms.json';
 
 interface King {
   slug: string;
   title: string;
   reign: string;
   kingdom: string;
+  country?: string;
   biography: string;
 }
+
+// Create a map for fast lookup of kingdom details (like country)
+const kingdomsMap = new Map(kingdomsData.map((k) => [k.slug, k]));
 
 interface FeaturedKingsProps {
   initialKings?: King[];
@@ -106,24 +111,34 @@ export default function FeaturedKings({ initialKings = [], initialDate }: Featur
         </div>
       )}
       <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {kings.map((king, idx) => (
-          <Link
-            key={king.slug}
-            href={`/kings/${king.slug}`}
-            className="scroll-animate opacity-0 translate-y-8 block card hover:shadow-xl transition-all duration-500 ease-out"
-            style={{ transitionDelay: `${idx * 100}ms` }}
-          >
-            <h3 className="text-xl font-semibold mb-2">
-              {king.title}
-            </h3>
+        {kings.map((king, idx) => {
+          const kingdom = kingdomsMap.get(king.kingdom);
+          const country = king.country || (kingdom as any)?.country;
+
+          return (
+            <Link
+              key={king.slug}
+              href={`/kings/${king.slug}`}
+              className="scroll-animate opacity-0 translate-y-8 block card hover:shadow-xl transition-all duration-500 ease-out relative"
+              style={{ transitionDelay: `${idx * 100}ms` }}
+            >
+              {country && (
+                <span className="absolute top-3 right-3 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700">
+                  {country}
+                </span>
+              )}
+              <h3 className="text-xl font-semibold mb-2 pr-8">
+                {king.title}
+              </h3>
             <p className="text-sm text-[#0071e3] font-medium mb-3">
               {king.reign}
             </p>
-            <p className="text-gray-500 text-[15px] leading-relaxed line-clamp-3 dark:text-gray-400">
-              {king.biography ? king.biography.substring(0, 150) + '...' : ''}
-            </p>
-          </Link>
-        ))}
+              <p className="text-gray-500 text-[15px] leading-relaxed line-clamp-3 dark:text-gray-400">
+                {king.biography ? king.biography.substring(0, 150) + '...' : ''}
+              </p>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
