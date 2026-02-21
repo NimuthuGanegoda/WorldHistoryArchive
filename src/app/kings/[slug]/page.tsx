@@ -77,9 +77,10 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
           <h1 className="text-4xl font-bold mb-4">{king.title}</h1>
           
           <section className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-6 text-sm">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
               <div><strong>Reign:</strong> {king.reign}</div>
               <div><strong>Kingdom:</strong> {kingdom ? kingdom.title : king.kingdom}</div>
+              <div><strong>Country:</strong> {king.country || (kingdom as any)?.country || 'Sri Lanka'}</div>
             </div>
           </section>
 

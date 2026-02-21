@@ -18,6 +18,7 @@ interface Kingdom {
   slug: string;
   title: string;
   reign: string;
+  country?: string;
   biography: string;
   sections: {
     heading: string;
@@ -44,6 +45,7 @@ const kingdomCards = kingdoms
       name: kingdom.title,
       description,
       reign: kingdom.reign,
+      country: kingdom.country,
       // Optimization: Calculate year once for sorting (Schwartzian transform)
       year: parseStartYear(kingdom.reign),
     };
@@ -130,6 +132,7 @@ export default function Home() {
                   slug={kingdom.slug}
                   name={kingdom.name}
                   description={kingdom.description}
+                  country={kingdom.country}
                 />
               </div>
             ))}
