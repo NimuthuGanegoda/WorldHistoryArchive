@@ -98,6 +98,26 @@ try {
   }
   console.log('PASS: Rotation check (Yesterday != Today).');
 
+  // 4. Timezone Check
+  console.log('\nTesting timezone logic:');
+  // Use a fixed instant in time
+  // 2023-10-25 20:00 UTC
+  // = 2023-10-26 01:30 Asia/Colombo (Day 26)
+  // = 2023-10-25 16:00 America/New_York (Day 25)
+  const utcDate = new Date('2023-10-25T20:00:00Z');
+
+  const colomboKings = getDailyKings(kingsData, 6, utcDate, 'Asia/Colombo');
+  const nyKings = getDailyKings(kingsData, 6, utcDate, 'America/New_York');
+
+  const colomboSlugs = colomboKings.map(k => k.slug).join(',');
+  const nySlugs = nyKings.map(k => k.slug).join(',');
+
+  if (colomboSlugs === nySlugs) {
+      console.error('FAIL: Timezone check failed. Different local days produced same kings.');
+      process.exit(1);
+  }
+  console.log('PASS: Timezone check (Different local days -> Different kings).');
+
   console.log('\nAll checks passed successfully.');
 
 } catch (error) {

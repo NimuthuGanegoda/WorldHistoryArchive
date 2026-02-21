@@ -26,16 +26,22 @@ interface FeaturedKingsProps {
 export default function FeaturedKings({ initialKings = [], initialDate }: FeaturedKingsProps) {
   const [kings, setKings] = useState<King[]>(initialKings);
   const [displayDate, setDisplayDate] = useState<string | null>(initialDate || null);
+  const [timeZone, setTimeZone] = useState<string>('Asia/Colombo');
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Detect user's timezone on mount
+    const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    setTimeZone(userTimeZone);
+
     // Function to check and update daily kings
     const updateDailyKings = () => {
       const now = new Date();
       const allKings = kingsData as King[];
-      // Client-side calculation ensures that if the static build is stale (e.g., visited days later),
-      // the displayed kings will update to match the current Sri Lanka date.
-      const daily = getDailyKings(allKings, 6, now);
+
+      // Calculate daily kings using the user's local timezone
+      // This ensures the content updates at the user's local midnight
+      const daily = getDailyKings(allKings, 6, now, userTimeZone);
 
       setKings(currentKings => {
         // If we don't have kings yet, use daily
@@ -92,14 +98,14 @@ export default function FeaturedKings({ initialKings = [], initialDate }: Featur
     );
   }
 
-  // Format the date for display (Asia/Colombo)
+  // Format the date for display (User's Timezone)
   const formattedDate = displayDate
     ? new Date(displayDate).toLocaleDateString('en-US', {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-        timeZone: 'Asia/Colombo'
+        timeZone: timeZone // Use the detected timezone
       })
     : '';
 
