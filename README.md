@@ -39,6 +39,11 @@ To verify the rotation logic locally, you can use the test command:
 npm test
 ```
 
+To see the scheduled kings for the next 7 days:
+```bash
+node scripts/check-daily-rotation.js
+```
+
 ## Getting Started
 
 To run the application locally:
@@ -87,6 +92,7 @@ The project includes utility scripts in `src/cli.js` and `scripts/` to help mana
 - **Export Markdown**: `npm run export:md`
 - **Check Google Fonts**: `node scripts/check-no-google-fonts.js` (Ensures no Google Fonts are imported)
 - **Verify Rotation**: `node scripts/verify-rotation.js` (Verifies the daily featured kings rotation logic)
+- **Check Daily Schedule**: `node scripts/check-daily-rotation.js` (Displays the featured kings for the next 7 days)
 - **CLI Tools**:
     ```bash
     # List kingdoms
