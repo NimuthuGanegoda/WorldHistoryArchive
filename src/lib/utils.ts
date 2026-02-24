@@ -53,16 +53,25 @@ export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new
   const formatter = new Intl.DateTimeFormat('en-CA', options); // en-CA gives YYYY-MM-DD format
   const today = formatter.format(date);
 
-  // Simple hash function for the date string to create a numerical seed
-  let seed = 0;
-  for (let i = 0; i < today.length; i++) {
-    seed = ((seed << 5) - seed) + today.charCodeAt(i);
-    seed |= 0; // Convert to 32bit integer
-  }
+  // Parse YYYY-MM-DD to get a stable day index
+  // We use UTC to avoid daylight saving issues when calculating days since epoch
+  const [year, month, day] = today.split('-').map(Number);
+  const currentDayTime = Date.UTC(year, month - 1, day);
+  const epoch = Date.UTC(2023, 0, 1); // Fixed epoch: Jan 1, 2023
+  const msPerDay = 24 * 60 * 60 * 1000;
+  const dayIndex = Math.floor((currentDayTime - epoch) / msPerDay);
 
-  // Create a copy to avoid mutating the original array
-  const shuffled = [...items];
-  let m = shuffled.length;
+  const totalItems = items.length;
+  if (totalItems === 0) return [];
+
+  // Determine which cycle we are in (e.g. cycle 0 = first pass through all items)
+  // and where in the cycle we start
+  const cycleIndex = Math.floor((dayIndex * count) / totalItems);
+  const startIndex = (dayIndex * count) % totalItems;
+
+  // Seed the shuffle based on the cycle index
+  // This ensures the order is random but stable for the duration of one full rotation
+  let seed = cycleIndex + 12345; // Simple salt
 
   // Simple Linear Congruential Generator (LCG)
   const random = () => {
@@ -70,11 +79,24 @@ export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new
     return Math.abs(seed) / 233280;
   };
 
+  // Create a copy to avoid mutating the original array
+  const shuffled = [...items];
+  let m = shuffled.length;
+
   // Fisher-Yates shuffle with seeded random
   while (m) {
     const i = Math.floor(random() * m--);
     [shuffled[m], shuffled[i]] = [shuffled[i], shuffled[m]];
   }
 
-  return shuffled.slice(0, count);
+  // Select the slice
+  // If the slice wraps around the end of the array, we take from the beginning
+  const result: T[] = [];
+  for (let i = 0; i < count; i++) {
+    // Handle negative indices (if date is before epoch) and wrapping
+    const index = ((startIndex + i) % totalItems + totalItems) % totalItems;
+    result.push(shuffled[index]);
+  }
+
+  return result;
 }
