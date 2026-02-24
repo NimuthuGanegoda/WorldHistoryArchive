@@ -14,26 +14,40 @@ function getDailyKings(items, count = 6, date = new Date(), timeZone = 'Asia/Col
   const formatter = new Intl.DateTimeFormat('en-CA', options);
   const today = formatter.format(date);
 
-  let seed = 0;
-  for (let i = 0; i < today.length; i++) {
-    seed = ((seed << 5) - seed) + today.charCodeAt(i);
-    seed |= 0;
-  }
+  const [year, month, day] = today.split('-').map(Number);
+  const currentDayTime = Date.UTC(year, month - 1, day);
+  const epoch = Date.UTC(2023, 0, 1);
+  const msPerDay = 24 * 60 * 60 * 1000;
+  const dayIndex = Math.floor((currentDayTime - epoch) / msPerDay);
 
-  const shuffled = [...items];
-  let m = shuffled.length;
+  const totalItems = items.length;
+  if (totalItems === 0) return [];
+
+  const cycleIndex = Math.floor((dayIndex * count) / totalItems);
+  const startIndex = (dayIndex * count) % totalItems;
+
+  let seed = cycleIndex + 12345;
 
   const random = () => {
     seed = (seed * 9301 + 49297) % 233280;
     return Math.abs(seed) / 233280;
   };
 
+  const shuffled = [...items];
+  let m = shuffled.length;
+
   while (m) {
     const i = Math.floor(random() * m--);
     [shuffled[m], shuffled[i]] = [shuffled[i], shuffled[m]];
   }
 
-  return shuffled.slice(0, count);
+  const result = [];
+  for (let i = 0; i < count; i++) {
+    const index = ((startIndex + i) % totalItems + totalItems) % totalItems;
+    result.push(shuffled[index]);
+  }
+
+  return result;
 }
 
 // Simulate next 7 days
