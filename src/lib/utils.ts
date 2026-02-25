@@ -66,8 +66,10 @@ export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new
 
   // Determine which cycle we are in (e.g. cycle 0 = first pass through all items)
   // and where in the cycle we start
-  const cycleIndex = Math.floor((dayIndex * count) / totalItems);
-  const startIndex = (dayIndex * count) % totalItems;
+  const daysPerCycle = Math.ceil(totalItems / count);
+  const cycleIndex = Math.floor(dayIndex / daysPerCycle);
+  const dayInCycle = dayIndex % daysPerCycle;
+  const startIndex = dayInCycle * count;
 
   // Seed the shuffle based on the cycle index
   // This ensures the order is random but stable for the duration of one full rotation
