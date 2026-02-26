@@ -3,7 +3,7 @@ import time
 import os
 import subprocess
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from playwright.sync_api import sync_playwright, expect
 
 def verify_date_display():
@@ -33,13 +33,18 @@ def verify_date_display():
 
                 # Verify date is visible
                 # Calculate expected date string
+                # Current UTC time
                 now_utc = datetime.now(timezone.utc)
+                # Convert to Sri Lanka time (UTC+5:30)
+                sl_offset = timedelta(hours=5, minutes=30)
+                now_sl = now_utc + sl_offset
+
                 # Format: Sunday, February 15, 2026
                 # The code uses: .toLocaleDateString('en-US', { day: 'numeric' }) which gives unpadded.
 
-                day = now_utc.day
-                expected_date_part = f"{now_utc.strftime('%B')} {day}, {now_utc.year}"
-                print(f"Looking for date containing: {expected_date_part}")
+                day = now_sl.day
+                expected_date_part = f"{now_sl.strftime('%B')} {day}, {now_sl.year}"
+                print(f"Looking for date containing: {expected_date_part} (Sri Lanka Time)")
 
                 # Locate the date element
                 # It is a div with class ... text-sm ... uppercase

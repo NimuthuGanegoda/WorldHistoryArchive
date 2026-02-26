@@ -23,8 +23,10 @@ function getDailyKings(items, count = 6, date = new Date(), timeZone = 'Asia/Col
   const totalItems = items.length;
   if (totalItems === 0) return [];
 
-  const cycleIndex = Math.floor((dayIndex * count) / totalItems);
-  const startIndex = (dayIndex * count) % totalItems;
+  const daysPerCycle = Math.ceil(totalItems / count);
+  const cycleIndex = Math.floor(dayIndex / daysPerCycle);
+  const dayInCycle = dayIndex % daysPerCycle;
+  const startIndex = dayInCycle * count;
 
   let seed = cycleIndex + 12345;
 
