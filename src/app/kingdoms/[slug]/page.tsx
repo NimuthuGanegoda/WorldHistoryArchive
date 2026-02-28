@@ -102,7 +102,7 @@ kingdomsData.forEach((kingdom) => {
 
 // Sort kings in the map once
 for (const [slug, kings] of kingdomKingsMap.entries()) {
-  kings.sort((a, b) => extractStartYear(a.reign) - extractStartYear(b.reign));
+  kings.sort((a, b) => parseStartYear(a.reign) - parseStartYear(b.reign));
 }
 
 // Group sites by kingdom
@@ -113,7 +113,7 @@ for (const [slug, kings] of kingdomKingsMap.entries()) {
 // site.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
 // kingdom.title.toLowerCase().includes(site.kingdom.toLowerCase())
 // We will preserve this logic but pre-compute it.
-const kingdomSitesMap = new Map<string, any[]>();
+kingdomSitesMap.clear();
 (sitesData as any[]).forEach((site: any) => {
   if (!site.kingdom) return;
   const siteKingdomLower = site.kingdom.toLowerCase();
