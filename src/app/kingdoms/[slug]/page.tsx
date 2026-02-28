@@ -100,6 +100,45 @@ kingdomsData.forEach((kingdom) => {
   kingdomSitesMap.set(kingdom.slug, kSites);
 });
 
+// Sort kings in the map once
+for (const [slug, kings] of kingdomKingsMap.entries()) {
+  kings.sort((a, b) => extractStartYear(a.reign) - extractStartYear(b.reign));
+}
+
+// Group sites by kingdom
+// Note: Sites filtering logic was complex (fuzzy match).
+// For O(1) speed, we rely on exact matches or pre-computed associations.
+// The original code did fuzzy matching:
+// site.kingdom.toLowerCase() === kingdom.slug.toLowerCase() ||
+// site.kingdom.toLowerCase().includes(kingdom.title.toLowerCase()) ||
+// kingdom.title.toLowerCase().includes(site.kingdom.toLowerCase())
+// We will preserve this logic but pre-compute it.
+const kingdomSitesMap = new Map<string, any[]>();
+(sitesData as any[]).forEach((site: any) => {
+  if (!site.kingdom) return;
+  const siteKingdomLower = site.kingdom.toLowerCase();
+
+  // iterate all kingdoms to find matches (this is done once at module load time)
+  kingdomsData.forEach(k => {
+    const kingdomSlug = k.slug;
+    const kingdomTitleLower = k.title.toLowerCase();
+
+    if (siteKingdomLower === kingdomSlug.toLowerCase() ||
+        siteKingdomLower.includes(kingdomTitleLower) ||
+        kingdomTitleLower.includes(siteKingdomLower)) {
+
+      if (!kingdomSitesMap.has(kingdomSlug)) {
+        kingdomSitesMap.set(kingdomSlug, []);
+      }
+      // Avoid duplicates if a site matches multiple rules for the same kingdom
+      const sites = kingdomSitesMap.get(kingdomSlug)!;
+      if (!sites.includes(site)) {
+        sites.push(site);
+      }
+    }
+  });
+});
+
 export async function generateStaticParams() {
   return kingdomsData.map((kingdom) => ({
     slug: kingdom.slug,
