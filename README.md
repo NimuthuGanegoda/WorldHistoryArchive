@@ -1,11 +1,13 @@
-# Sri Lanka History Wiki
+# World History Archive
 
-A Next.js web application dedicated to cataloging and visualizing the history of Sri Lankan kingdoms, monarchs, and archaeological sites.
+A Next.js web application dedicated to cataloging and visualizing the history of kingdoms, monarchs, and archaeological sites.
 
-This project aims to provide an accessible, structured, and interactive way to explore Sri Lanka's rich historical timeline, moving beyond static text to a data-driven experience.
+This project aims to provide an accessible, structured, and interactive way to explore the world's rich historical timeline, with an initial focus on Sri Lankan history.
 
-## Website Goals
+## Key Features
 
+- **Interactive Map**: Visualize the geographical distribution of kingdoms and sites.
+- **Timeline Visualization**: Explore a chronological view of rulers and major events.
 - **Interactive Exploration**: Navigate easily from Kingdom to Monarch to specific historical details.
 - **Structured Data**: Utilize a robust JSON schema to ensure historical data is consistent and machine-readable.
 - **Performance & Accessibility**: Built with Next.js and Tailwind CSS for a fast, responsive, and accessible user experience.
@@ -21,6 +23,26 @@ Key data files:
 - `src/data/sites.json`: Archaeological sites and their historical context.
 
 *Note: The root `data/` directory contains source/legacy datasets and is used by some utility scripts.*
+
+## Daily Featured Kings
+
+The "Featured Rulers" section on the homepage automatically updates every day at **Sri Lanka Standard Time (UTC+5:30) midnight**.
+
+- **Mechanism**: A deterministic shuffling algorithm (seeded by the date in Asia/Colombo timezone) selects 6 random kings each day.
+- **Consistency**: All users see the same set of kings on any given day (according to Sri Lanka time), ensuring alignment with the historical context.
+- **Updates**:
+  - The static site is rebuilt daily via GitHub Actions (cron: `0 19 * * *`) to bake the new daily kings into the HTML for SEO and initial load. Note: 19:00 UTC (00:30 SLST) ensures the update happens strictly after midnight in Sri Lanka.
+  - The client-side component (`FeaturedKings`) also checks the date and updates the list dynamically if the cached HTML is stale (e.g., if a user keeps the tab open across midnight).
+
+To verify the rotation logic locally, you can use the test command:
+```bash
+npm test
+```
+
+To see the scheduled kings for the next 7 days:
+```bash
+node scripts/check-daily-rotation.js
+```
 
 ## Getting Started
 
@@ -40,6 +62,12 @@ To run the application locally:
 3.  **Build for Production**
     ```bash
     npm run build
+    ```
+    *Note: `npm start` will not work because the project uses static export (`output: 'export'`). To test the production build locally, run:*
+    ```bash
+    python3 -m http.server out
+    # or
+    npx serve out
     ```
 
 ## Contributing
@@ -62,6 +90,9 @@ The project includes utility scripts in `src/cli.js` and `scripts/` to help mana
 
 - **Validate Data**: `npm run validate`
 - **Export Markdown**: `npm run export:md`
+- **Check Google Fonts**: `node scripts/check-no-google-fonts.js` (Ensures no Google Fonts are imported)
+- **Verify Rotation**: `node scripts/verify-rotation.js` (Verifies the daily featured kings rotation logic)
+- **Check Daily Schedule**: `node scripts/check-daily-rotation.js` (Displays the featured kings for the next 7 days)
 - **CLI Tools**:
     ```bash
     # List kingdoms
@@ -76,4 +107,4 @@ The project includes utility scripts in `src/cli.js` and `scripts/` to help mana
 Content is provided for educational purposes.
 
 ---
-© 2025 Sri Lanka History Wiki
+© 2025 World History Archive

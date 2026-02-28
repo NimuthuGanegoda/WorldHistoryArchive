@@ -29,7 +29,7 @@ export default function Header() {
             href="/"
             className="text-[21px] font-semibold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >
-            Sri Lanka History
+            World History Archive
           </Link>
 
           <div className="flex items-center space-x-6">

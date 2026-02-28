@@ -1,11 +1,10 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import KingdomCard from '@/components/KingdomCard';
+import AnimationObserver from '@/components/AnimationObserver';
+import FeaturedKings from '@/components/FeaturedKings';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
-import { parseStartYear } from '@/lib/utils';
+import { parseStartYear, getDailyKings } from '@/lib/utils';
 
 interface King {
   slug: string;
@@ -19,6 +18,7 @@ interface Kingdom {
   slug: string;
   title: string;
   reign: string;
+  country?: string;
   biography: string;
   sections: {
     heading: string;
@@ -32,51 +32,35 @@ interface Kingdom {
 const kings = kingsData as King[];
 const kingdoms = kingdomsData as Kingdom[];
 
-// Get featured kings (first 6)
-const featuredKings = kings.slice(0, 6);
-
 // Map kingdoms to cards with descriptions and sort chronologically
 const kingdomCards = kingdoms
   .map((kingdom) => {
     const description =
       kingdom.sections?.[0]?.content?.[0] ||
       kingdom.biography ||
-      'A historical kingdom of Sri Lanka.';
+      'A historical kingdom.';
 
     return {
       slug: kingdom.slug,
       name: kingdom.title,
       description,
       reign: kingdom.reign,
+      country: kingdom.country,
+      // Optimization: Calculate year once for sorting (Schwartzian transform)
+      year: parseStartYear(kingdom.reign),
     };
   })
-  .sort((a, b) => parseStartYear(a.reign) - parseStartYear(b.reign));
+  .sort((a, b) => a.year - b.year);
+
+export const metadata = {
+  title: 'World History Archive',
+  description: 'Explore the rich history and heritage of kingdoms and rulers from ancient times to the colonial era.',
+};
 
 export default function Home() {
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            observerRef.current?.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
-    );
-
-    const elements = document.querySelectorAll('.scroll-animate');
-    elements.forEach((el) => {
-      if (!el.classList.contains('animate-in')) {
-        observerRef.current?.observe(el);
-      }
-    });
-
-    return () => observerRef.current?.disconnect();
-  }, []);
+  // Calculate daily kings at build time using the current date
+  const today = new Date();
+  const dailyKings = getDailyKings(kings, 6, today);
 
   return (
     <main className="min-h-screen">
@@ -87,8 +71,8 @@ export default function Home() {
             World History Archive
           </h1>
           <p className="apple-subheadline mb-12 max-w-2xl mx-auto fade-in-delay-1">
-            Explore the rich history and heritage of Sri Lankan kingdoms and rulers from ancient times to the colonial era. 
-            Discover {kings.length} kings across {kingdoms.length} kingdoms.
+            Explore the rich history and heritage of kingdoms and rulers from ancient times to the colonial era.
+            Discover {kings.length} rulers across {kingdoms.length} kingdoms from around the world.
           </p>
           <div className="flex gap-4 justify-center flex-wrap fade-in-delay-1">
             <Link 
@@ -111,34 +95,15 @@ export default function Home() {
       <section className="py-24 bg-gray-50 dark:bg-[#121212]">
         <div className="max-w-[980px] mx-auto px-5">
           <h2 className="text-[32px] md:text-[40px] font-semibold mb-4 text-center tracking-tight">
-            Featured Rulers
+            Daily Featured Rulers
           </h2>
           <p className="text-center text-gray-500 mb-12 text-lg">
-            Discover the legendary kings who shaped Sri Lankan history
+            Discover the legendary rulers who shaped history
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredKings.map((king, idx) => (
-              <Link
-                key={king.slug}
-                href={`/kings/${king.slug}`}
-                className="scroll-animate opacity-0 translate-y-8 block card hover:shadow-xl"
-                style={{ transitionDelay: `${idx * 100}ms` }}
-              >
-                <h3 className="text-xl font-semibold mb-2">
-                  {king.title}
-                </h3>
-                <p className="text-sm text-[#0071e3] font-medium mb-3">
-                  {king.reign}
-                </p>
-                <p className="text-gray-500 text-[15px] leading-relaxed line-clamp-3">
-                  {king.biography.substring(0, 150)}...
-                </p>
-              </Link>
-            ))}
-          </div>
+          <FeaturedKings initialKings={dailyKings} initialDate={today.toISOString()} />
           <div className="text-center mt-12">
             <Link 
-              href="/kings/vijaya" 
+              href="/kings"
               className="inline-flex items-center text-[#0071e3] hover:underline font-medium"
             >
               View all {kings.length} rulers <span className="ml-1">→</span>
@@ -154,7 +119,7 @@ export default function Home() {
             Historical Kingdoms
           </h2>
           <p className="text-center text-gray-500 mb-12 text-lg">
-            From legendary Tambapanni to the mighty Kandyan Kingdom
+            Explore powerful kingdoms and empires from across the ages
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {kingdomCards.map((kingdom, idx) => (
@@ -167,6 +132,7 @@ export default function Home() {
                   slug={kingdom.slug}
                   name={kingdom.name}
                   description={kingdom.description}
+                  country={kingdom.country}
                 />
               </div>
             ))}
@@ -205,6 +171,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <AnimationObserver />
     </main>
   );
 }

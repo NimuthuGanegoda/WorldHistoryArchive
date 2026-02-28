@@ -9,17 +9,18 @@
     "builtByKingId": "dutugemunu",
     "constructed": "140 BCE",
     "description": "One of the world's tallest ancient monuments and a masterpiece of Sinhalese engineering.",
-    "history": "",
-    "construction": "",
-    "architecture": "",
-    "significance": "",
-    "currentStatus": "",
+    "history": "Commissioned by the hero-king Dutugemunu to enshrine sacred relics, Ruwanwelisaya (The Great Stupa) was his magnum opus. The Mahavamsa records that the king fell ill and passed away just before its completion; his brother Saddha Tissa covered the unfinished dome with white cloth to show the dying king what it would look like.",
+    "construction": "Originally standing at 103 meters (338 ft) with a circumference of 290 meters, it was one of the tallest structures in the ancient world. The foundation was stabilized using crushed stone and elephants equipped with leather boots to stomp the ground flat.",
+    "architecture": "The stupa follows the 'Bubulakara' (bubble-shaped) design. It features a 'vahalkada' (frontispiece) at each of the four cardinal points, adorned with elephant carvings. The 'Hatharas Kotuwa' (square enclosure) and 'Devatha Kotuwa' (deity enclosure) sit atop the dome.",
+    "significance": "It is revered as the 'Mahathupa' (Great Stupa) and is one of the Solosmasthana (16 sacred places) and Atamasthana (8 sacred places) in Anuradhapura. It is believed to house the largest collection of Buddha's relics in the world.",
+    "currentStatus": "A major pilgrimage site for Buddhists globally, the stupa was renovated in the early 20th century and stands today at 103 meters.",
     "googleMapsUrl": "",
     "media": [],
     "coordinates": {
-      "lat": 8.3500,
+      "lat": 8.35,
       "lng": 80.3964
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "jetavanaramaya",
@@ -31,17 +32,18 @@
     "builtByKingId": "mahasena",
     "constructed": "273-301 CE",
     "description": "Once the tallest stupa in the ancient world, standing at 122 meters.",
-    "history": "",
-    "construction": "",
-    "architecture": "",
-    "significance": "",
-    "currentStatus": "",
+    "history": "Built by King Mahasena following the destruction of the Mahavihara monastery, it was gifted to the Sagaliya sect. The construction marked a period of theological conflict between Theravada and Mahayana traditions in ancient Sri Lanka.",
+    "construction": "Constructed using approximately 93 million baked bricks, it was the third tallest structure in the world upon completion, surpassed only by the Great Pyramids of Giza. Its original height was estimated at 122 meters (400 ft).",
+    "architecture": "The stupa represents a massive engineering feat with a deep foundation resting on bedrock. It follows the traditional stupa architectural elements but on a colossal scale.",
+    "significance": "It is the largest stupa in the world by volume and a testament to the advanced engineering capabilities of the Anuradhapura Kingdom.",
+    "currentStatus": "Extensive conservation work by the Central Cultural Fund has stabilized the structure. It currently stands around 71 meters tall.",
     "googleMapsUrl": "",
     "media": [],
     "coordinates": {
       "lat": 8.3514,
       "lng": 80.4036
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "abhayagiri-dagoba",
@@ -63,7 +65,8 @@
     "coordinates": {
       "lat": 8.3708,
       "lng": 80.3956
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "sigiriya-rock-fortress",
@@ -75,17 +78,18 @@
     "builtByKingId": "kashyapa-i",
     "constructed": "477-495 CE",
     "description": "Ancient rock fortress and palace with famous frescoes, UNESCO World Heritage Site.",
-    "history": "",
-    "construction": "",
-    "architecture": "",
-    "significance": "",
-    "currentStatus": "",
+    "history": "According to the Mahavamsa, King Kashyapa I (477–495 CE) selected this site as his new capital after usurping the throne from his father. He built his palace on the top of this massive rock column and decorated its sides with colourful frescoes. On a small plateau about halfway up the side of this rock, he built a gateway in the form of an enormous lion. The name of this place is derived from this structure — Sīhāgiri, the Lion Rock. The capital and the royal palace were abandoned after the king's death in battle, and it was used as a Buddhist monastery until the 14th century.",
+    "construction": "The fortress complex includes remnants of a ruined palace, surrounded by an extensive network of fortifications, vast gardens, ponds, canals, alleys, and fountains. The summit of the rock is 1.6 hectares in area, housing the royal citadel.",
+    "architecture": "Sigiriya is famous for its frescoes, which depict damsels or 'apsaras' in a style similar to the Ajanta Caves. The 'Mirror Wall', originally so well polished that the king could see his reflection in it, is now covered with verses scribbled by visitors dating back to the 8th century. The Water Gardens showcase advanced hydraulic engineering, utilizing a complex system of underground conduits and gravity-fed fountains, some of which are still functional today.",
+    "significance": "Recognized as a UNESCO World Heritage Site in 1982, Sigiriya is one of the best-preserved examples of ancient urban planning. It is often referred to by locals as the Eighth Wonder of the World due to its engineering and artistic marvels.",
+    "currentStatus": "It is a major tourist destination and a protected archaeological site managed by the Central Cultural Fund of Sri Lanka.",
     "googleMapsUrl": "",
     "media": [],
     "coordinates": {
-      "lat": 7.9570,
+      "lat": 7.957,
       "lng": 80.7603
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "sri-maha-bodhi",
@@ -107,7 +111,8 @@
     "coordinates": {
       "lat": 8.3447,
       "lng": 80.3967
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "temple-of-tooth",
@@ -119,17 +124,18 @@
     "builtByKingId": "",
     "constructed": "1687-1707 CE",
     "description": "Temple housing the relic of the tooth of Buddha, UNESCO World Heritage Site.",
-    "history": "",
-    "construction": "",
-    "architecture": "",
-    "significance": "",
-    "currentStatus": "",
+    "history": "The Sacred Tooth Relic (Dalada) was brought to Sri Lanka in the 4th century CE. It became the palladium of kingship—whoever possessed it had the divine right to rule. The current two-story shrine was built by King Sri Veera Parakrama Narendrasinghe (1707-1739), with later additions by the last king, Sri Vikrama Rajasinha (the Octagon).",
+    "construction": "The temple complex is located within the royal palace grounds. It is built on a granite base with walls of limestone and timber upper floors.",
+    "architecture": "The architecture features typical Kandyan elements: a high-pitched roof, white walls with cloud drift walls (Walakulu Bemma), and the famous Octagon (Paththirippuwa). The interior is richly decorated with ivory, lacquer work, and intricate wood carvings.",
+    "significance": "It is the most sacred Buddhist site in Sri Lanka and a UNESCO World Heritage Site. The annual Esala Perahera procession centers around the relic.",
+    "currentStatus": "It remains a center of daily worship and a major tourist attraction. The relic is kept in seven nesting gold caskets.",
     "googleMapsUrl": "",
     "media": [],
     "coordinates": {
       "lat": 7.2936,
       "lng": 80.6413
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "polonnaruwa-vatadage",
@@ -141,17 +147,18 @@
     "builtByKingId": "parakramabahu-i",
     "constructed": "1153-1186 CE",
     "description": "Circular relic house with finest stone carvings and moonstone entrances.",
-    "history": "",
-    "construction": "",
-    "architecture": "",
-    "significance": "",
-    "currentStatus": "",
+    "history": "Built during the Polonnaruwa period to house the Tooth Relic. While some attribute it to Parakramabahu I, others suggest Nissanka Malla embellished it.",
+    "construction": "A circular structure with two concentric stone terraces.",
+    "architecture": "Famous for its moonstones (sandakada pahana) and guardstones (muragala) which are considered the finest examples of Polonnaruwa art. Four seated Buddha statues face the four cardinal directions.",
+    "significance": "It is the best-preserved example of a 'Vatadage' (circular relic house) in Sri Lanka.",
+    "currentStatus": "A well-preserved archaeological ruin in the Dalada Maluwa (Quadrangle) of Polonnaruwa.",
     "googleMapsUrl": "",
     "media": [],
     "coordinates": {
       "lat": 7.9483,
       "lng": 81.0008
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "gal-vihara",
@@ -163,17 +170,18 @@
     "builtByKingId": "parakramabahu-i",
     "constructed": "1153-1186 CE",
     "description": "Group of four magnificent rock relief Buddha statues carved from a single granite rock wall.",
-    "history": "",
-    "construction": "",
-    "architecture": "",
-    "significance": "",
-    "currentStatus": "",
+    "history": "Part of the Uttararama (Northern Monastery) commissioned by King Parakramabahu I. The chronicle Chulavamsa records the creation of these images.",
+    "construction": "The four statues are carved into a single large granite rock face.",
+    "architecture": "The complex includes a seated Buddha in deep meditation, a smaller seated Buddha inside a cave, a standing figure with crossed arms (often debated to be Ananda or the Buddha), and a massive reclining Buddha (14 meters long) depicting Parinirvana.",
+    "significance": "Considered the masterpiece of Sinhalese rock carving. The fluid drapery and serene expressions demonstrate the peak of Polonnaruwa era artistry.",
+    "currentStatus": "A protected archaeological site and an active place of worship.",
     "googleMapsUrl": "",
     "media": [],
     "coordinates": {
       "lat": 7.9658,
       "lng": 81.0069
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "dambulla-cave-temple",
@@ -185,17 +193,18 @@
     "builtByKingId": "valagamba",
     "constructed": "89-77 BCE",
     "description": "Largest and best-preserved cave temple complex in Sri Lanka with over 150 Buddha statues.",
-    "history": "",
-    "construction": "",
-    "architecture": "",
-    "significance": "",
-    "currentStatus": "",
+    "history": "King Valagamba took refuge in these caves for 14 years when he was exiled by South Indian invaders. Upon reclaiming his throne, he converted the caves into magnificent temples in gratitude.",
+    "construction": "The complex consists of five main caves under a vast overhanging rock, rising 160 meters over the surrounding plains.",
+    "architecture": "The cave ceilings are painted with intricate patterns and religious scenes covering 2,100 square meters. The complex houses 153 Buddha statues, 3 statues of Sri Lankan kings, and 4 statues of gods and goddesses.",
+    "significance": "A UNESCO World Heritage Site (1991), it is the largest and best-preserved cave temple complex in the country.",
+    "currentStatus": "A major pilgrimage site and tourist attraction.",
     "googleMapsUrl": "",
     "media": [],
     "coordinates": {
       "lat": 7.8565,
       "lng": 80.6485
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "lovamahapaya",
@@ -217,7 +226,8 @@
     "coordinates": {
       "lat": 8.3444,
       "lng": 80.3961
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "thuparamaya",
@@ -239,7 +249,8 @@
     "coordinates": {
       "lat": 8.3567,
       "lng": 80.3961
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "isurumuniya",
@@ -260,8 +271,9 @@
     "media": [],
     "coordinates": {
       "lat": 8.3331,
-      "lng": 80.3900
-    }
+      "lng": 80.39
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "mihintale",
@@ -283,7 +295,8 @@
     "coordinates": {
       "lat": 8.3508,
       "lng": 80.5103
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "lankatilaka-temple",
@@ -304,8 +317,9 @@
     "media": [],
     "coordinates": {
       "lat": 7.2338,
-      "lng": 80.5650
-    }
+      "lng": 80.565
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "embekka-devalaya",
@@ -327,7 +341,8 @@
     "coordinates": {
       "lat": 7.2197,
       "lng": 80.5703
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "gadaladeniya-temple",
@@ -349,7 +364,8 @@
     "coordinates": {
       "lat": 7.2589,
       "lng": 80.5547
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "yapahuwa-rock-fortress",
@@ -371,7 +387,8 @@
     "coordinates": {
       "lat": 7.8286,
       "lng": 80.3075
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "parakrama-samudra",
@@ -393,7 +410,8 @@
     "coordinates": {
       "lat": 7.9333,
       "lng": 80.9667
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "royal-palace-polonnaruwa",
@@ -415,7 +433,8 @@
     "coordinates": {
       "lat": 7.9458,
       "lng": 81.0003
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "rankot-vehera",
@@ -437,7 +456,8 @@
     "coordinates": {
       "lat": 7.9567,
       "lng": 81.0039
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "kiri-vehera",
@@ -459,7 +479,8 @@
     "coordinates": {
       "lat": 7.9589,
       "lng": 81.0042
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "medirigiriya-vatadage",
@@ -481,7 +502,8 @@
     "coordinates": {
       "lat": 8.1389,
       "lng": 80.9922
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "avukana-buddha",
@@ -503,7 +525,8 @@
     "coordinates": {
       "lat": 8.0167,
       "lng": 80.5333
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "ritigala-monastery",
@@ -524,8 +547,9 @@
     "media": [],
     "coordinates": {
       "lat": 8.1167,
-      "lng": 80.6500
-    }
+      "lng": 80.65
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "buduruwagala",
@@ -547,7 +571,8 @@
     "coordinates": {
       "lat": 6.7039,
       "lng": 81.0778
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "nallur-kovil",
@@ -569,7 +594,8 @@
     "coordinates": {
       "lat": 9.6742,
       "lng": 80.0294
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "kelaniya-temple",
@@ -589,9 +615,10 @@
     "googleMapsUrl": "",
     "media": [],
     "coordinates": {
-      "lat": 6.9500,
+      "lat": 6.95,
       "lng": 79.9167
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "lankarama",
@@ -613,7 +640,8 @@
     "coordinates": {
       "lat": 8.3611,
       "lng": 80.3931
-    }
+    },
+    "country": "Sri Lanka"
   },
   {
     "id": "mirisawetiya",
@@ -635,6 +663,69 @@
     "coordinates": {
       "lat": 8.3447,
       "lng": 80.3886
+    },
+    "country": "Sri Lanka"
+  },
+  {
+    "id": "colosseum",
+    "name": "Colosseum",
+    "kingdom": "roman-empire",
+    "country": "Italy",
+    "period": "70–80 CE",
+    "type": "amphitheatre",
+    "builtBy": "Vespasian, Titus",
+    "description": "The Colosseum is an oval amphitheatre in the centre of the city of Rome, Italy.",
+    "coordinates": {
+      "lat": 41.8902,
+      "lng": 12.4922
+    }
+  },
+  {
+    "id": "abu-simbel",
+    "name": "Abu Simbel",
+    "kingdom": "new-kingdom-egypt",
+    "country": "Egypt",
+    "period": "13th Century BCE",
+    "type": "temple",
+    "builtBy": "Ramses II",
+    "builtByKingId": "ramses-ii",
+    "constructed": "c. 1264 BCE",
+    "description": "Two massive rock-cut temples in the village of Abu Simbel, Aswan Governorate, Upper Egypt.",
+    "coordinates": {
+      "lat": 22.3372,
+      "lng": 31.6258
+    }
+  },
+  {
+    "id": "sanchi-stupa",
+    "name": "Sanchi Stupa",
+    "kingdom": "maurya-empire",
+    "country": "India",
+    "period": "3rd Century BCE",
+    "type": "stupa",
+    "builtBy": "Ashoka",
+    "builtByKingId": "ashoka",
+    "constructed": "3rd Century BCE",
+    "description": "The Great Stupa at Sanchi is one of the oldest stone structures in India and an important monument of Indian architecture.",
+    "coordinates": {
+      "lat": 23.4873,
+      "lng": 77.7418
+    }
+  },
+  {
+    "id": "terracotta-army",
+    "name": "Terracotta Army",
+    "kingdom": "qin-dynasty",
+    "country": "China",
+    "period": "3rd Century BCE",
+    "type": "mausoleum",
+    "builtBy": "Qin Shi Huang",
+    "builtByKingId": "qin-shi-huang",
+    "constructed": "246–208 BCE",
+    "description": "A collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China.",
+    "coordinates": {
+      "lat": 34.3841,
+      "lng": 109.2785
     }
   }
 ]

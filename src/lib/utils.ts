@@ -1,21 +1,19 @@
 // Hoisted regex patterns to avoid recompilation
-const CENTURY_REGEX = /(\d+)(?:st|nd|rd|th)?\s*(?:c\.|century|c\b)/;
+const CENTURY_REGEX = /(\d+)(?:st|nd|rd|th)?\s*(?:c\.|century|c\b)/i;
 const YEAR_REGEX = /(\d+)/;
+const BCE_REGEX = /bce|bc/i;
 
 export function parseStartYear(reign: string): number {
   if (!reign) return 9999;
 
-  // Normalize spaces and case for easier matching
-  const normalized = reign.toLowerCase();
-
   // Handle "Century" cases (e.g., "2nd Century BCE", "c. 2nd c. BCE")
   // Matches: number + optional ordinal suffix + optional space + "c" or "century"
-  const centuryMatch = normalized.match(CENTURY_REGEX);
+  const centuryMatch = reign.match(CENTURY_REGEX);
 
   if (centuryMatch) {
     const century = parseInt(centuryMatch[1], 10);
 
-    if (normalized.includes('bce') || normalized.includes('bc')) {
+    if (BCE_REGEX.test(reign)) {
       // 2nd Century BCE -> -200
       return -(century * 100);
     }
@@ -30,9 +28,77 @@ export function parseStartYear(reign: string): number {
 
   let year = parseInt(match[0], 10);
 
-  if (reign.includes('BCE') || reign.includes('BC')) {
+  if (BCE_REGEX.test(reign)) {
     year = -year;
   }
 
   return year;
+}
+
+/**
+ * Deterministically shuffles an array based on the Sri Lanka date and returns a slice.
+ * This ensures the "Featured Kings" list updates every day at midnight Sri Lanka Standard Time (SLST),
+ * consistent for all users globally and aligned with the daily static build (which runs at 19:00 UTC = 00:30 SLST).
+ *
+ * @param items The array of items to shuffle (e.g., kings).
+ * @param count The number of items to return.
+ * @param date The date to use for seeding (default: now).
+ * @param timeZone The timezone to use for date calculation (default: 'Asia/Colombo').
+ * @returns An array of `count` items, shuffled deterministically.
+ */
+export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new Date(), timeZone: string = 'Asia/Colombo'): T[] {
+  // Use specified timezone (default Asia/Colombo) for date string (YYYY-MM-DD)
+  // This ensures the rotation aligns with midnight in the target timezone
+  const options: Intl.DateTimeFormatOptions = { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' };
+  const formatter = new Intl.DateTimeFormat('en-CA', options); // en-CA gives YYYY-MM-DD format
+  const today = formatter.format(date);
+
+  // Parse YYYY-MM-DD to get a stable day index
+  // We use UTC to avoid daylight saving issues when calculating days since epoch
+  const [year, month, day] = today.split('-').map(Number);
+  const currentDayTime = Date.UTC(year, month - 1, day);
+  const epoch = Date.UTC(2023, 0, 1); // Fixed epoch: Jan 1, 2023
+  const msPerDay = 24 * 60 * 60 * 1000;
+  const dayIndex = Math.floor((currentDayTime - epoch) / msPerDay);
+
+  const totalItems = items.length;
+  if (totalItems === 0) return [];
+
+  // Determine which cycle we are in (e.g. cycle 0 = first pass through all items)
+  // and where in the cycle we start
+  const daysPerCycle = Math.ceil(totalItems / count);
+  const cycleIndex = Math.floor(dayIndex / daysPerCycle);
+  const dayInCycle = dayIndex % daysPerCycle;
+  const startIndex = dayInCycle * count;
+
+  // Seed the shuffle based on the cycle index
+  // This ensures the order is random but stable for the duration of one full rotation
+  let seed = cycleIndex + 12345; // Simple salt
+
+  // Simple Linear Congruential Generator (LCG)
+  const random = () => {
+    seed = (seed * 9301 + 49297) % 233280;
+    return Math.abs(seed) / 233280;
+  };
+
+  // Create a copy to avoid mutating the original array
+  const shuffled = [...items];
+  let m = shuffled.length;
+
+  // Fisher-Yates shuffle with seeded random
+  while (m) {
+    const i = Math.floor(random() * m--);
+    [shuffled[m], shuffled[i]] = [shuffled[i], shuffled[m]];
+  }
+
+  // Select the slice
+  // If the slice wraps around the end of the array, we take from the beginning
+  const result: T[] = [];
+  for (let i = 0; i < count; i++) {
+    // Handle negative indices (if date is before epoch) and wrapping
+    const index = ((startIndex + i) % totalItems + totalItems) % totalItems;
+    result.push(shuffled[index]);
+  }
+
+  return result;
 }

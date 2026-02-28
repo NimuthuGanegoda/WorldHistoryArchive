@@ -16,7 +16,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "raigama",
@@ -32,7 +33,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "dambadeniya",
@@ -48,7 +50,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "gampola",
@@ -64,7 +67,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "jaffna",
@@ -80,7 +84,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kandyan",
@@ -96,7 +101,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kelaniya",
@@ -112,7 +118,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kotte",
@@ -128,7 +135,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "kurunegala",
@@ -144,7 +152,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "polonnaruwa",
@@ -160,7 +169,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "ruhuna",
@@ -176,7 +186,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "sigiriya",
@@ -192,7 +203,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "sitawaka",
@@ -208,7 +220,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "tambapanni",
@@ -224,7 +237,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "upatissa-nuwara",
@@ -240,7 +254,8 @@
         ],
         "infoBoxes": []
       }
-    ]
+    ],
+    "country": "Sri Lanka"
   },
   {
     "slug": "yapahuwa",
@@ -253,6 +268,75 @@
         "heading": "",
         "content": [
           "Rock fortress capital"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "roman-empire",
+    "title": "Roman Empire",
+    "reign": "27 BCE – 476 CE",
+    "country": "Italy",
+    "biography": "The Roman Empire was the post-Republican period of ancient Rome. It was a polity that included large territorial holdings around the Mediterranean Sea in Europe, Northern Africa, and Western Asia, ruled by emperors.",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": [
+          "The Roman Empire was one of the largest empires in history.",
+          "It profoundly shaped Western civilization in terms of law, politics, language, and architecture."
+        ],
+        "infoBoxes": []
+      }
+    ]
+  },
+  {
+    "slug": "new-kingdom-egypt",
+    "title": "New Kingdom of Egypt",
+    "reign": "1550–1077 BCE",
+    "country": "Egypt",
+    "biography": "The New Kingdom, also referred to as the Egyptian Empire, is the period in ancient Egyptian history between the 16th century BC and the 11th century BC, covering the Eighteenth, Nineteenth, and Twentieth Dynasties of Egypt.",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": [
+          "The New Kingdom was the golden age of ancient Egypt, marked by territorial expansion and monumental architecture.",
+          "Pharaohs like Hatshepsut, Thutmose III, Akhenaten, Tutankhamun, and Ramesses II ruled during this period."
+        ],
+        "infoBoxes": []
+      }
+    ]
+  },
+  {
+    "slug": "maurya-empire",
+    "title": "Maurya Empire",
+    "reign": "322–185 BCE",
+    "country": "India",
+    "biography": "The Maurya Empire was a geographically extensive Iron Age historical power based in Magadha and founded by Chandragupta Maurya, which dominated the Indian subcontinent between 322 and 185 BCE.",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": [
+          "The Maurya Empire was the largest empire to have existed in the Indian subcontinent.",
+          "Under Ashoka the Great, the empire embraced Buddhism and spread its teachings across Asia."
+        ],
+        "infoBoxes": []
+      }
+    ]
+  },
+  {
+    "slug": "qin-dynasty",
+    "title": "Qin Dynasty",
+    "reign": "221–206 BCE",
+    "country": "China",
+    "biography": "The Qin dynasty was the first dynasty of Imperial China, lasting from 221 to 206 BC. Named for its heartland in Qin state, the dynasty was founded by Qin Shi Huang, the First Emperor of Qin.",
+    "sections": [
+      {
+        "heading": "Overview",
+        "content": [
+          "The Qin dynasty unified China for the first time in history.",
+          "It standardized the writing system, currency, and weights and measures, and began the construction of the Great Wall."
         ],
         "infoBoxes": []
       }

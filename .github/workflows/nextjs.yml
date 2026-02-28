@@ -5,6 +5,9 @@ on:
     branches:
       - main
   workflow_dispatch:
+  schedule:
+    # Runs at 19:00 UTC (00:30 Sri Lanka Standard Time) to ensure the daily rotation happens strictly after midnight
+    - cron: '0 19 * * *'
 
 permissions:
   contents: read
@@ -35,7 +38,10 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
-          
+
+      - name: Ensure CNAME in /out
+        run: cp public/CNAME out/CNAME
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

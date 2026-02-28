@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "HOST=127.0.0.1 PORT=3000 next dev",
     "dev:secure": "HOST=127.0.0.1 PORT=3000 NEXT_TELEMETRY_DISABLED=1 next dev",
-    "build": "next build",
+    "prebuild": "node scripts/check-no-google-fonts.js",
+    "build": "next build && npm run postbuild",
+      "postbuild": "node scripts/copy-cname.js",
     "start": "next start",
     "lint": "next lint",
+    "test": "node scripts/verify-rotation.js",
     "validate": "node scripts/validate.js",
     "export:md": "node scripts/export-markdown.js output-md",
     "deploy": "next build && touch out/.nojekyll && git add -f out && git commit -m 'Deploy to GitHub Pages' && git subtree push --prefix out origin gh-pages",

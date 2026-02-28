@@ -1,12 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 
-const kingsPath = path.join(__dirname, '../data/kings.json');
+const kingsPath = path.join(__dirname, '../src/data/kings.json');
 const enrichedPath = path.join(__dirname, '../data/enriched-biographies.json');
 
 if (!fs.existsSync(enrichedPath)) {
   console.error(`Error: Enriched biographies file not found at ${enrichedPath}`);
   process.exit(1);
+}
+
+if (!fs.existsSync(kingsPath)) {
+    console.error(`Error: Kings file not found at ${kingsPath}`);
+    process.exit(1);
 }
 
 const kings = JSON.parse(fs.readFileSync(kingsPath, 'utf8'));
@@ -19,8 +24,20 @@ let updatedCount = 0;
 
 const enrichedKings = kings.map(king => {
   if (enrichedMap.has(king.slug)) {
+    const newBiography = enrichedMap.get(king.slug);
     // Update the biography with the enriched version
-    king.biography = enrichedMap.get(king.slug);
+    king.biography = newBiography;
+
+    // Also update the first section if it is the Biography section
+    if (king.sections && king.sections.length > 0 && king.sections[0].heading === 'Biography') {
+        // Ensure content is an array
+        if (!Array.isArray(king.sections[0].content)) {
+            king.sections[0].content = [];
+        }
+        // Update the first paragraph of the content
+        king.sections[0].content[0] = newBiography;
+    }
+
     updatedCount++;
   }
   return king;

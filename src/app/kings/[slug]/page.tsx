@@ -6,6 +6,10 @@ import kingdomsData from '@/data/kingdoms.json';
 // Create a map for O(1) kingdom lookup
 const kingdomsMap = new Map(kingdomsData.map((k) => [k.slug, k]));
 
+// Optimization: Pre-compute kings map for O(1) lookup
+// Replaces O(N) Array.find with O(1) Map.get
+const kingsMap = new Map(kingsData.map((k) => [k.slug, k]));
+
 interface King {
   title: string;
   slug: string;
@@ -34,9 +38,25 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const king = kingsMap.get(slug) as King | undefined;
+
+  if (!king) {
+    return {
+      title: 'Ruler Not Found | World History Archive',
+    };
+  }
+
+  return {
+    title: `${king.title} | World History Archive`,
+    description: king.biography || `Historical profile of ${king.title}.`,
+  };
+}
+
 export default async function KingPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const king = kingsData.find((k: any) => k.slug === slug) as King | undefined;
+  const king = kingsMap.get(slug) as King | undefined;
   
   if (!king) {
     notFound();
@@ -57,9 +77,10 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
           <h1 className="text-4xl font-bold mb-4">{king.title}</h1>
           
           <section className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-6 text-sm">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
               <div><strong>Reign:</strong> {king.reign}</div>
               <div><strong>Kingdom:</strong> {kingdom ? kingdom.title : king.kingdom}</div>
+              <div><strong>Country:</strong> {king.country || (kingdom as any)?.country || 'Sri Lanka'}</div>
             </div>
           </section>
 
