@@ -10,7 +10,7 @@ on:
     - cron: '0 19 * * *'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -34,6 +34,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
+      - name: Enrich Kings Biographies
+        run: node scripts/enrich-kings.js
+
+      - name: Commit enriched data
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add src/data/kings.json
+          git commit -m "chore: Update Kings data with enriched biographies" || echo "No changes to commit"
+          git push origin main || echo "No changes to push"
+
       - name: Build with Next.js
         run: npm run build
         env:
