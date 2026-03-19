@@ -34,6 +34,12 @@ export default function Header() {
 
           <div className="flex items-center space-x-6">
             <Link
+              href="/countries"
+              className="text-[12px] font-normal text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+            >
+              Countries
+            </Link>
+            <Link
               href="/"
               className="text-[12px] font-normal text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
             >
