@@ -95,7 +95,7 @@ export default function Home() {
       <section className="py-24 bg-gray-50 dark:bg-[#121212]">
         <div className="max-w-[980px] mx-auto px-5">
           <h2 className="text-[32px] md:text-[40px] font-semibold mb-4 text-center tracking-tight">
-            Kings Everyday
+            Kings everyday
           </h2>
           <p className="text-center text-gray-500 mb-12 text-lg">
             Discover the legendary rulers who shaped history
