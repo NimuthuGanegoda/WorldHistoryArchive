@@ -2,6 +2,7 @@ import Link from 'next/link';
 import KingdomCard from '@/components/KingdomCard';
 import AnimationObserver from '@/components/AnimationObserver';
 import FeaturedKings from '@/components/FeaturedKings';
+import WorldMapWrapper from '@/components/WorldMapWrapper';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
 import { parseStartYear, getDailyKings } from '@/lib/utils';
@@ -31,6 +32,9 @@ interface Kingdom {
 // This prevents expensive re-calculation on every render
 const kings = kingsData as King[];
 const kingdoms = kingdomsData as Kingdom[];
+
+// Extract unique countries
+const uniqueCountries = Array.from(new Set(kingdomsData.map((k) => k.country).filter(Boolean))) as string[];
 
 // Map kingdoms to cards with descriptions and sort chronologically
 const kingdomCards = kingdoms
@@ -112,8 +116,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Kingdoms Grid */}
+      {/* World Map Section */}
       <section className="py-24 bg-[var(--background)]">
+        <div className="max-w-[980px] mx-auto px-5">
+          <h2 className="text-[32px] md:text-[40px] font-semibold mb-4 text-center tracking-tight">
+            Explore by Country
+          </h2>
+          <p className="text-center text-gray-500 mb-12 text-lg">
+            Select a region to discover its historical kingdoms and rulers
+          </p>
+          <div className="h-[500px] w-full shadow-xl rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden fade-in-delay-1">
+            <WorldMapWrapper countries={uniqueCountries} />
+          </div>
+          <div className="text-center mt-12">
+            <Link
+              href="/countries"
+              className="inline-flex items-center text-[#0071e3] hover:underline font-medium"
+            >
+              View all countries <span className="ml-1">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Kingdoms Grid */}
+      <section className="py-24 bg-gray-50 dark:bg-[#121212]">
         <div className="max-w-[980px] mx-auto px-5">
           <h2 className="text-[32px] md:text-[40px] font-semibold mb-4 text-center tracking-tight">
             Historical Kingdoms
@@ -141,7 +168,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-gray-50 dark:bg-[#121212]">
+      <section className="py-24 bg-[var(--background)]">
         <div className="max-w-[980px] mx-auto px-5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="scroll-animate opacity-0 translate-y-8">
