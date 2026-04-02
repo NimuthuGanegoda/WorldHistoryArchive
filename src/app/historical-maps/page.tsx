@@ -1,9 +1,9 @@
-import Link from 'next/link';
-
 export const metadata = {
   title: 'Historical Maps | Sri Lanka History',
   description: 'Explore historical regions and ancient kingdom boundaries of Sri Lanka using Old Maps Online.'
 };
+
+const oldMapsUrl = 'https://www.oldmapsonline.org/en/history/regions#position=6.2609/7.592/81.406&amp;year=483';
 
 export default function HistoricalMapsPage() {
   return (
@@ -15,16 +15,16 @@ export default function HistoricalMapsPage() {
       <p className="mb-4 text-yellow-800 dark:text-yellow-300 font-medium">
         Tip: Use the timeline slider below the map to explore different historical periods.
       </p>
-      <div className="w-full aspect-video mb-8" style={{minHeight: '500px'}}>
+      <div className="w-full aspect-video mb-8" style={{ minHeight: '500px' }}>
         <iframe
-          src="https://www.oldmapsonline.org/en/history/regions#position=6.2609/7.592/81.406&year=483"
+          src={oldMapsUrl}
           width="100%"
           height="600"
           style={{ border: '1px solid #ccc', width: '100%', height: '100%' }}
           allowFullScreen
           loading="lazy"
           title="Old Maps Online - Sri Lanka Historical Regions"
-        ></iframe>
+        />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-400">
         If the map does not load, please ensure your browser supports WebGL and try refreshing the page or using a different browser.

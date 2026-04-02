@@ -34,7 +34,10 @@ const allKings = kingsData as King[];
 const uniqueCountries = Array.from(new Set(allKingdoms.map(k => k.country).filter(Boolean))) as string[];
 const countrySlugMap = new Map<string, string>(); // Maps slug -> Original Name
 uniqueCountries.forEach(country => {
-  const slug = country.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const slug = country
+    .toLowerCase()
+    .replaceAll(/[^a-z0-9]+/g, '-')
+    .replaceAll(/(^-|-$)/g, '');
   countrySlugMap.set(slug, country);
 });
 

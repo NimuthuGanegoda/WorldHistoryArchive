@@ -9,8 +9,8 @@
  * Use Tailwind system fonts instead: className="font-sans"
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const patterns = [
   /from ['"]next\/font\/google['"]/,
@@ -19,7 +19,7 @@ const patterns = [
   /fonts\.googleapis\.com/
 ];
 
-const excludeDirs = ['node_modules', '.next', 'out', '.git'];
+const excludeDirs = new Set(['node_modules', '.next', 'out', '.git']);
 
 function checkFile(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
@@ -56,7 +56,7 @@ function walkDirectory(dir, fileList = []) {
     const stat = fs.statSync(filePath);
     
     if (stat.isDirectory()) {
-      if (!excludeDirs.includes(file)) {
+      if (!excludeDirs.has(file)) {
         walkDirectory(filePath, fileList);
       }
     } else if (file.match(/\.(tsx?|jsx?|css)$/)) {
