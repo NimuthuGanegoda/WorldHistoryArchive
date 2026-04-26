@@ -35,7 +35,7 @@ export default function AboutPage() {
                 <span>🛡️</span> Sovereign Architecture
               </h3>
               <p className="text-[var(--muted-foreground)]">
-                The platform is built on a "Hardened Static Architecture." Data is stored in decoupled 
+                The platform is built on a &quot;Hardened Static Architecture.&quot; Data is stored in decoupled 
                 JSON layers, ensuring deterministic builds, ultra-fast delivery, and long-term 
                 preservation of historical records.
               </p>
