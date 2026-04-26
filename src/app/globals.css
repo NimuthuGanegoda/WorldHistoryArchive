@@ -38,11 +38,6 @@
   body {
     @apply text-[var(--foreground)] transition-colors;
     background-color: var(--background);
-    background-image: 
-      radial-gradient(circle at center, transparent 0%, var(--background) 90%),
-      linear-gradient(rgba(17, 22, 28, 0.4) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(17, 22, 28, 0.4) 1px, transparent 1px);
-    background-size: 100% 100%, 40px 40px, 40px 40px;
     background-attachment: fixed;
     font-family: "Avenir Next", "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
     line-height: 1.65;
@@ -55,14 +50,14 @@
     pointer-events: none;
     z-index: -1;
     background-image: 
-      linear-gradient(rgba(111, 49, 26, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(111, 49, 26, 0.045) 1px, transparent 1px),
+      linear-gradient(rgba(17, 22, 28, 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17, 22, 28, 0.4) 1px, transparent 1px),
       url("/map-bg-dark.svg");
-    background-size: 34px 34px, 34px 34px, cover;
+    background-size: 60px 60px, 60px 60px, cover;
     background-position: center, center, center;
-    mask-image: radial-gradient(circle at center, black 32%, transparent 96%);
-    opacity: 0.06;
-    filter: blur(0.5px);
+    background-repeat: repeat, repeat, no-repeat;
+    opacity: 0.12; /* Increased opacity for a more "present" background */
+    filter: contrast(1.1) brightness(0.8);
   }
   
   img {
