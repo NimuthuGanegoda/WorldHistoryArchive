@@ -59,7 +59,7 @@ export default function ChinaDynastiesView() {
             <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-800">
               <h4 className="font-semibold mb-3">Dynasty Information</h4>
               <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                <p>📍 Explore this dynasty's territories on the map above by selecting the corresponding period in the timeline.</p>
+                <p>📍 Explore this dynasty&apos;s territories on the map above by selecting the corresponding period in the timeline.</p>
                 <p>🔗 Related kingdoms and rulers from this era are linked throughout the archive.</p>
               </div>
             </div>

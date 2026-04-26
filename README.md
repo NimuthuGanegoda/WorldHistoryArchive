@@ -1,122 +1,77 @@
-# World History Archive
+# 🏛️ World History Archive
 
-World History Archive is a static Next.js knowledge platform for exploring kingdoms, rulers, and archaeological sites through timeline and map-driven storytelling.
+[![Deploy Next.js to GitHub Pages](https://github.com/NimuthuGanegoda/WorldHistoryArchive/actions/workflows/nextjs.yml/badge.svg)](https://github.com/NimuthuGanegoda/WorldHistoryArchive/actions/workflows/nextjs.yml)
+![Status](https://img.shields.io/badge/Status-Operational-success?style=flat-square)
+![Stack](https://img.shields.io/badge/Stack-Next.js_15-0070f3?style=flat-square&logo=next.js)
+![Data](https://img.shields.io/badge/Data-JSON_Powered-FFD700?style=flat-square&logo=json)
 
-The project begins with Sri Lankan historical material and is designed to scale into a broader world-history atlas.
+**World History Archive** is a high-performance, static Next.js knowledge platform engineered to preserve and visualize the complex narratives of human civilization. Leveraging a map-first approach and chronological timeline integration, it provides an elite research environment for exploring kingdoms, monarchs, and archaeological sites.
 
-## Why This Project
+---
 
-Historical information is often fragmented across books, chronicles, and disconnected websites. This archive brings those threads together into structured, searchable records that are easier to compare across places and periods.
+## 🌟 Core Features
 
-## What You Can Explore
+*   **🌍 Spatial Intelligence**: Interactive geographic visualizations mapping the territories of ancient empires and sites.
+*   **⏳ Dynastic Timelines**: Precision-indexed chronological records of over 190 rulers across 16+ kingdoms.
+*   **📅 Daily Spotlight**: Automated daily rotation of featured historical figures seeded by localized timezones.
+*   **🔒 Hardened Static Architecture**: Fully decoupled JSON data layer for deterministic builds and ultra-fast delivery.
+*   **📱 Modern UX**: A refined, responsive interface optimized for academic research and casual exploration.
 
-- Interactive map views of regions, kingdoms, and sites
-- Chronological timelines of rulers and dynastic change
-- Cross-linked kingdom, monarch, and site pages
-- Daily rotating featured rulers for discovery
-- Structured JSON datasets that support future analysis and reuse
+---
 
-## Data Architecture
+## 🏗️ Ecosystem & Heritage
 
-The site UI reads static JSON files from `src/data` for deterministic builds and simple updates.
+The World History Archive is part of a broader architectural vision and is supported by several sister repositories within the sanctuary:
 
-Core files:
+| Project | Role |
+| :--- | :--- |
+| 🛡️ **[Sovereign Core](https://github.com/NimuthuGanegoda/Sanctuary-of-Eternity)** | Foundational security policies and architectural guidance. |
+| 👤 **[Nimuthu Ganegoda](https://github.com/NimuthuGanegoda)** | Project Architect and Lead Maintainer. |
+| 🗺️ **[Leaflet](https://leafletjs.com/)** | Core mapping engine for spatial data visualization. |
+| ⚙️ **[Archive Scripts](scripts/)** | Automated data enrichment and validation tools. |
 
-- `src/data/kingdoms.json`: kingdom profiles and historical context
-- `src/data/kings.json`: ruler records, reign periods, and biography fields
-- `src/data/sites.json`: archaeological and historical location metadata
-- `src/data/countries.json`: country-level geographic data with regions and historical context
-- `src/data/china-dynasties.json`: Chinese dynasty metadata for historical mapping
+---
 
-Coverage spans five regions:
-- **Sri Lanka**: 17 kingdoms (Anuradhapura, Polonnaruwa, Kandyan, Jaffna, etc.)
-- **India**: Mauryan, Gupta, and regional dynasties
-- **China**: Han, Tang, Song, Yuan, Ming, Qing dynasties
-- **Egypt**: Pharaonic dynasties
-- **Italy**: Roman and Mediterranean civilizations
+## 📚 Technical Documentation
 
-Note: the root `data` directory contains source and legacy processing datasets used by maintenance scripts.
+| Documentation | Description |
+| :--- | :--- |
+| 📖 **[Deployment Handbook](DEPLOYMENT.md)** | CI/CD pipeline and static export configuration. |
+| 🛠️ **[Update Guide](UPDATE_GUIDE.md)** | Instructions for maintaining JSON datasets. |
+| 🛡️ **[Security Policy](SECURITY.md)** | Data integrity and platform hardening standards. |
+| ✅ **[Setup Verification](SETUP_COMPLETE.md)** | Final validation report of the automated environment. |
 
-## Daily Featured Kings
+---
 
-The homepage featured set rotates at Sri Lanka Standard Time midnight (UTC+5:30).
+## 🛠️ Development Operations
 
-How it works:
-
-- A deterministic shuffle is seeded with the current Asia/Colombo date
-- Six rulers are selected from the full dataset
-- All users see the same set for a given SL date
-
-Update strategy:
-
-- GitHub Actions rebuilds the static export daily after local midnight in Sri Lanka
-- The client also verifies freshness and updates if a page is kept open across date boundaries
-
-Quick verification:
-
-```bash
-npm test
-node scripts/check-daily-rotation.js
-```
-
-## Local Development
-
-1. Install dependencies
-
+### Environment Setup
 ```bash
 npm install
 ```
 
-1. Start the dev server
-
+### Local Development
 ```bash
 npm run dev
 ```
 
-1. Build static output
-
+### Build & Static Export
 ```bash
 npm run build
 ```
 
-Because this project uses static export, run the built output with a static file server:
+The platform is automatically deployed to **[srilankanhistory.dev](https://srilankanhistory.dev/)** via GitHub Actions upon every validated commit to the `main` branch.
 
-```bash
-python3 -m http.server out
-# or
-npx serve out
-```
+---
 
-## Contribution Workflow
+## 🤝 Contribution Protocol
 
-1. Fork the repository
-1. Update or add records in `src/data`
-1. Validate dataset integrity
-1. Open a pull request with sources and rationale
+We welcome data-driven contributions that enhance the depth and accuracy of the archive.
+1. Fork the repository.
+2. Update records in `src/data/`.
+3. Validate data integrity: `npm run validate`.
+4. Submit a detailed pull request.
 
-Validation command:
+---
 
-```bash
-npm run validate
-```
-
-## Utility Commands
-
-- Validate data: `npm run validate`
-- Export markdown: `npm run export:md`
-- Verify rotation behavior: `node scripts/verify-rotation.js`
-- Preview next 7-day schedule: `node scripts/check-daily-rotation.js`
-- Confirm no Google Fonts imports: `node scripts/check-no-google-fonts.js`
-
-CLI helpers:
-
-```bash
-node src/cli.js list-kingdoms
-node src/cli.js find-king <name>
-```
-
-## License
-
-Content is provided for educational and research-oriented use.
-
-© 2026 World History Archive
+**Developed by Nimuthu Ganegoda | World History Archive | 2026**
