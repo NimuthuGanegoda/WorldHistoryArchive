@@ -64,16 +64,9 @@ export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new
   const totalItems = items.length;
   if (totalItems === 0) return [];
 
-  // Determine which cycle we are in (e.g. cycle 0 = first pass through all items)
-  // and where in the cycle we start
-  const daysPerCycle = Math.ceil(totalItems / count);
-  const cycleIndex = Math.floor(dayIndex / daysPerCycle);
-  const dayInCycle = dayIndex % daysPerCycle;
-  const startIndex = dayInCycle * count;
-
-  // Seed the shuffle based on the cycle index
-  // This ensures the order is random but stable for the duration of one full rotation
-  let seed = cycleIndex + 12345; // Simple salt
+  // Seed the shuffle based on the day index
+  // This ensures the order is randomly fully shuffled every day
+  let seed = dayIndex + 12345; // Simple salt
 
   // Simple Linear Congruential Generator (LCG)
   const random = () => {
@@ -92,12 +85,10 @@ export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new
   }
 
   // Select the slice
-  // If the slice wraps around the end of the array, we take from the beginning
   const result: T[] = [];
-  for (let i = 0; i < count; i++) {
-    // Handle negative indices (if date is before epoch) and wrapping
-    const index = ((startIndex + i) % totalItems + totalItems) % totalItems;
-    result.push(shuffled[index]);
+  // Take the first `count` items from the fully shuffled array
+  for (let i = 0; i < count && i < totalItems; i++) {
+    result.push(shuffled[i]);
   }
 
   return result;
