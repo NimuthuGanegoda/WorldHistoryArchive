@@ -15,7 +15,7 @@ export default function RootLayout({
       <body className="font-sans antialiased min-h-screen flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true}>
           <Header />
-          <main className="flex-1">
+          <main className="flex-1 site-shell">
             {children}
           </main>
           <Footer />

@@ -290,5 +290,22 @@
         "infoBoxes": []
       }
     ]
+  },
+  {
+    "slug": "ming-dynasty",
+    "title": "Ming Dynasty",
+    "reign": "1368–1644 CE",
+    "country": "China",
+    "biography": "The Ming dynasty was the ruling dynasty of China from 1368 to 1644 following the collapse of the Mongol-led Yuan dynasty. It was the last imperial dynasty of China ruled by Han Chinese.",
+    "sections": [
+      {
+        "heading": "Connection to Sri Lanka",
+        "content": [
+          "The Ming admiral Zheng He visited Sri Lanka multiple times during his treasure voyages in the 15th century.",
+          "The Galle Trilingual Inscription, erected by Zheng He, is a testament to the diplomatic and trade ties between the Ming court and the Kotte Kingdom."
+        ],
+        "infoBoxes": []
+      }
+    ]
   }
 ]

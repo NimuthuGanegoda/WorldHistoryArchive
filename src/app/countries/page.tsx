@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import kingdomsData from '@/data/kingdoms.json';
+import countriesData from '@/data/countries.json';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata = {
@@ -8,8 +8,8 @@ export const metadata = {
 };
 
 export default function CountriesIndex() {
-  // Extract unique countries
-  const countries = Array.from(new Set(kingdomsData.map((k) => k.country).filter(Boolean))) as string[];
+  // Extract unique countries from the authoritative countries.json
+  const countries = countriesData.map(c => c.name);
 
   // Sort alphabetically
   countries.sort();

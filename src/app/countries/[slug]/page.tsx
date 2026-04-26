@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import kingdomsData from '@/data/kingdoms.json';
 import kingsData from '@/data/kings.json';
+import countriesData from '@/data/countries.json';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import KingdomCard from '@/components/KingdomCard';
 import { parseStartYear } from '@/lib/utils';
@@ -30,8 +31,8 @@ interface Kingdom {
 const allKingdoms = kingdomsData as Kingdom[];
 const allKings = kingsData as King[];
 
-// Pre-compute unique countries and their slugs at module level
-const uniqueCountries = Array.from(new Set(allKingdoms.map(k => k.country).filter(Boolean))) as string[];
+// Pre-compute unique countries and their slugs at module level from the authoritative countries.json
+const uniqueCountries = countriesData.map(c => c.name);
 const countrySlugMap = new Map<string, string>(); // Maps slug -> Original Name
 uniqueCountries.forEach(country => {
   const slug = country
