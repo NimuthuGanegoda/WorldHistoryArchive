@@ -1,110 +1,113 @@
 # World History Archive
 
-A Next.js web application dedicated to cataloging and visualizing the history of kingdoms, monarchs, and archaeological sites.
+World History Archive is a static Next.js knowledge platform for exploring kingdoms, rulers, and archaeological sites through timeline and map-driven storytelling.
 
-This project aims to provide an accessible, structured, and interactive way to explore the world's rich historical timeline, with an initial focus on Sri Lankan history.
+The project begins with Sri Lankan historical material and is designed to scale into a broader world-history atlas.
 
-## Key Features
+## Why This Project
 
-- **Interactive Map**: Visualize the geographical distribution of kingdoms and sites.
-- **Timeline Visualization**: Explore a chronological view of rulers and major events.
-- **Interactive Exploration**: Navigate easily from Kingdom to Monarch to specific historical details.
-- **Structured Data**: Utilize a robust JSON schema to ensure historical data is consistent and machine-readable.
-- **Performance & Accessibility**: Built with Next.js and Tailwind CSS for a fast, responsive, and accessible user experience.
-- **Educational Resource**: Serve as a reliable reference for students, historians, and enthusiasts.
+Historical information is often fragmented across books, chronicles, and disconnected websites. This archive brings those threads together into structured, searchable records that are easier to compare across places and periods.
 
-## Architecture & Data
+## What You Can Explore
 
-The website is powered by static JSON data located in `src/data/`. This separation of data and UI allows for easy updates and potential reuse of the dataset.
+- Interactive map views of regions, kingdoms, and sites
+- Chronological timelines of rulers and dynastic change
+- Cross-linked kingdom, monarch, and site pages
+- Daily rotating featured rulers for discovery
+- Structured JSON datasets that support future analysis and reuse
 
-Key data files:
-- `src/data/kingdoms.json`: Definitions of major historical kingdoms (e.g., Anuradhapura, Polonnaruwa).
-- `src/data/kings.json`: Detailed records of monarchs, including reigns, biographies, and connections.
-- `src/data/sites.json`: Archaeological sites and their historical context.
+## Data Architecture
 
-*Note: The root `data/` directory contains source/legacy datasets and is used by some utility scripts.*
+The site UI reads static JSON files from `src/data` for deterministic builds and simple updates.
+
+Core files:
+
+- `src/data/kingdoms.json`: kingdom profiles and historical context
+- `src/data/kings.json`: ruler records, reign periods, and biography fields
+- `src/data/sites.json`: archaeological and historical location metadata
+
+Note: the root `data` directory contains source and legacy processing datasets used by maintenance scripts.
 
 ## Daily Featured Kings
 
-The "Featured Rulers" section on the homepage automatically updates every day at **Sri Lanka Standard Time (UTC+5:30) midnight**.
+The homepage featured set rotates at Sri Lanka Standard Time midnight (UTC+5:30).
 
-- **Mechanism**: A deterministic shuffling algorithm (seeded by the date in Asia/Colombo timezone) selects 6 random kings each day.
-- **Consistency**: All users see the same set of kings on any given day (according to Sri Lanka time), ensuring alignment with the historical context.
-- **Updates**:
-  - The static site is rebuilt daily via GitHub Actions (cron: `0 19 * * *`) to bake the new daily kings into the HTML for SEO and initial load. Note: 19:00 UTC (00:30 SLST) ensures the update happens strictly after midnight in Sri Lanka.
-  - The client-side component (`FeaturedKings`) also checks the date and updates the list dynamically if the cached HTML is stale (e.g., if a user keeps the tab open across midnight).
+How it works:
 
-To verify the rotation logic locally, you can use the test command:
+- A deterministic shuffle is seeded with the current Asia/Colombo date
+- Six rulers are selected from the full dataset
+- All users see the same set for a given SL date
+
+Update strategy:
+
+- GitHub Actions rebuilds the static export daily after local midnight in Sri Lanka
+- The client also verifies freshness and updates if a page is kept open across date boundaries
+
+Quick verification:
+
 ```bash
 npm test
-```
-
-To see the scheduled kings for the next 7 days:
-```bash
 node scripts/check-daily-rotation.js
 ```
 
-## Getting Started
+## Local Development
 
-To run the application locally:
+1. Install dependencies
 
-1.  **Install Dependencies**
-    ```bash
-    npm install
-    ```
+```bash
+npm install
+```
 
-2.  **Start Development Server**
-    ```bash
-    npm run dev
-    ```
-    Open [http://localhost:3000](http://localhost:3000) to view the site.
+1. Start the dev server
 
-3.  **Build for Production**
-    ```bash
-    npm run build
-    ```
-    *Note: `npm start` will not work because the project uses static export (`output: 'export'`). To test the production build locally, run:*
-    ```bash
-    python3 -m http.server out
-    # or
-    npx serve out
-    ```
+```bash
+npm run dev
+```
 
-## Contributing
+1. Build static output
 
-We welcome contributions to improve the data accuracy or website features.
+```bash
+npm run build
+```
 
-1.  **Fork the repository.**
-2.  **Update Data**:
-    - Edit files in `src/data/` to add or correct historical information.
-    - Ensure you follow the existing schema structure.
-3.  **Validate**: Run the validation script to check for data integrity.
-    ```bash
-    npm run validate
-    ```
-4.  **Submit a Pull Request**.
+Because this project uses static export, run the built output with a static file server:
 
-## Utilities & CLI
+```bash
+python3 -m http.server out
+# or
+npx serve out
+```
 
-The project includes utility scripts in `src/cli.js` and `scripts/` to help manage the data.
+## Contribution Workflow
 
-- **Validate Data**: `npm run validate`
-- **Export Markdown**: `npm run export:md`
-- **Check Google Fonts**: `node scripts/check-no-google-fonts.js` (Ensures no Google Fonts are imported)
-- **Verify Rotation**: `node scripts/verify-rotation.js` (Verifies the daily featured kings rotation logic)
-- **Check Daily Schedule**: `node scripts/check-daily-rotation.js` (Displays the featured kings for the next 7 days)
-- **CLI Tools**:
-    ```bash
-    # List kingdoms
-    node src/cli.js list-kingdoms
+1. Fork the repository
+1. Update or add records in `src/data`
+1. Validate dataset integrity
+1. Open a pull request with sources and rationale
 
-    # Find a king
-    node src/cli.js find-king <name>
-    ```
+Validation command:
+
+```bash
+npm run validate
+```
+
+## Utility Commands
+
+- Validate data: `npm run validate`
+- Export markdown: `npm run export:md`
+- Verify rotation behavior: `node scripts/verify-rotation.js`
+- Preview next 7-day schedule: `node scripts/check-daily-rotation.js`
+- Confirm no Google Fonts imports: `node scripts/check-no-google-fonts.js`
+
+CLI helpers:
+
+```bash
+node src/cli.js list-kingdoms
+node src/cli.js find-king <name>
+```
 
 ## License
 
-Content is provided for educational purposes.
+Content is provided for educational and research-oriented use.
 
----
-© 2025 World History Archive
+© 2026 World History Archive

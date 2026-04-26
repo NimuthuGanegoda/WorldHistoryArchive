@@ -58,7 +58,7 @@ const kingdomCards = kingdoms
 
 export const metadata = {
   title: 'World History Archive',
-  description: 'Explore the rich history and heritage of kingdoms and rulers from ancient times to the colonial era.',
+  description: 'Trace kingdoms, rulers, sites, and power shifts through a structured world history atlas.',
 };
 
 export default function Home() {
@@ -67,71 +67,88 @@ export default function Home() {
   const dailyKings = getDailyKings(kings, 6, today);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen site-shell">
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="max-w-[980px] mx-auto text-center px-5 py-32 fade-in flex flex-col items-center">
-          <h1 className="apple-headline mb-6">
+        <span className="hero-orb w-[420px] h-[420px] -top-28 -left-32" />
+        <span className="hero-orb w-[360px] h-[360px] -bottom-24 -right-24" style={{ animationDelay: '1.5s' }} />
+        <div className="max-w-[1100px] mx-auto px-5 sm:px-6 py-24 md:py-32 fade-in">
+          <span className="eyebrow mb-7">Chronicle Lab</span>
+          <h1 className="apple-headline mb-7 max-w-4xl">
             World History Archive
           </h1>
-          <p className="apple-subheadline mb-12 max-w-2xl mx-auto fade-in-delay-1">
-            Explore the rich history and heritage of kingdoms and rulers from ancient times to the colonial era.
-            Discover {kings.length} rulers across {kingdoms.length} kingdoms from around the world.
+          <p className="apple-subheadline mb-10 max-w-3xl fade-in-delay-1">
+            Follow the rise, rivalry, and legacy of historic states with a map-first archive built for students,
+            researchers, and curious readers. Explore {kings.length} documented rulers across {kingdoms.length} kingdoms.
           </p>
-          <div className="flex gap-4 justify-center flex-wrap fade-in-delay-1">
-            <Link 
-              href="/kings" 
-              className="btn-primary"
-            >
+          <div className="flex gap-4 flex-wrap fade-in-delay-1">
+            <Link href="/kings" className="btn-primary">
               Explore Kings
             </Link>
-            <Link 
-              href="/timeline" 
-              className="btn-secondary"
-            >
+            <Link href="/timeline" className="btn-secondary">
               View Timeline
             </Link>
+            <Link href="/connections" className="btn-secondary">
+              Study Connections
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-14 fade-in-delay-3">
+            <div className="card !p-5">
+              <p className="text-3xl font-semibold mb-1 text-[var(--accent)]">{kings.length}</p>
+              <p className="text-sm">Rulers and dynastic records</p>
+            </div>
+            <div className="card !p-5">
+              <p className="text-3xl font-semibold mb-1 text-[var(--accent)]">{kingdoms.length}</p>
+              <p className="text-sm">Kingdom profiles with context</p>
+            </div>
+            <div className="card !p-5">
+              <p className="text-3xl font-semibold mb-1 text-[var(--accent)]">2000+</p>
+              <p className="text-sm">Years of connected timelines</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Featured Kings Section */}
-      <section className="py-24 bg-gray-50 dark:bg-[#121212]">
-        <div className="max-w-[980px] mx-auto px-5">
-          <h2 className="text-[32px] md:text-[40px] font-semibold mb-4 text-center tracking-tight">
+      <section className="section-shell section-shell--tinted">
+        <div className="max-w-[1100px] mx-auto px-5 sm:px-6">
+          <span className="eyebrow mb-5">Today&apos;s Focus</span>
+          <h2 className="section-title">
             Featured Kings
           </h2>
-          <p className="text-center text-gray-500 mb-12 text-lg">
-            Discover the legendary rulers who shaped history
+          <p className="section-lead mb-12">
+            A rotating spotlight updates daily to surface influential rulers from different regions and eras.
           </p>
           <FeaturedKings initialKings={dailyKings} initialDate={today.toISOString()} />
-          <div className="text-center mt-12">
-            <Link 
+          <div className="mt-12">
+            <Link
               href="/kings"
-              className="inline-flex items-center text-[#0071e3] hover:underline font-medium"
+              className="inline-flex items-center link-accent hover:underline font-semibold"
             >
-              View all {kings.length} rulers <span className="ml-1">→</span>
+              Browse all {kings.length} rulers <span className="ml-1">→</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* World Map Section */}
-      <section className="py-24 bg-[var(--background)]">
-        <div className="max-w-[980px] mx-auto px-5">
-          <h2 className="text-[32px] md:text-[40px] font-semibold mb-4 text-center tracking-tight">
+      <section className="section-shell">
+        <div className="max-w-[1100px] mx-auto px-5 sm:px-6">
+          <span className="eyebrow mb-5">Spatial View</span>
+          <h2 className="section-title">
             Explore by Country
           </h2>
-          <p className="text-center text-gray-500 mb-12 text-lg">
-            Select a region to discover its historical kingdoms and rulers
+          <p className="section-lead mb-12">
+            Jump directly into regions, then drill into kingdoms, reigns, and connected sites from the same geography.
           </p>
-          <div className="h-[500px] w-full shadow-xl rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden fade-in-delay-1">
+          <div className="h-[420px] md:h-[540px] w-full rounded-3xl border border-[var(--line)]/80 overflow-hidden fade-in-delay-1 shadow-[0_30px_40px_-36px_rgba(28,13,5,0.85)]">
             <WorldMapWrapper countries={uniqueCountries} />
           </div>
-          <div className="text-center mt-12">
+          <div className="mt-12">
             <Link
               href="/countries"
-              className="inline-flex items-center text-[#0071e3] hover:underline font-medium"
+              className="inline-flex items-center link-accent hover:underline font-semibold"
             >
               View all countries <span className="ml-1">→</span>
             </Link>
@@ -140,13 +157,14 @@ export default function Home() {
       </section>
 
       {/* Kingdoms Grid */}
-      <section className="py-24 bg-gray-50 dark:bg-[#121212]">
-        <div className="max-w-[980px] mx-auto px-5">
-          <h2 className="text-[32px] md:text-[40px] font-semibold mb-4 text-center tracking-tight">
+      <section className="section-shell section-shell--tinted">
+        <div className="max-w-[1100px] mx-auto px-5 sm:px-6">
+          <span className="eyebrow mb-5">Dynastic Atlas</span>
+          <h2 className="section-title">
             Historical Kingdoms
           </h2>
-          <p className="text-center text-gray-500 mb-12 text-lg">
-            Explore powerful kingdoms and empires from across the ages
+          <p className="section-lead mb-12">
+            Compare how power expanded, fractured, and transformed across major kingdoms and empires.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {kingdomCards.map((kingdom, idx) => (
@@ -168,30 +186,35 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-[var(--background)]">
-        <div className="max-w-[980px] mx-auto px-5">
+      <section className="section-shell">
+        <div className="max-w-[1100px] mx-auto px-5 sm:px-6">
+          <span className="eyebrow mb-5">Archive Scope</span>
+          <h2 className="section-title">Built For Ongoing Historical Research</h2>
+          <p className="section-lead mb-12">
+            This is a living archive: data can expand, timelines can be refined, and narratives can be linked with new evidence.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="scroll-animate opacity-0 translate-y-8">
-              <div className="text-5xl font-bold text-[#0071e3] mb-2">
+              <div className="text-5xl font-bold text-[var(--accent)] mb-2">
                 {kings.length}
               </div>
-              <div className="text-gray-500 font-medium">
+              <div className="text-[var(--muted-foreground)] font-medium">
                 Historical Rulers
               </div>
             </div>
             <div className="scroll-animate opacity-0 translate-y-8" style={{ transitionDelay: '100ms' }}>
-              <div className="text-5xl font-bold text-[#0071e3] mb-2">
+              <div className="text-5xl font-bold text-[var(--accent)] mb-2">
                 {kingdoms.length}
               </div>
-              <div className="text-gray-500 font-medium">
+              <div className="text-[var(--muted-foreground)] font-medium">
                 Kingdoms
               </div>
             </div>
             <div className="scroll-animate opacity-0 translate-y-8" style={{ transitionDelay: '200ms' }}>
-              <div className="text-5xl font-bold text-[#0071e3] mb-2">
+              <div className="text-5xl font-bold text-[var(--accent)] mb-2">
                 2000+
               </div>
-              <div className="text-gray-500 font-medium">
+              <div className="text-[var(--muted-foreground)] font-medium">
                 Years of History
               </div>
             </div>
