@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import Link from 'next/link';
 import { useEffect } from 'react';
+import countriesData from '@/data/countries.json';
 
 // Fix for default marker icon
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -14,13 +15,14 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-const COUNTRY_COORDINATES: Record<string, [number, number]> = {
-  'Sri Lanka': [7.8731, 80.7718],
-  'Italy': [41.8719, 12.5674],
-  'Egypt': [26.8206, 30.8025],
-  'India': [20.5937, 78.9629],
-  'China': [35.8617, 104.1954],
-};
+// Build country coordinates and descriptions from centralized data
+const COUNTRY_DATA = countriesData.reduce((acc, country) => {
+  acc[country.name] = {
+    coords: country.center as [number, number],
+    description: country.description,
+  };
+  return acc;
+}, {} as Record<string, { coords: [number, number]; description: string }>);
 
 interface WorldMapProps {
   countries: string[];
@@ -35,16 +37,17 @@ export default function WorldMap({ countries }: WorldMapProps) {
       />
 
       {countries.map((country) => {
-        const coords = COUNTRY_COORDINATES[country];
-        if (!coords) return null;
+        const countryInfo = COUNTRY_DATA[country];
+        if (!countryInfo) return null;
 
         const slug = country.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
         return (
-          <Marker key={country} position={coords}>
+          <Marker key={country} position={countryInfo.coords}>
             <Popup>
               <div className="text-center p-2">
                 <h3 className="font-bold text-lg mb-2">{country}</h3>
+                <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">{countryInfo.description}</p>
                 <Link href={`/countries/${slug}`} className="text-[#0071e3] hover:underline text-sm font-medium inline-block">
                   Explore {country} →
                 </Link>

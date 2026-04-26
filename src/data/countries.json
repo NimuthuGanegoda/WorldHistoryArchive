@@ -1,0 +1,167 @@
+[
+  {
+    "name": "Sri Lanka",
+    "code": "LK",
+    "center": [7.8731, 80.7718],
+    "bounds": [[5.9, 79.7], [10.35, 81.88]],
+    "zoom": 8,
+    "description": "Island nation with ancient kingdoms spanning 2500+ years. Home to Sinhalese and Tamil kingdoms, Buddhist heritage sites, and trade hub status.",
+    "regions": [
+      {
+        "name": "North Central Province",
+        "center": [7.95, 80.88],
+        "major_sites": ["Anuradhapura", "Polonnaruwa", "Sigiriya"]
+      },
+      {
+        "name": "Southern Province",
+        "center": [6.4, 80.85],
+        "major_sites": ["Ruhuna", "Tissamaharama", "Magama"]
+      },
+      {
+        "name": "Western Province",
+        "center": [6.9, 80.1],
+        "major_sites": ["Kelaniya", "Kotte", "Colombo"]
+      },
+      {
+        "name": "Central Province",
+        "center": [7.05, 80.75],
+        "major_sites": ["Gampola", "Dedigama"]
+      },
+      {
+        "name": "Northern Province",
+        "center": [9.7, 80.2],
+        "major_sites": ["Jaffna", "Mullaitivu"]
+      }
+    ]
+  },
+  {
+    "name": "Italy",
+    "code": "IT",
+    "center": [41.8719, 12.5674],
+    "bounds": [[36.6, 6.6], [47.1, 18.8]],
+    "zoom": 5,
+    "description": "European peninsula center of Roman civilization, Mediterranean trade, and Renaissance culture. Foundation of Western European kingdoms.",
+    "regions": [
+      {
+        "name": "Latium",
+        "center": [41.9, 12.5],
+        "major_sites": ["Rome", "Lazio"]
+      },
+      {
+        "name": "Campania",
+        "center": [40.8, 14.3],
+        "major_sites": ["Naples", "Pompeii"]
+      },
+      {
+        "name": "Sicily",
+        "center": [37.6, 14.0],
+        "major_sites": ["Palermo", "Syracuse"]
+      },
+      {
+        "name": "Northern Italy",
+        "center": [45.4, 12.0],
+        "major_sites": ["Milan", "Venice"]
+      }
+    ]
+  },
+  {
+    "name": "Egypt",
+    "code": "EG",
+    "center": [26.8206, 30.8025],
+    "bounds": [[22.0, 25.0], [31.6, 36.9]],
+    "zoom": 5,
+    "description": "Ancient African civilization along the Nile, home to Pharaonic dynasties, monumental architecture, and sustained empire for millennia.",
+    "regions": [
+      {
+        "name": "Upper Egypt (South)",
+        "center": [25.5, 32.5],
+        "major_sites": ["Thebes", "Luxor", "Aswan"]
+      },
+      {
+        "name": "Lower Egypt (North)",
+        "center": [30.2, 31.2],
+        "major_sites": ["Cairo", "Memphis", "Alexandria", "Giza"]
+      },
+      {
+        "name": "Nile Delta",
+        "center": [30.8, 31.0],
+        "major_sites": ["Alexandria", "Rosetta", "Damietta"]
+      }
+    ]
+  },
+  {
+    "name": "India",
+    "code": "IN",
+    "center": [20.5937, 78.9629],
+    "bounds": [[8.0, 68.2], [35.5, 97.4]],
+    "zoom": 4,
+    "description": "South Asian subcontinent with diverse kingdoms spanning Mauryan, Gupta, Mughal empires. Vedic civilization, Buddhism, and Hindu kingdoms.",
+    "regions": [
+      {
+        "name": "North India",
+        "center": [28.7, 77.1],
+        "major_sites": ["Delhi", "Agra", "Mathura", "Varanasi"]
+      },
+      {
+        "name": "South India",
+        "center": [13.2, 79.9],
+        "major_sites": ["Bangalore", "Chennai", "Madurai"]
+      },
+      {
+        "name": "Eastern India",
+        "center": [24.1, 88.4],
+        "major_sites": ["Kolkata", "Nalanda", "Bodh Gaya"]
+      },
+      {
+        "name": "Western India",
+        "center": [22.3, 72.6],
+        "major_sites": ["Mumbai", "Ahmedabad", "Gujarati Kingdoms"]
+      },
+      {
+        "name": "Central India",
+        "center": [22.5, 78.6],
+        "major_sites": ["Madhya Pradesh"]
+      }
+    ]
+  },
+  {
+    "name": "China",
+    "code": "CN",
+    "center": [35.8617, 104.1954],
+    "bounds": [[18.2, 73.5], [53.6, 135.1]],
+    "zoom": 3,
+    "description": "East Asian civilization spanning multiple dynasties (Han, Tang, Song, Yuan, Ming, Qing). Great Wall, Silk Road, and continuous empire.",
+    "regions": [
+      {
+        "name": "North China",
+        "center": [40.0, 116.4],
+        "major_sites": ["Beijing", "Xi'an", "Luoyang"],
+        "dynasties": ["Han", "Tang", "Ming"]
+      },
+      {
+        "name": "South China",
+        "center": [30.3, 120.2],
+        "major_sites": ["Hangzhou", "Canton", "Yangzhou"],
+        "dynasties": ["Song", "Ming", "Qing"]
+      },
+      {
+        "name": "Central China",
+        "center": [30.5, 109.5],
+        "major_sites": ["Chongqing", "Wuhan", "Nanjing"],
+        "dynasties": ["Han", "Tang", "Song"]
+      },
+      {
+        "name": "Western China",
+        "center": [34.7, 93.6],
+        "major_sites": ["Sichuan", "Yunnan"],
+        "dynasties": ["Han", "Tang"]
+      },
+      {
+        "name": "Silk Road Regions",
+        "center": [42.0, 85.0],
+        "major_sites": ["Samarkand", "Kashgar", "Turfan"],
+        "dynasties": ["Tang", "Yuan"]
+      }
+    ]
+  }
+]

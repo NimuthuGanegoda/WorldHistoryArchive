@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Han Dynasty",
+    "period": "206 BCE - 220 CE",
+    "color": "#D4A574",
+    "description": "Ancient Chinese dynasty known for its expansion and cultural achievements"
+  },
+  {
+    "name": "Tang Dynasty",
+    "period": "618 - 907 CE",
+    "color": "#C41E3A",
+    "description": "Golden age of Chinese culture, poetry, and international trade"
+  },
+  {
+    "name": "Song Dynasty",
+    "period": "960 - 1279 CE",
+    "color": "#4A90E2",
+    "description": "Period of technological and artistic advancement"
+  },
+  {
+    "name": "Yuan Dynasty",
+    "period": "1271 - 1368 CE",
+    "color": "#9B59B6",
+    "description": "Mongol-led dynasty establishing vast empire"
+  },
+  {
+    "name": "Ming Dynasty",
+    "period": "1368 - 1644 CE",
+    "color": "#E74C3C",
+    "description": "Great Wall expansion and cultural flourishing"
+  },
+  {
+    "name": "Qing Dynasty",
+    "period": "1644 - 1912 CE",
+    "color": "#27AE60",
+    "description": "Last imperial dynasty, greatest territorial extent"
+  }
+]

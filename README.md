@@ -25,6 +25,15 @@ Core files:
 - `src/data/kingdoms.json`: kingdom profiles and historical context
 - `src/data/kings.json`: ruler records, reign periods, and biography fields
 - `src/data/sites.json`: archaeological and historical location metadata
+- `src/data/countries.json`: country-level geographic data with regions and historical context
+- `src/data/china-dynasties.json`: Chinese dynasty metadata for historical mapping
+
+Coverage spans five regions:
+- **Sri Lanka**: 17 kingdoms (Anuradhapura, Polonnaruwa, Kandyan, Jaffna, etc.)
+- **India**: Mauryan, Gupta, and regional dynasties
+- **China**: Han, Tang, Song, Yuan, Ming, Qing dynasties
+- **Egypt**: Pharaonic dynasties
+- **Italy**: Roman and Mediterranean civilizations
 
 Note: the root `data` directory contains source and legacy processing datasets used by maintenance scripts.
 
