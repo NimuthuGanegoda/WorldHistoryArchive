@@ -22,19 +22,19 @@ export default function ConnectionsPage() {
       ]} />
 
       <div className="hero-section text-center mb-16">
-        <h1 className="apple-headline mb-4">International Connections</h1>
+        <h1 className="apple-headline mb-4">🌏 International Connections</h1>
         <p className="apple-subheadline text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Explore the diplomatic, religious, and political relationships between Sri Lankan monarchs and international empires
+          Explore the diplomatic, religious, and political relationships between Sri Lankan monarchs and international empires.
         </p>
       </div>
 
       {/* King Ashoka Feature Card */}
       <div className="mb-10">
-        <div className="card p-6 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 flex flex-col md:flex-row items-center gap-6">
+        <div className="card p-6 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 flex flex-col md:flex-row items-center gap-6 shadow-sm">
           <div className="flex-1">
             <h2 className="text-2xl font-bold mb-1">
               <Link href="/kings/ashoka" className="hover:text-[var(--accent)] transition-colors">
-                Emperor Ashoka (Dharma Asoka)
+                👑 Emperor Ashoka (Dharma Asoka)
               </Link>
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Mauryan Emperor of India (c. 268–232 BCE)</p>

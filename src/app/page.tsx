@@ -73,7 +73,7 @@ export default function Home() {
         <span className="hero-orb w-[420px] h-[420px] -top-28 -left-32" />
         <span className="hero-orb w-[360px] h-[360px] -bottom-24 -right-24" style={{ animationDelay: '1.5s' }} />
         <div className="max-w-[1100px] mx-auto px-5 sm:px-6 py-24 md:py-32 fade-in">
-          <span className="eyebrow mb-7">Chronicle Lab</span>
+          <span className="eyebrow mb-7">📜 Chronicle Lab</span>
           <h1 className="apple-headline mb-7 max-w-4xl">
             World History Archive
           </h1>
@@ -83,27 +83,27 @@ export default function Home() {
           </p>
           <div className="flex gap-4 flex-wrap fade-in-delay-1">
             <Link href="/kings" className="btn-primary">
-              Explore Kings
+              👑 Explore Kings
             </Link>
             <Link href="/timeline" className="btn-secondary">
-              View Timeline
+              ⏳ View Timeline
             </Link>
             <Link href="/connections" className="btn-secondary">
-              Study Connections
+              🤝 Study Connections
             </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-14 fade-in-delay-3">
             <div className="card !p-5">
-              <p className="text-3xl font-semibold mb-1 text-[var(--accent)]">{kings.length}</p>
+              <p className="text-3xl font-semibold mb-1 text-[var(--accent)]">👑 {kings.length}</p>
               <p className="text-sm">Rulers and dynastic records</p>
             </div>
             <div className="card !p-5">
-              <p className="text-3xl font-semibold mb-1 text-[var(--accent)]">{kingdoms.length}</p>
+              <p className="text-3xl font-semibold mb-1 text-[var(--accent)]">🏰 {kingdoms.length}</p>
               <p className="text-sm">Kingdom profiles with context</p>
             </div>
             <div className="card !p-5">
-              <p className="text-3xl font-semibold mb-1 text-[var(--accent)]">2000+</p>
+              <p className="text-3xl font-semibold mb-1 text-[var(--accent)]">⌛ 2000+</p>
               <p className="text-sm">Years of connected timelines</p>
             </div>
           </div>
@@ -113,7 +113,7 @@ export default function Home() {
       {/* Featured Kings Section */}
       <section className="section-shell section-shell--tinted">
         <div className="max-w-[1100px] mx-auto px-5 sm:px-6">
-          <span className="eyebrow mb-5">Today&apos;s Focus</span>
+          <span className="eyebrow mb-5">🎯 Today&apos;s Focus</span>
           <h2 className="section-title">
             Featured Kings
           </h2>
@@ -135,7 +135,7 @@ export default function Home() {
       {/* World Map Section */}
       <section className="section-shell">
         <div className="max-w-[1100px] mx-auto px-5 sm:px-6">
-          <span className="eyebrow mb-5">Spatial View</span>
+          <span className="eyebrow mb-5">🌏 Spatial View</span>
           <h2 className="section-title">
             Explore by Country
           </h2>
@@ -159,7 +159,7 @@ export default function Home() {
       {/* Kingdoms Grid */}
       <section className="section-shell section-shell--tinted">
         <div className="max-w-[1100px] mx-auto px-5 sm:px-6">
-          <span className="eyebrow mb-5">Dynastic Atlas</span>
+          <span className="eyebrow mb-5">📖 Dynastic Atlas</span>
           <h2 className="section-title">
             Historical Kingdoms
           </h2>

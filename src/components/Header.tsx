@@ -37,43 +37,37 @@ export default function Header() {
               href="/countries"
               className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
             >
-              Countries
+              🌏 Countries
             </Link>
             <Link
               href="/kingdoms"
               className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
             >
-              Kingdoms
+              🏰 Kingdoms
             </Link>
             <Link
               href="/timeline"
               className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
             >
-              Timeline
+              ⌛ Timeline
             </Link>
             <Link
               href="/sites"
               className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
             >
-              Sites
-            </Link>
-            <Link
-              href="/map"
-              className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
-            >
-              Map
+              📍 Sites
             </Link>
             <Link
               href="/political-connections"
               className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
             >
-              Connections
+              🤝 Connections
             </Link>
             <Link
-              href="/historical-maps"
+              href="/about"
               className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
             >
-              Historical Maps
+              ℹ️ About
             </Link>
             <ThemeToggle />
           </div>

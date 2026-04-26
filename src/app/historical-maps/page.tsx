@@ -9,7 +9,7 @@ const chinaHistoricalUrl = 'https://www.oldmapsonline.org/en/history/regions#pos
 export default function HistoricalMapsPage() {
   return (
     <main className="max-w-6xl mx-auto py-8 px-4">
-      <h1 className="text-4xl font-bold mb-2">Historical Maps</h1>
+      <h1 className="text-4xl font-bold mb-2">🗺️ Historical Maps</h1>
       <p className="mb-8 text-gray-700 dark:text-gray-300">
         Explore historical regions and ancient kingdom boundaries across different regions using interactive timeline views. Powered by <a href="https://www.oldmapsonline.org/" target="_blank" rel="noopener noreferrer" className="underline text-[#0071e3] hover:text-[#0077ed]">Old Maps Online</a>.
       </p>

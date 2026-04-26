@@ -100,10 +100,10 @@ export default function PoliticalConnectionsPage() {
 
   return (
     <main className="max-w-7xl mx-auto py-6 px-5">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Political Connections</h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400">
-          Political relationships, family ties, alliances, and rivalries between Sri Lankan monarchs
+      <div className="mb-12 text-center">
+        <h1 className="text-4xl font-bold mb-4">🤝 Political Connections</h1>
+        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Explore the complex web of relationships, family ties, alliances, and rivalries between Sri Lankan monarchs throughout history.
         </p>
       </div>
 
