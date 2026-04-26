@@ -51,14 +51,14 @@
     z-index: -1;
     background-color: var(--background);
     background-image: 
-      linear-gradient(rgba(17, 22, 28, 0.7), rgba(17, 22, 28, 0.7)),
-      url("https://a.basemaps.cartocdn.com/dark_all/0/0/0.png");
+      linear-gradient(rgba(17, 22, 28, 0.8), rgba(17, 22, 28, 0.85)),
+      url("/map-bg-dark.svg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    opacity: 0.4; /* Stronger presence for the authentic MapCN look */
-    filter: contrast(1.2) brightness(0.7) saturate(1.2);
+    opacity: 0.15; /* Lowered for subtle, professional immersion */
+    filter: brightness(1.2) contrast(1.1);
   }
   
   img {
