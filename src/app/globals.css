@@ -37,12 +37,28 @@
 
   body {
     @apply text-[var(--foreground)] transition-colors;
-    background:
-      radial-gradient(circle at 15% 10%, rgba(203, 142, 102, 0.2) 0%, rgba(203, 142, 102, 0) 40%),
-      radial-gradient(circle at 85% 20%, rgba(120, 165, 199, 0.16) 0%, rgba(120, 165, 199, 0) 42%),
-      linear-gradient(180deg, var(--background) 0%, var(--surface) 100%);
+    background-color: var(--background);
+    background-image: 
+      radial-gradient(circle at center, transparent 0%, var(--background) 90%),
+      linear-gradient(rgba(17, 22, 28, 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17, 22, 28, 0.4) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background-attachment: fixed;
     font-family: "Avenir Next", "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
     line-height: 1.65;
+  }
+
+  .site-shell::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image: url("https://raw.githubusercontent.com/NimuthuGanegoda/WorldHistoryArchive/main/public/map-bg-dark.svg"); /* We will create this or use a generic one */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    filter: blur(1px);
   }
   
   img {

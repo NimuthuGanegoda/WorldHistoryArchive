@@ -33,7 +33,7 @@ export default function WorldMap({ countries }: WorldMapProps) {
     <MapContainer center={[20, 0]} zoom={2} scrollWheelZoom={false} className="h-full w-full rounded-xl z-0">
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
       />
 
       {countries.map((country) => {
