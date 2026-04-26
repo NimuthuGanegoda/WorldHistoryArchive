@@ -27,61 +27,54 @@ export default function Header() {
         <div className="flex items-center justify-between h-[62px]">
           <Link
             href="/"
-            className="text-[20px] md:text-[23px] tracking-tight font-semibold text-[var(--foreground)] hover:opacity-80 transition-opacity"
+            className="text-[20px] md:text-[23px] tracking-tight font-semibold text-[var(--foreground)] hover:opacity-80 transition-opacity flex-shrink-0"
           >
-            World History Archive
+            <span className="hidden sm:inline">World History Archive</span>
+            <span className="sm:hidden text-[var(--accent)]">🏛️ Archive</span>
           </Link>
 
-          <div className="flex items-center space-x-4 md:space-x-5 overflow-x-auto text-nowrap">
-            <Link
-              href="/countries"
-              className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
-            >
-              🌏 Countries
-            </Link>
-            <Link
-              href="/kingdoms"
-              className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
-            >
-              🏰 Kingdoms
-            </Link>
-            <Link
-              href="/timeline"
-              className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
-            >
-              ⌛ Timeline
-            </Link>
-            <Link
-              href="/sites"
-              className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
-            >
-              📍 Sites
-            </Link>
-            <Link
-              href="/map"
-              className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
-            >
-              🗺️ Map
-            </Link>
-            <Link
-              href="/historical-maps"
-              className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
-            >
-              📜 Historical Maps
-            </Link>
-            <Link
-              href="/political-connections"
-              className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
-            >
-              🤝 Connections
-            </Link>
-            <Link
-              href="/about"
-              className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
-            >
-              ℹ️ About
-            </Link>
-            <ThemeToggle />
+          <div className="flex items-center space-x-3 md:space-x-5">
+            <div className="flex items-center space-x-3 md:space-x-5 overflow-x-auto no-scrollbar py-2">
+              <Link
+                href="/kingdoms"
+                className="text-[11px] md:text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
+              >
+                🏰 Kingdoms
+              </Link>
+              <Link
+                href="/timeline"
+                className="text-[11px] md:text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
+              >
+                ⌛ Timeline
+              </Link>
+              <Link
+                href="/sites"
+                className="text-[11px] md:text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
+              >
+                📍 Sites
+              </Link>
+              <Link
+                href="/map"
+                className="text-[11px] md:text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
+              >
+                🗺️ Maps
+              </Link>
+              <Link
+                href="/political-connections"
+                className="text-[11px] md:text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
+              >
+                🤝 Connections
+              </Link>
+              <Link
+                href="/about"
+                className="text-[11px] md:text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
+              >
+                ℹ️ About
+              </Link>
+            </div>
+            <div className="flex-shrink-0 pl-2 border-l border-[var(--line)]/50 ml-1">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </nav>
