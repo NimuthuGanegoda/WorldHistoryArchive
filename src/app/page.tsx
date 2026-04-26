@@ -67,7 +67,7 @@ export default function Home() {
   const dailyKings = getDailyKings(kings, 6, today);
 
   return (
-    <main className="min-h-screen site-shell">
+    <div className="min-h-screen site-shell">
       {/* Hero Section */}
       <section className="hero-section">
         <span className="hero-orb w-[420px] h-[420px] -top-28 -left-32" />
@@ -223,6 +223,6 @@ export default function Home() {
       </section>
 
       <AnimationObserver />
-    </main>
+    </div>
   );
 }

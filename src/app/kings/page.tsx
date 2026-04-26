@@ -20,7 +20,7 @@ const kingdomTitles = new Map((kingdomsData as any[]).map((k) => [k.slug, k.titl
 
 export default function KingsIndex() {
   return (
-    <main className="max-w-5xl mx-auto py-6 px-5">
+    <div className="max-w-5xl mx-auto py-6 px-5">
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Rulers' }]} />
 
       <header className="mb-6">
@@ -47,6 +47,6 @@ export default function KingsIndex() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   );
 }

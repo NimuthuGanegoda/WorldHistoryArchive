@@ -15,7 +15,7 @@ export default function ConnectionsPage() {
   const kingsWithConnections = kingsData.filter((king: any) => king.internationalConnections);
 
   return (
-    <main className="max-w-7xl mx-auto py-6 px-5">
+    <div className="max-w-7xl mx-auto py-6 px-5">
       <Breadcrumbs items={[
         { label: 'Home', href: '/' },
         { label: 'International Connections' }
@@ -90,6 +90,6 @@ export default function ConnectionsPage() {
           <p className="text-xl">International connections data is being compiled and will be added soon.</p>
         </div>
       )}
-    </main>
+    </div>
   );
 }

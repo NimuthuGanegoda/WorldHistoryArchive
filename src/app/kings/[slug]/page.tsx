@@ -66,7 +66,8 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
   const kingdom = kingdomsMap.get(king.kingdom);
 
   return (
-    <main className="max-w-5xl mx-auto py-6 px-5">
+    <div className="max-w-5xl mx-auto py-6 px-5">
+
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
           ...(kingdom ? [{ label: kingdom.title, href: `/kingdoms/${kingdom.slug}` }] : []),
@@ -209,6 +210,6 @@ export default async function KingPage({ params }: { params: Promise<{ slug: str
             </p>
           )}
         </article>
-      </main>
+      </div>
   );
 }

@@ -54,11 +54,15 @@
     inset: 0;
     pointer-events: none;
     z-index: -1;
-    background-image: url("https://raw.githubusercontent.com/NimuthuGanegoda/WorldHistoryArchive/main/public/map-bg-dark.svg"); /* We will create this or use a generic one */
-    background-size: cover;
-    background-position: center;
-    opacity: 0.1;
-    filter: blur(1px);
+    background-image: 
+      linear-gradient(rgba(111, 49, 26, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(111, 49, 26, 0.045) 1px, transparent 1px),
+      url("/map-bg-dark.svg");
+    background-size: 34px 34px, 34px 34px, cover;
+    background-position: center, center, center;
+    mask-image: radial-gradient(circle at center, black 32%, transparent 96%);
+    opacity: 0.06;
+    filter: blur(0.5px);
   }
   
   img {
@@ -91,18 +95,6 @@
   .site-shell {
     position: relative;
     isolation: isolate;
-  }
-
-  .site-shell::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-    background-image: linear-gradient(rgba(111, 49, 26, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(111, 49, 26, 0.045) 1px, transparent 1px);
-    background-size: 34px 34px;
-    mask-image: radial-gradient(circle at center, black 32%, transparent 96%);
   }
 
   /* Hero section */

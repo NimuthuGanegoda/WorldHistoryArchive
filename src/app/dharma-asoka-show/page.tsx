@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function DharmaAsokaShowPage() {
   return (
-    <main className="max-w-3xl mx-auto py-8 px-4">
+    <div className="max-w-3xl mx-auto py-8 px-4">
       <h1 className="text-3xl font-bold mb-4">Dharma Asoka Show</h1>
       <p className="mb-6 text-gray-700 dark:text-gray-300">
         Watch this YouTube playlist about Emperor Ashoka (Dharma Asoka) and his impact on history:
@@ -27,6 +27,6 @@ export default function DharmaAsokaShowPage() {
       <p className="text-sm text-gray-500 dark:text-gray-400">
         Playlist courtesy of YouTube. For more information about Ashoka, see the <Link href="/kings/ashoka" className="underline">Ashoka biography</Link>.
       </p>
-    </main>
+    </div>
   );
 }

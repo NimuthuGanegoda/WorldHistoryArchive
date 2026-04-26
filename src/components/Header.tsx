@@ -58,6 +58,18 @@ export default function Header() {
               📍 Sites
             </Link>
             <Link
+              href="/map"
+              className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
+            >
+              🗺️ Map
+            </Link>
+            <Link
+              href="/historical-maps"
+              className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
+            >
+              📜 Historical Maps
+            </Link>
+            <Link
               href="/political-connections"
               className="text-[12px] uppercase tracking-[0.08em] font-semibold text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-200"
             >

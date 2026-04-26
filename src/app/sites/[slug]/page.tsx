@@ -87,7 +87,7 @@ export default async function SitePage({ params }: { params: Promise<{ slug: str
   const kingdom = siteKingdomMap.get(site.id);
 
   return (
-    <main className="max-w-5xl mx-auto py-6 px-5">
+    <div className="max-w-5xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
           { label: 'Historical Sites', href: '/sites' },
@@ -249,6 +249,6 @@ export default async function SitePage({ params }: { params: Promise<{ slug: str
             </div>
           )}
         </article>
-      </main>
+      </div>
   );
 }

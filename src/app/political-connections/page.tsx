@@ -99,7 +99,7 @@ export default function PoliticalConnectionsPage() {
   const grouped = groupByRelationship(allConnections);
 
   return (
-    <main className="max-w-7xl mx-auto py-6 px-5">
+    <div className="max-w-7xl mx-auto py-6 px-5">
       <div className="mb-12 text-center">
         <h1 className="text-4xl font-bold mb-4">🤝 Political Connections</h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -182,6 +182,6 @@ export default function PoliticalConnectionsPage() {
           over 2,300 years.
         </p>
       </div>
-    </main>
+    </div>
   );
 }

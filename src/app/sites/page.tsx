@@ -12,7 +12,7 @@ interface Site {
 
 export default function SitesPage() {
   return (
-    <main className="max-w-7xl mx-auto py-6 px-5">
+    <div className="max-w-7xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
           { label: 'Historical Sites' }
@@ -58,6 +58,6 @@ export default function SitesPage() {
             <p className="text-xl">Historical sites data is being compiled and will be added soon.</p>
           </div>
         )}
-      </main>
+      </div>
   );
 }

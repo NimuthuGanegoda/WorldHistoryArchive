@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function KingAshokaPage() {
   return (
-    <main className="max-w-3xl mx-auto py-8 px-4">
+    <div className="max-w-3xl mx-auto py-8 px-4">
       <h1 className="text-3xl font-bold mb-4">King Ashoka (Dharma Asoka)</h1>
       <p className="mb-6 text-gray-700 dark:text-gray-300">
         Emperor Ashoka, also known as Dharma Asoka, was one of the greatest rulers of the Mauryan Empire in India (reigned c. 268–232 BCE). After witnessing the devastation of the Kalinga War, Ashoka embraced Buddhism and became a model of righteous and compassionate rule. He is renowned for spreading Buddhism across Asia and for his policies of non-violence, tolerance, and welfare for all beings.
@@ -39,6 +39,6 @@ export default function KingAshokaPage() {
           Playlist courtesy of YouTube. For more about Ashoka&apos;s connection to Sri Lanka, see <Link href="/kings/devanampiya-tissa" className="underline">King Devanampiya Tissa</Link>.
         </p>
       </section>
-    </main>
+    </div>
   );
 }

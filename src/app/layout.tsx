@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased min-h-screen flex flex-col">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true}>
           <Header />
           <main className="flex-1">
             {children}

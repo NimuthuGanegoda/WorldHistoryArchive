@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="max-w-7xl mx-auto py-12 px-5">
+    <div className="max-w-7xl mx-auto py-12 px-5">
       <Breadcrumbs items={[
         { label: 'Home', href: '/' },
         { label: 'About' }
@@ -101,6 +101,6 @@ export default function AboutPage() {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

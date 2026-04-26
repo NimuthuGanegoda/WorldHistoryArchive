@@ -77,7 +77,7 @@ export default function TimelinePage() {
   const eras = STATIC_ERAS;
 
   return (
-    <main className="max-w-7xl mx-auto py-6 px-5">
+    <div className="max-w-7xl mx-auto py-6 px-5">
       <div className="mb-8">
         <h1 className="text-4xl font-bold mb-4">Historical Timeline</h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
@@ -151,6 +151,6 @@ export default function TimelinePage() {
           and cultural evolution spanning over two millennia.
         </p>
       </div>
-    </main>
+    </div>
   );
 }

@@ -90,7 +90,7 @@ export default async function CountryPage({ params }: { readonly params: Promise
   const kingdomTitles = new Map(allKingdoms.map(k => [k.slug, k.title]));
 
   return (
-    <main className="max-w-5xl mx-auto py-6 px-5 min-h-[60vh]">
+    <div className="max-w-5xl mx-auto py-6 px-5 min-h-[60vh]">
       <Breadcrumbs items={[
         { label: 'Home', href: '/' },
         { label: 'Countries', href: '/countries' },
@@ -153,6 +153,6 @@ export default async function CountryPage({ params }: { readonly params: Promise
           </div>
         </section>
       )}
-    </main>
+    </div>
   );
 }

@@ -176,7 +176,7 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
   const kingdomSites = kingdomSitesMap.get(slug) || [];
 
   return (
-    <main className="max-w-5xl mx-auto py-6 px-5">
+    <div className="max-w-5xl mx-auto py-6 px-5">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
           { label: kingdom.title }
@@ -282,6 +282,6 @@ export default async function KingdomPage({ params }: { params: Promise<{ slug: 
             <p className="text-gray-600 dark:text-gray-400">No monarchs currently listed for this kingdom.</p>
           )}
         </article>
-      </main>
+      </div>
   );
 }
