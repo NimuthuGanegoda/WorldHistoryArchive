@@ -5,6 +5,7 @@ import FeaturedKings from '@/components/FeaturedKings';
 import WorldMapWrapper from '@/components/WorldMapWrapper';
 import kingsData from '@/data/kings.json';
 import kingdomsData from '@/data/kingdoms.json';
+import countriesData from '@/data/countries.json';
 import { parseStartYear, getDailyKings } from '@/lib/utils';
 
 interface King {
@@ -28,13 +29,19 @@ interface Kingdom {
   }[];
 }
 
+interface Country {
+  name: string;
+  code: string;
+}
+
 // Hoist static data transformations to module scope
 // This prevents expensive re-calculation on every render
 const kings = kingsData as King[];
 const kingdoms = kingdomsData as Kingdom[];
+const countries = countriesData as Country[];
 
-// Extract unique countries
-const uniqueCountries = Array.from(new Set(kingdomsData.map((k) => k.country).filter(Boolean))) as string[];
+// Extract unique countries with historical records in the archive
+const uniqueCountries = countries.map(c => c.name);
 
 // Map kingdoms to cards with descriptions and sort chronologically
 const kingdomCards = kingdoms
