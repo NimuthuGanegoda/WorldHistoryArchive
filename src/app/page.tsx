@@ -122,7 +122,7 @@ export default function Home() {
         <div className="max-w-[1100px] mx-auto px-5 sm:px-6">
           <span className="eyebrow mb-5">🎯 Today&apos;s Focus</span>
           <h2 className="section-title">
-            Featured Kings
+            Featured Rulers
           </h2>
           <p className="section-lead mb-12">
             A rotating spotlight updates daily to surface influential rulers from different regions and eras.
