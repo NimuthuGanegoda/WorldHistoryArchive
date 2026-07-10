@@ -64,14 +64,9 @@ export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new
   const totalItems = items.length;
   if (totalItems === 0) return [];
 
-  // Calculate which batch we're on to cycle through the list
-  const totalBatches = Math.ceil(totalItems / count);
-  const cycleNumber = Math.floor(dayIndex / totalBatches);
-  const batchIndex = dayIndex % totalBatches;
-
-  // Seed the shuffle based on the cycle number
-  // This ensures the order is randomly shuffled once per cycle
-  let seed = cycleNumber + 12345; // Simple salt
+  // Seed the shuffle based on the day index
+  // This ensures the order is randomly shuffled every day
+  let seed = dayIndex + 12345; // Simple salt
 
   // Simple Linear Congruential Generator (LCG)
   const random = () => {
@@ -89,18 +84,5 @@ export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new
     [shuffled[m], shuffled[i]] = [shuffled[i], shuffled[m]];
   }
 
-  // Select the slice for the current batch
-  const startIndex = batchIndex * count;
-  const endIndex = Math.min(startIndex + count, totalItems);
-
-  let result = shuffled.slice(startIndex, endIndex);
-
-  // If we're at the very end and there aren't enough items, wrap around to the beginning
-  // to ensure we always return 'count' items (only if we have enough total items).
-  if (result.length < count && totalItems > count) {
-      const remainder = count - result.length;
-      result = result.concat(shuffled.slice(0, remainder));
-  }
-
-  return result;
+  return shuffled.slice(0, count);
 }
