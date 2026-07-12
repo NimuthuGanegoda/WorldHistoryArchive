@@ -64,9 +64,9 @@ export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new
   const totalItems = items.length;
   if (totalItems === 0) return [];
 
-  // Seed the shuffle based on the day index
-  // This ensures the order is randomly shuffled every day
-  let seed = dayIndex + 12345; // Simple salt
+  // Seed the shuffle with a fixed salt so the array order remains constant
+  // We will iterate over this constant shuffled array using the dayIndex
+  let seed = 12345;
 
   // Simple Linear Congruential Generator (LCG)
   const random = () => {
@@ -84,5 +84,14 @@ export function getDailyKings<T>(items: T[], count: number = 6, date: Date = new
     [shuffled[m], shuffled[i]] = [shuffled[i], shuffled[m]];
   }
 
-  return shuffled.slice(0, count);
+  // Calculate the starting index based on the day to cycle through all items
+  count = Math.min(count, totalItems);
+  const startIndex = (dayIndex * count) % totalItems;
+  const selected: T[] = [];
+
+  for (let i = 0; i < count; i++) {
+    selected.push(shuffled[(startIndex + i) % totalItems]);
+  }
+
+  return selected;
 }

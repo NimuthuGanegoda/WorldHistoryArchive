@@ -23,7 +23,8 @@ function getDailyKings(items, count = 6, date = new Date(), timeZone = 'Asia/Col
   const totalItems = items.length;
   if (totalItems === 0) return [];
 
-  let seed = dayIndex + 12345;
+  // Seed the shuffle with a fixed salt so the array order remains constant
+  let seed = 12345;
 
   const random = () => {
     seed = (seed * 9301 + 49297) % 233280;
@@ -38,9 +39,12 @@ function getDailyKings(items, count = 6, date = new Date(), timeZone = 'Asia/Col
     [shuffled[m], shuffled[i]] = [shuffled[i], shuffled[m]];
   }
 
+  // Calculate the starting index based on the day to cycle through all items
+  count = Math.min(count, totalItems);
+  const startIndex = (dayIndex * count) % totalItems;
   const result = [];
-  for (let i = 0; i < count && i < totalItems; i++) {
-    result.push(shuffled[i]);
+  for (let i = 0; i < count; i++) {
+    result.push(shuffled[(startIndex + i) % totalItems]);
   }
 
   return result;
