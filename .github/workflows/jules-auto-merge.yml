@@ -1,25 +1,71 @@
 name: Auto-merge Jules
 
 on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
   pull_request:
-    types: [opened, synchronize, reopened]
-
-permissions:
-  contents: write
-  pull-requests: write
+    types: [opened, synchronize, reopened, ready_for_review]
+  pull_request_review:
+    types: [submitted]
+  workflow_dispatch:
+    inputs:
+      pr_url:
+        description: Pull request URL to approve and merge
+        required: true
+        type: string
 
 jobs:
   approve-and-merge:
     runs-on: ubuntu-latest
-    # I REMOVED THE 'if:' LINE BELOW. NOW IT RUNS ON EVERYTHING.
+    permissions:
+      contents: write
+      pull-requests: write
+    if: >-
+      (github.event_name == 'workflow_dispatch' ||
+       github.actor == 'google-labs-jules[bot]' ||
+       github.actor == 'google-labs-jules' ||
+       github.actor == 'NimuthuGanegoda' ||
+       github.actor == 'RaidenShogun-AI' ||
+       github.actor == 'MikoYae-AI' ||
+       github.event.pull_request.user.login == 'google-labs-jules[bot]' ||
+       github.event.pull_request.user.login == 'google-labs-jules' ||
+       github.event.pull_request.user.login == 'NimuthuGanegoda' ||
+       github.event.pull_request.user.login == 'RaidenShogun-AI' ||
+       github.event.pull_request.user.login == 'MikoYae-AI' ||
+       github.actor == github.repository_owner) &&
+      (github.event_name != 'pull_request_review' || github.event.review.state == 'approved')
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Auto-merge
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.JULES_AUTO_MERGE_TOKEN != '' && secrets.JULES_AUTO_MERGE_TOKEN || secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event_name == 'workflow_dispatch' && inputs.pr_url || github.event.pull_request.html_url }}
         run: |
-          gh pr ready "$PR_URL" || true
-          gh pr merge "$PR_URL" --squash --delete-branch
+          set -euo pipefail
+
+          if [[ -z "${PR_URL:-}" ]]; then
+            echo "PR_URL is required." >&2
+            exit 1
+          fi
+
+          echo "Inspecting PR: $PR_URL"
+          PR_STATE=$(gh pr view "$PR_URL" --json state --jq '.state')
+          if [[ "$PR_STATE" != "OPEN" ]]; then
+            echo "PR is in state $PR_STATE. Skipping auto-merge."
+            exit 0
+          fi
+
+          echo "Approving PR..."
+          gh pr review "$PR_URL" --approve 2>/dev/null || echo "Note: Could not review."
+
+          echo "Executing auto-merge..."
+          gh pr ready "$PR_URL" 2>/dev/null || true
+          if gh pr merge "$PR_URL" --squash --delete-branch; then
+            echo "✓ Squashed and merged PR successfully."
+          elif gh pr merge "$PR_URL" --auto --squash --delete-branch; then
+            echo "✓ Auto-merge enabled."
+          elif gh pr merge "$PR_URL" --merge --delete-branch; then
+            echo "✓ Direct merged PR successfully."
+          else
+            echo "Failed to auto-merge PR." >&2
+            exit 1
+          fi
