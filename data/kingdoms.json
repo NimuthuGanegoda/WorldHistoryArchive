@@ -1,20 +1,311 @@
 [
-  {"id": "tambapanni", "name": "Tambapanni", "period": "543–505 BCE", "description": "Earliest recorded settlement under Vijaya, also known as Thammanna Nuwara."},
-  {"id": "upatissa-nuwara", "name": "Upatissa Nuwara", "period": "504–437 BCE", "description": "Interim capital after Vijaya period"},
-  {"id": "anuradhapura", "name": "Anuradhapura", "period": "437 BCE – 1017 CE", "description": "First major kingdom; irrigation & Buddhist center"},
-  {"id": "anuradhapura-chola", "name": "Anuradhapura (Chola Rule)", "period": "993–1070 CE", "description": "A period of South Indian Chola rule. The capital was moved to Polonnaruwa during this time."},
-  {"id": "ruhuna", "name": "Ruhuna", "period": "c. 240 BC to 1065 AD", "description": "Founded around 200 BC by Prince Mahanaga after a dispute with his brother, King Devanampiya Tissa of Anuradhapura. Located in the south of Sri Lanka, it became a crucial center for Sinhalese culture and a base of resistance against invaders. Key cities included Magama and Tissamaharama."},
-  {"id": "kelaniya", "name": "Kelaniya Kingdom", "period": "c. 3rd Century BCE", "description": "A provincial kingdom with deep mythological and Buddhist significance. It was the capital of King Kelanitissa and the birthplace of Vihara Maha Devi."},
-  {"id": "sigiriya", "name": "Sigiriya", "period": "473–512 CE", "description": "Fortress/palace period under Kashyapa I"},
-  {"id": "polonnaruwa", "name": "Polonnaruwa", "period": "1055–1236 CE", "description": "Medieval capital; advanced irrigation"},
-  {"id": "dambadeniya", "name": "Dambadeniya", "period": "1236–1284 CE", "description": "Transitional capital after Chola conflicts"},
-  {"id": "yapahuwa", "name": "Yapahuwa", "period": "1284–1302 CE", "description": "Rock fortress capital"},
-  {"id": "dedigama", "name": "Dedigama Kingdom", "period": "c. 12th-14th Century CE", "description": "Birthplace of King Parakramabahu the Great and later the capital of King Parakramabahu V."},
-  {"id": "kurunegala", "name": "Kurunegala", "period": "1302–1341 CE", "description": "Short-lived capital; period of consolidation"},
-  {"id": "gampola", "name": "Gampola", "period": "1341–1392 CE", "description": "Highland capital; shift inland"},
-  {"id": "raigama", "name": "Raigama Kingdom", "period": "1521–1539 CE", "description": "Emerged after the 'Vijayabā Kollaya' in 1521 and was later annexed by the Sitawaka Kingdom."},
-  {"id": "kotte", "name": "Kotte", "period": "1412–1597 CE", "description": "Late medieval kingdom; literature & trade"},
-  {"id": "sitawaka", "name": "Sitawaka", "period": "1521–1593 CE", "description": "Resistance against Portuguese expansion"},
-  {"id": "kandyan", "name": "Kandyan Kingdom", "period": "1469–1815 CE", "description": "Last independent kingdom; Nayak influences"},
-  {"id": "jaffna", "name": "Jaffna Kingdom", "period": "1215–1619 CE", "description": "Northern Tamil kingdom"}
+  {
+    "slug": "anuradhapura",
+    "title": "Anuradhapura Kingdom",
+    "reign": "437 BCE – 1017 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "Notable Kings",
+        "content": [
+          "First major kingdom; irrigation & Buddhist center",
+          "First monarch who established Anuradhapura as the capital",
+          "Introduced Buddhism to Sri Lanka",
+          "National hero who unified Sri Lanka"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "raigama",
+    "title": "Raigama Kingdom",
+    "reign": "1521–1538 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Emerged after the 'Vijayabā Kollaya' in 1521 and was later annexed by the Sitawaka Kingdom."
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "dambadeniya",
+    "title": "Dambadeniya",
+    "reign": "1236–1284 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Transitional capital after Chola conflicts"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "gampola",
+    "title": "Gampola",
+    "reign": "1341–1411 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Highland capital; shift inland"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "jaffna",
+    "title": "Jaffna Kingdom",
+    "reign": "1215–1619 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Northern Tamil kingdom"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "kandyan",
+    "title": "Kandyan Kingdom",
+    "reign": "1469–1815 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Last independent kingdom; Nayak influences"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "kelaniya",
+    "title": "Kelaniya Kingdom",
+    "reign": "200–100 BCE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "A provincial kingdom with deep mythological and Buddhist significance. It was the capital of King Kelanitissa and the birthplace of Vihara Maha Devi."
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "kotte",
+    "title": "Kotte",
+    "reign": "1412–1597 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Late medieval kingdom; literature & trade"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "kurunegala",
+    "title": "Kurunegala",
+    "reign": "1302–1341 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Short-lived capital; period of consolidation"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "polonnaruwa",
+    "title": "Polonnaruwa",
+    "reign": "1110–1293 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Medieval capital; advanced irrigation"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "ruhuna",
+    "title": "Ruhuna",
+    "reign": "137 BCE – 1211 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Founded around 200 BC by Prince Mahanaga after a dispute with his brother, King Devanampiya Tissa of Anuradhapura. Located in the south of Sri Lanka, it became a crucial center for Sinhalese culture and a base of resistance against invaders. Key cities included Magama and Tissamaharama."
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "sigiriya",
+    "title": "Sigiriya",
+    "reign": "473–495 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Fortress/palace period under Kashyapa I"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "sitawaka",
+    "title": "Sitawaka",
+    "reign": "1521–1593 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Resistance against Portuguese expansion"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "tambapanni",
+    "title": "Tambapanni",
+    "reign": "543–504 BCE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Earliest recorded settlement under Vijaya, also known as Thammanna Nuwara."
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "upatissa-nuwara",
+    "title": "Upatissa Nuwara",
+    "reign": "504–437 BCE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Interim capital after Vijaya period"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "yapahuwa",
+    "title": "Yapahuwa",
+    "reign": "1284–1302 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Rock fortress capital"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "maurya-empire",
+    "title": "Maurya Empire",
+    "reign": "322–185 BCE",
+    "country": "India",
+    "biography": "The Maurya Empire was a geographically extensive Iron Age historical power based in Magadha and founded by Chandragupta Maurya. Under Ashoka the Great, the empire embraced Buddhism and spread its teachings across Asia, including to Sri Lanka through his son Mahinda.",
+    "sections": [
+      {
+        "heading": "Connection to Sri Lanka",
+        "content": [
+          "Emperor Ashoka sent his son, Mahinda Thero, and later his daughter, Sanghamitta Theri, to Sri Lanka to introduce Buddhism.",
+          "This event fundamentally transformed Sri Lankan culture, architecture, and governance."
+        ],
+        "infoBoxes": []
+      }
+    ]
+  },
+  {
+    "slug": "ming-dynasty",
+    "title": "Ming Dynasty",
+    "reign": "1368–1644 CE",
+    "country": "China",
+    "biography": "The Ming dynasty was the ruling dynasty of China from 1368 to 1644 following the collapse of the Mongol-led Yuan dynasty. It was the last imperial dynasty of China ruled by Han Chinese.",
+    "sections": [
+      {
+        "heading": "Connection to Sri Lanka",
+        "content": [
+          "The Ming admiral Zheng He visited Sri Lanka multiple times during his treasure voyages in the 15th century.",
+          "The Galle Trilingual Inscription, erected by Zheng He, is a testament to the diplomatic and trade ties between the Ming court and the Kotte Kingdom."
+        ],
+        "infoBoxes": []
+      }
+    ]
+  }
 ]

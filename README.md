@@ -2,20 +2,21 @@
 
 [![Deploy Next.js to GitHub Pages](https://github.com/NimuthuGanegoda/WorldHistoryArchive/actions/workflows/nextjs.yml/badge.svg)](https://github.com/NimuthuGanegoda/WorldHistoryArchive/actions/workflows/nextjs.yml)
 ![Status](https://img.shields.io/badge/Status-Operational-success?style=flat-square)
-![Stack](https://img.shields.io/badge/Stack-Next.js_15-0070f3?style=flat-square&logo=next.js)
+![Stack](https://img.shields.io/badge/Stack-Go_1.22_%26_Next.js-00ADD8?style=flat-square&logo=go)
 ![Data](https://img.shields.io/badge/Data-JSON_Powered-FFD700?style=flat-square&logo=json)
 
-**World History Archive** is a high-performance, static Next.js knowledge platform engineered to preserve and visualize the complex narratives of human civilization. Leveraging a map-first approach and chronological timeline integration, it provides an elite research environment for exploring kingdoms, monarchs, and archaeological sites.
+**World History Archive** is a high-performance knowledge platform and CLI engineered in **Go (Golang)** to preserve and visualize the complex narratives of human civilization. Leveraging an in-memory indexed store, sub-millisecond REST APIs, spatial mapping, and deterministic Static Site Generation (SSG), it provides an elite research environment for exploring kingdoms, monarchs, and archaeological sites.
 
 ---
 
 ## 🌟 Core Features
 
+*   **⚡ Native Go Architecture**: Zero-dependency, sub-millisecond query engine and HTTP server.
 *   **🌍 Spatial Intelligence**: Interactive geographic visualizations mapping the territories of ancient empires and sites.
-*   **⏳ Dynastic Timelines**: Precision-indexed chronological records of over 190 rulers across 16+ kingdoms.
+*   **⏳ Dynastic Timelines**: Precision-indexed chronological records of over 190 rulers across 18+ kingdoms.
 *   **📅 Daily Spotlight**: Automated daily rotation of featured historical figures seeded by localized timezones.
-*   **🔒 Hardened Static Architecture**: Fully decoupled JSON data layer for deterministic builds and ultra-fast delivery.
-*   **📱 Modern UX**: A refined, responsive interface optimized for academic research and casual exploration.
+*   **🔒 Hardened Static Architecture**: Native SSG export for deterministic builds and static GitHub Pages hosting.
+*   **💻 Unified CLI Tool**: Full terminal suite for search, validation, Markdown export, and live serving.
 
 ---
 
@@ -28,7 +29,7 @@ The World History Archive is part of a broader architectural vision and is suppo
 | 🛡️ **[Sovereign Core](https://github.com/NimuthuGanegoda/Sanctuary-of-Eternity)** | Foundational security policies and architectural guidance. |
 | 👤 **[Nimuthu Ganegoda](https://github.com/NimuthuGanegoda)** | Project Architect and Lead Maintainer. |
 | 🗺️ **[Leaflet](https://leafletjs.com/)** | Core mapping engine for spatial data visualization. |
-| ⚙️ **[Archive Scripts](scripts/)** | Automated data enrichment and validation tools. |
+| ⚙️ **[Archive CLI (`wha`)](cmd/wha/)** | Native Go command-line tool, server, and static generator. |
 
 ---
 
@@ -43,24 +44,40 @@ The World History Archive is part of a broader architectural vision and is suppo
 
 ---
 
-## 🛠️ Development Operations
+## 🛠️ Development Operations (Go Edition)
 
-### Environment Setup
+### Build Binary
 ```bash
-npm install
+make build
+# or: go build -o wha ./cmd/wha
 ```
 
-### Local Development
+### Start Live Server
 ```bash
-npm run dev
+make serve
+# or: ./wha serve --port 8080
+```
+Open **`http://localhost:8080`** in your browser.
+
+### Generate Static Site (SSG)
+```bash
+make ssg
+# or: ./wha build --out dist
 ```
 
-### Build & Static Export
+### Run Tests & Validation
 ```bash
-npm run build
+make test
+./wha validate
 ```
 
-The platform is automatically deployed to **[srilankanhistory.dev](https://srilankanhistory.dev/)** via GitHub Actions upon every validated commit to the `main` branch.
+### Terminal CLI Commands
+```bash
+./wha spotlight               # View today's featured monarchs
+./wha search "Dutugemunu"     # Instant terminal search across archive
+./wha export-md --out docs    # Export full archive to Markdown files
+./wha stats                   # View dataset metrics
+```
 
 ---
 

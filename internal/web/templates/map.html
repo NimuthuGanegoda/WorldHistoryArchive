@@ -1,0 +1,62 @@
+{{define "content"}}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold brand-font gold-gradient-text mb-2">
+        🗺️ Spatial Geography & Site Atlas
+      </h1>
+      <p class="text-slate-400 text-sm">
+        Interactive geographic visualization of archaeological sites and ancient kingdom centers.
+      </p>
+    </div>
+  </div>
+
+  <!-- Leaflet Map Container -->
+  <div class="glass-card rounded-3xl overflow-hidden border border-amber-500/20 p-2 shadow-2xl">
+    <div id="historyMap" class="w-full h-[700px] rounded-2xl z-10"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialLat = parseFloat(urlParams.get('lat')) || 7.8731;
+  const initialLng = parseFloat(urlParams.get('lng')) || 80.7718;
+  const initialZoom = parseInt(urlParams.get('zoom')) || 8;
+
+  const map = L.map('historyMap').setView([initialLat, initialLng], initialZoom);
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://carto.com/">CARTO</a> & OpenStreetMap contributors',
+    maxZoom: 19,
+    subdomains: 'abcd'
+  }).addTo(map);
+
+  // Fetch and plot sites from Go REST API
+  fetch('/api/sites')
+    .then(res => res.json())
+    .then(sites => {
+      sites.forEach(site => {
+        if (site.coordinates && site.coordinates.lat && site.coordinates.lng) {
+          const customIcon = L.divIcon({
+            className: 'custom-map-pin',
+            html: `<div style="background:#f59e0b; width:14px; height:14px; border-radius:50%; border:2px solid #0f172a; box-shadow:0 0 10px rgba(245,158,11,0.8);"></div>`,
+            iconSize: [14, 14],
+            iconAnchor: [7, 7]
+          });
+
+          const marker = L.marker([site.coordinates.lat, site.coordinates.lng], { icon: customIcon }).addTo(map);
+          marker.bindPopup(`
+            <div style="font-family:sans-serif; color:#0f172a; min-width:200px;">
+              <h3 style="font-weight:bold; font-size:14px; margin-bottom:4px;">${site.name}</h3>
+              <p style="font-size:12px; color:#475569; margin-bottom:8px;">${site.type} • ${site.kingdom}</p>
+              <a href="/sites/${site.id}" style="display:inline-block; font-size:11px; font-weight:bold; color:#d97706; text-decoration:none;">View Details &rarr;</a>
+            </div>
+          `);
+        }
+      });
+    })
+    .catch(err => console.error("Error loading sites for map:", err));
+});
+</script>
+{{end}}

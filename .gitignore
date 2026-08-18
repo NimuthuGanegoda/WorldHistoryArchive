@@ -35,3 +35,9 @@ next-env.d.ts
 # Build output
 /out/
 build.log
+/dist/
+/output-md/
+/wha
+cmd/wha/data/
+
+

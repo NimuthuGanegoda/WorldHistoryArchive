@@ -1,0 +1,39 @@
+{{define "content"}}
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="mb-10">
+    <h1 class="text-3xl sm:text-4xl font-extrabold brand-font gold-gradient-text mb-3">
+      Historical Chronological Timeline
+    </h1>
+    <p class="text-slate-400 max-w-2xl text-sm sm:text-base">
+      Follow the succession of rulers, dynastic shifts, and monument construction through calibrated ancient and medieval eras.
+    </p>
+  </div>
+
+  <!-- Timeline Flow -->
+  <div class="relative border-l-2 border-amber-500/30 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-8">
+    {{range .Entries}}
+    <div class="relative group">
+      <!-- Marker dot -->
+      <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-slate-950 border-2 border-amber-400 group-hover:bg-amber-400 group-hover:scale-125 transition-all"></div>
+
+      <div class="glass-card p-5 sm:p-6 rounded-2xl">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <span class="px-2.5 py-0.5 text-xs font-bold rounded-md bg-amber-500/15 text-amber-300 font-mono">
+            {{.Formatted}}
+          </span>
+          <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold">
+            {{.Kingdom}}
+          </span>
+        </div>
+        <h3 class="text-lg font-bold text-slate-100 mb-1">
+          <a href="{{if eq .Type "king"}}/kings/{{.Slug}}{{else}}/kingdoms/{{.Slug}}{{end}}" class="hover:text-amber-400 transition-colors">
+            {{.Title}}
+          </a>
+        </h3>
+        <p class="text-xs text-slate-400">{{.Description}}</p>
+      </div>
+    </div>
+    {{end}}
+  </div>
+</div>
+{{end}}
