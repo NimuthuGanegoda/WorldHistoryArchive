@@ -1,0 +1,72 @@
+{{define "content"}}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <!-- Breadcrumb navigation -->
+  <nav class="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8">
+    <a href="/" class="hover:text-amber-400">Home</a>
+    <span>/</span>
+    <a href="/kings" class="hover:text-amber-400">Monarchs</a>
+    <span>/</span>
+    <span class="text-amber-400">{{.King.Title}}</span>
+  </nav>
+
+  <!-- Main Profile Card -->
+  <article class="glass-card p-8 sm:p-10 rounded-3xl mb-8">
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-800 pb-6">
+      <div>
+        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-3">
+          {{.King.Kingdom}} Kingdom
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold brand-font text-slate-100 mb-2">
+          {{.King.Title}}
+        </h1>
+        <p class="text-sm font-semibold text-slate-400">
+          Reign: <span class="text-amber-400">{{.King.Reign}}</span> • Region: {{.King.Country}}
+        </p>
+      </div>
+      <a href="/kings" class="px-4 py-2 text-xs font-semibold rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors">
+        &larr; Back to list
+      </a>
+    </div>
+
+    <!-- Main Biography -->
+    <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed text-base sm:text-lg mb-8 font-light">
+      <p>{{.King.Biography}}</p>
+    </div>
+
+    <!-- Structured Sections & Infoboxes -->
+    {{range .King.Sections}}
+    <div class="mt-8 pt-6 border-t border-slate-800/80">
+      {{if .Heading}}
+      <h2 class="text-2xl font-bold brand-font text-amber-400 mb-4">{{.Heading}}</h2>
+      {{end}}
+      {{range .Content}}
+      <p class="text-slate-300 mb-4 leading-relaxed font-light">{{.}}</p>
+      {{end}}
+
+      {{if .InfoBoxes}}
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+        {{range .InfoBoxes}}
+        <div class="bg-slate-900/80 p-5 rounded-2xl border border-amber-500/15">
+          <h3 class="text-sm font-bold text-amber-400 mb-1.5">{{.Title}}</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">{{.Content}}</p>
+        </div>
+        {{end}}
+      </div>
+      {{end}}
+    </div>
+    {{end}}
+
+    <!-- International & Geopolitical Connections -->
+    {{if .King.InternationalConnections}}
+    <div class="mt-8 p-6 rounded-2xl bg-indigo-950/20 border border-indigo-500/20">
+      <h2 class="text-lg font-bold text-indigo-300 mb-2 flex items-center gap-2">
+        🌐 Diplomatic & International Relations
+      </h2>
+      <p class="text-sm text-slate-300 leading-relaxed font-light">
+        {{.King.InternationalConnections}}
+      </p>
+    </div>
+    {{end}}
+  </article>
+</div>
+{{end}}

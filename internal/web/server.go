@@ -1,0 +1,277 @@
+package web
+
+import (
+	"embed"
+	"fmt"
+	"html/template"
+	"net/http"
+	"strings"
+	"time"
+
+	"github.com/NimuthuGanegoda/WorldHistoryArchive/internal/api"
+	"github.com/NimuthuGanegoda/WorldHistoryArchive/internal/models"
+	"github.com/NimuthuGanegoda/WorldHistoryArchive/internal/store"
+)
+
+//go:embed templates/*
+var templateFS embed.FS
+
+// Server represents the web application server.
+type Server struct {
+	store     *store.Store
+	api       *api.API
+	templates map[string]*template.Template
+}
+
+// NewServer initializes templates and returns a new Server instance.
+func NewServer(s *store.Store) (*Server, error) {
+	srv := &Server{
+		store:     s,
+		api:       api.New(s),
+		templates: make(map[string]*template.Template),
+	}
+
+	pages := []string{
+		"home.html",
+		"kings.html",
+		"king_detail.html",
+		"kingdoms.html",
+		"kingdom_detail.html",
+		"timeline.html",
+		"sites.html",
+		"site_detail.html",
+		"map.html",
+		"about.html",
+	}
+
+	for _, page := range pages {
+		tmpl, err := template.ParseFS(templateFS, "templates/layout.html", "templates/"+page)
+		if err != nil {
+			return nil, fmt.Errorf("parsing template %s: %w", page, err)
+		}
+		srv.templates[page] = tmpl
+	}
+
+	return srv, nil
+}
+
+// Handler returns the root http.Handler with all UI and API routes configured.
+func (s *Server) Handler() http.Handler {
+	mux := http.NewServeMux()
+
+	// 1. Register API Routes
+	s.api.RegisterRoutes(mux)
+
+	// 2. Register Web Pages
+	mux.HandleFunc("GET /{$}", s.handleHome)
+	mux.HandleFunc("GET /kings", s.handleKings)
+	mux.HandleFunc("GET /kings/{slug}", s.handleKingDetail)
+	mux.HandleFunc("GET /kingdoms", s.handleKingdoms)
+	mux.HandleFunc("GET /kingdoms/{slug}", s.handleKingdomDetail)
+	mux.HandleFunc("GET /timeline", s.handleTimeline)
+	mux.HandleFunc("GET /sites", s.handleSites)
+	mux.HandleFunc("GET /sites/{id}", s.handleSiteDetail)
+	mux.HandleFunc("GET /map", s.handleMap)
+	mux.HandleFunc("GET /about", s.handleAbout)
+
+	// Middleware for logging & CORS
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		start := time.Now()
+		mux.ServeHTTP(w, r)
+		_ = start
+	})
+}
+
+func (s *Server) render(w http.ResponseWriter, page string, data interface{}) {
+	tmpl, ok := s.templates[page]
+	if !ok {
+		http.Error(w, "Template not found", http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := tmpl.ExecuteTemplate(w, "base", data); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func (s *Server) handleHome(w http.ResponseWriter, r *http.Request) {
+	data := struct {
+		Title       string
+		Description string
+		Stats       models.ArchiveStats
+		DailyKings  []models.King
+		Kingdoms    []models.Kingdom
+	}{
+		Title:       "Home - Chronicle of Civilizations",
+		Description: "Explore the monarchs, kingdoms, and archaeological monuments of human history.",
+		Stats:       s.store.GetStats(),
+		DailyKings:  s.store.GetDailyKings(6, time.Now()),
+		Kingdoms:    s.store.GetKingdoms(),
+	}
+	s.render(w, "home.html", data)
+}
+
+func (s *Server) handleKings(w http.ResponseWriter, r *http.Request) {
+	kingdom := r.URL.Query().Get("kingdom")
+	query := r.URL.Query().Get("search")
+
+	allKings := s.store.GetKings()
+	var filtered []models.King
+	for _, k := range allKings {
+		if kingdom != "" && !strings.EqualFold(k.Kingdom, kingdom) {
+			continue
+		}
+		if query != "" && !strings.Contains(strings.ToLower(k.Title), strings.ToLower(query)) && !strings.Contains(strings.ToLower(k.Biography), strings.ToLower(query)) {
+			continue
+		}
+		filtered = append(filtered, k)
+	}
+
+	data := struct {
+		Title           string
+		Description     string
+		Kings           []models.King
+		Kingdoms        []models.Kingdom
+		SelectedKingdom string
+		Query           string
+	}{
+		Title:           "Monarchs & Rulers",
+		Description:     "Chronological catalog of recorded historical rulers.",
+		Kings:           filtered,
+		Kingdoms:        s.store.GetKingdoms(),
+		SelectedKingdom: kingdom,
+		Query:           query,
+	}
+	s.render(w, "kings.html", data)
+}
+
+func (s *Server) handleKingDetail(w http.ResponseWriter, r *http.Request) {
+	slug := r.PathValue("slug")
+	king, exists := s.store.GetKingBySlug(slug)
+	if !exists {
+		http.NotFound(w, r)
+		return
+	}
+
+	data := struct {
+		Title       string
+		Description string
+		King        models.King
+	}{
+		Title:       king.Title,
+		Description: fmt.Sprintf("Historical record and biography of %s (%s).", king.Title, king.Reign),
+		King:        king,
+	}
+	s.render(w, "king_detail.html", data)
+}
+
+func (s *Server) handleKingdoms(w http.ResponseWriter, r *http.Request) {
+	data := struct {
+		Title       string
+		Description string
+		Kingdoms    []models.Kingdom
+	}{
+		Title:       "Historical Kingdoms",
+		Description: "Ancient sovereign realms and dynastic eras.",
+		Kingdoms:    s.store.GetKingdoms(),
+	}
+	s.render(w, "kingdoms.html", data)
+}
+
+func (s *Server) handleKingdomDetail(w http.ResponseWriter, r *http.Request) {
+	slug := r.PathValue("slug")
+	kd, exists := s.store.GetKingdomBySlug(slug)
+	if !exists {
+		http.NotFound(w, r)
+		return
+	}
+
+	allKings := s.store.GetKings()
+	var rulers []models.King
+	for _, k := range allKings {
+		if strings.EqualFold(k.Kingdom, slug) {
+			rulers = append(rulers, k)
+		}
+	}
+
+	data := struct {
+		Title       string
+		Description string
+		Kingdom     models.Kingdom
+		Kings       []models.King
+	}{
+		Title:       kd.Title,
+		Description: fmt.Sprintf("History and monarchs of %s (%s).", kd.Title, kd.Reign),
+		Kingdom:     kd,
+		Kings:       rulers,
+	}
+	s.render(w, "kingdom_detail.html", data)
+}
+
+func (s *Server) handleTimeline(w http.ResponseWriter, r *http.Request) {
+	data := struct {
+		Title       string
+		Description string
+		Entries     []models.TimelineEntry
+	}{
+		Title:       "Historical Timeline",
+		Description: "Chronological progression of monarchs and dynasties.",
+		Entries:     s.store.GetTimeline(),
+	}
+	s.render(w, "timeline.html", data)
+}
+
+func (s *Server) handleSites(w http.ResponseWriter, r *http.Request) {
+	data := struct {
+		Title       string
+		Description string
+		Sites       []models.Site
+	}{
+		Title:       "Archaeological Sites",
+		Description: "Monuments, stupas, fortresses, and ancient engineering sites.",
+		Sites:       s.store.GetSites(),
+	}
+	s.render(w, "sites.html", data)
+}
+
+func (s *Server) handleSiteDetail(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	site, exists := s.store.GetSiteByID(id)
+	if !exists {
+		http.NotFound(w, r)
+		return
+	}
+
+	data := struct {
+		Title       string
+		Description string
+		Site        models.Site
+	}{
+		Title:       site.Name,
+		Description: site.Description,
+		Site:        site,
+	}
+	s.render(w, "site_detail.html", data)
+}
+
+func (s *Server) handleMap(w http.ResponseWriter, r *http.Request) {
+	data := struct {
+		Title       string
+		Description string
+	}{
+		Title:       "Spatial Cartography & Map",
+		Description: "Interactive map of archaeological sites.",
+	}
+	s.render(w, "map.html", data)
+}
+
+func (s *Server) handleAbout(w http.ResponseWriter, r *http.Request) {
+	data := struct {
+		Title       string
+		Description string
+	}{
+		Title:       "About the Archive",
+		Description: "Mission, architecture, and technology behind World History Archive.",
+	}
+	s.render(w, "about.html", data)
+}
