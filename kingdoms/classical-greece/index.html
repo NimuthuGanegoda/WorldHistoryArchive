@@ -247,7 +247,7 @@
       <div>
         <p class="text-xs uppercase tracking-widest text-amber-400 font-semibold mb-1.5">Monuments & Heritage</p>
         <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight apple-headline text-[#f5f5f7]">
-          Archaeological Sites of Classical Greece &amp; Athens (1)
+          Archaeological Sites of Classical Greece &amp; Athens (4)
         </h2>
       </div>
     </div>
@@ -257,13 +257,67 @@
       <a href="/sites/parthenon-athens" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
         <div>
           <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.06] text-amber-300 block w-fit mb-2">
-            Doric Temple
+            classical_temple
           </span>
           <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-white transition-colors mb-2">
             Parthenon on the Acropolis
           </h3>
           <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light mb-4">
-            Former temple on the Athenian Acropolis dedicated to the goddess Athena, regarded as the enduring zenith of Classical Greek Doric architecture.
+            The quintessential Doric marble temple of Athena, an official New 7 Wonders Top Global Finalist.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Inspect Monument</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+      <a href="/sites/statue-of-zeus-olympia" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.06] text-amber-300 block w-fit mb-2">
+            temple_statue
+          </span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-white transition-colors mb-2">
+            Statue of Zeus at Olympia
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light mb-4">
+            Colossal 12.4-meter chryselephantine statue of the king of Greek gods, an Ancient World Wonder.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Inspect Monument</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+      <a href="/sites/temple-of-artemis-ephesus" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.06] text-amber-300 block w-fit mb-2">
+            temple
+          </span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-white transition-colors mb-2">
+            Temple of Artemis at Ephesus
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light mb-4">
+            Colossal marble sanctuary with 127 ionic columns, one of the Seven Wonders of the Ancient World.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Inspect Monument</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+      <a href="/sites/colossus-of-rhodes" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.06] text-amber-300 block w-fit mb-2">
+            colossal_statue
+          </span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-white transition-colors mb-2">
+            Colossus of Rhodes
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light mb-4">
+            Gigantic 33-meter bronze titan dedicated to the sun god Helios, an Ancient World Wonder.
           </p>
         </div>
         <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
@@ -387,7 +441,14 @@
         countries.forEach(c => searchIndex.push({ type: 'countries', title: c.name, sub: 'Civilization (' + c.code + ')', desc: c.description, url: '/countries/' + c.slug, icon: '🌍' }));
         kingdoms.forEach(k => searchIndex.push({ type: 'kingdoms', title: k.title, sub: k.country + ' • ' + k.reign, desc: k.description, url: '/kingdoms/' + k.slug, icon: '🏰' }));
         kings.forEach(k => searchIndex.push({ type: 'kings', title: k.title, sub: k.kingdom + ' • ' + k.reign, desc: k.biography, url: '/kings/' + k.slug, icon: '👑' }));
-        sites.forEach(s => searchIndex.push({ type: 'sites', title: s.name, sub: s.type + ' • ' + s.kingdom, desc: s.description, url: '/sites/' + s.id, icon: '📍' }));
+        sites.forEach(s => searchIndex.push({ 
+          type: 'sites', 
+          title: s.name, 
+          sub: (s.isWorldWonder ? '🏆 ' + s.wonderCategory + ' • ' : '') + (s.type || 'Monument') + ' • ' + (s.kingdom || ''), 
+          desc: (s.description || '') + ' ' + (s.wonderHistoricalContext || ''), 
+          url: '/sites/' + s.id, 
+          icon: s.isWorldWonder ? '🏆' : '📍' 
+        }));
       });
 
       function openSpotlight() {

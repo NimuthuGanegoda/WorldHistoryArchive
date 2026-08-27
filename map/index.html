@@ -231,16 +231,19 @@
 
       
       <div id="map-chips-bar" class="flex items-center gap-1.5 overflow-x-auto pb-1 pointer-events-auto bg-black/60 backdrop-blur-xl px-3 py-1.5 rounded-full border border-white/[0.08] shadow-2xl">
-        <button class="map-chip px-3 py-1 text-xs font-semibold rounded-full bg-white text-black apple-pill-btn shadow-md" data-slug="all">All Sites (56)</button>
+        <button class="map-chip px-3 py-1 text-xs font-semibold rounded-full bg-white text-black apple-pill-btn shadow-md" data-slug="all">All Sites (63)</button>
+        <button class="map-chip px-3 py-1 text-xs font-bold rounded-full bg-amber-400 text-black shadow-md flex items-center gap-1 hover:bg-amber-300 transition-all" data-slug="wonders">🏆 World Wonders (16)</button>
         <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="sri-lanka">🇱🇰 Sri Lanka</button>
-        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="japan">🇯🇵 Japan</button>
-        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="rome">🇮🇹 Rome</button>
         <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="ancient-egypt">🇪🇬 Egypt</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="rome">🇮🇹 Rome</button>
         <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="china">🇨🇳 China</button>
-        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="persia">🇮🇷 Persia</button>
-        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="ancient-greece">🇬🇷 Greece</button>
         <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="india">🇮🇳 India</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="ancient-greece">🇬🇷 Greece</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="persia">🇮🇷 Persia</button>
         <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="mesoamerica">🇲🇽 Maya</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="inca">🇵🇪 Inca</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="japan">🇯🇵 Japan</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="britain">🇬🇧 Britain</button>
       </div>
     </div>
 
@@ -258,13 +261,23 @@
     </div>
 
     
-    <div id="place-drawer" class="absolute top-20 left-6 z-30 w-80 max-w-[calc(100vw-3rem)] bg-[#121216]/95 backdrop-blur-3xl border border-white/[0.14] rounded-3xl p-6 shadow-2xl hidden transform transition-all duration-300">
+    <div id="place-drawer" class="absolute top-20 left-6 z-30 w-84 max-w-[calc(100vw-3rem)] bg-[#121216]/95 backdrop-blur-3xl border border-white/[0.14] rounded-3xl p-6 shadow-2xl hidden transform transition-all duration-300 max-h-[580px] overflow-y-auto">
       <div class="flex items-start justify-between gap-3 mb-3">
         <span id="drawer-badge" class="px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full bg-amber-400/15 text-amber-300 border border-amber-400/25">Monument</span>
         <button id="drawer-close" class="text-[#86868b] hover:text-white text-sm font-bold p-1">&times;</button>
       </div>
       <h3 id="drawer-title" class="text-lg font-bold text-white mb-1 leading-snug"></h3>
       <p id="drawer-sub" class="text-xs text-[#86868b] mb-3"></p>
+
+      
+      <div id="drawer-wonder-box" class="p-3.5 rounded-2xl bg-amber-400/10 border border-amber-400/30 mb-3 hidden">
+        <div class="flex items-center gap-1.5 text-xs font-bold text-amber-300 mb-1">
+          <span>🏆</span> <span id="drawer-wonder-cat">World Wonder</span>
+        </div>
+        <p id="drawer-wonder-year" class="text-[11px] text-[#d1d5db] font-medium mb-0.5"></p>
+        <p id="drawer-wonder-status" class="text-[10px] text-amber-200/80 font-light"></p>
+      </div>
+
       <p id="drawer-desc" class="text-xs text-[#d1d5db] font-light leading-relaxed mb-4 line-clamp-4"></p>
       
       <div class="p-2.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-[11px] text-[#86868b] mb-4">
@@ -670,6 +683,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const drawerCoords = document.getElementById('drawer-coords');
     const drawerLink = document.getElementById('drawer-link');
     const drawerClose = document.getElementById('drawer-close');
+    const drawerWonderBox = document.getElementById('drawer-wonder-box');
+    const drawerWonderCat = document.getElementById('drawer-wonder-cat');
+    const drawerWonderYear = document.getElementById('drawer-wonder-year');
+    const drawerWonderStatus = document.getElementById('drawer-wonder-status');
 
     drawerClose.addEventListener('click', () => drawer.classList.add('hidden'));
 
@@ -682,11 +699,14 @@ document.addEventListener('DOMContentLoaded', () => {
         allSites = sites;
         sites.forEach(site => {
           if (site.coordinates && site.coordinates.lat && site.coordinates.lng) {
+            const isWonder = site.isWorldWonder;
             const customIcon = L.divIcon({
               className: 'custom-map-pin',
-              html: `<div style="background:#f59e0b; width:16px; height:16px; border-radius:50%; border:2.5px solid #000000; box-shadow:0 0 16px rgba(245,158,11,1); cursor:pointer;"></div>`,
-              iconSize: [16, 16],
-              iconAnchor: [8, 8]
+              html: isWonder
+                ? `<div style="background:linear-gradient(135deg, #f59e0b, #d97706); width:22px; height:22px; border-radius:50%; border:2px solid #ffffff; box-shadow:0 0 20px rgba(245,158,11,1); display:flex; align-items:center; justify-content:center; font-size:11px; cursor:pointer;">🏆</div>`
+                : `<div style="background:#f59e0b; width:15px; height:15px; border-radius:50%; border:2px solid #000000; box-shadow:0 0 14px rgba(245,158,11,0.8); cursor:pointer;"></div>`,
+              iconSize: isWonder ? [22, 22] : [15, 15],
+              iconAnchor: isWonder ? [11, 11] : [7.5, 7.5]
             });
 
             const marker = L.marker([site.coordinates.lat, site.coordinates.lng], { icon: customIcon }).addTo(map);
@@ -694,12 +714,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             marker.on('click', () => {
               drawer.classList.remove('hidden');
-              drawerBadge.textContent = site.type || 'Monument';
+              drawerBadge.textContent = isWonder ? '🏆 WORLD WONDER' : (site.type || 'Monument');
+              drawerBadge.className = isWonder 
+                ? 'px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider rounded-full bg-amber-400 text-black shadow-md'
+                : 'px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full bg-amber-400/15 text-amber-300 border border-amber-400/25';
+              
               drawerTitle.textContent = site.name;
               drawerSub.textContent = (site.kingdom || '') + ' • ' + (site.country || '');
               drawerDesc.textContent = site.description || site.history || 'Ancient archaeological monument.';
               drawerCoords.textContent = `${site.coordinates.lat.toFixed(4)}° N, ${site.coordinates.lng.toFixed(4)}° E`;
               drawerLink.href = (window.WHA_BASE || '') + '/sites/' + site.id;
+
+              if (isWonder) {
+                drawerWonderBox.classList.remove('hidden');
+                drawerWonderCat.textContent = site.wonderCategory || 'World Wonder';
+                drawerWonderYear.textContent = '📅 Designated: ' + (site.wonderDesignationYear || 'Ancient Canon');
+                drawerWonderStatus.textContent = '🏛️ Status: ' + (site.wonderStatus || 'Standing') + (site.wonderReplacedYear ? ' • ' + site.wonderReplacedYear : '');
+              } else {
+                drawerWonderBox.classList.add('hidden');
+              }
 
               map.flyTo([site.coordinates.lat, site.coordinates.lng], Math.max(map.getZoom(), 8), { duration: 1.2 });
             });
@@ -722,6 +755,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (slug === 'all') {
           allMarkers.forEach(m => m.marker.addTo(map));
           map.flyTo([20, 40], 3, { duration: 1.2 });
+        } else if (slug === 'wonders') {
+          let visibleLatLngs = [];
+          allMarkers.forEach(m => {
+            if (m.site.isWorldWonder) {
+              m.marker.addTo(map);
+              visibleLatLngs.push([m.site.coordinates.lat, m.site.coordinates.lng]);
+            } else {
+              map.removeLayer(m.marker);
+            }
+          });
+          if (visibleLatLngs.length > 0) {
+            const bounds = L.latLngBounds(visibleLatLngs);
+            map.flyToBounds(bounds, { padding: [60, 60], maxZoom: 5, duration: 1.5 });
+          }
         } else {
           let visibleLatLngs = [];
           allMarkers.forEach(m => {
@@ -746,7 +793,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.trim().toLowerCase();
       allMarkers.forEach(m => {
-        const matches = m.site.name.toLowerCase().includes(q) || (m.site.country && m.site.country.toLowerCase().includes(q)) || (m.site.kingdom && m.site.kingdom.toLowerCase().includes(q));
+        const matches = m.site.name.toLowerCase().includes(q) || (m.site.country && m.site.country.toLowerCase().includes(q)) || (m.site.kingdom && m.site.kingdom.toLowerCase().includes(q)) || (m.site.wonderCategory && m.site.wonderCategory.toLowerCase().includes(q));
         if (matches) {
           m.marker.addTo(map);
         } else {
@@ -868,7 +915,14 @@ document.addEventListener('DOMContentLoaded', () => {
         countries.forEach(c => searchIndex.push({ type: 'countries', title: c.name, sub: 'Civilization (' + c.code + ')', desc: c.description, url: '/countries/' + c.slug, icon: '🌍' }));
         kingdoms.forEach(k => searchIndex.push({ type: 'kingdoms', title: k.title, sub: k.country + ' • ' + k.reign, desc: k.description, url: '/kingdoms/' + k.slug, icon: '🏰' }));
         kings.forEach(k => searchIndex.push({ type: 'kings', title: k.title, sub: k.kingdom + ' • ' + k.reign, desc: k.biography, url: '/kings/' + k.slug, icon: '👑' }));
-        sites.forEach(s => searchIndex.push({ type: 'sites', title: s.name, sub: s.type + ' • ' + s.kingdom, desc: s.description, url: '/sites/' + s.id, icon: '📍' }));
+        sites.forEach(s => searchIndex.push({ 
+          type: 'sites', 
+          title: s.name, 
+          sub: (s.isWorldWonder ? '🏆 ' + s.wonderCategory + ' • ' : '') + (s.type || 'Monument') + ' • ' + (s.kingdom || ''), 
+          desc: (s.description || '') + ' ' + (s.wonderHistoricalContext || ''), 
+          url: '/sites/' + s.id, 
+          icon: s.isWorldWonder ? '🏆' : '📍' 
+        }));
       });
 
       function openSpotlight() {

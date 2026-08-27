@@ -260,13 +260,13 @@
       <a href="/sites/chichen-itza" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
         <div>
           <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.06] text-amber-300 block w-fit mb-2">
-            Step Pyramid &amp; Temple
+            stepped_pyramid
           </span>
           <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-white transition-colors mb-2">
             Chichen Itza (El Castillo)
           </h3>
           <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light mb-4">
-            Famous Maya-Toltec ceremonial city centered around the Temple of Kukulcan step pyramid, engineered with equinox shadow serpents.
+            Astronomically aligned stepped pyramid of Kukulcan in Yucatán, an official New 7 Wonder of the World.
           </p>
         </div>
         <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
@@ -390,7 +390,14 @@
         countries.forEach(c => searchIndex.push({ type: 'countries', title: c.name, sub: 'Civilization (' + c.code + ')', desc: c.description, url: '/countries/' + c.slug, icon: '🌍' }));
         kingdoms.forEach(k => searchIndex.push({ type: 'kingdoms', title: k.title, sub: k.country + ' • ' + k.reign, desc: k.description, url: '/kingdoms/' + k.slug, icon: '🏰' }));
         kings.forEach(k => searchIndex.push({ type: 'kings', title: k.title, sub: k.kingdom + ' • ' + k.reign, desc: k.biography, url: '/kings/' + k.slug, icon: '👑' }));
-        sites.forEach(s => searchIndex.push({ type: 'sites', title: s.name, sub: s.type + ' • ' + s.kingdom, desc: s.description, url: '/sites/' + s.id, icon: '📍' }));
+        sites.forEach(s => searchIndex.push({ 
+          type: 'sites', 
+          title: s.name, 
+          sub: (s.isWorldWonder ? '🏆 ' + s.wonderCategory + ' • ' : '') + (s.type || 'Monument') + ' • ' + (s.kingdom || ''), 
+          desc: (s.description || '') + ' ' + (s.wonderHistoricalContext || ''), 
+          url: '/sites/' + s.id, 
+          icon: s.isWorldWonder ? '🏆' : '📍' 
+        }));
       });
 
       function openSpotlight() {

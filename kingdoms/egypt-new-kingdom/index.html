@@ -437,7 +437,14 @@
         countries.forEach(c => searchIndex.push({ type: 'countries', title: c.name, sub: 'Civilization (' + c.code + ')', desc: c.description, url: '/countries/' + c.slug, icon: '🌍' }));
         kingdoms.forEach(k => searchIndex.push({ type: 'kingdoms', title: k.title, sub: k.country + ' • ' + k.reign, desc: k.description, url: '/kingdoms/' + k.slug, icon: '🏰' }));
         kings.forEach(k => searchIndex.push({ type: 'kings', title: k.title, sub: k.kingdom + ' • ' + k.reign, desc: k.biography, url: '/kings/' + k.slug, icon: '👑' }));
-        sites.forEach(s => searchIndex.push({ type: 'sites', title: s.name, sub: s.type + ' • ' + s.kingdom, desc: s.description, url: '/sites/' + s.id, icon: '📍' }));
+        sites.forEach(s => searchIndex.push({ 
+          type: 'sites', 
+          title: s.name, 
+          sub: (s.isWorldWonder ? '🏆 ' + s.wonderCategory + ' • ' : '') + (s.type || 'Monument') + ' • ' + (s.kingdom || ''), 
+          desc: (s.description || '') + ' ' + (s.wonderHistoricalContext || ''), 
+          url: '/sites/' + s.id, 
+          icon: s.isWorldWonder ? '🏆' : '📍' 
+        }));
       });
 
       function openSpotlight() {

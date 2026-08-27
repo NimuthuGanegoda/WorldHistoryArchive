@@ -195,6 +195,9 @@
 
     
     
+
+    
+    
     <div class="mt-8 pt-6 border-t border-white/[0.06]">
       <h2 class="text-lg font-bold apple-headline text-[#f5f5f7] mb-2">📜 History & Lore</h2>
       <p class="text-[#86868b] leading-relaxed font-light text-sm">Commissioned by the hero-king Dutugemunu to enshrine sacred relics, Ruwanwelisaya (The Great Stupa) was his magnum opus. The Mahavamsa records that the king fell ill and passed away just before its completion; his brother Saddha Tissa covered the unfinished dome with white cloth to show the dying king what it would look like.</p>
@@ -346,7 +349,14 @@
         countries.forEach(c => searchIndex.push({ type: 'countries', title: c.name, sub: 'Civilization (' + c.code + ')', desc: c.description, url: '/countries/' + c.slug, icon: '🌍' }));
         kingdoms.forEach(k => searchIndex.push({ type: 'kingdoms', title: k.title, sub: k.country + ' • ' + k.reign, desc: k.description, url: '/kingdoms/' + k.slug, icon: '🏰' }));
         kings.forEach(k => searchIndex.push({ type: 'kings', title: k.title, sub: k.kingdom + ' • ' + k.reign, desc: k.biography, url: '/kings/' + k.slug, icon: '👑' }));
-        sites.forEach(s => searchIndex.push({ type: 'sites', title: s.name, sub: s.type + ' • ' + s.kingdom, desc: s.description, url: '/sites/' + s.id, icon: '📍' }));
+        sites.forEach(s => searchIndex.push({ 
+          type: 'sites', 
+          title: s.name, 
+          sub: (s.isWorldWonder ? '🏆 ' + s.wonderCategory + ' • ' : '') + (s.type || 'Monument') + ' • ' + (s.kingdom || ''), 
+          desc: (s.description || '') + ' ' + (s.wonderHistoricalContext || ''), 
+          url: '/sites/' + s.id, 
+          icon: s.isWorldWonder ? '🏆' : '📍' 
+        }));
       });
 
       function openSpotlight() {
