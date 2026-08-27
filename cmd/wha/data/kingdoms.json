@@ -313,18 +313,10 @@
     "title": "Ming Dynasty",
     "reign": "1368\u20131644 CE",
     "country": "China",
-    "biography": "The Ming dynasty was the ruling dynasty of China from 1368 to 1644 following the collapse of the Mongol-led Yuan dynasty. It was the last imperial dynasty of China ruled by Han Chinese.",
-    "sections": [
-      {
-        "heading": "Connection to Sri Lanka",
-        "content": [
-          "The Ming admiral Zheng He visited Sri Lanka multiple times during his treasure voyages in the 15th century.",
-          "The Galle Trilingual Inscription, erected by Zheng He, is a testament to the diplomatic and trade ties between the Ming court and the Kotte Kingdom."
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "countrySlug": "sri-lanka"
+    "countrySlug": "china",
+    "capital": "Nanjing / Beijing",
+    "startYear": 1368,
+    "description": "Native restoration following Mongol rule, celebrated for construction of the Forbidden City, porcelain art, and Zheng He's treasure fleet voyages to Sri Lanka and Africa."
   },
   {
     "slug": "asuka-nara",
@@ -659,5 +651,125 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "qin-dynasty",
+    "title": "Qin Dynasty",
+    "reign": "221\u2013206 BCE",
+    "country": "China",
+    "countrySlug": "china",
+    "capital": "Xianyang",
+    "startYear": -221,
+    "description": "First imperial dynasty to unify all Warring States of China under Qin Shi Huang, standardizing currency, weights, writing, and initiating the Great Wall."
+  },
+  {
+    "slug": "han-dynasty",
+    "title": "Han Dynasty",
+    "reign": "202 BCE \u2013 220 CE",
+    "country": "China",
+    "countrySlug": "china",
+    "capital": "Chang'an / Luoyang",
+    "startYear": -202,
+    "description": "Golden age of Chinese civilization, establishing the Silk Road trade route, state Confucianism, and groundbreaking inventions like paper."
+  },
+  {
+    "slug": "tang-dynasty",
+    "title": "Tang Dynasty",
+    "reign": "618\u2013907 CE",
+    "country": "China",
+    "countrySlug": "china",
+    "capital": "Chang'an",
+    "startYear": 618,
+    "description": "Cosmopolitan golden era of poetry (Li Bai, Du Fu), woodblock printing, Buddhist pilgrimages, and economic dominance."
+  },
+  {
+    "slug": "babylonian-empire",
+    "title": "Old & Neo-Babylonian Empires",
+    "reign": "1894\u2013539 BCE",
+    "country": "Mesopotamia & Iraq",
+    "countrySlug": "mesopotamia",
+    "capital": "Babylon",
+    "startYear": -1894,
+    "description": "Ancient Mesopotamian realm famous for the Code of Hammurabi, the Ishtar Gate, and the legendary Hanging Gardens of Babylon."
+  },
+  {
+    "slug": "assyrian-empire",
+    "title": "Neo-Assyrian Empire",
+    "reign": "911\u2013609 BCE",
+    "country": "Mesopotamia & Iraq",
+    "countrySlug": "mesopotamia",
+    "capital": "Nineveh / Assur",
+    "startYear": -911,
+    "description": "Iron Age military titan pioneering siege engines, iron armaments, and King Ashurbanipal's immense royal cuneiform library."
+  },
+  {
+    "slug": "maya-civilization",
+    "title": "Classic Maya Era",
+    "reign": "250\u2013900 CE",
+    "country": "Mesoamerica & Maya",
+    "countrySlug": "mesoamerica",
+    "capital": "Tikal / Palenque / Calakmul",
+    "startYear": 250,
+    "description": "Zenith of Maya city-states with advanced hieroglyphic writing, mathematical zero calculations, complex calendars, and towering forest pyramids."
+  },
+  {
+    "slug": "aztec-empire",
+    "title": "Aztec (Mexica) Empire",
+    "reign": "1428\u20131521 CE",
+    "country": "Mesoamerica & Maya",
+    "countrySlug": "mesoamerica",
+    "capital": "Tenochtitlan",
+    "startYear": 1428,
+    "description": "Triple Alliance empire built upon Lake Texcoco with chinampa floating agriculture, monumental stone temples, and elite eagle/jaguar warrior orders."
+  },
+  {
+    "slug": "inca-empire",
+    "title": "Inca Empire (Tawantinsuyu)",
+    "reign": "1438\u20131533 CE",
+    "country": "Inca & Andes",
+    "countrySlug": "inca",
+    "capital": "Cusco",
+    "startYear": 1438,
+    "description": "Largest pre-Columbian empire in the Americas, weaving thousands of miles of paved mountain roads across South America."
+  },
+  {
+    "slug": "tudor-era",
+    "title": "Tudor & Elizabethan England",
+    "reign": "1485\u20131603 CE",
+    "country": "Great Britain",
+    "countrySlug": "britain",
+    "capital": "London",
+    "startYear": 1485,
+    "description": "Transformation of England through the Renaissance, maritime naval power under Elizabeth I, and Shakespearean literature."
+  },
+  {
+    "slug": "carolingian-empire",
+    "title": "Carolingian & Frankish Empire",
+    "reign": "751\u2013888 CE",
+    "country": "France & Gaul",
+    "countrySlug": "france",
+    "capital": "Aachen / Paris",
+    "startYear": 751,
+    "description": "Reunification of Western Europe under Charlemagne, initiating the Carolingian Renaissance in arts, Latin script, and scholarship."
+  },
+  {
+    "slug": "aksumite-empire",
+    "title": "Kingdom of Aksum",
+    "reign": "100\u2013940 CE",
+    "country": "Kingdom of Aksum & Ethiopia",
+    "countrySlug": "ethiopia",
+    "capital": "Aksum",
+    "startYear": 100,
+    "description": "Major maritime commercial power linking the Roman Empire and ancient India, minting its own currency and erecting giant monolithic stelae."
+  },
+  {
+    "slug": "mali-empire",
+    "title": "Mali Empire",
+    "reign": "1235\u20131670 CE",
+    "country": "Mali & West Africa",
+    "countrySlug": "mali",
+    "capital": "Niani",
+    "startYear": 1235,
+    "description": "Wealthy West African empire established by Sundiata Keita, reaching global acclaim during Mansa Musa's historic 1324 pilgrimage to Mecca."
   }
 ]

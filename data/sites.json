@@ -918,5 +918,215 @@
       "lat": 29.9357,
       "lng": 52.8914
     }
+  },
+  {
+    "id": "terracotta-army",
+    "name": "Terracotta Army of Qin Shi Huang",
+    "kingdom": "qin-dynasty",
+    "kingdomSlug": "qin-dynasty",
+    "country": "China",
+    "countrySlug": "china",
+    "type": "Mausoleum / Sculptures",
+    "constructed": "246\u2013208 BCE",
+    "description": "Colossal underground army of over 8,000 life-sized terracotta soldiers, chariots, and horses buried to protect China's first emperor in the afterlife.",
+    "coordinates": {
+      "lat": 34.3841,
+      "lng": 109.2785
+    }
+  },
+  {
+    "id": "great-wall-china",
+    "name": "The Great Wall of China",
+    "kingdom": "ming-dynasty",
+    "kingdomSlug": "ming-dynasty",
+    "country": "China",
+    "countrySlug": "china",
+    "type": "Defensive Fortification",
+    "constructed": "7th Century BCE \u2013 17th Century CE",
+    "description": "Vast series of stone and rammed-earth fortifications stretching thousands of kilometers across northern China, featuring watchtowers and garrisons.",
+    "coordinates": {
+      "lat": 40.4319,
+      "lng": 116.5704
+    }
+  },
+  {
+    "id": "forbidden-city",
+    "name": "The Forbidden City",
+    "kingdom": "ming-dynasty",
+    "kingdomSlug": "ming-dynasty",
+    "country": "China",
+    "countrySlug": "china",
+    "type": "Imperial Palace",
+    "constructed": "1406\u20131420 CE",
+    "description": "Imperial palace complex in the heart of Beijing housing 24 emperors across the Ming and Qing dynasties with 980 surviving wooden palace buildings.",
+    "coordinates": {
+      "lat": 39.9163,
+      "lng": 116.3972
+    }
+  },
+  {
+    "id": "ziggurat-of-ur",
+    "name": "Great Ziggurat of Ur",
+    "kingdom": "babylonian-empire",
+    "kingdomSlug": "babylonian-empire",
+    "country": "Mesopotamia & Iraq",
+    "countrySlug": "mesopotamia",
+    "type": "Ziggurat / Temple",
+    "constructed": "c. 21st Century BCE",
+    "description": "Massive stepped mud-brick pyramid temple dedicated to the moon god Nanna, built during the Neo-Sumerian revival.",
+    "coordinates": {
+      "lat": 30.9628,
+      "lng": 46.1031
+    }
+  },
+  {
+    "id": "ishtar-gate-babylon",
+    "name": "Ishtar Gate & Ruins of Babylon",
+    "kingdom": "babylonian-empire",
+    "kingdomSlug": "babylonian-empire",
+    "country": "Mesopotamia & Iraq",
+    "countrySlug": "mesopotamia",
+    "type": "City Gate / Monument",
+    "constructed": "c. 575 BCE",
+    "description": "The eighth inner gate of Babylon adorned with vibrant blue glazed bricks and bas-relief dragons (Mu\u0161\u1e2bu\u0161\u0161u) and young bulls.",
+    "coordinates": {
+      "lat": 32.5422,
+      "lng": 44.421
+    }
+  },
+  {
+    "id": "teotihuacan-pyramids",
+    "name": "Pyramids of Teotihuacan",
+    "kingdom": "maya-civilization",
+    "kingdomSlug": "maya-civilization",
+    "country": "Mesoamerica & Maya",
+    "countrySlug": "mesoamerica",
+    "type": "Ancient City & Pyramids",
+    "constructed": "100 BCE \u2013 250 CE",
+    "description": "Ancient holy city featuring the monumental Pyramid of the Sun, Pyramid of the Moon, and the Avenue of the Dead.",
+    "coordinates": {
+      "lat": 19.6925,
+      "lng": -98.8437
+    }
+  },
+  {
+    "id": "chichen-itza",
+    "name": "Chichen Itza (El Castillo)",
+    "kingdom": "maya-civilization",
+    "kingdomSlug": "maya-civilization",
+    "country": "Mesoamerica & Maya",
+    "countrySlug": "mesoamerica",
+    "type": "Step Pyramid & Temple",
+    "constructed": "c. 600\u2013900 CE",
+    "description": "Famous Maya-Toltec ceremonial city centered around the Temple of Kukulcan step pyramid, engineered with equinox shadow serpents.",
+    "coordinates": {
+      "lat": 20.6843,
+      "lng": -88.5678
+    }
+  },
+  {
+    "id": "machu-picchu",
+    "name": "Machu Picchu (Lost City of the Incas)",
+    "kingdom": "inca-empire",
+    "kingdomSlug": "inca-empire",
+    "country": "Inca & Andes",
+    "countrySlug": "inca",
+    "type": "Mountain Sanctuary",
+    "constructed": "c. 1450 CE",
+    "description": "15th-century Inca citadel perched on a mountain ridge above the Sacred Valley, showcasing polished dry-stone ashlar masonry.",
+    "coordinates": {
+      "lat": -13.1631,
+      "lng": -72.545
+    }
+  },
+  {
+    "id": "sacsayhuaman",
+    "name": "Sacsayhuam\u00e1n Fortress",
+    "kingdom": "inca-empire",
+    "kingdomSlug": "inca-empire",
+    "country": "Inca & Andes",
+    "countrySlug": "inca",
+    "type": "Megalithic Fortress",
+    "constructed": "c. 15th Century CE",
+    "description": "Inca fortress on the northern outskirts of Cusco with colossal zig-zag limestone walls fitted so tightly that not even a sheet of paper can pass between them.",
+    "coordinates": {
+      "lat": -13.5081,
+      "lng": -71.9818
+    }
+  },
+  {
+    "id": "stonehenge",
+    "name": "Stonehenge Megalithic Monument",
+    "kingdom": "tudor-era",
+    "kingdomSlug": "tudor-era",
+    "country": "Great Britain",
+    "countrySlug": "britain",
+    "type": "Prehistoric Monument",
+    "constructed": "c. 3000\u20132000 BCE",
+    "description": "Prehistoric stone circle monument on Salisbury Plain, aligned with the sunrise on the summer solstice and sunset on the winter solstice.",
+    "coordinates": {
+      "lat": 51.1789,
+      "lng": -1.8262
+    }
+  },
+  {
+    "id": "tower-of-london",
+    "name": "Tower of London (Her Majesty's Royal Palace and Fortress)",
+    "kingdom": "tudor-era",
+    "kingdomSlug": "tudor-era",
+    "country": "Great Britain",
+    "countrySlug": "britain",
+    "type": "Royal Castle & Fortress",
+    "constructed": "1078 CE",
+    "description": "Historic castle founded towards the end of 1066 as part of the Norman Conquest of England, housing the Crown Jewels.",
+    "coordinates": {
+      "lat": 51.5081,
+      "lng": -0.0759
+    }
+  },
+  {
+    "id": "palace-of-versailles",
+    "name": "Palace of Versailles",
+    "kingdom": "carolingian-empire",
+    "kingdomSlug": "carolingian-empire",
+    "country": "France & Gaul",
+    "countrySlug": "france",
+    "type": "Royal Palace",
+    "constructed": "1661\u20131715 CE",
+    "description": "Principal royal residence of France under Louis XIV, featuring the legendary Hall of Mirrors, Grand Canal, and Baroque garden architecture.",
+    "coordinates": {
+      "lat": 48.8049,
+      "lng": 2.1204
+    }
+  },
+  {
+    "id": "lalibela-churches",
+    "name": "Rock-Hewn Churches of Lalibela",
+    "kingdom": "aksumite-empire",
+    "kingdomSlug": "aksumite-empire",
+    "country": "Kingdom of Aksum & Ethiopia",
+    "countrySlug": "ethiopia",
+    "type": "Monolithic Rock Churches",
+    "constructed": "12th\u201313th Century CE",
+    "description": "Eleven medieval monolithic cave churches carved directly downward out of volcanic rock, including the cruciform Church of Saint George (Biete Ghiorgis).",
+    "coordinates": {
+      "lat": 12.0319,
+      "lng": 39.0414
+    }
+  },
+  {
+    "id": "djenne-mosque",
+    "name": "Great Mosque of Djenn\u00e9",
+    "kingdom": "mali-empire",
+    "kingdomSlug": "mali-empire",
+    "country": "Mali & West Africa",
+    "countrySlug": "mali",
+    "type": "Adobe / Sudano-Sahelian Mosque",
+    "constructed": "13th Century CE",
+    "description": "The largest sun-baked earth (adobe) building in the world, considered by many architects to be the crowning achievement of the Sudano-Sahelian style.",
+    "coordinates": {
+      "lat": 13.9054,
+      "lng": -4.5552
+    }
   }
 ]

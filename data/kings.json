@@ -3999,5 +3999,181 @@
     "countrySlug": "persia",
     "startYear": -522,
     "biography": "Third Persian King of Kings who organized the empire into satrapies, established the Royal Road, introduced Daric gold coinage, and built the imperial capital of Persepolis."
+  },
+  {
+    "slug": "qin-shi-huang",
+    "title": "Qin Shi Huang (First Emperor of China)",
+    "reign": "221\u2013210 BCE",
+    "kingdom": "qin-dynasty",
+    "kingdomSlug": "qin-dynasty",
+    "country": "China",
+    "countrySlug": "china",
+    "startYear": -221,
+    "biography": "The first emperor of unified China who conquered all six rival Warring States, established Legalist centralized bureaucracy, initiated the Great Wall, and was buried with the Terracotta Army."
+  },
+  {
+    "slug": "emperor-wu-of-han",
+    "title": "Emperor Wu of Han (Han Wudi)",
+    "reign": "141\u201387 BCE",
+    "kingdom": "han-dynasty",
+    "kingdomSlug": "han-dynasty",
+    "country": "China",
+    "countrySlug": "china",
+    "startYear": -141,
+    "biography": "Seventh emperor of the Han dynasty who expanded China's borders to Central Asia, adopted Confucianism as the state ideology, and dispatched Zhang Qian to open the historic Silk Road."
+  },
+  {
+    "slug": "emperor-taizong-tang",
+    "title": "Emperor Taizong of Tang (Li Shimin)",
+    "reign": "626\u2013649 CE",
+    "kingdom": "tang-dynasty",
+    "kingdomSlug": "tang-dynasty",
+    "country": "China",
+    "countrySlug": "china",
+    "startYear": 626,
+    "biography": "Co-founder and second emperor of the Tang dynasty, universally regarded as one of China's greatest rulers for establishing the 'Reign of Zhenguan', balancing civil administration, and welcoming foreign emissaries."
+  },
+  {
+    "slug": "wu-zetian",
+    "title": "Empress Wu Zetian",
+    "reign": "690\u2013705 CE",
+    "kingdom": "tang-dynasty",
+    "kingdomSlug": "tang-dynasty",
+    "country": "China",
+    "countrySlug": "china",
+    "startYear": 690,
+    "biography": "The sole female emperor in four millennia of Chinese history, who ruled with political acumen, expanded the civil service examination system based on merit, and patronized Buddhist monumental art at Longmen."
+  },
+  {
+    "slug": "yongle-emperor",
+    "title": "Yongle Emperor (Zhu Di)",
+    "reign": "1402\u20131424 CE",
+    "kingdom": "ming-dynasty",
+    "kingdomSlug": "ming-dynasty",
+    "country": "China",
+    "countrySlug": "china",
+    "startYear": 1402,
+    "biography": "Third emperor of the Ming dynasty who commissioned the Forbidden City in Beijing, compiled the monumental Yongle Encyclopedia, and sponsored Admiral Zheng He's seven epic naval expeditions across the Indian Ocean."
+  },
+  {
+    "slug": "hammurabi",
+    "title": "King Hammurabi of Babylon",
+    "reign": "1792\u20131750 BCE",
+    "kingdom": "babylonian-empire",
+    "kingdomSlug": "babylonian-empire",
+    "country": "Mesopotamia & Iraq",
+    "countrySlug": "mesopotamia",
+    "startYear": -1792,
+    "biography": "Sixth king of the First Babylonian Dynasty who unified Mesopotamia and proclaimed the famous Code of Hammurabi, one of the earliest and most complete written legal codes in human history."
+  },
+  {
+    "slug": "nebuchadnezzar-ii",
+    "title": "Nebuchadnezzar II (The Great)",
+    "reign": "605\u2013562 BCE",
+    "kingdom": "babylonian-empire",
+    "kingdomSlug": "babylonian-empire",
+    "country": "Mesopotamia & Iraq",
+    "countrySlug": "mesopotamia",
+    "startYear": -605,
+    "biography": "Longest-reigning and most powerful king of the Neo-Babylonian Empire, credited with constructing the Hanging Gardens of Babylon, the Ishtar Gate, and restoring Babylon to unmatched splendor."
+  },
+  {
+    "slug": "ashurbanipal",
+    "title": "King Ashurbanipal of Assyria",
+    "reign": "669\u2013631 BCE",
+    "kingdom": "assyrian-empire",
+    "kingdomSlug": "assyrian-empire",
+    "country": "Mesopotamia & Iraq",
+    "countrySlug": "mesopotamia",
+    "startYear": -669,
+    "biography": "King of the Neo-Assyrian Empire renowned as both a formidable military commander and a scholar who assembled the famous Library of Ashurbanipal at Nineveh, preserving the Epic of Gilgamesh."
+  },
+  {
+    "slug": "pakal-the-great",
+    "title": "K'inich Janaab Pakal I (Pakal the Great)",
+    "reign": "615\u2013683 CE",
+    "kingdom": "maya-civilization",
+    "kingdomSlug": "maya-civilization",
+    "country": "Mesoamerica & Maya",
+    "countrySlug": "mesoamerica",
+    "startYear": 615,
+    "biography": "Ajaw (king) of the Maya city-state of Palenque for 68 years, commissioning magnificent limestone architecture, including the Temple of the Inscriptions where his jade-masked tomb was discovered."
+  },
+  {
+    "slug": "moctezuma-ii",
+    "title": "Moctezuma II (Xocoyotzin)",
+    "reign": "1502\u20131520 CE",
+    "kingdom": "aztec-empire",
+    "kingdomSlug": "aztec-empire",
+    "country": "Mesoamerica & Maya",
+    "countrySlug": "mesoamerica",
+    "startYear": 1502,
+    "biography": "Ninth Tlatoani (emperor) of Tenochtitlan who expanded the Aztec Empire to its greatest territorial extent before the historic arrival of Spanish conquistadors under Hern\u00e1n Cort\u00e9s."
+  },
+  {
+    "slug": "pachacuti-inca",
+    "title": "Pachacuti Inca Yupanqui",
+    "reign": "1438\u20131471 CE",
+    "kingdom": "inca-empire",
+    "kingdomSlug": "inca-empire",
+    "country": "Inca & Andes",
+    "countrySlug": "inca",
+    "startYear": 1438,
+    "biography": "Ninth Sapa Inca of the Kingdom of Cusco who transformed it into the sprawling Inca Empire (Tawantinsuyu), rebuilt Cusco in stonework, and commissioned the mountain citadel of Machu Picchu."
+  },
+  {
+    "slug": "atahuallpa",
+    "title": "Atahualpa (Last Inca Emperor)",
+    "reign": "1532\u20131533 CE",
+    "kingdom": "inca-empire",
+    "kingdomSlug": "inca-empire",
+    "country": "Inca & Andes",
+    "countrySlug": "inca",
+    "startYear": 1532,
+    "biography": "The last sovereign emperor of the Inca Empire, who won the Inca civil war against his brother Hu\u00e1scar before his fateful encounter with Francisco Pizarro at Cajamarca."
+  },
+  {
+    "slug": "queen-elizabeth-i",
+    "title": "Queen Elizabeth I (The Virgin Queen)",
+    "reign": "1558\u20131603 CE",
+    "kingdom": "tudor-era",
+    "kingdomSlug": "tudor-era",
+    "country": "Great Britain",
+    "countrySlug": "britain",
+    "startYear": 1558,
+    "biography": "Last Tudor monarch of England, leading the nation through a golden age of arts (William Shakespeare), defeating the Spanish Armada in 1588, and establishing English naval and global power."
+  },
+  {
+    "slug": "charlemagne",
+    "title": "Charlemagne (Charles the Great)",
+    "reign": "768\u2013814 CE",
+    "kingdom": "carolingian-empire",
+    "kingdomSlug": "carolingian-empire",
+    "country": "France & Gaul",
+    "countrySlug": "france",
+    "startYear": 768,
+    "biography": "King of the Franks and first Holy Roman Emperor crowned by Pope Leo III on Christmas Day 800, uniting much of Western and Central Europe and spearheading educational and cultural revival."
+  },
+  {
+    "slug": "king-ezana",
+    "title": "King Ezana of Aksum",
+    "reign": "c. 320\u2013360 CE",
+    "kingdom": "aksumite-empire",
+    "kingdomSlug": "aksumite-empire",
+    "country": "Kingdom of Aksum & Ethiopia",
+    "countrySlug": "ethiopia",
+    "startYear": 320,
+    "biography": "King of Aksum who adopted Christianity for the empire around 330 CE, minted gold coins bearing the Christian cross, and expanded trade networks across the Red Sea and Nile valley."
+  },
+  {
+    "slug": "mansa-musa",
+    "title": "Mansa Musa (Musa I of Mali)",
+    "reign": "1312\u20131337 CE",
+    "kingdom": "mali-empire",
+    "kingdomSlug": "mali-empire",
+    "country": "Mali & West Africa",
+    "countrySlug": "mali",
+    "startYear": 1312,
+    "biography": "Tenth Mansa of the Mali Empire, celebrated as one of the wealthiest individuals in human history. His grand 1324 pilgrimage to Mecca distributed so much gold it transformed Mediterranean economies."
   }
 ]

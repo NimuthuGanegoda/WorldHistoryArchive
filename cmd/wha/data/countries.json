@@ -1,5 +1,6 @@
 [
   {
+    "slug": "sri-lanka",
     "name": "Sri Lanka",
     "code": "LK",
     "center": [
@@ -17,70 +18,10 @@
       ]
     ],
     "zoom": 8,
-    "description": "Island nation with ancient kingdoms spanning 2500+ years. Home to Sinhalese and Tamil kingdoms, Buddhist heritage sites, and trade hub status.",
-    "regions": [
-      {
-        "name": "North Central Province",
-        "center": [
-          7.95,
-          80.88
-        ],
-        "major_sites": [
-          "Anuradhapura",
-          "Polonnaruwa",
-          "Sigiriya"
-        ]
-      },
-      {
-        "name": "Southern Province",
-        "center": [
-          6.4,
-          80.85
-        ],
-        "major_sites": [
-          "Ruhuna",
-          "Tissamaharama",
-          "Magama"
-        ]
-      },
-      {
-        "name": "Western Province",
-        "center": [
-          6.9,
-          80.1
-        ],
-        "major_sites": [
-          "Kelaniya",
-          "Kotte",
-          "Colombo"
-        ]
-      },
-      {
-        "name": "Central Province",
-        "center": [
-          7.05,
-          80.75
-        ],
-        "major_sites": [
-          "Gampola",
-          "Dedigama"
-        ]
-      },
-      {
-        "name": "Northern Province",
-        "center": [
-          9.7,
-          80.2
-        ],
-        "major_sites": [
-          "Jaffna",
-          "Mullaitivu"
-        ]
-      }
-    ],
-    "slug": "sri-lanka"
+    "description": "Emerald island civilization with continuous historical chronicles spanning over 2,500 years. Renowned for massive hydraulic reservoir networks, colossal Buddhist stupas, rock fortresses, and sacred relics."
   },
   {
+    "slug": "india",
     "name": "India",
     "code": "IN",
     "center": [
@@ -98,34 +39,10 @@
       ]
     ],
     "zoom": 4,
-    "description": "South Asian subcontinent with diverse kingdoms. Historical home of the Mauryan and Pandyan empires with deep cultural and religious ties to Sri Lanka.",
-    "regions": [
-      {
-        "name": "South India",
-        "center": [
-          13.2,
-          79.9
-        ],
-        "major_sites": [
-          "Madurai",
-          "Thanjavur"
-        ]
-      },
-      {
-        "name": "North India",
-        "center": [
-          28.7,
-          77.1
-        ],
-        "major_sites": [
-          "Pataliputra",
-          "Bodh Gaya"
-        ]
-      }
-    ],
-    "slug": "india"
+    "description": "Subcontinental cradle of profound spiritual philosophies, mathematics (zero and decimal systems), magnificent rock-cut cave temples, grand dynastic empires, and global maritime trade."
   },
   {
+    "slug": "china",
     "name": "China",
     "code": "CN",
     "center": [
@@ -142,22 +59,8 @@
         135.1
       ]
     ],
-    "zoom": 3,
-    "description": "East Asian civilization with long-standing trade and religious connections to Sri Lanka, notably during the Tang and Ming dynasties.",
-    "regions": [
-      {
-        "name": "Central China",
-        "center": [
-          30.5,
-          109.5
-        ],
-        "major_sites": [
-          "Nanjing",
-          "Xi'an"
-        ]
-      }
-    ],
-    "slug": "china"
+    "zoom": 4,
+    "description": "One of humanity's oldest continuous civilizations, originating paper, printing, gunpowder, silk, philosophical Confucianism/Daoism, the Great Wall, and imperial dynasties."
   },
   {
     "slug": "japan",
@@ -178,43 +81,7 @@
       ]
     ],
     "zoom": 5,
-    "description": "Island empire renowned for ancient imperial dynasties, samurai shoganates, Shinto/Buddhist shrines, and cultural preservation.",
-    "regions": [
-      {
-        "name": "Kansai (Kinai)",
-        "center": [
-          34.6937,
-          135.5023
-        ],
-        "major_sites": [
-          "Kyoto",
-          "Nara",
-          "Osaka"
-        ]
-      },
-      {
-        "name": "Kanto",
-        "center": [
-          35.6762,
-          139.6503
-        ],
-        "major_sites": [
-          "Edo / Tokyo",
-          "Kamakura"
-        ]
-      },
-      {
-        "name": "Chubu",
-        "center": [
-          35.1815,
-          136.9066
-        ],
-        "major_sites": [
-          "Nagoya",
-          "Gifu"
-        ]
-      }
-    ]
+    "description": "Island empire of unbroken imperial lineage, legendary samurai military codes, Buddhist Zen sanctuaries, wooden architectural masterpieces, and distinct feudal shogunate eras."
   },
   {
     "slug": "egypt",
@@ -235,33 +102,7 @@
       ]
     ],
     "zoom": 5,
-    "description": "Nile river valley civilization celebrated for monumental pyramids, pharaohs, hieroglyphic literature, and dynastic continuity over three millennia.",
-    "regions": [
-      {
-        "name": "Lower Egypt",
-        "center": [
-          30.0444,
-          31.2357
-        ],
-        "major_sites": [
-          "Memphis",
-          "Giza",
-          "Alexandria"
-        ]
-      },
-      {
-        "name": "Upper Egypt",
-        "center": [
-          25.6872,
-          32.6396
-        ],
-        "major_sites": [
-          "Thebes / Luxor",
-          "Karnak",
-          "Aswan"
-        ]
-      }
-    ]
+    "description": "The gift of the Nile; three millennia of monumental civilization characterized by divine pharaohs, soaring limestone pyramids, intricate hieroglyphs, and timeless golden treasures."
   },
   {
     "slug": "rome",
@@ -282,33 +123,7 @@
       ]
     ],
     "zoom": 5,
-    "description": "Cradle of classical republicanism, imperial jurisprudence, monumental Roman architecture, roads, and Mediterranean hegemony.",
-    "regions": [
-      {
-        "name": "Latium & Central Italy",
-        "center": [
-          41.9028,
-          12.4964
-        ],
-        "major_sites": [
-          "Rome",
-          "Ostia",
-          "Tivoli"
-        ]
-      },
-      {
-        "name": "Campania",
-        "center": [
-          40.8518,
-          14.2681
-        ],
-        "major_sites": [
-          "Pompeii",
-          "Herculaneum",
-          "Capua"
-        ]
-      }
-    ]
+    "description": "The Mediterranean superpower that pioneered republican governance, codified jurisprudence, paved global trade roads, engineered colossal domes, and fostered the Renaissance."
   },
   {
     "slug": "greece",
@@ -329,34 +144,7 @@
       ]
     ],
     "zoom": 6,
-    "description": "Birthplace of Western philosophy, democracy, mathematics, drama, and Hellenistic empires.",
-    "regions": [
-      {
-        "name": "Attica & Peloponnese",
-        "center": [
-          37.9838,
-          23.7275
-        ],
-        "major_sites": [
-          "Athens",
-          "Sparta",
-          "Olympia",
-          "Epidaurus"
-        ]
-      },
-      {
-        "name": "Macedonia & Central",
-        "center": [
-          40.6401,
-          22.9444
-        ],
-        "major_sites": [
-          "Pella",
-          "Delphi",
-          "Vergina"
-        ]
-      }
-    ]
+    "description": "The birthplace of Western democracy, philosophy, theatre, Olympic athletics, and Hellenistic cultural fusion catalyzed by Alexander the Great."
   },
   {
     "slug": "persia",
@@ -377,31 +165,153 @@
       ]
     ],
     "zoom": 5,
-    "description": "Ancient imperial powerhouse originating the Royal Road, human rights cylinders, Zoroastrian heritage, and Persepolis grandeur.",
-    "regions": [
-      {
-        "name": "Fars & Zagros",
-        "center": [
-          29.5918,
-          52.5837
-        ],
-        "major_sites": [
-          "Persepolis",
-          "Pasargadae",
-          "Shiraz"
-        ]
-      },
-      {
-        "name": "Isfahan & Central",
-        "center": [
-          32.6546,
-          51.668
-        ],
-        "major_sites": [
-          "Isfahan",
-          "Naqsh-e Jahan"
-        ]
-      }
-    ]
+    "description": "Mighty Iranian plateau empire that introduced universal human rights charters (Cyrus Cylinder), the Royal Road network, satrapy governance, and Persepolis splendour."
+  },
+  {
+    "slug": "mesopotamia",
+    "name": "Mesopotamia & Iraq",
+    "code": "IQ",
+    "center": [
+      33.2232,
+      43.6793
+    ],
+    "bounds": [
+      [
+        29.0,
+        38.0
+      ],
+      [
+        37.5,
+        49.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "The fertile crescent between the Tigris and Euphrates, where writing (cuneiform), the wheel, astronomy, mathematical base-60 timekeeping, and Hammurabi's legal code were born."
+  },
+  {
+    "slug": "mesoamerica",
+    "name": "Mesoamerica & Maya",
+    "code": "MX",
+    "center": [
+      19.4326,
+      -99.1332
+    ],
+    "bounds": [
+      [
+        14.0,
+        -105.0
+      ],
+      [
+        22.0,
+        -86.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "Indigenous civilizations of Mexico and Central America renowned for astronomical observatories, hieroglyphic codices, step pyramids, and advanced calendrical cycles."
+  },
+  {
+    "slug": "inca",
+    "name": "Inca & Andes",
+    "code": "PE",
+    "center": [
+      -12.0464,
+      -77.0428
+    ],
+    "bounds": [
+      [
+        -18.0,
+        -81.0
+      ],
+      [
+        0.0,
+        -68.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "Highland South American empire spanning the Andes mountains with master masonry without mortar, quipu knotted accounting, and royal sanctuaries like Machu Picchu."
+  },
+  {
+    "slug": "britain",
+    "name": "Great Britain",
+    "code": "GB",
+    "center": [
+      55.3781,
+      -3.436
+    ],
+    "bounds": [
+      [
+        49.8,
+        -8.0
+      ],
+      [
+        59.0,
+        2.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "British Isles chronicle encompassing ancient megaliths (Stonehenge), Anglo-Saxon realms, Norman conquests, Magna Carta jurisprudence, and global maritime expeditions."
+  },
+  {
+    "slug": "france",
+    "name": "France & Gaul",
+    "code": "FR",
+    "center": [
+      46.2276,
+      2.2137
+    ],
+    "bounds": [
+      [
+        41.3,
+        -5.0
+      ],
+      [
+        51.1,
+        9.6
+      ]
+    ],
+    "zoom": 5,
+    "description": "Epicenter of European medieval chivalry, Gothic cathedral engineering, Carolingian empire under Charlemagne, Enlightenment philosophy, and Versailles grandeur."
+  },
+  {
+    "slug": "ethiopia",
+    "name": "Kingdom of Aksum & Ethiopia",
+    "code": "ET",
+    "center": [
+      9.145,
+      40.4897
+    ],
+    "bounds": [
+      [
+        3.0,
+        33.0
+      ],
+      [
+        15.0,
+        48.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "Ancient Horn of Africa trading powerhouse, among the earliest Christian kingdoms in the world, renowned for monolithic stone obelisks and rock-hewn Lalibela churches."
+  },
+  {
+    "slug": "mali",
+    "name": "Mali & West Africa",
+    "code": "ML",
+    "center": [
+      17.5707,
+      -3.9962
+    ],
+    "bounds": [
+      [
+        10.0,
+        -12.0
+      ],
+      [
+        25.0,
+        4.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "Trans-Saharan gold and salt empire, home to legendary scholastic centers at Timbuktu, mud-brick mosque architecture, and emperor Mansa Musa."
   }
 ]
