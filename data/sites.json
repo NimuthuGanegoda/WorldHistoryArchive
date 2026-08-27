@@ -20,7 +20,9 @@
       "lat": 8.35,
       "lng": 80.3964
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "jetavanaramaya",
@@ -43,7 +45,9 @@
       "lat": 8.3514,
       "lng": 80.4036
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "abhayagiri-dagoba",
@@ -66,7 +70,9 @@
       "lat": 8.3708,
       "lng": 80.3956
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "sigiriya-rock-fortress",
@@ -78,7 +84,7 @@
     "builtByKingId": "kashyapa-i",
     "constructed": "477-495 CE",
     "description": "Ancient rock fortress and palace with famous frescoes, UNESCO World Heritage Site.",
-    "history": "According to the Mahavamsa, King Kashyapa I (477–495 CE) selected this site as his new capital after usurping the throne from his father. He built his palace on the top of this massive rock column and decorated its sides with colourful frescoes. On a small plateau about halfway up the side of this rock, he built a gateway in the form of an enormous lion. The name of this place is derived from this structure — Sīhāgiri, the Lion Rock. The capital and the royal palace were abandoned after the king's death in battle, and it was used as a Buddhist monastery until the 14th century.",
+    "history": "According to the Mahavamsa, King Kashyapa I (477\u2013495 CE) selected this site as his new capital after usurping the throne from his father. He built his palace on the top of this massive rock column and decorated its sides with colourful frescoes. On a small plateau about halfway up the side of this rock, he built a gateway in the form of an enormous lion. The name of this place is derived from this structure \u2014 S\u012bh\u0101giri, the Lion Rock. The capital and the royal palace were abandoned after the king's death in battle, and it was used as a Buddhist monastery until the 14th century.",
     "construction": "The fortress complex includes remnants of a ruined palace, surrounded by an extensive network of fortifications, vast gardens, ponds, canals, alleys, and fountains. The summit of the rock is 1.6 hectares in area, housing the royal citadel.",
     "architecture": "Sigiriya is famous for its frescoes, which depict damsels or 'apsaras' in a style similar to the Ajanta Caves. The 'Mirror Wall', originally so well polished that the king could see his reflection in it, is now covered with verses scribbled by visitors dating back to the 8th century. The Water Gardens showcase advanced hydraulic engineering, utilizing a complex system of underground conduits and gravity-fed fountains, some of which are still functional today.",
     "significance": "Recognized as a UNESCO World Heritage Site in 1982, Sigiriya is one of the best-preserved examples of ancient urban planning. It is often referred to by locals as the Eighth Wonder of the World due to its engineering and artistic marvels.",
@@ -89,7 +95,9 @@
       "lat": 7.957,
       "lng": 80.7603
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "sigiriya"
   },
   {
     "id": "sri-maha-bodhi",
@@ -112,7 +120,9 @@
       "lat": 8.3447,
       "lng": 80.3967
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "temple-of-tooth",
@@ -124,7 +134,7 @@
     "builtByKingId": "",
     "constructed": "1687-1707 CE",
     "description": "Temple housing the relic of the tooth of Buddha, UNESCO World Heritage Site.",
-    "history": "The Sacred Tooth Relic (Dalada) was brought to Sri Lanka in the 4th century CE. It became the palladium of kingship—whoever possessed it had the divine right to rule. The current two-story shrine was built by King Sri Veera Parakrama Narendrasinghe (1707-1739), with later additions by the last king, Sri Vikrama Rajasinha (the Octagon).",
+    "history": "The Sacred Tooth Relic (Dalada) was brought to Sri Lanka in the 4th century CE. It became the palladium of kingship\u2014whoever possessed it had the divine right to rule. The current two-story shrine was built by King Sri Veera Parakrama Narendrasinghe (1707-1739), with later additions by the last king, Sri Vikrama Rajasinha (the Octagon).",
     "construction": "The temple complex is located within the royal palace grounds. It is built on a granite base with walls of limestone and timber upper floors.",
     "architecture": "The architecture features typical Kandyan elements: a high-pitched roof, white walls with cloud drift walls (Walakulu Bemma), and the famous Octagon (Paththirippuwa). The interior is richly decorated with ivory, lacquer work, and intricate wood carvings.",
     "significance": "It is the most sacred Buddhist site in Sri Lanka and a UNESCO World Heritage Site. The annual Esala Perahera procession centers around the relic.",
@@ -135,7 +145,9 @@
       "lat": 7.2936,
       "lng": 80.6413
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "kandyan-kingdom"
   },
   {
     "id": "polonnaruwa-vatadage",
@@ -158,7 +170,9 @@
       "lat": 7.9483,
       "lng": 81.0008
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "polonnaruwa"
   },
   {
     "id": "gal-vihara",
@@ -181,7 +195,9 @@
       "lat": 7.9658,
       "lng": 81.0069
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "polonnaruwa"
   },
   {
     "id": "dambulla-cave-temple",
@@ -204,7 +220,9 @@
       "lat": 7.8565,
       "lng": 80.6485
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "lovamahapaya",
@@ -227,7 +245,9 @@
       "lat": 8.3444,
       "lng": 80.3961
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "thuparamaya",
@@ -250,7 +270,9 @@
       "lat": 8.3567,
       "lng": 80.3961
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "isurumuniya",
@@ -273,7 +295,9 @@
       "lat": 8.3331,
       "lng": 80.39
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "mihintale",
@@ -296,7 +320,9 @@
       "lat": 8.3508,
       "lng": 80.5103
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "lankatilaka-temple",
@@ -319,7 +345,9 @@
       "lat": 7.2338,
       "lng": 80.565
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "dambadeniya"
   },
   {
     "id": "embekka-devalaya",
@@ -342,7 +370,9 @@
       "lat": 7.2197,
       "lng": 80.5703
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "gampola-kingdom"
   },
   {
     "id": "gadaladeniya-temple",
@@ -365,7 +395,9 @@
       "lat": 7.2589,
       "lng": 80.5547
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "gampola-kingdom"
   },
   {
     "id": "yapahuwa-rock-fortress",
@@ -388,7 +420,9 @@
       "lat": 7.8286,
       "lng": 80.3075
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "yapahuwa"
   },
   {
     "id": "parakrama-samudra",
@@ -411,7 +445,9 @@
       "lat": 7.9333,
       "lng": 80.9667
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "polonnaruwa"
   },
   {
     "id": "royal-palace-polonnaruwa",
@@ -434,7 +470,9 @@
       "lat": 7.9458,
       "lng": 81.0003
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "polonnaruwa"
   },
   {
     "id": "rankot-vehera",
@@ -457,7 +495,9 @@
       "lat": 7.9567,
       "lng": 81.0039
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "polonnaruwa"
   },
   {
     "id": "kiri-vehera",
@@ -480,7 +520,9 @@
       "lat": 7.9589,
       "lng": 81.0042
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "polonnaruwa"
   },
   {
     "id": "medirigiriya-vatadage",
@@ -503,7 +545,9 @@
       "lat": 8.1389,
       "lng": 80.9922
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "avukana-buddha",
@@ -526,7 +570,9 @@
       "lat": 8.0167,
       "lng": 80.5333
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "ritigala-monastery",
@@ -549,7 +595,9 @@
       "lat": 8.1167,
       "lng": 80.65
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "buduruwagala",
@@ -572,7 +620,9 @@
       "lat": 6.7039,
       "lng": 81.0778
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "ruhuna"
   },
   {
     "id": "nallur-kovil",
@@ -595,7 +645,9 @@
       "lat": 9.6742,
       "lng": 80.0294
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "jaffna"
   },
   {
     "id": "kelaniya-temple",
@@ -618,7 +670,9 @@
       "lat": 6.95,
       "lng": 79.9167
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "kelaniya"
   },
   {
     "id": "lankarama",
@@ -641,7 +695,9 @@
       "lat": 8.3611,
       "lng": 80.3931
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
   },
   {
     "id": "mirisawetiya",
@@ -664,6 +720,203 @@
       "lat": 8.3447,
       "lng": 80.3886
     },
-    "country": "Sri Lanka"
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka",
+    "kingdomSlug": "anuradhapura"
+  },
+  {
+    "id": "todai-ji",
+    "name": "T\u014ddai-ji Temple & Great Buddha",
+    "kingdom": "asuka-nara",
+    "kingdomSlug": "asuka-nara",
+    "country": "Japan",
+    "countrySlug": "japan",
+    "type": "Buddhist Temple",
+    "constructed": "752 CE",
+    "description": "Historic Buddhist temple complex in Nara housing the Daibutsu (Great Bronze Buddha), one of the largest wooden buildings in the world.",
+    "coordinates": {
+      "lat": 34.6851,
+      "lng": 135.8398
+    }
+  },
+  {
+    "id": "himeji-castle",
+    "name": "Himeji Castle (White Heron Castle)",
+    "kingdom": "edo-shogunate",
+    "kingdomSlug": "edo-shogunate",
+    "country": "Japan",
+    "countrySlug": "japan",
+    "type": "Fortress / Castle",
+    "constructed": "1333\u20131609 CE",
+    "description": "Japan's most pristine surviving feudal castle, featuring an intricate defensive maze of gates, walls, and brilliant white plaster architecture.",
+    "coordinates": {
+      "lat": 34.8394,
+      "lng": 134.6939
+    }
+  },
+  {
+    "id": "kinkaku-ji",
+    "name": "Kinkaku-ji (Golden Pavilion)",
+    "kingdom": "muromachi-sengoku",
+    "kingdomSlug": "muromachi-sengoku",
+    "country": "Japan",
+    "countrySlug": "japan",
+    "type": "Zen Temple",
+    "constructed": "1397 CE",
+    "description": "Iconic Zen Buddhist temple in Kyoto covered in pure gold leaf, reflecting seamlessly across the Kyoko-chi mirror pond.",
+    "coordinates": {
+      "lat": 35.0394,
+      "lng": 135.7292
+    }
+  },
+  {
+    "id": "giza-pyramids",
+    "name": "Great Pyramids of Giza & Great Sphinx",
+    "kingdom": "egypt-old-kingdom",
+    "kingdomSlug": "egypt-old-kingdom",
+    "country": "Ancient Egypt",
+    "countrySlug": "egypt",
+    "type": "Monument / Necropolis",
+    "constructed": "c. 2560 BCE",
+    "description": "The monumental funerary complex on the Giza Plateau housing the Great Pyramid of Khufu, Khafre, Menkaure, and the monolithic limestone Sphinx.",
+    "coordinates": {
+      "lat": 29.9792,
+      "lng": 31.1342
+    }
+  },
+  {
+    "id": "karnak-temple",
+    "name": "Karnak Temple Complex",
+    "kingdom": "egypt-new-kingdom",
+    "kingdomSlug": "egypt-new-kingdom",
+    "country": "Ancient Egypt",
+    "countrySlug": "egypt",
+    "type": "Temple Complex",
+    "constructed": "c. 2000\u201330 BCE",
+    "description": "Vast open-air temple complex dedicated to the Theban triad of Amun, Mut, and Khonsu, featuring the colossal Great Hypostyle Hall.",
+    "coordinates": {
+      "lat": 25.7188,
+      "lng": 32.6573
+    }
+  },
+  {
+    "id": "abu-simbel",
+    "name": "Abu Simbel Temples",
+    "kingdom": "egypt-new-kingdom",
+    "kingdomSlug": "egypt-new-kingdom",
+    "country": "Ancient Egypt",
+    "countrySlug": "egypt",
+    "type": "Rock-cut Temple",
+    "constructed": "c. 1264 BCE",
+    "description": "Twin massive rock-cut temples carved into a mountainside by Ramses II in Nubia, featuring four colossal 20-meter seated statues of the pharaoh.",
+    "coordinates": {
+      "lat": 22.3372,
+      "lng": 31.6258
+    }
+  },
+  {
+    "id": "colosseum",
+    "name": "The Colosseum (Flavian Amphitheatre)",
+    "kingdom": "roman-empire",
+    "kingdomSlug": "roman-empire",
+    "country": "Rome & Italy",
+    "countrySlug": "rome",
+    "type": "Amphitheatre",
+    "constructed": "70\u201380 CE",
+    "description": "The largest ancient amphitheatre ever built, capable of seating 50,000 spectators for gladiatorial contests and public spectacles.",
+    "coordinates": {
+      "lat": 41.8902,
+      "lng": 12.4922
+    }
+  },
+  {
+    "id": "pantheon-rome",
+    "name": "The Pantheon",
+    "kingdom": "roman-empire",
+    "kingdomSlug": "roman-empire",
+    "country": "Rome & Italy",
+    "countrySlug": "rome",
+    "type": "Temple / Dome",
+    "constructed": "118\u2013125 CE",
+    "description": "Masterpiece of Roman engineering commissioned by Marcus Agrippa and rebuilt by Hadrian, retaining the world's largest unreinforced concrete dome.",
+    "coordinates": {
+      "lat": 41.8986,
+      "lng": 12.4769
+    }
+  },
+  {
+    "id": "pompeii-ruins",
+    "name": "Ruins of Pompeii",
+    "kingdom": "roman-empire",
+    "kingdomSlug": "roman-empire",
+    "country": "Rome & Italy",
+    "countrySlug": "rome",
+    "type": "Ancient City",
+    "constructed": "6th Century BCE \u2013 79 CE",
+    "description": "Remarkably preserved Roman city buried under volcanic ash from Mount Vesuvius in 79 CE, providing vivid insight into daily imperial life.",
+    "coordinates": {
+      "lat": 40.7509,
+      "lng": 14.487
+    }
+  },
+  {
+    "id": "sanchi-stupa",
+    "name": "Great Stupa at Sanchi",
+    "kingdom": "maurya-empire",
+    "kingdomSlug": "maurya-empire",
+    "country": "India",
+    "countrySlug": "india",
+    "type": "Buddhist Stupa",
+    "constructed": "3rd Century BCE",
+    "description": "One of the oldest stone structures in India commissioned by Emperor Ashoka, featuring intricate torana gateways illustrating Buddhist jatakas.",
+    "coordinates": {
+      "lat": 23.4795,
+      "lng": 77.7397
+    }
+  },
+  {
+    "id": "taj-mahal",
+    "name": "Taj Mahal",
+    "kingdom": "mughal-empire",
+    "kingdomSlug": "mughal-empire",
+    "country": "India",
+    "countrySlug": "india",
+    "type": "Mausoleum",
+    "constructed": "1632\u20131653 CE",
+    "description": "Ivory-white marble mausoleum on the Yamuna river in Agra commissioned by Mughal Emperor Shah Jahan to house the tomb of his favourite wife, Mumtaz Mahal.",
+    "coordinates": {
+      "lat": 27.1751,
+      "lng": 78.0421
+    }
+  },
+  {
+    "id": "parthenon-athens",
+    "name": "Parthenon on the Acropolis",
+    "kingdom": "classical-greece",
+    "kingdomSlug": "classical-greece",
+    "country": "Ancient Greece",
+    "countrySlug": "greece",
+    "type": "Doric Temple",
+    "constructed": "447\u2013432 BCE",
+    "description": "Former temple on the Athenian Acropolis dedicated to the goddess Athena, regarded as the enduring zenith of Classical Greek Doric architecture.",
+    "coordinates": {
+      "lat": 37.9715,
+      "lng": 23.7267
+    }
+  },
+  {
+    "id": "persepolis",
+    "name": "Persepolis (Takht-e Jamshid)",
+    "kingdom": "achaemenid-empire",
+    "kingdomSlug": "achaemenid-empire",
+    "country": "Persia & Iran",
+    "countrySlug": "persia",
+    "type": "Ceremonial Capital",
+    "constructed": "c. 518 BCE",
+    "description": "Grand ceremonial capital of the Achaemenid Empire built by Darius I and Xerxes, showcasing the Gate of All Nations and Apadana Palace reliefs.",
+    "coordinates": {
+      "lat": 29.9357,
+      "lng": 52.8914
+    }
   }
 ]

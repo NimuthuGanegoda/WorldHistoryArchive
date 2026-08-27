@@ -1,28 +1,40 @@
 {{define "content"}}
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <nav class="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8">
+  <nav class="flex items-center gap-2 text-xs font-medium text-slate-500 mb-8">
     <a href="/" class="hover:text-amber-400">Home</a>
-    <span>/</span>
-    <a href="/sites" class="hover:text-amber-400">Sites</a>
-    <span>/</span>
+    <span>&rsaquo;</span>
+    <a href="/countries" class="hover:text-amber-400">Civilizations</a>
+    <span>&rsaquo;</span>
+    <a href="/countries/{{.Site.CountrySlug}}" class="hover:text-amber-400">{{.Site.Country}}</a>
+    <span>&rsaquo;</span>
+    <a href="/kingdoms/{{.Site.KingdomSlug}}" class="hover:text-amber-400">{{.Site.Kingdom}}</a>
+    <span>&rsaquo;</span>
     <span class="text-amber-400">{{.Site.Name}}</span>
   </nav>
 
   <article class="glass-card p-8 sm:p-10 rounded-3xl mb-8">
     <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-800 pb-6">
       <div>
-        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-3 uppercase">
-          {{.Site.Type}} • {{.Site.Kingdom}}
-        </span>
+        <div class="flex items-center gap-2 mb-3">
+          <a href="/countries/{{.Site.CountrySlug}}" class="px-3 py-1 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 hover:bg-amber-500/20 transition-colors">
+            🌍 {{.Site.Country}}
+          </a>
+          <a href="/kingdoms/{{.Site.KingdomSlug}}" class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 text-slate-300 hover:text-amber-400 border border-slate-700 transition-colors">
+            🏰 {{.Site.Kingdom}}
+          </a>
+          <span class="px-2 py-0.5 text-[10px] uppercase font-bold tracking-wider text-slate-400 bg-slate-900 rounded border border-slate-800">
+            {{.Site.Type}}
+          </span>
+        </div>
         <h1 class="text-3xl sm:text-5xl font-extrabold brand-font text-slate-100 mb-2">
           {{.Site.Name}}
         </h1>
         <p class="text-sm font-semibold text-slate-400">
-          {{if .Site.BuiltBy}}Commissioned by: <span class="text-amber-400">{{.Site.BuiltBy}}</span> • {{end}}Period: {{.Site.Period}}
+          {{if .Site.BuiltBy}}Commissioned by: <span class="text-amber-400">{{.Site.BuiltBy}}</span> • {{end}}{{if .Site.Constructed}}Constructed: <span class="text-slate-300">{{.Site.Constructed}}</span>{{end}}
         </p>
       </div>
-      <a href="/sites" class="px-4 py-2 text-xs font-semibold rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors">
-        &larr; Back to sites
+      <a href="/kingdoms/{{.Site.KingdomSlug}}" class="px-4 py-2 text-xs font-semibold rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors">
+        &larr; {{.Site.Kingdom}} Overview
       </a>
     </div>
 

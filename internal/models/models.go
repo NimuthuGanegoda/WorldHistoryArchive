@@ -19,26 +19,29 @@ type King struct {
 	Title                    string    `json:"title"`
 	Reign                    string    `json:"reign"`
 	Kingdom                  string    `json:"kingdom"`
+	KingdomSlug              string    `json:"kingdomSlug,omitempty"`
+	Country                  string    `json:"country,omitempty"`
+	CountrySlug              string    `json:"countrySlug,omitempty"`
 	Biography                string    `json:"biography"`
 	Sections                 []Section `json:"sections,omitempty"`
 	InternationalConnections string    `json:"internationalConnections,omitempty"`
-	Country                  string    `json:"country,omitempty"`
 	StartYear                int       `json:"startYear,omitempty"`
 }
 
-// Kingdom represents a historical dynasty, realm, or kingdom.
+// Kingdom represents a historical dynasty, realm, or kingdom (Sub-Category).
 type Kingdom struct {
 	Slug        string    `json:"slug"`
 	Title       string    `json:"title"`
 	Reign       string    `json:"reign"`
-	Kingdom     string    `json:"kingdom,omitempty"`
-	Biography   string    `json:"biography,omitempty"`
-	Sections    []Section `json:"sections,omitempty"`
 	Country     string    `json:"country,omitempty"`
+	CountrySlug string    `json:"countrySlug,omitempty"`
 	Capital     string    `json:"capital,omitempty"`
 	StartYear   int       `json:"startYear,omitempty"`
 	RulerCount  int       `json:"rulerCount,omitempty"`
+	SiteCount   int       `json:"siteCount,omitempty"`
 	Description string    `json:"description,omitempty"`
+	Biography   string    `json:"biography,omitempty"`
+	Sections    []Section `json:"sections,omitempty"`
 }
 
 // Coordinates represents geographic latitude and longitude.
@@ -52,6 +55,7 @@ type Site struct {
 	ID            string      `json:"id"`
 	Name          string      `json:"name"`
 	Kingdom       string      `json:"kingdom"`
+	KingdomSlug   string      `json:"kingdomSlug,omitempty"`
 	Period        string      `json:"period,omitempty"`
 	Type          string      `json:"type"`
 	BuiltBy       string      `json:"builtBy,omitempty"`
@@ -67,17 +71,34 @@ type Site struct {
 	Media         []string    `json:"media,omitempty"`
 	Coordinates   Coordinates `json:"coordinates"`
 	Country       string      `json:"country,omitempty"`
+	CountrySlug   string      `json:"countrySlug,omitempty"`
 }
 
-// Country represents a modern or historic sovereign territory.
+// Region represents a sub-geographic province or zone within a civilization.
+type Region struct {
+	Name       string    `json:"name"`
+	Center     []float64 `json:"center,omitempty"`
+	MajorSites []string  `json:"major_sites,omitempty"`
+}
+
+// Country represents a primary Civilization / Country category.
 type Country struct {
-	Name string `json:"name"`
-	Code string `json:"code"`
+	Slug          string      `json:"slug"`
+	Name          string      `json:"name"`
+	Code          string      `json:"code"`
+	Center        []float64   `json:"center,omitempty"`
+	Bounds        [][]float64 `json:"bounds,omitempty"`
+	Zoom          int         `json:"zoom,omitempty"`
+	Description   string      `json:"description,omitempty"`
+	Regions       []Region    `json:"regions,omitempty"`
+	KingdomsCount int         `json:"kingdomsCount,omitempty"`
+	RulersCount   int         `json:"rulersCount,omitempty"`
+	SitesCount    int         `json:"sitesCount,omitempty"`
 }
 
 // SearchResult represents a unified search hit across entities.
 type SearchResult struct {
-	Type        string `json:"type"` // "king", "kingdom", "site"
+	Type        string `json:"type"` // "country", "kingdom", "king", "site"
 	Title       string `json:"title"`
 	Slug        string `json:"slug"`
 	Subtitle    string `json:"subtitle"`
@@ -91,8 +112,9 @@ type TimelineEntry struct {
 	Formatted   string `json:"formatted"`
 	Title       string `json:"title"`
 	Slug        string `json:"slug"`
-	Type        string `json:"type"` // "king", "kingdom", "site"
+	Type        string `json:"type"` // "country", "kingdom", "king", "site"
 	Kingdom     string `json:"kingdom"`
+	Country     string `json:"country,omitempty"`
 	Description string `json:"description"`
 }
 

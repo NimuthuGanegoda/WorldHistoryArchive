@@ -1,0 +1,60 @@
+{{define "content"}}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <!-- Header -->
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <span class="px-3.5 py-1 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
+      🌍 Primary Category Layer
+    </span>
+    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mt-4 mb-4">
+      World <span class="gold-gradient-text">Civilizations</span>
+    </h1>
+    <p class="text-slate-400 text-lg leading-relaxed">
+      Explore the primary civilizational categories across ancient history. Select a territory to inspect its dynastic sub-categories, sovereign rulers, and archaeological monuments.
+    </p>
+  </div>
+
+  <!-- Grid of Civilizations -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {{range .Countries}}
+    <a href="/countries/{{.Slug}}" class="glass-card p-8 rounded-3xl flex flex-col justify-between group hover:border-amber-500/40">
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center font-bold text-amber-400 brand-font text-sm">
+              {{.Code}}
+            </span>
+            <h2 class="text-2xl font-bold brand-font text-slate-100 group-hover:text-amber-400 transition-colors">
+              {{.Name}}
+            </h2>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed mb-6">
+          {{.Description}}
+        </p>
+
+        <!-- Stats Chips -->
+        <div class="grid grid-cols-3 gap-2 py-4 border-t border-b border-slate-800/80 mb-4 text-center">
+          <div class="bg-slate-900/60 p-2 rounded-xl border border-slate-800">
+            <span class="block text-lg font-bold text-amber-400">{{.KingdomsCount}}</span>
+            <span class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Dynasties</span>
+          </div>
+          <div class="bg-slate-900/60 p-2 rounded-xl border border-slate-800">
+            <span class="block text-lg font-bold text-amber-400">{{.RulersCount}}</span>
+            <span class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Monarchs</span>
+          </div>
+          <div class="bg-slate-900/60 p-2 rounded-xl border border-slate-800">
+            <span class="block text-lg font-bold text-amber-400">{{.SitesCount}}</span>
+            <span class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Sites</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-amber-400 font-semibold pt-2">
+        <span>Explore Dynasties & Eras</span>
+        <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+      </div>
+    </a>
+    {{end}}
+  </div>
+</div>
+{{end}}

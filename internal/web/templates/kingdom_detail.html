@@ -1,34 +1,44 @@
 {{define "content"}}
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <nav class="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8">
+  <nav class="flex items-center gap-2 text-xs font-medium text-slate-500 mb-8">
     <a href="/" class="hover:text-amber-400">Home</a>
-    <span>/</span>
-    <a href="/kingdoms" class="hover:text-amber-400">Kingdoms</a>
-    <span>/</span>
+    <span>&rsaquo;</span>
+    <a href="/countries" class="hover:text-amber-400">Civilizations</a>
+    <span>&rsaquo;</span>
+    <a href="/countries/{{.Kingdom.CountrySlug}}" class="hover:text-amber-400">{{.Kingdom.Country}}</a>
+    <span>&rsaquo;</span>
     <span class="text-amber-400">{{.Kingdom.Title}}</span>
   </nav>
 
   <article class="glass-card p-8 sm:p-10 rounded-3xl mb-12">
     <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-800 pb-6">
       <div>
-        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-3">
-          {{.Kingdom.Country}}
-        </span>
+        <div class="flex items-center gap-2 mb-3">
+          <a href="/countries/{{.Kingdom.CountrySlug}}" class="px-3 py-1 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 hover:bg-amber-500/20 transition-colors">
+            🌍 {{.Kingdom.Country}}
+          </a>
+          <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Sub-Category</span>
+        </div>
         <h1 class="text-3xl sm:text-5xl font-extrabold brand-font text-slate-100 mb-2">
           {{.Kingdom.Title}}
         </h1>
         <p class="text-sm font-semibold text-slate-400">
           Period: <span class="text-amber-400">{{.Kingdom.Reign}}</span>
+          {{if .Kingdom.Capital}} &bull; Capital: <span class="text-slate-300">{{.Kingdom.Capital}}</span>{{end}}
         </p>
       </div>
-      <a href="/kingdoms" class="px-4 py-2 text-xs font-semibold rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors">
-        &larr; Back to list
+      <a href="/countries/{{.Kingdom.CountrySlug}}" class="px-4 py-2 text-xs font-semibold rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors">
+        &larr; {{.Kingdom.Country}} Overview
       </a>
     </div>
 
     {{if .Kingdom.Biography}}
     <div class="text-slate-300 leading-relaxed text-base sm:text-lg mb-8 font-light">
       <p>{{.Kingdom.Biography}}</p>
+    </div>
+    {{else if .Kingdom.Description}}
+    <div class="text-slate-300 leading-relaxed text-base sm:text-lg mb-8 font-light">
+      <p>{{.Kingdom.Description}}</p>
     </div>
     {{end}}
 
@@ -45,9 +55,10 @@
   </article>
 
   <!-- Monarchs of this Kingdom -->
-  <div>
+  {{if .Kings}}
+  <div class="mb-12">
     <h2 class="text-2xl sm:text-3xl font-bold brand-font text-slate-100 mb-6 flex items-center gap-3">
-      👑 Monarchs of {{.Kingdom.Title}}
+      👑 Monarchs & Rulers of {{.Kingdom.Title}}
       <span class="text-xs px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-400 font-semibold">{{len .Kings}} Rulers</span>
     </h2>
 
@@ -71,5 +82,38 @@
       {{end}}
     </div>
   </div>
+  {{end}}
+
+  <!-- Archaeological Sites of this Kingdom -->
+  {{if .Sites}}
+  <div>
+    <h2 class="text-2xl sm:text-3xl font-bold brand-font text-slate-100 mb-6 flex items-center gap-3">
+      📍 Archaeological Sites of {{.Kingdom.Title}}
+      <span class="text-xs px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-400 font-semibold">{{len .Sites}} Monuments</span>
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{range .Sites}}
+      <a href="/sites/{{.ID}}" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+        <div>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 block w-fit mb-2">
+            {{.Type}}
+          </span>
+          <h3 class="text-lg font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+            {{.Name}}
+          </h3>
+          <p class="text-xs text-slate-400 line-clamp-3 leading-relaxed mb-4">
+            {{.Description}}
+          </p>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+          <span>Inspect Monument</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      {{end}}
+    </div>
+  </div>
+  {{end}}
 </div>
 {{end}}
