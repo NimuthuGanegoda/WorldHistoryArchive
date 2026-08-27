@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kotte — World History Archive</title>
+  <meta name="description" content="History and monarchs of Kotte (1412–1597 CE).">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-oled: #000000;
+      --bg-surface: #0a0a0c;
+      --card-apple: rgba(18, 18, 22, 0.65);
+      --border-apple: rgba(255, 255, 255, 0.08);
+      --border-apple-hover: rgba(255, 255, 255, 0.18);
+      --apple-blue: #2997ff;
+      --apple-gold: #e5b869;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+      background-color: var(--bg-oled);
+      color: #f5f5f7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2, h3, .brand-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: -0.02em;
+    }
+    .apple-headline {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: -0.035em;
+    }
+    .glass-apple {
+      background: var(--card-apple);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--border-apple);
+      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.7);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-apple:hover {
+      border-color: var(--border-apple-hover);
+      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.9), 0 0 30px rgba(229, 184, 105, 0.08);
+      transform: translateY(-3px);
+    }
+    .apple-silver-text {
+      background: linear-gradient(180deg, #ffffff 0%, #d1d5db 50%, #86868b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .apple-gold-text {
+      background: linear-gradient(180deg, #fff2cc 0%, #e5b869 60%, #b8862d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .apple-pill-btn {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .apple-pill-btn:hover {
+      transform: scale(1.03);
+    }
+    .apple-pill-btn:active {
+      transform: scale(0.98);
+    }
+    #ambient-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+  </style>
+  <script>
+    (function() {
+      
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      const isGitHubPages = window.location.hostname.endsWith('github.io') && pathParts.length > 0;
+      const basePath = isGitHubPages ? '/' + pathParts[0] : '';
+      window.WHA_BASE = basePath;
+
+      if (basePath) {
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('a[href^="/"]').forEach(a => {
+            const currentHref = a.getAttribute('href');
+            if (currentHref && !currentHref.startsWith(basePath)) {
+              a.setAttribute('href', basePath + currentHref);
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-400 selection:text-black relative bg-black">
+  
+  <canvas id="ambient-particles"></canvas>
+
+  
+  <div class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+    <header class="w-full max-w-6xl rounded-full bg-[#121216]/80 backdrop-blur-2xl border border-white/[0.09] shadow-2xl px-5 py-2.5 flex items-center justify-between transition-all duration-300">
+      
+      <a href="/" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-b from-white/15 to-white/5 border border-white/10 flex items-center justify-center group-hover:scale-105 transition-transform shadow-inner">
+          <span class="text-base">🏛️</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold tracking-tight text-white group-hover:text-amber-300 transition-colors">World History</span>
+          <span class="text-[9px] uppercase tracking-widest text-[#86868b] font-medium -mt-0.5">Archive</span>
+        </div>
+      </a>
+
+      
+      <nav class="hidden md:flex items-center gap-1 bg-white/[0.04] p-1 rounded-full border border-white/[0.06]">
+        <a href="/countries" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Civilizations</a>
+        <a href="/kingdoms" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Dynasties</a>
+        <a href="/kings" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Monarchs</a>
+        <a href="/timeline" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Timeline</a>
+        <a href="/sites" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Monuments</a>
+        <a href="/map" class="px-3.5 py-1.5 text-[13px] font-medium text-amber-300 hover:text-amber-200 hover:bg-white/[0.08] rounded-full transition-all flex items-center gap-1">
+          <span>🗺️</span> 3D Atlas
+        </a>
+      </nav>
+
+      
+      <div class="relative hidden sm:block w-48 lg:w-56">
+        <input type="text" id="headerSearch" placeholder="Search history..." 
+               class="w-full bg-white/[0.06] hover:bg-white/[0.09] text-xs rounded-full pl-8 pr-3 py-1.5 border border-white/[0.08] focus:outline-none focus:border-amber-400/50 text-[#f5f5f7] placeholder-[#86868b] transition-all"
+               onkeydown="if(event.key==='Enter') window.location.href=(window.WHA_BASE||'')+'/kings?search='+encodeURIComponent(this.value)">
+        <span class="absolute left-2.5 top-2 text-[#86868b] text-xs">🔍</span>
+      </div>
+    </header>
+  </div>
+
+  
+  <div class="h-24"></div>
+
+  
+  <main class="flex-1 relative z-10">
+    
+<div class="max-w-5xl mx-auto px-6 py-12">
+  <nav class="flex items-center gap-2 text-xs font-medium text-[#86868b] mb-8">
+    <a href="/" class="hover:text-white transition-colors">Home</a>
+    <span>&rsaquo;</span>
+    <a href="/countries" class="hover:text-white transition-colors">Civilizations</a>
+    <span>&rsaquo;</span>
+    <a href="/countries/sri-lanka" class="hover:text-white transition-colors">Sri Lanka</a>
+    <span>&rsaquo;</span>
+    <span class="text-white">Kotte</span>
+  </nav>
+
+  <article class="glass-apple p-8 sm:p-12 rounded-3xl mb-14">
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-white/[0.06] pb-6">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <a href="/countries/sri-lanka" class="px-3 py-1 text-xs font-semibold rounded-full bg-white/[0.06] text-amber-300 border border-white/[0.08] hover:bg-white/10 transition-colors">
+            🌍 Sri Lanka
+          </a>
+          <span class="text-[10px] text-[#86868b] font-semibold uppercase tracking-wider">Sub-Category</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight apple-headline text-[#f5f5f7] mb-2">
+          Kotte
+        </h1>
+        <p class="text-sm font-medium text-[#86868b]">
+          Period: <span class="text-white font-semibold">1412–1597 CE</span>
+          
+        </p>
+      </div>
+      <a href="/countries/sri-lanka" class="px-4 py-2 text-xs font-semibold rounded-full bg-white/[0.06] hover:bg-white/10 text-white border border-white/[0.08] transition-all">
+        &larr; Sri Lanka
+      </a>
+    </div>
+
+    
+    <div class="text-[#86868b] leading-relaxed text-base sm:text-lg mb-8 font-light">
+      <p>Late medieval kingdom; literature &amp; trade</p>
+    </div>
+    
+
+    
+    <div class="mt-8 pt-6 border-t border-white/[0.06]">
+      
+      
+      <p class="text-[#86868b] mb-4 leading-relaxed font-light">Late medieval kingdom; literature &amp; trade</p>
+      
+    </div>
+    
+  </article>
+
+  
+  
+  <div class="mb-14">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <p class="text-xs uppercase tracking-widest text-amber-400 font-semibold mb-1.5">Dynastic Rulers</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight apple-headline text-[#f5f5f7]">
+          Monarchs of Kotte (8)
+        </h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <a href="/kings/parakramabahu-vi" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-xs text-[#86868b] block mb-2">1412–1467 CE</span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-amber-300 transition-colors mb-2">
+            King Parakramabahu VI
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light">
+            Parakramabahu VI (1412–1467) is the last king to unify the entire island, ruling from Kotte for 55 years. His reign represents a renaissance: he reconquered the northern Jaffna kingdom, patronized Sinhalese literature (fostering a literary golden age), and maintained robust regional irrigation. His court became a cultural center, producing major poetic and historical works. His death marked the end of island-wide unity; subsequent kings ruled only the southwest lowlands.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Read Bio</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+      <a href="/kings/jayabahu-ii" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-xs text-[#86868b] block mb-2">1467–1472 CE</span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-amber-300 transition-colors mb-2">
+            King Jayabahu II
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light">
+            Jayabahu II&#39;s brief five-year reign followed his father Parakramabahu VI. He maintained Buddhist ceremonies and Kotte&#39;s administrative framework, but lacked the predecessor&#39;s unifying force. His short tenure foreshadowed the kingdom&#39;s fragmentation into rival principalities.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Read Bio</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+      <a href="/kings/bhuvanaikabahu-vi" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-xs text-[#86868b] block mb-2">1473–1480 CE</span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-amber-300 transition-colors mb-2">
+            King Bhuvanaikabahu VI
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light">
+            Bhuvanaikabahu VI (1467–1472) ruled from Kotte for five years after Parakramabahu VI&#39;s death. His brief reign witnessed the kingdom&#39;s territorial fragmentation: regional powers asserted independence, ending unified rule. Administrative focus shifted to maintaining southwestern lowland control.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Read Bio</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+      <a href="/kings/parakramabahu-vii" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-xs text-[#86868b] block mb-2">1480–1484 CE</span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-amber-300 transition-colors mb-2">
+            King Parakramabahu VII
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light">
+            Parakramabahu VII (1472–1480) governed from Kotte for eight years, sustaining the reduced kingdom&#39;s infrastructure. His reign focused on regional irrigation, Buddhist patronage, and defensive alliances. The era reflects adaptation to permanent territorial fragmentation.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Read Bio</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+      <a href="/kings/parakramabahu-viii" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-xs text-[#86868b] block mb-2">1484–1508 CE</span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-amber-300 transition-colors mb-2">
+            King Parakramabahu VIII
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light">
+            Parakramabahu VIII (1484–1518) ruled from Kotte for 34 years, enabling sustained regional consolidation. His lengthy tenure maintained Buddhist establishments, irrigation networks, and administrative routine. The era witnessed early Portuguese contact, foreshadowing colonial intervention.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Read Bio</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+      <a href="/kings/vijayabahu-vi" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-xs text-[#86868b] block mb-2">1513–1521 CE</span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-amber-300 transition-colors mb-2">
+            King Vijayabahu VI
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light">
+            Vijayabahu VI (1521) ruled momentarily for less than a year. His ultrashort tenure reflects intense succession volatility amid Portuguese meddling. Administrative continuity relied on entrenched court networks.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Read Bio</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+      <a href="/kings/bhuvanaikabahu-vii" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-xs text-[#86868b] block mb-2">1521–1551 CE</span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-amber-300 transition-colors mb-2">
+            King Bhuvanaikabahu VII
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light">
+            Bhuvanaikabahu VII (1521–1551) ruled from Kotte for thirty years amid escalating Portuguese influence. His reign witnessed the kingdom&#39;s division into three competing centers (Kotte, Sitawaka, Kandy), each vying for legitimacy. He navigated Portuguese alliances pragmatically, maintaining regional Buddhist patronage while adapting to European commercial and military pressures.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Read Bio</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+      <a href="/kings/dharmapala" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-xs text-[#86868b] block mb-2">1551–1597 CE</span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-amber-300 transition-colors mb-2">
+            King Dharmapala
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light">
+            Dharmapala (1551–1597) was the last king of Kotte, ruling for 46 years as a Portuguese client. Converted to Catholicism and renamed Dom João Dharmapala, he ceded his kingdom to Portugal upon death, formalizing colonial annexation. His reign symbolizes the collapse of independent Sinhalese kingship in the lowlands, transitioning sovereignty to European colonial powers. His legacy is contested: collaboration enabling survival versus betrayal of Buddhist heritage.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Read Bio</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+  
+
+  
+  
+</div>
+
+  </main>
+
+  
+  <footer class="mt-32 border-t border-white/[0.08] bg-[#000000] text-[#86868b] text-xs relative z-10">
+    <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="text-xl">🏛️</span>
+        <div>
+          <p class="font-semibold text-[#f5f5f7] text-sm tracking-tight">World History Knowledge Archive</p>
+          <p class="text-[11px] text-[#86868b]">Spatial civilizational chronicles powered by WebGL 3D and Pure Go SSG.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-6 text-[12px] font-medium text-[#86868b]">
+        <a href="/countries" class="hover:text-white transition-colors">Civilizations</a>
+        <a href="/kingdoms" class="hover:text-white transition-colors">Dynasties</a>
+        <a href="/map" class="hover:text-white transition-colors">3D Atlas</a>
+        <a href="/api/stats" class="hover:text-white transition-colors">REST API</a>
+        <a href="https://github.com/NimuthuGanegoda/WorldHistoryArchive" class="hover:text-white transition-colors">GitHub</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-8 border-t border-white/[0.04] pt-4 text-[11px] text-[#55555a] flex items-center justify-between">
+      <span>Copyright &copy; 2026 World History Archive. All rights reserved.</span>
+      <span>Designed with sovereign perfection for Nimuthu Raiden.</span>
+    </div>
+  </footer>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('ambient-particles');
+      if (!canvas || !window.THREE) return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+      camera.position.z = 400;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      
+      const particleCount = 700;
+      const geometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(particleCount * 3);
+      const colors = new Float32Array(particleCount * 3);
+
+      for (let i = 0; i < particleCount * 3; i += 3) {
+        positions[i] = (Math.random() - 0.5) * 1100;
+        positions[i + 1] = (Math.random() - 0.5) * 1100;
+        positions[i + 2] = (Math.random() - 0.5) * 900;
+
+        const silverGold = Math.random();
+        colors[i] = 0.9 + silverGold * 0.1;
+        colors[i + 1] = 0.85 + silverGold * 0.1;
+        colors[i + 2] = 0.7 + silverGold * 0.3;
+      }
+
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+      const material = new THREE.PointsMaterial({
+        size: 1.8,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.65,
+        blending: THREE.AdditiveBlending
+      });
+
+      const particleSystem = new THREE.Points(geometry, material);
+      scene.add(particleSystem);
+
+      let mouseX = 0, mouseY = 0;
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX - window.innerWidth / 2) * 0.03;
+        mouseY = (e.clientY - window.innerHeight / 2) * 0.03;
+      });
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        particleSystem.rotation.y += 0.0003;
+        particleSystem.rotation.x += 0.00015;
+        camera.position.x += (mouseX - camera.position.x) * 0.02;
+        camera.position.y += (-mouseY - camera.position.y) * 0.02;
+        camera.lookAt(scene.position);
+        renderer.render(scene, camera);
+      }
+      animate();
+    });
+  </script>
+</body>
+</html>

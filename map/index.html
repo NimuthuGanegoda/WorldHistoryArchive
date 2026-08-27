@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spatial Cartography &amp; Map — World History Archive</title>
+  <meta name="description" content="Interactive map of archaeological sites across civilizations.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-oled: #000000;
+      --bg-surface: #0a0a0c;
+      --card-apple: rgba(18, 18, 22, 0.65);
+      --border-apple: rgba(255, 255, 255, 0.08);
+      --border-apple-hover: rgba(255, 255, 255, 0.18);
+      --apple-blue: #2997ff;
+      --apple-gold: #e5b869;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+      background-color: var(--bg-oled);
+      color: #f5f5f7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2, h3, .brand-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: -0.02em;
+    }
+    .apple-headline {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: -0.035em;
+    }
+    .glass-apple {
+      background: var(--card-apple);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--border-apple);
+      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.7);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-apple:hover {
+      border-color: var(--border-apple-hover);
+      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.9), 0 0 30px rgba(229, 184, 105, 0.08);
+      transform: translateY(-3px);
+    }
+    .apple-silver-text {
+      background: linear-gradient(180deg, #ffffff 0%, #d1d5db 50%, #86868b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .apple-gold-text {
+      background: linear-gradient(180deg, #fff2cc 0%, #e5b869 60%, #b8862d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .apple-pill-btn {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .apple-pill-btn:hover {
+      transform: scale(1.03);
+    }
+    .apple-pill-btn:active {
+      transform: scale(0.98);
+    }
+    #ambient-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+  </style>
+  <script>
+    (function() {
+      
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      const isGitHubPages = window.location.hostname.endsWith('github.io') && pathParts.length > 0;
+      const basePath = isGitHubPages ? '/' + pathParts[0] : '';
+      window.WHA_BASE = basePath;
+
+      if (basePath) {
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('a[href^="/"]').forEach(a => {
+            const currentHref = a.getAttribute('href');
+            if (currentHref && !currentHref.startsWith(basePath)) {
+              a.setAttribute('href', basePath + currentHref);
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-400 selection:text-black relative bg-black">
+  
+  <canvas id="ambient-particles"></canvas>
+
+  
+  <div class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+    <header class="w-full max-w-6xl rounded-full bg-[#121216]/80 backdrop-blur-2xl border border-white/[0.09] shadow-2xl px-5 py-2.5 flex items-center justify-between transition-all duration-300">
+      
+      <a href="/" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-b from-white/15 to-white/5 border border-white/10 flex items-center justify-center group-hover:scale-105 transition-transform shadow-inner">
+          <span class="text-base">🏛️</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold tracking-tight text-white group-hover:text-amber-300 transition-colors">World History</span>
+          <span class="text-[9px] uppercase tracking-widest text-[#86868b] font-medium -mt-0.5">Archive</span>
+        </div>
+      </a>
+
+      
+      <nav class="hidden md:flex items-center gap-1 bg-white/[0.04] p-1 rounded-full border border-white/[0.06]">
+        <a href="/countries" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Civilizations</a>
+        <a href="/kingdoms" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Dynasties</a>
+        <a href="/kings" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Monarchs</a>
+        <a href="/timeline" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Timeline</a>
+        <a href="/sites" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Monuments</a>
+        <a href="/map" class="px-3.5 py-1.5 text-[13px] font-medium text-amber-300 hover:text-amber-200 hover:bg-white/[0.08] rounded-full transition-all flex items-center gap-1">
+          <span>🗺️</span> 3D Atlas
+        </a>
+      </nav>
+
+      
+      <div class="relative hidden sm:block w-48 lg:w-56">
+        <input type="text" id="headerSearch" placeholder="Search history..." 
+               class="w-full bg-white/[0.06] hover:bg-white/[0.09] text-xs rounded-full pl-8 pr-3 py-1.5 border border-white/[0.08] focus:outline-none focus:border-amber-400/50 text-[#f5f5f7] placeholder-[#86868b] transition-all"
+               onkeydown="if(event.key==='Enter') window.location.href=(window.WHA_BASE||'')+'/kings?search='+encodeURIComponent(this.value)">
+        <span class="absolute left-2.5 top-2 text-[#86868b] text-xs">🔍</span>
+      </div>
+    </header>
+  </div>
+
+  
+  <div class="h-24"></div>
+
+  
+  <main class="flex-1 relative z-10">
+    
+<div class="max-w-6xl mx-auto px-6 py-10">
+  <div class="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+    <div>
+      <p class="text-xs uppercase tracking-widest text-amber-400 font-semibold mb-2">Spatial Cartography</p>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight apple-headline text-[#f5f5f7] mb-2">
+        3D Celestial Atlas & Map
+      </h1>
+      <p class="text-[#86868b] text-sm font-light">
+        Interactive 3D planetary sphere and high-contrast cartographic atlas of ancient civilizations, trade routes, and archaeological wonders.
+      </p>
+    </div>
+
+    
+    <div class="flex items-center gap-1.5 bg-white/[0.04] p-1.5 rounded-full border border-white/[0.08] w-fit">
+      <button id="btn-3d-mode" class="px-5 py-2 text-xs font-semibold rounded-full bg-white text-black apple-pill-btn shadow-md transition-all flex items-center gap-1.5">
+        <span>🌍</span> 3D Celestial Sphere
+      </button>
+      <button id="btn-2d-mode" class="px-5 py-2 text-xs font-semibold rounded-full text-[#86868b] hover:text-white hover:bg-white/[0.06] transition-all flex items-center gap-1.5">
+        <span>🗺️</span> 2D Cartographic Map
+      </button>
+    </div>
+  </div>
+
+  
+  <div id="container-3d" class="glass-apple rounded-3xl overflow-hidden p-2 shadow-2xl relative">
+    <div id="globe-3d-viewport" class="w-full h-[700px] rounded-2xl relative bg-[#030712] cursor-grab active:cursor-grabbing overflow-hidden">
+      <canvas id="atlas-globe-canvas" class="w-full h-full"></canvas>
+
+      
+      <div class="absolute top-4 left-4 pointer-events-none flex flex-col gap-2">
+        <div class="bg-black/60 backdrop-blur-xl px-3.5 py-1.5 rounded-full border border-white/[0.08] text-[11px] text-[#f5f5f7] font-medium flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          Three.js Spatial Engine • Drag to Rotate • Scroll to Zoom
+        </div>
+      </div>
+
+      
+      <div id="atlas-tooltip" class="absolute hidden pointer-events-auto transform -translate-x-1/2 -translate-y-full mb-4 px-5 py-4 rounded-3xl bg-[#121216]/95 border border-white/[0.12] text-left shadow-2xl backdrop-blur-2xl transition-opacity duration-150 z-30 max-w-xs">
+        <div class="flex items-center justify-between gap-3 mb-1.5">
+          <span id="atlas-tooltip-badge" class="px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded bg-amber-400/10 text-amber-300 border border-amber-400/20">Site</span>
+          <span id="atlas-tooltip-sub" class="text-[11px] text-[#86868b] font-medium"></span>
+        </div>
+        <h4 id="atlas-tooltip-title" class="font-bold text-sm text-[#f5f5f7] mb-1"></h4>
+        <p id="atlas-tooltip-desc" class="text-xs text-[#86868b] line-clamp-2 mb-3 font-light leading-relaxed"></p>
+        <a id="atlas-tooltip-link" href="#" class="inline-flex items-center gap-1 text-xs font-semibold text-[#2997ff] hover:text-[#52aaff]">
+          Explore Monument Profile &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <div id="container-2d" class="glass-apple rounded-3xl overflow-hidden p-2 shadow-2xl hidden">
+    <div id="historyMap" class="w-full h-[700px] rounded-2xl z-10"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btn3D = document.getElementById('btn-3d-mode');
+  const btn2D = document.getElementById('btn-2d-mode');
+  const container3D = document.getElementById('container-3d');
+  const container2D = document.getElementById('container-2d');
+
+  let leafletMapInitialized = false;
+
+  btn3D.addEventListener('click', () => {
+    container3D.classList.remove('hidden');
+    container2D.classList.add('hidden');
+    btn3D.className = 'px-5 py-2 text-xs font-semibold rounded-full bg-white text-black apple-pill-btn shadow-md transition-all flex items-center gap-1.5';
+    btn2D.className = 'px-5 py-2 text-xs font-semibold rounded-full text-[#86868b] hover:text-white hover:bg-white/[0.06] transition-all flex items-center gap-1.5';
+  });
+
+  btn2D.addEventListener('click', () => {
+    container2D.classList.remove('hidden');
+    container3D.classList.add('hidden');
+    btn2D.className = 'px-5 py-2 text-xs font-semibold rounded-full bg-white text-black apple-pill-btn shadow-md transition-all flex items-center gap-1.5';
+    btn3D.className = 'px-5 py-2 text-xs font-semibold rounded-full text-[#86868b] hover:text-white hover:bg-white/[0.06] transition-all flex items-center gap-1.5';
+
+    if (!leafletMapInitialized) {
+      initLeafletMap();
+      leafletMapInitialized = true;
+    }
+  });
+
+  
+  const canvas = document.getElementById('atlas-globe-canvas');
+  const viewport = document.getElementById('globe-3d-viewport');
+  const tooltip = document.getElementById('atlas-tooltip');
+  const tooltipTitle = document.getElementById('atlas-tooltip-title');
+  const tooltipSub = document.getElementById('atlas-tooltip-sub');
+  const tooltipDesc = document.getElementById('atlas-tooltip-desc');
+  const tooltipLink = document.getElementById('atlas-tooltip-link');
+  const tooltipBadge = document.getElementById('atlas-tooltip-badge');
+
+  if (!canvas || !viewport || !window.THREE) return;
+
+  const width = viewport.clientWidth;
+  const height = viewport.clientHeight;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+  camera.position.set(0, 30, 260);
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1.3);
+  scene.add(ambientLight);
+
+  const dirLight = new THREE.DirectionalLight(0xfff3d6, 1.8);
+  dirLight.position.set(200, 150, 200);
+  scene.add(dirLight);
+
+  const backLight = new THREE.DirectionalLight(0x2997ff, 0.8);
+  backLight.position.set(-200, -100, -200);
+  scene.add(backLight);
+
+  const controls = new THREE.OrbitControls(camera, canvas);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.06;
+  controls.minDistance = 110;
+  controls.maxDistance = 400;
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 0.6;
+
+  const globeGroup = new THREE.Group();
+  scene.add(globeGroup);
+
+  const GLOBE_R = 80;
+
+  
+  function generateAtlasWorldTexture() {
+    const w = 2048;
+    const h = 1024;
+    const offCanvas = document.createElement('canvas');
+    offCanvas.width = w;
+    offCanvas.height = h;
+    const ctx = offCanvas.getContext('2d');
+
+    
+    ctx.fillStyle = '#050a14';
+    ctx.fillRect(0, 0, w, h);
+
+    
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x <= w; x += w / 24) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, h);
+      ctx.stroke();
+    }
+    for (let y = 0; y <= h; y += h / 12) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(w, y);
+      ctx.stroke();
+    }
+
+    function toX(lng) { return ((lng + 180) / 360) * w; }
+    function toY(lat) { return ((90 - lat) / 180) * h; }
+
+    function drawPolygon(coords, fillColor, strokeColor) {
+      if (!coords || coords.length < 3) return;
+      ctx.beginPath();
+      ctx.moveTo(toX(coords[0][1]), toY(coords[0][0]));
+      for (let i = 1; i < coords.length; i++) {
+        ctx.lineTo(toX(coords[i][1]), toY(coords[i][0]));
+      }
+      ctx.closePath();
+      ctx.fillStyle = fillColor;
+      ctx.fill();
+      if (strokeColor) {
+        ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+    }
+
+    const landColor = '#121d33';
+    const coastColor = '#f59e0b';
+
+    
+    drawPolygon([
+      [37, 10], [32, 32], [12, 51], [-5, 40], [-12, 40], [-26, 33], [-34, 18], [-33, 27],
+      [-34, 18], [-28, 15], [-5, 12], [4, 9], [5, 1], [15, -17], [28, -13], [36, -6],
+      [37, 10]
+    ], landColor, coastColor);
+
+    
+    drawPolygon([
+      [36, -6], [43, -9], [48, -4], [58, -6], [71, 28], [77, 104], [68, 178], [60, 166],
+      [53, 140], [39, 126], [30, 122], [22, 114], [8, 103], [13, 100], [22, 90], [8, 77],
+      [22, 69], [25, 57], [13, 44], [28, 34], [31, 35], [37, 36], [41, 29], [37, 22],
+      [36, 14], [41, 14], [44, 8], [36, -6]
+    ], landColor, coastColor);
+
+    
+    drawPolygon([[58, 5], [71, 28], [65, 23], [56, 12], [58, 5]], landColor, coastColor);
+
+    
+    drawPolygon([[50, -5], [58, -5], [58, -2], [50, 1], [50, -5]], landColor, coastColor);
+    drawPolygon([[51, -10], [55, -6], [51, -6], [51, -10]], landColor, coastColor);
+
+    
+    drawPolygon([[31, 131], [35, 133], [44, 145], [45, 142], [35, 136], [31, 131]], landColor, coastColor);
+
+    
+    drawPolygon([[6, 80], [9.8, 80.2], [8.5, 81.8], [6, 81.2], [6, 80]], '#f59e0b', '#fef08a');
+
+    
+    drawPolygon([
+      [8, -77], [15, -83], [20, -105], [32, -117], [48, -125], [60, -140], [71, -156],
+      [71, -95], [60, -64], [45, -60], [30, -81], [25, -80], [18, -88], [8, -77]
+    ], landColor, coastColor);
+
+    
+    drawPolygon([
+      [12, -72], [10, -60], [5, -52], [-5, -35], [-23, -42], [-55, -66], [-53, -75],
+      [-18, -71], [-5, -81], [5, -77], [12, -72]
+    ], landColor, coastColor);
+
+    
+    drawPolygon([
+      [-12, 132], [-12, 142], [-24, 153], [-38, 146], [-35, 117], [-22, 114], [-12, 132]
+    ], landColor, coastColor);
+
+    
+    drawPolygon([[-12, 49], [-25, 47], [-25, 44], [-12, 49]], landColor, coastColor);
+
+    
+    const imgData = ctx.getImageData(0, 0, w, h);
+    const data = imgData.data;
+    ctx.fillStyle = '#f59e0b';
+
+    for (let y = 10; y < h - 10; y += 8) {
+      for (let x = 10; x < w - 10; x += 8) {
+        const idx = (y * w + x) * 4;
+        if (data[idx] > 10 || data[idx + 1] > 20) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1.6, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+
+    return new THREE.CanvasTexture(offCanvas);
+  }
+
+  
+  const atlasTexture = generateAtlasWorldTexture();
+  const globeGeo = new THREE.SphereGeometry(GLOBE_R, 64, 64);
+  const globeMat = new THREE.MeshStandardMaterial({
+    map: atlasTexture,
+    roughness: 0.7,
+    metalness: 0.15,
+    emissive: 0x050b14,
+    emissiveIntensity: 0.4
+  });
+  const globeMesh = new THREE.Mesh(globeGeo, globeMat);
+  globeGroup.add(globeMesh);
+
+  
+  const atmoGeo = new THREE.SphereGeometry(GLOBE_R * 1.14, 32, 32);
+  const atmoMat = new THREE.MeshBasicMaterial({
+    color: 0xf59e0b,
+    transparent: true,
+    opacity: 0.07,
+    side: THREE.BackSide,
+    blending: THREE.AdditiveBlending
+  });
+  scene.add(new THREE.Mesh(atmoGeo, atmoMat));
+
+  
+  function latLngToVec3(lat, lng, r) {
+    const phi = (90 - lat) * (Math.PI / 180);
+    const theta = (lng + 180) * (Math.PI / 180);
+    return new THREE.Vector3(
+      -(r * Math.sin(phi) * Math.cos(theta)),
+      r * Math.cos(phi),
+      r * Math.sin(phi) * Math.sin(theta)
+    );
+  }
+
+  const clickableObjects = [];
+  const pulsingRings = [];
+
+  
+  Promise.all([
+    fetch((window.WHA_BASE || '') + '/api/sites').then(r => r.json()),
+    fetch((window.WHA_BASE || '') + '/api/countries').then(r => r.json())
+  ]).then(([sites, countries]) => {
+    
+    sites.forEach(site => {
+      if (!site.coordinates || !site.coordinates.lat || !site.coordinates.lng) return;
+      const pos = latLngToVec3(site.coordinates.lat, site.coordinates.lng, GLOBE_R);
+
+      const pinGroup = new THREE.Group();
+      pinGroup.position.copy(pos);
+      pinGroup.lookAt(new THREE.Vector3(0, 0, 0));
+
+      const pinHeadGeo = new THREE.SphereGeometry(1.6, 12, 12);
+      const pinHeadMat = new THREE.MeshBasicMaterial({ color: 0xf59e0b });
+      const pinHead = new THREE.Mesh(pinHeadGeo, pinHeadMat);
+      pinHead.userData = { type: 'site', data: site };
+      pinGroup.add(pinHead);
+      clickableObjects.push(pinHead);
+
+      const beamGeo = new THREE.CylinderGeometry(0.2, 0.2, 7, 6);
+      const beamMat = new THREE.MeshBasicMaterial({ color: 0xfef08a, transparent: true, opacity: 0.85 });
+      const beam = new THREE.Mesh(beamGeo, beamMat);
+      beam.position.z = 3.5;
+      beam.rotation.x = Math.PI / 2;
+      pinGroup.add(beam);
+
+      const pRing = new THREE.Mesh(
+        new THREE.RingGeometry(2.0, 2.8, 16),
+        new THREE.MeshBasicMaterial({ color: 0xf59e0b, side: THREE.DoubleSide, transparent: true, opacity: 0.7 })
+      );
+      pRing.position.z = 0.4;
+      pinGroup.add(pRing);
+      pulsingRings.push(pRing);
+
+      globeGroup.add(pinGroup);
+    });
+
+    
+    const tradePairs = [
+      ["china", "persia"],
+      ["persia", "rome"],
+      ["india", "sri-lanka"],
+      ["egypt", "greece"],
+      ["greece", "rome"]
+    ];
+
+    const cMap = {};
+    countries.forEach(c => { cMap[c.slug] = c; });
+
+    tradePairs.forEach(([fromSlug, toSlug]) => {
+      const c1 = cMap[fromSlug];
+      const c2 = cMap[toSlug];
+      if (c1 && c2 && c1.center && c2.center) {
+        const v1 = latLngToVec3(c1.center[0], c1.center[1], GLOBE_R);
+        const v2 = latLngToVec3(c2.center[0], c2.center[1], GLOBE_R);
+        const mid = v1.clone().add(v2).multiplyScalar(0.5).normalize().multiplyScalar(GLOBE_R * 1.22);
+
+        const curve = new THREE.QuadraticBezierCurve3(v1, mid, v2);
+        const points = curve.getPoints(30);
+        const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
+        const lineMat = new THREE.LineBasicMaterial({ color: 0xf59e0b, transparent: true, opacity: 0.4 });
+        const arc = new THREE.Line(lineGeo, lineMat);
+        globeGroup.add(arc);
+      }
+    });
+  }).catch(err => console.error("Error loading 3D atlas data:", err));
+
+  
+  const raycaster = new THREE.Raycaster();
+  const mouse = new THREE.Vector2();
+
+  function onPointerMove(e) {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(clickableObjects);
+
+    if (intersects.length > 0) {
+      const obj = intersects[0].object;
+      const meta = obj.userData;
+      if (meta && meta.data) {
+        controls.autoRotate = false;
+        canvas.style.cursor = 'pointer';
+        tooltip.classList.remove('hidden');
+        tooltip.style.left = (e.clientX - rect.left) + 'px';
+        tooltip.style.top = (e.clientY - rect.top) + 'px';
+
+        const s = meta.data;
+        tooltipTitle.textContent = s.name;
+        tooltipSub.textContent = (s.country || '') + ' • ' + (s.kingdom || '');
+        tooltipDesc.textContent = s.description || 'Archaeological site.';
+        tooltipBadge.textContent = s.type || 'Monument';
+        tooltipLink.href = (window.WHA_BASE || '') + '/sites/' + s.id;
+        return;
+      }
+    }
+
+    controls.autoRotate = true;
+    canvas.style.cursor = 'grab';
+    tooltip.classList.add('hidden');
+  }
+
+  function onPointerClick(e) {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(clickableObjects);
+
+    if (intersects.length > 0) {
+      const s = intersects[0].object.userData.data;
+      if (s && s.id) {
+        window.location.href = (window.WHA_BASE || '') + '/sites/' + s.id;
+      }
+    }
+  }
+
+  canvas.addEventListener('mousemove', onPointerMove);
+  canvas.addEventListener('click', onPointerClick);
+
+  window.addEventListener('resize', () => {
+    const w = viewport.clientWidth;
+    const h = viewport.clientHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  });
+
+  let pTimer = 0;
+  function animate3D() {
+    requestAnimationFrame(animate3D);
+    controls.update();
+
+    pTimer += 0.05;
+    const s = 1 + Math.sin(pTimer) * 0.3;
+    pulsingRings.forEach(r => r.scale.set(s, s, 1));
+
+    renderer.render(scene, camera);
+  }
+  animate3D();
+
+  
+  function initLeafletMap() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialLat = parseFloat(urlParams.get('lat')) || 20.0;
+    const initialLng = parseFloat(urlParams.get('lng')) || 40.0;
+    const initialZoom = parseInt(urlParams.get('zoom')) || 3;
+
+    
+    const map = L.map('historyMap', {
+      attributionControl: false,
+      zoomControl: true
+    }).setView([initialLat, initialLng], initialZoom);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19,
+      subdomains: 'abcd'
+    }).addTo(map);
+
+    fetch((window.WHA_BASE || '') + '/api/sites')
+      .then(res => res.json())
+      .then(sites => {
+        sites.forEach(site => {
+          if (site.coordinates && site.coordinates.lat && site.coordinates.lng) {
+            const customIcon = L.divIcon({
+              className: 'custom-map-pin',
+              html: `<div style="background:#f59e0b; width:14px; height:14px; border-radius:50%; border:2px solid #000000; box-shadow:0 0 14px rgba(245,158,11,1);"></div>`,
+              iconSize: [14, 14],
+              iconAnchor: [7, 7]
+            });
+
+            const marker = L.marker([site.coordinates.lat, site.coordinates.lng], { icon: customIcon }).addTo(map);
+            marker.bindPopup(`
+              <div style="font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; background:#121216; color:#f5f5f7; border: 1px solid rgba(255,255,255,0.1); padding: 14px; border-radius: 16px; min-width: 220px; box-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+                <span style="font-size:9px; text-transform:uppercase; font-weight:700; letter-spacing:0.05em; background:rgba(245,158,11,0.15); color:#f59e0b; padding:2px 6px; border-radius:6px; display:inline-block; margin-bottom:6px;">${site.type}</span>
+                <h3 style="font-weight:700; font-size:15px; margin-bottom:4px; color:#ffffff;">${site.name}</h3>
+                <p style="font-size:12px; color:#86868b; margin-bottom:10px; line-height:1.4;">${site.kingdom} • ${site.country || ''}</p>
+                <a href="${(window.WHA_BASE || '')}/sites/${site.id}" style="display:inline-flex; align-items:center; gap:4px; font-size:12px; font-weight:600; color:#2997ff; text-decoration:none;">Inspect Monument &rarr;</a>
+              </div>
+            `, {
+              className: 'apple-map-popup'
+            });
+          }
+        });
+      })
+      .catch(err => console.error("Error loading sites for 2D map:", err));
+  }
+});
+</script>
+
+  </main>
+
+  
+  <footer class="mt-32 border-t border-white/[0.08] bg-[#000000] text-[#86868b] text-xs relative z-10">
+    <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="text-xl">🏛️</span>
+        <div>
+          <p class="font-semibold text-[#f5f5f7] text-sm tracking-tight">World History Knowledge Archive</p>
+          <p class="text-[11px] text-[#86868b]">Spatial civilizational chronicles powered by WebGL 3D and Pure Go SSG.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-6 text-[12px] font-medium text-[#86868b]">
+        <a href="/countries" class="hover:text-white transition-colors">Civilizations</a>
+        <a href="/kingdoms" class="hover:text-white transition-colors">Dynasties</a>
+        <a href="/map" class="hover:text-white transition-colors">3D Atlas</a>
+        <a href="/api/stats" class="hover:text-white transition-colors">REST API</a>
+        <a href="https://github.com/NimuthuGanegoda/WorldHistoryArchive" class="hover:text-white transition-colors">GitHub</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-8 border-t border-white/[0.04] pt-4 text-[11px] text-[#55555a] flex items-center justify-between">
+      <span>Copyright &copy; 2026 World History Archive. All rights reserved.</span>
+      <span>Designed with sovereign perfection for Nimuthu Raiden.</span>
+    </div>
+  </footer>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('ambient-particles');
+      if (!canvas || !window.THREE) return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+      camera.position.z = 400;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      
+      const particleCount = 700;
+      const geometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(particleCount * 3);
+      const colors = new Float32Array(particleCount * 3);
+
+      for (let i = 0; i < particleCount * 3; i += 3) {
+        positions[i] = (Math.random() - 0.5) * 1100;
+        positions[i + 1] = (Math.random() - 0.5) * 1100;
+        positions[i + 2] = (Math.random() - 0.5) * 900;
+
+        const silverGold = Math.random();
+        colors[i] = 0.9 + silverGold * 0.1;
+        colors[i + 1] = 0.85 + silverGold * 0.1;
+        colors[i + 2] = 0.7 + silverGold * 0.3;
+      }
+
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+      const material = new THREE.PointsMaterial({
+        size: 1.8,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.65,
+        blending: THREE.AdditiveBlending
+      });
+
+      const particleSystem = new THREE.Points(geometry, material);
+      scene.add(particleSystem);
+
+      let mouseX = 0, mouseY = 0;
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX - window.innerWidth / 2) * 0.03;
+        mouseY = (e.clientY - window.innerHeight / 2) * 0.03;
+      });
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        particleSystem.rotation.y += 0.0003;
+        particleSystem.rotation.x += 0.00015;
+        camera.position.x += (mouseX - camera.position.x) * 0.02;
+        camera.position.y += (-mouseY - camera.position.y) * 0.02;
+        camera.lookAt(scene.position);
+        renderer.render(scene, camera);
+      }
+      animate();
+    });
+  </script>
+</body>
+</html>

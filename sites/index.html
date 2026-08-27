@@ -1,0 +1,1502 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archaeological Sites — World History Archive</title>
+  <meta name="description" content="Monuments, stupas, fortresses, and ancient engineering sites.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-oled: #000000;
+      --bg-surface: #0a0a0c;
+      --card-apple: rgba(18, 18, 22, 0.65);
+      --border-apple: rgba(255, 255, 255, 0.08);
+      --border-apple-hover: rgba(255, 255, 255, 0.18);
+      --apple-blue: #2997ff;
+      --apple-gold: #e5b869;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+      background-color: var(--bg-oled);
+      color: #f5f5f7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2, h3, .brand-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: -0.02em;
+    }
+    .apple-headline {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: -0.035em;
+    }
+    .glass-apple {
+      background: var(--card-apple);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--border-apple);
+      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.7);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-apple:hover {
+      border-color: var(--border-apple-hover);
+      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.9), 0 0 30px rgba(229, 184, 105, 0.08);
+      transform: translateY(-3px);
+    }
+    .apple-silver-text {
+      background: linear-gradient(180deg, #ffffff 0%, #d1d5db 50%, #86868b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .apple-gold-text {
+      background: linear-gradient(180deg, #fff2cc 0%, #e5b869 60%, #b8862d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .apple-pill-btn {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .apple-pill-btn:hover {
+      transform: scale(1.03);
+    }
+    .apple-pill-btn:active {
+      transform: scale(0.98);
+    }
+    #ambient-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+  </style>
+  <script>
+    (function() {
+      
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      const isGitHubPages = window.location.hostname.endsWith('github.io') && pathParts.length > 0;
+      const basePath = isGitHubPages ? '/' + pathParts[0] : '';
+      window.WHA_BASE = basePath;
+
+      if (basePath) {
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('a[href^="/"]').forEach(a => {
+            const currentHref = a.getAttribute('href');
+            if (currentHref && !currentHref.startsWith(basePath)) {
+              a.setAttribute('href', basePath + currentHref);
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-400 selection:text-black relative bg-black">
+  
+  <canvas id="ambient-particles"></canvas>
+
+  
+  <div class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+    <header class="w-full max-w-6xl rounded-full bg-[#121216]/80 backdrop-blur-2xl border border-white/[0.09] shadow-2xl px-5 py-2.5 flex items-center justify-between transition-all duration-300">
+      
+      <a href="/" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-b from-white/15 to-white/5 border border-white/10 flex items-center justify-center group-hover:scale-105 transition-transform shadow-inner">
+          <span class="text-base">🏛️</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold tracking-tight text-white group-hover:text-amber-300 transition-colors">World History</span>
+          <span class="text-[9px] uppercase tracking-widest text-[#86868b] font-medium -mt-0.5">Archive</span>
+        </div>
+      </a>
+
+      
+      <nav class="hidden md:flex items-center gap-1 bg-white/[0.04] p-1 rounded-full border border-white/[0.06]">
+        <a href="/countries" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Civilizations</a>
+        <a href="/kingdoms" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Dynasties</a>
+        <a href="/kings" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Monarchs</a>
+        <a href="/timeline" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Timeline</a>
+        <a href="/sites" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Monuments</a>
+        <a href="/map" class="px-3.5 py-1.5 text-[13px] font-medium text-amber-300 hover:text-amber-200 hover:bg-white/[0.08] rounded-full transition-all flex items-center gap-1">
+          <span>🗺️</span> 3D Atlas
+        </a>
+      </nav>
+
+      
+      <div class="relative hidden sm:block w-48 lg:w-56">
+        <input type="text" id="headerSearch" placeholder="Search history..." 
+               class="w-full bg-white/[0.06] hover:bg-white/[0.09] text-xs rounded-full pl-8 pr-3 py-1.5 border border-white/[0.08] focus:outline-none focus:border-amber-400/50 text-[#f5f5f7] placeholder-[#86868b] transition-all"
+               onkeydown="if(event.key==='Enter') window.location.href=(window.WHA_BASE||'')+'/kings?search='+encodeURIComponent(this.value)">
+        <span class="absolute left-2.5 top-2 text-[#86868b] text-xs">🔍</span>
+      </div>
+    </header>
+  </div>
+
+  
+  <div class="h-24"></div>
+
+  
+  <main class="flex-1 relative z-10">
+    
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold brand-font gold-gradient-text mb-3">
+        Archaeological & Cultural Sites
+      </h1>
+      <p class="text-slate-400 max-w-2xl text-sm sm:text-base">
+        Ancient stupas, rock fortresses, cave temples, and royal engineering feats cataloged with geographic coordinates.
+      </p>
+    </div>
+    <a href="/map" class="px-5 py-2.5 rounded-full bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-sm font-semibold flex items-center gap-2 self-start">
+      🗺️ View Interactive Map
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    
+    <a href="/sites/ruwanwelisaya" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">stupa</span>
+          <span class="text-slate-400">140 BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Ruwanwelisaya
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Dutugemunu</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          One of the world&#39;s tallest ancient monuments and a masterpiece of Sinhalese engineering.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.35, Lng: 80.3964</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/jetavanaramaya" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">stupa</span>
+          <span class="text-slate-400">3rd century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Jetavanaramaya
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Mahasena</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Once the tallest stupa in the ancient world, standing at 122 meters.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.3514, Lng: 80.4036</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/abhayagiri-dagoba" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">stupa</span>
+          <span class="text-slate-400">1st century BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Abhayagiri Dagoba
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Valagamba</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Major Buddhist monastery complex and one of the most important monasteries in ancient Sri Lanka.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.3708, Lng: 80.3956</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/sigiriya-rock-fortress" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">fortress</span>
+          <span class="text-slate-400">5th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Sigiriya Rock Fortress
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Kashyapa I</span> • Kingdom: Sigiriya
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Ancient rock fortress and palace with famous frescoes, UNESCO World Heritage Site.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.957, Lng: 80.7603</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/sri-maha-bodhi" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">288 BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Sri Maha Bodhi
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Devanampiya Tissa</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Sacred fig tree grown from a cutting of the original Bodhi tree under which Buddha attained enlightenment.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.3447, Lng: 80.3967</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/temple-of-tooth" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">17th-18th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Temple of the Sacred Tooth Relic
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Multiple Kandyan Kings</span> • Kingdom: Kandyan Kingdom
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Temple housing the relic of the tooth of Buddha, UNESCO World Heritage Site.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.2936, Lng: 80.6413</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/polonnaruwa-vatadage" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">12th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Polonnaruwa Vatadage
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Parakramabahu I</span> • Kingdom: Polonnaruwa
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Circular relic house with finest stone carvings and moonstone entrances.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.9483, Lng: 81.0008</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/gal-vihara" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">12th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Gal Vihara
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Parakramabahu I</span> • Kingdom: Polonnaruwa
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Group of four magnificent rock relief Buddha statues carved from a single granite rock wall.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.9658, Lng: 81.0069</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/dambulla-cave-temple" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">1st century BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Dambulla Cave Temple
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Valagamba</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Largest and best-preserved cave temple complex in Sri Lanka with over 150 Buddha statues.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.8565, Lng: 80.6485</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/lovamahapaya" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">monastery</span>
+          <span class="text-slate-400">2nd century BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Lovamahapaya (Brazen Palace)
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Dutugemunu</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Nine-storey monastic building said to have had a bronze roof with 1,600 granite columns.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.3444, Lng: 80.3961</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/thuparamaya" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">stupa</span>
+          <span class="text-slate-400">3rd century BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Thuparamaya
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Devanampiya Tissa</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          First Buddhist stupa built in Sri Lanka, enshrining the right collarbone of Buddha.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.3567, Lng: 80.3961</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/isurumuniya" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">3rd century BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Isurumuniya Temple
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Devanampiya Tissa</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Rock temple famous for the Isurumuniya Lovers sculpture and ancient carvings.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.3331, Lng: 80.39</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/mihintale" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">monastery</span>
+          <span class="text-slate-400">3rd century BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Mihintale
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Devanampiya Tissa</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Sacred mountain where Buddhism was introduced to Sri Lanka by Mahinda.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.3508, Lng: 80.5103</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/lankatilaka-temple" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">14th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Lankatilaka Temple
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Bhuvanekabahu IV</span> • Kingdom: Dambadeniya
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Ancient Buddhist temple built on a rock with impressive architecture.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.2338, Lng: 80.565</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/embekka-devalaya" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">14th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Embekka Devalaya
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Vikramabahu III</span> • Kingdom: Gampola Kingdom
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Hindu temple famous for intricate wood carvings depicting dancers, musicians, and mythical creatures.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.2197, Lng: 80.5703</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/gadaladeniya-temple" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">14th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Gadaladeniya Temple
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Bhuvanekabahu IV</span> • Kingdom: Gampola Kingdom
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Buddhist temple with South Indian architectural influences built on a rocky outcrop.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.2589, Lng: 80.5547</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/yapahuwa-rock-fortress" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">fortress</span>
+          <span class="text-slate-400">13th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Yapahuwa Rock Fortress
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Bhuvanekabahu I</span> • Kingdom: Yapahuwa
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Rock fortress with ornate staircase that once housed the Sacred Tooth Relic.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.8286, Lng: 80.3075</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/parakrama-samudra" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">palace</span>
+          <span class="text-slate-400">12th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Parakrama Samudra
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Parakramabahu I</span> • Kingdom: Polonnaruwa
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Massive ancient irrigation reservoir demonstrating advanced hydraulic engineering.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.9333, Lng: 80.9667</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/royal-palace-polonnaruwa" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">palace</span>
+          <span class="text-slate-400">12th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Royal Palace of Polonnaruwa
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Parakramabahu I</span> • Kingdom: Polonnaruwa
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Seven-storey royal palace complex with impressive architectural remains.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.9458, Lng: 81.0003</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/rankot-vehera" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">stupa</span>
+          <span class="text-slate-400">12th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Rankot Vehera
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Nissanka Malla</span> • Kingdom: Polonnaruwa
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Fourth largest stupa in Sri Lanka and largest in Polonnaruwa.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.9567, Lng: 81.0039</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/kiri-vehera" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">stupa</span>
+          <span class="text-slate-400">12th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Kiri Vehera
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Subhadra (Queen of Parakramabahu I)</span> • Kingdom: Polonnaruwa
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Well-preserved white stupa built by the queen, still retaining its original lime plaster.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 7.9589, Lng: 81.0042</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/medirigiriya-vatadage" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">7th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Medirigiriya Vatadage
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Aggabodhi IV</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Ancient circular relic house with concentric stone columns and Buddha statues.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.1389, Lng: 80.9922</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/avukana-buddha" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">5th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Avukana Buddha Statue
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Dhatusena</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Standing Buddha statue carved from a single granite rock, 40 feet tall.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.0167, Lng: 80.5333</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/ritigala-monastery" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">monastery</span>
+          <span class="text-slate-400">1st century BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Ritigala Monastery
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Various Kings</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Ancient forest monastery complex with unique architectural features.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.1167, Lng: 80.65</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/buduruwagala" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">10th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Buduruwagala
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Unknown</span> • Kingdom: Ruhuna
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Seven large rock-carved Buddha statues, the tallest being 51 feet.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 6.7039, Lng: 81.0778</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/nallur-kovil" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">15th century CE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Nallur Kandaswamy Kovil
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Sapumal Kumaraya (Bhuvanaikabahu VI)</span> • Kingdom: Jaffna
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          One of the most significant Hindu temples in Sri Lanka, dedicated to Lord Murugan. The original temple was founded in the 10th century but the current structure dates back to the 15th century, built by Sapumal Kumaraya (who later became King Bhuvanaikabahu VI of Kotte) during his administration of the Jaffna Kingdom.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 9.6742, Lng: 80.0294</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/kelaniya-temple" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">temple</span>
+          <span class="text-slate-400">3rd Century BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Kelaniya Raja Maha Vihara
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">King Yatala Tissa</span> • Kingdom: Kelaniya
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          An ancient Buddhist temple believed to have been hallowed during the third and final visit of the Lord Buddha to Sri Lanka. It was the capital of the regional King Kelanitissa. The temple is famous for its image house paintings and the annual Duruthu Perahera.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 6.95, Lng: 79.9167</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/lankarama" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">stupa</span>
+          <span class="text-slate-400">1st Century BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Lankarama
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Valagamba</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          A stupa built by King Valagamba in an ancient place named Galhebakada. It is one of the eight sacred places (Atamasthana) in Anuradhapura. The stupa was originally surrounded by a vatadage (stupa house), of which only stone pillars remain.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.3611, Lng: 80.3931</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/mirisawetiya" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">stupa</span>
+          <span class="text-slate-400">2nd Century BCE</span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Mirisawetiya Vihara
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Built by: <span class="text-slate-300 font-semibold">Dutugemunu</span> • Kingdom: Anuradhapura
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          The first stupa built by King Dutugemunu after his victory over King Elara. Legend says the king went to bathe in the Tissa Wewa leaving his sceptre (kunta) with a Buddha relic planted in the ground. When he returned, it could not be moved, so he built the stupa over it.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 8.3447, Lng: 80.3886</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/todai-ji" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Buddhist Temple</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Tōdai-ji Temple &amp; Great Buddha
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: asuka-nara
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Historic Buddhist temple complex in Nara housing the Daibutsu (Great Bronze Buddha), one of the largest wooden buildings in the world.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 34.6851, Lng: 135.8398</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/himeji-castle" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Fortress / Castle</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Himeji Castle (White Heron Castle)
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: edo-shogunate
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Japan&#39;s most pristine surviving feudal castle, featuring an intricate defensive maze of gates, walls, and brilliant white plaster architecture.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 34.8394, Lng: 134.6939</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/kinkaku-ji" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Zen Temple</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Kinkaku-ji (Golden Pavilion)
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: muromachi-sengoku
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Iconic Zen Buddhist temple in Kyoto covered in pure gold leaf, reflecting seamlessly across the Kyoko-chi mirror pond.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 35.0394, Lng: 135.7292</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/giza-pyramids" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Monument / Necropolis</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Great Pyramids of Giza &amp; Great Sphinx
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: egypt-old-kingdom
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          The monumental funerary complex on the Giza Plateau housing the Great Pyramid of Khufu, Khafre, Menkaure, and the monolithic limestone Sphinx.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 29.9792, Lng: 31.1342</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/karnak-temple" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Temple Complex</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Karnak Temple Complex
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: egypt-new-kingdom
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Vast open-air temple complex dedicated to the Theban triad of Amun, Mut, and Khonsu, featuring the colossal Great Hypostyle Hall.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 25.7188, Lng: 32.6573</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/abu-simbel" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Rock-cut Temple</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Abu Simbel Temples
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: egypt-new-kingdom
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Twin massive rock-cut temples carved into a mountainside by Ramses II in Nubia, featuring four colossal 20-meter seated statues of the pharaoh.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 22.3372, Lng: 31.6258</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/colosseum" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Amphitheatre</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          The Colosseum (Flavian Amphitheatre)
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: roman-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          The largest ancient amphitheatre ever built, capable of seating 50,000 spectators for gladiatorial contests and public spectacles.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 41.8902, Lng: 12.4922</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/pantheon-rome" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Temple / Dome</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          The Pantheon
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: roman-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Masterpiece of Roman engineering commissioned by Marcus Agrippa and rebuilt by Hadrian, retaining the world&#39;s largest unreinforced concrete dome.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 41.8986, Lng: 12.4769</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/pompeii-ruins" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Ancient City</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Ruins of Pompeii
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: roman-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Remarkably preserved Roman city buried under volcanic ash from Mount Vesuvius in 79 CE, providing vivid insight into daily imperial life.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 40.7509, Lng: 14.487</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/sanchi-stupa" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Buddhist Stupa</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Great Stupa at Sanchi
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: maurya-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          One of the oldest stone structures in India commissioned by Emperor Ashoka, featuring intricate torana gateways illustrating Buddhist jatakas.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 23.4795, Lng: 77.7397</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/taj-mahal" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Mausoleum</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Taj Mahal
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: mughal-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Ivory-white marble mausoleum on the Yamuna river in Agra commissioned by Mughal Emperor Shah Jahan to house the tomb of his favourite wife, Mumtaz Mahal.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 27.1751, Lng: 78.0421</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/parthenon-athens" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Doric Temple</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Parthenon on the Acropolis
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: classical-greece
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Former temple on the Athenian Acropolis dedicated to the goddess Athena, regarded as the enduring zenith of Classical Greek Doric architecture.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 37.9715, Lng: 23.7267</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/persepolis" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Ceremonial Capital</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Persepolis (Takht-e Jamshid)
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: achaemenid-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Grand ceremonial capital of the Achaemenid Empire built by Darius I and Xerxes, showcasing the Gate of All Nations and Apadana Palace reliefs.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 29.9357, Lng: 52.8914</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/terracotta-army" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Mausoleum / Sculptures</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Terracotta Army of Qin Shi Huang
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: qin-dynasty
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Colossal underground army of over 8,000 life-sized terracotta soldiers, chariots, and horses buried to protect China&#39;s first emperor in the afterlife.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 34.3841, Lng: 109.2785</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/great-wall-china" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Defensive Fortification</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          The Great Wall of China
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: ming-dynasty
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Vast series of stone and rammed-earth fortifications stretching thousands of kilometers across northern China, featuring watchtowers and garrisons.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 40.4319, Lng: 116.5704</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/forbidden-city" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Imperial Palace</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          The Forbidden City
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: ming-dynasty
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Imperial palace complex in the heart of Beijing housing 24 emperors across the Ming and Qing dynasties with 980 surviving wooden palace buildings.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 39.9163, Lng: 116.3972</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/ziggurat-of-ur" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Ziggurat / Temple</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Great Ziggurat of Ur
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: babylonian-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Massive stepped mud-brick pyramid temple dedicated to the moon god Nanna, built during the Neo-Sumerian revival.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 30.9628, Lng: 46.1031</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/ishtar-gate-babylon" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">City Gate / Monument</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Ishtar Gate &amp; Ruins of Babylon
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: babylonian-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          The eighth inner gate of Babylon adorned with vibrant blue glazed bricks and bas-relief dragons (Mušḫuššu) and young bulls.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 32.5422, Lng: 44.421</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/teotihuacan-pyramids" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Ancient City &amp; Pyramids</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Pyramids of Teotihuacan
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: maya-civilization
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Ancient holy city featuring the monumental Pyramid of the Sun, Pyramid of the Moon, and the Avenue of the Dead.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 19.6925, Lng: -98.8437</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/chichen-itza" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Step Pyramid &amp; Temple</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Chichen Itza (El Castillo)
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: maya-civilization
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Famous Maya-Toltec ceremonial city centered around the Temple of Kukulcan step pyramid, engineered with equinox shadow serpents.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 20.6843, Lng: -88.5678</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/machu-picchu" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Mountain Sanctuary</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Machu Picchu (Lost City of the Incas)
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: inca-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          15th-century Inca citadel perched on a mountain ridge above the Sacred Valley, showcasing polished dry-stone ashlar masonry.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: -13.1631, Lng: -72.545</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/sacsayhuaman" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Megalithic Fortress</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Sacsayhuamán Fortress
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: inca-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Inca fortress on the northern outskirts of Cusco with colossal zig-zag limestone walls fitted so tightly that not even a sheet of paper can pass between them.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: -13.5081, Lng: -71.9818</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/stonehenge" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Prehistoric Monument</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Stonehenge Megalithic Monument
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: tudor-era
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Prehistoric stone circle monument on Salisbury Plain, aligned with the sunrise on the summer solstice and sunset on the winter solstice.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 51.1789, Lng: -1.8262</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/tower-of-london" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Royal Castle &amp; Fortress</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Tower of London (Her Majesty&#39;s Royal Palace and Fortress)
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: tudor-era
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Historic castle founded towards the end of 1066 as part of the Norman Conquest of England, housing the Crown Jewels.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 51.5081, Lng: -0.0759</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/palace-of-versailles" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Royal Palace</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Palace of Versailles
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: carolingian-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Principal royal residence of France under Louis XIV, featuring the legendary Hall of Mirrors, Grand Canal, and Baroque garden architecture.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 48.8049, Lng: 2.1204</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/lalibela-churches" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Monolithic Rock Churches</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Rock-Hewn Churches of Lalibela
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: aksumite-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          Eleven medieval monolithic cave churches carved directly downward out of volcanic rock, including the cruciform Church of Saint George (Biete Ghiorgis).
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 12.0319, Lng: 39.0414</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+    <a href="/sites/djenne-mosque" class="glass-card p-6 rounded-2xl flex flex-col justify-between group">
+      <div>
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-400 mb-2">
+          <span class="uppercase tracking-wider">Adobe / Sudano-Sahelian Mosque</span>
+          <span class="text-slate-400"></span>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-2">
+          Great Mosque of Djenné
+        </h2>
+        <p class="text-xs text-slate-400 mb-3">
+          Kingdom: mali-empire
+        </p>
+        <p class="text-sm text-slate-300 line-clamp-3 leading-relaxed font-light">
+          The largest sun-baked earth (adobe) building in the world, considered by many architects to be the crowning achievement of the Sudano-Sahelian style.
+        </p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-amber-400 font-medium">
+        <span>Lat: 13.9054, Lng: -4.5552</span>
+        <span class="group-hover:translate-x-1 transition-transform">Explore &rarr;</span>
+      </div>
+    </a>
+    
+  </div>
+</div>
+
+  </main>
+
+  
+  <footer class="mt-32 border-t border-white/[0.08] bg-[#000000] text-[#86868b] text-xs relative z-10">
+    <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="text-xl">🏛️</span>
+        <div>
+          <p class="font-semibold text-[#f5f5f7] text-sm tracking-tight">World History Knowledge Archive</p>
+          <p class="text-[11px] text-[#86868b]">Spatial civilizational chronicles powered by WebGL 3D and Pure Go SSG.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-6 text-[12px] font-medium text-[#86868b]">
+        <a href="/countries" class="hover:text-white transition-colors">Civilizations</a>
+        <a href="/kingdoms" class="hover:text-white transition-colors">Dynasties</a>
+        <a href="/map" class="hover:text-white transition-colors">3D Atlas</a>
+        <a href="/api/stats" class="hover:text-white transition-colors">REST API</a>
+        <a href="https://github.com/NimuthuGanegoda/WorldHistoryArchive" class="hover:text-white transition-colors">GitHub</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-8 border-t border-white/[0.04] pt-4 text-[11px] text-[#55555a] flex items-center justify-between">
+      <span>Copyright &copy; 2026 World History Archive. All rights reserved.</span>
+      <span>Designed with sovereign perfection for Nimuthu Raiden.</span>
+    </div>
+  </footer>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('ambient-particles');
+      if (!canvas || !window.THREE) return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+      camera.position.z = 400;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      
+      const particleCount = 700;
+      const geometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(particleCount * 3);
+      const colors = new Float32Array(particleCount * 3);
+
+      for (let i = 0; i < particleCount * 3; i += 3) {
+        positions[i] = (Math.random() - 0.5) * 1100;
+        positions[i + 1] = (Math.random() - 0.5) * 1100;
+        positions[i + 2] = (Math.random() - 0.5) * 900;
+
+        const silverGold = Math.random();
+        colors[i] = 0.9 + silverGold * 0.1;
+        colors[i + 1] = 0.85 + silverGold * 0.1;
+        colors[i + 2] = 0.7 + silverGold * 0.3;
+      }
+
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+      const material = new THREE.PointsMaterial({
+        size: 1.8,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.65,
+        blending: THREE.AdditiveBlending
+      });
+
+      const particleSystem = new THREE.Points(geometry, material);
+      scene.add(particleSystem);
+
+      let mouseX = 0, mouseY = 0;
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX - window.innerWidth / 2) * 0.03;
+        mouseY = (e.clientY - window.innerHeight / 2) * 0.03;
+      });
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        particleSystem.rotation.y += 0.0003;
+        particleSystem.rotation.x += 0.00015;
+        camera.position.x += (mouseX - camera.position.x) * 0.02;
+        camera.position.y += (-mouseY - camera.position.y) * 0.02;
+        camera.lookAt(scene.position);
+        renderer.render(scene, camera);
+      }
+      animate();
+    });
+  </script>
+</body>
+</html>
