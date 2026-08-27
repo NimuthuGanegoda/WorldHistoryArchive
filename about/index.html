@@ -135,12 +135,11 @@
       </nav>
 
       
-      <div class="relative hidden sm:block w-48 lg:w-56">
-        <input type="text" id="headerSearch" placeholder="Search history..." 
-               class="w-full bg-white/[0.06] hover:bg-white/[0.09] text-xs rounded-full pl-8 pr-3 py-1.5 border border-white/[0.08] focus:outline-none focus:border-amber-400/50 text-[#f5f5f7] placeholder-[#86868b] transition-all"
-               onkeydown="if(event.key==='Enter') window.location.href=(window.WHA_BASE||'')+'/kings?search='+encodeURIComponent(this.value)">
-        <span class="absolute left-2.5 top-2 text-[#86868b] text-xs">🔍</span>
-      </div>
+      <button id="spotlight-btn" class="flex items-center gap-2 bg-white/[0.06] hover:bg-white/[0.12] text-xs rounded-full pl-3 pr-2.5 py-1.5 border border-white/[0.08] text-[#86868b] hover:text-[#f5f5f7] transition-all">
+        <span class="text-xs">🔍</span>
+        <span class="hidden sm:inline font-medium">Search archives...</span>
+        <kbd class="hidden sm:inline text-[10px] font-semibold bg-white/10 text-white/70 px-1.5 py-0.5 rounded border border-white/10">⌘K</kbd>
+      </button>
     </header>
   </div>
 
@@ -190,6 +189,53 @@
   </main>
 
   
+  <div id="spotlight-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-xl flex items-start justify-center pt-20 px-4 hidden transition-opacity">
+    <div class="w-full max-w-2xl bg-[#121216]/95 border border-white/[0.14] rounded-3xl shadow-2xl overflow-hidden backdrop-blur-3xl transform transition-transform">
+      <div class="flex items-center gap-3 px-5 py-4 border-b border-white/[0.08]">
+        <span class="text-lg text-[#86868b]">🔍</span>
+        <input type="text" id="spotlight-input" placeholder="Search civilizations, dynasties, monarchs, monuments..." 
+               class="w-full bg-transparent text-sm sm:text-base font-normal text-white placeholder-[#86868b] focus:outline-none"
+               autocomplete="off">
+        <kbd class="text-[10px] font-semibold bg-white/10 text-[#86868b] px-2 py-1 rounded border border-white/10">ESC</kbd>
+      </div>
+
+      <div class="flex items-center gap-2 px-5 py-2.5 border-b border-white/[0.04] text-[11px] text-[#86868b] overflow-x-auto">
+        <span class="font-semibold text-white/50 uppercase tracking-widest text-[9px]">Filters:</span>
+        <button class="spotlight-filter px-2.5 py-1 rounded-full bg-white/10 text-white font-medium" data-filter="all">All</button>
+        <button class="spotlight-filter px-2.5 py-1 rounded-full text-[#86868b] hover:text-white font-medium" data-filter="countries">Civilizations</button>
+        <button class="spotlight-filter px-2.5 py-1 rounded-full text-[#86868b] hover:text-white font-medium" data-filter="kingdoms">Dynasties</button>
+        <button class="spotlight-filter px-2.5 py-1 rounded-full text-[#86868b] hover:text-white font-medium" data-filter="kings">Monarchs</button>
+        <button class="spotlight-filter px-2.5 py-1 rounded-full text-[#86868b] hover:text-white font-medium" data-filter="sites">Monuments</button>
+      </div>
+
+      <div id="spotlight-results" class="max-h-96 overflow-y-auto p-3 divide-y divide-white/[0.04]">
+        <div class="p-6 text-center text-xs text-[#86868b]">Type to search 229 monarchs, 46 dynasties, 56 monuments, and 15 world civilizations...</div>
+      </div>
+
+      <div class="px-5 py-3 bg-white/[0.02] border-t border-white/[0.06] flex items-center justify-between text-[11px] text-[#55555a]">
+        <div class="flex items-center gap-3">
+          <span>Navigate <kbd class="text-[9px] bg-white/5 px-1 py-0.5 rounded">↑</kbd><kbd class="text-[9px] bg-white/5 px-1 py-0.5 rounded">↓</kbd></span>
+          <span>Select <kbd class="text-[9px] bg-white/5 px-1 py-0.5 rounded">↵</kbd></span>
+        </div>
+        <span>Powered by Pure Go Memory Index</span>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 hidden sm:flex items-center gap-4 px-5 py-2.5 rounded-full bg-[#121216]/80 backdrop-blur-2xl border border-white/[0.1] shadow-2xl text-xs text-[#86868b] hover:border-amber-400/30 transition-all cursor-pointer group"
+       onclick="document.getElementById('spotlight-btn').click()">
+    <span class="w-2 h-2 rounded-full bg-amber-400 group-hover:scale-125 transition-transform animate-pulse"></span>
+    <span class="text-[#f5f5f7] font-medium">World History Archive</span>
+    <span class="text-white/20">&bull;</span>
+    <span>15 Civilizations</span>
+    <span class="text-white/20">&bull;</span>
+    <span>229 Monarchs</span>
+    <span class="text-white/20">&bull;</span>
+    <kbd class="text-[10px] font-semibold bg-white/10 text-white px-2 py-0.5 rounded border border-white/10">⌘K Search</kbd>
+  </div>
+
+  
   <footer class="mt-32 border-t border-white/[0.08] bg-[#000000] text-[#86868b] text-xs relative z-10">
     <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
@@ -213,6 +259,121 @@
       <span>Designed with sovereign perfection for Nimuthu Raiden.</span>
     </div>
   </footer>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      document.querySelectorAll('.glass-apple').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+          card.style.background = `radial-gradient(circle 350px at ${x}px ${y}px, rgba(255,255,255,0.06), rgba(18,18,22,0.7) 70%)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.background = '';
+        });
+      });
+
+      
+      const modal = document.getElementById('spotlight-modal');
+      const btn = document.getElementById('spotlight-btn');
+      const input = document.getElementById('spotlight-input');
+      const resultsContainer = document.getElementById('spotlight-results');
+      let searchIndex = [];
+      let activeFilter = 'all';
+
+      
+      Promise.all([
+        fetch((window.WHA_BASE || '') + '/api/countries').then(r => r.json()).catch(() => []),
+        fetch((window.WHA_BASE || '') + '/api/kingdoms').then(r => r.json()).catch(() => []),
+        fetch((window.WHA_BASE || '') + '/api/kings').then(r => r.json()).catch(() => []),
+        fetch((window.WHA_BASE || '') + '/api/sites').then(r => r.json()).catch(() => [])
+      ]).then(([countries, kingdoms, kings, sites]) => {
+        countries.forEach(c => searchIndex.push({ type: 'countries', title: c.name, sub: 'Civilization (' + c.code + ')', desc: c.description, url: '/countries/' + c.slug, icon: '🌍' }));
+        kingdoms.forEach(k => searchIndex.push({ type: 'kingdoms', title: k.title, sub: k.country + ' • ' + k.reign, desc: k.description, url: '/kingdoms/' + k.slug, icon: '🏰' }));
+        kings.forEach(k => searchIndex.push({ type: 'kings', title: k.title, sub: k.kingdom + ' • ' + k.reign, desc: k.biography, url: '/kings/' + k.slug, icon: '👑' }));
+        sites.forEach(s => searchIndex.push({ type: 'sites', title: s.name, sub: s.type + ' • ' + s.kingdom, desc: s.description, url: '/sites/' + s.id, icon: '📍' }));
+      });
+
+      function openSpotlight() {
+        modal.classList.remove('hidden');
+        input.value = '';
+        input.focus();
+        renderResults('');
+      }
+
+      function closeSpotlight() {
+        modal.classList.add('hidden');
+      }
+
+      if (btn) btn.addEventListener('click', openSpotlight);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeSpotlight();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          if (modal.classList.contains('hidden')) openSpotlight();
+          else closeSpotlight();
+        } else if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeSpotlight();
+        }
+      });
+
+      input.addEventListener('input', () => {
+        renderResults(input.value.trim().toLowerCase());
+      });
+
+      document.querySelectorAll('.spotlight-filter').forEach(fBtn => {
+        fBtn.addEventListener('click', () => {
+          document.querySelectorAll('.spotlight-filter').forEach(b => {
+            b.className = 'spotlight-filter px-2.5 py-1 rounded-full text-[#86868b] hover:text-white font-medium';
+          });
+          fBtn.className = 'spotlight-filter px-2.5 py-1 rounded-full bg-white/10 text-white font-medium';
+          activeFilter = fBtn.getAttribute('data-filter');
+          renderResults(input.value.trim().toLowerCase());
+        });
+      });
+
+      function renderResults(q) {
+        let filtered = searchIndex;
+        if (activeFilter !== 'all') {
+          filtered = filtered.filter(item => item.type === activeFilter);
+        }
+        if (q) {
+          filtered = filtered.filter(item => 
+            item.title.toLowerCase().includes(q) || 
+            (item.desc && item.desc.toLowerCase().includes(q)) ||
+            (item.sub && item.sub.toLowerCase().includes(q))
+          );
+        }
+
+        if (filtered.length === 0) {
+          resultsContainer.innerHTML = '<div class="p-8 text-center text-xs text-[#86868b]">No chronicles found matching "<b>' + q + '</b>".</div>';
+          return;
+        }
+
+        const list = filtered.slice(0, 10);
+        resultsContainer.innerHTML = list.map((item, idx) => `
+          <a href="${(window.WHA_BASE || '') + item.url}" class="spotlight-item flex items-center justify-between p-3.5 rounded-2xl hover:bg-white/[0.06] transition-colors group">
+            <div class="flex items-center gap-3">
+              <span class="text-base">${item.icon}</span>
+              <div>
+                <h4 class="text-sm font-semibold text-[#f5f5f7] group-hover:text-white">${item.title}</h4>
+                <p class="text-xs text-[#86868b] font-light">${item.sub}</p>
+              </div>
+            </div>
+            <span class="text-xs text-[#2997ff] font-semibold group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </a>
+        `).join('');
+      }
+    });
+  </script>
 
   
   <script>
