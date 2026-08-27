@@ -4244,12 +4244,21 @@
       let searchIndex = [];
       let activeFilter = 'all';
 
+      function loadSearchJSON(endpoint) {
+        const base = window.WHA_BASE || '';
+        const clean = endpoint.startsWith('/') ? endpoint : '/' + endpoint;
+        const url = base + (clean.endsWith('.json') ? clean : clean + '.json');
+        return fetch(url)
+          .then(res => res.ok ? res.json() : fetch(base + clean).then(r => r.json()))
+          .catch(() => fetch(base + clean).then(r => r.json()).catch(() => []));
+      }
+
       
       Promise.all([
-        fetch((window.WHA_BASE || '') + '/api/countries').then(r => r.json()).catch(() => []),
-        fetch((window.WHA_BASE || '') + '/api/kingdoms').then(r => r.json()).catch(() => []),
-        fetch((window.WHA_BASE || '') + '/api/kings').then(r => r.json()).catch(() => []),
-        fetch((window.WHA_BASE || '') + '/api/sites').then(r => r.json()).catch(() => [])
+        loadSearchJSON('/api/countries'),
+        loadSearchJSON('/api/kingdoms'),
+        loadSearchJSON('/api/kings'),
+        loadSearchJSON('/api/sites')
       ]).then(([countries, kingdoms, kings, sites]) => {
         countries.forEach(c => searchIndex.push({ type: 'countries', title: c.name, sub: 'Civilization (' + c.code + ')', desc: c.description, url: '/countries/' + c.slug, icon: '🌍' }));
         kingdoms.forEach(k => searchIndex.push({ type: 'kingdoms', title: k.title, sub: k.country + ' • ' + k.reign, desc: k.description, url: '/kingdoms/' + k.slug, icon: '🏰' }));
