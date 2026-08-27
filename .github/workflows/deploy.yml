@@ -10,7 +10,7 @@ on:
     - cron: '0 19 * * *'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -29,7 +29,6 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: '1.22'
-          cache: true
 
       - name: Run Unit Tests
         run: go test -v ./...
@@ -41,6 +40,12 @@ jobs:
 
       - name: Build Static Distribution (SSG)
         run: ./wha build --out dist
+
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
@@ -57,3 +62,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
