@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vijayanagara Empire — World History Archive</title>
+  <meta name="description" content="History and monarchs of Vijayanagara Empire (1336–1646 CE).">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-oled: #000000;
+      --bg-surface: #0a0a0c;
+      --card-apple: rgba(18, 18, 22, 0.65);
+      --border-apple: rgba(255, 255, 255, 0.08);
+      --border-apple-hover: rgba(255, 255, 255, 0.18);
+      --apple-blue: #2997ff;
+      --apple-gold: #e5b869;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+      background-color: var(--bg-oled);
+      color: #f5f5f7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2, h3, .brand-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: -0.02em;
+    }
+    .apple-headline {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: -0.035em;
+    }
+    .glass-apple {
+      background: var(--card-apple);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--border-apple);
+      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.7);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-apple:hover {
+      border-color: var(--border-apple-hover);
+      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.9), 0 0 30px rgba(229, 184, 105, 0.08);
+      transform: translateY(-3px);
+    }
+    .apple-silver-text {
+      background: linear-gradient(180deg, #ffffff 0%, #d1d5db 50%, #86868b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .apple-gold-text {
+      background: linear-gradient(180deg, #fff2cc 0%, #e5b869 60%, #b8862d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .apple-pill-btn {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .apple-pill-btn:hover {
+      transform: scale(1.03);
+    }
+    .apple-pill-btn:active {
+      transform: scale(0.98);
+    }
+    #ambient-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+  </style>
+  <script>
+    (function() {
+      
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      const isGitHubPages = window.location.hostname.endsWith('github.io') && pathParts.length > 0;
+      const basePath = isGitHubPages ? '/' + pathParts[0] : '';
+      window.WHA_BASE = basePath;
+
+      if (basePath) {
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('a[href^="/"]').forEach(a => {
+            const currentHref = a.getAttribute('href');
+            if (currentHref && !currentHref.startsWith(basePath)) {
+              a.setAttribute('href', basePath + currentHref);
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-400 selection:text-black relative bg-black">
+  
+  <canvas id="ambient-particles"></canvas>
+
+  
+  <div class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+    <header class="w-full max-w-6xl rounded-full bg-[#121216]/80 backdrop-blur-2xl border border-white/[0.09] shadow-2xl px-5 py-2.5 flex items-center justify-between transition-all duration-300">
+      
+      <a href="/" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-full bg-gradient-to-b from-white/15 to-white/5 border border-white/10 flex items-center justify-center group-hover:scale-105 transition-transform shadow-inner">
+          <span class="text-base">🏛️</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold tracking-tight text-white group-hover:text-amber-300 transition-colors">World History</span>
+          <span class="text-[9px] uppercase tracking-widest text-[#86868b] font-medium -mt-0.5">Archive</span>
+        </div>
+      </a>
+
+      
+      <nav class="hidden md:flex items-center gap-1 bg-white/[0.04] p-1 rounded-full border border-white/[0.06]">
+        <a href="/countries" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Civilizations</a>
+        <a href="/kingdoms" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Dynasties</a>
+        <a href="/kings" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Monarchs</a>
+        <a href="/timeline" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Timeline</a>
+        <a href="/sites" class="px-3.5 py-1.5 text-[13px] font-medium text-[#f5f5f7] hover:text-white hover:bg-white/[0.08] rounded-full transition-all">Monuments</a>
+        <a href="/map" class="px-3.5 py-1.5 text-[13px] font-medium text-amber-300 hover:text-amber-200 hover:bg-white/[0.08] rounded-full transition-all flex items-center gap-1">
+          <span>🗺️</span> 3D Atlas
+        </a>
+      </nav>
+
+      
+      <button id="spotlight-btn" class="flex items-center gap-2 bg-white/[0.06] hover:bg-white/[0.12] text-xs rounded-full pl-3 pr-2.5 py-1.5 border border-white/[0.08] text-[#86868b] hover:text-[#f5f5f7] transition-all">
+        <span class="text-xs">🔍</span>
+        <span class="hidden sm:inline font-medium">Search archives...</span>
+        <kbd class="hidden sm:inline text-[10px] font-semibold bg-white/10 text-white/70 px-1.5 py-0.5 rounded border border-white/10">⌘K</kbd>
+      </button>
+    </header>
+  </div>
+
+  
+  <div class="h-24"></div>
+
+  
+  <main class="flex-1 relative z-10">
+    
+<div class="max-w-5xl mx-auto px-6 py-12">
+  <nav class="flex items-center gap-2 text-xs font-medium text-[#86868b] mb-8">
+    <a href="/" class="hover:text-white transition-colors">Home</a>
+    <span>&rsaquo;</span>
+    <a href="/countries" class="hover:text-white transition-colors">Civilizations</a>
+    <span>&rsaquo;</span>
+    <a href="/countries/india" class="hover:text-white transition-colors">India</a>
+    <span>&rsaquo;</span>
+    <span class="text-white">Vijayanagara Empire</span>
+  </nav>
+
+  <article class="glass-apple p-8 sm:p-12 rounded-3xl mb-14">
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-white/[0.06] pb-6">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <a href="/countries/india" class="px-3 py-1 text-xs font-semibold rounded-full bg-white/[0.06] text-amber-300 border border-white/[0.08] hover:bg-white/10 transition-colors">
+            🌍 India
+          </a>
+          <span class="text-[10px] text-[#86868b] font-semibold uppercase tracking-wider">Sub-Category</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight apple-headline text-[#f5f5f7] mb-2">
+          Vijayanagara Empire
+        </h1>
+        <p class="text-sm font-medium text-[#86868b]">
+          Period: <span class="text-white font-semibold">1336–1646 CE</span>
+           &bull; Capital: <span class="text-[#d1d5db]">Vijayanagara (Hampi)</span>
+        </p>
+      </div>
+      <a href="/countries/india" class="px-4 py-2 text-xs font-semibold rounded-full bg-white/[0.06] hover:bg-white/10 text-white border border-white/[0.08] transition-all">
+        &larr; India
+      </a>
+    </div>
+
+    
+    <div class="text-[#86868b] leading-relaxed text-base sm:text-lg mb-8 font-light">
+      <p>Southern Indian empire that patronized fine arts, literature, and monumental temple architecture, creating a bustling commercial metropolis at Hampi.</p>
+    </div>
+    
+
+    
+  </article>
+
+  
+  
+
+  
+  
+  <div>
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <p class="text-xs uppercase tracking-widest text-amber-400 font-semibold mb-1.5">Monuments & Heritage</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight apple-headline text-[#f5f5f7]">
+          Archaeological Sites of Vijayanagara Empire (1)
+        </h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <a href="/sites/hampi-monuments" class="glass-apple p-7 rounded-3xl flex flex-col justify-between group">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.06] text-amber-300 block w-fit mb-2">
+            temple_metropolis
+          </span>
+          <h3 class="text-lg font-bold text-[#f5f5f7] group-hover:text-white transition-colors mb-2">
+            Hampi (Group of Monuments at Vijayanagara)
+          </h3>
+          <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed font-light mb-4">
+            Spectacular 4,100-hectare boulder-strewn capital city featuring over 1,600 surviving monuments, palaces, and hydraulic royal baths.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#2997ff] font-semibold">
+          <span>Inspect Monument</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+  
+</div>
+
+  </main>
+
+  
+  <div id="spotlight-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-xl flex items-start justify-center pt-20 px-4 hidden transition-opacity">
+    <div class="w-full max-w-2xl bg-[#121216]/95 border border-white/[0.14] rounded-3xl shadow-2xl overflow-hidden backdrop-blur-3xl transform transition-transform">
+      <div class="flex items-center gap-3 px-5 py-4 border-b border-white/[0.08]">
+        <span class="text-lg text-[#86868b]">🔍</span>
+        <input type="text" id="spotlight-input" placeholder="Search civilizations, dynasties, monarchs, monuments..." 
+               class="w-full bg-transparent text-sm sm:text-base font-normal text-white placeholder-[#86868b] focus:outline-none"
+               autocomplete="off">
+        <kbd class="text-[10px] font-semibold bg-white/10 text-[#86868b] px-2 py-1 rounded border border-white/10">ESC</kbd>
+      </div>
+
+      <div class="flex items-center gap-2 px-5 py-2.5 border-b border-white/[0.04] text-[11px] text-[#86868b] overflow-x-auto">
+        <span class="font-semibold text-white/50 uppercase tracking-widest text-[9px]">Filters:</span>
+        <button class="spotlight-filter px-2.5 py-1 rounded-full bg-white/10 text-white font-medium" data-filter="all">All</button>
+        <button class="spotlight-filter px-2.5 py-1 rounded-full text-[#86868b] hover:text-white font-medium" data-filter="countries">Civilizations</button>
+        <button class="spotlight-filter px-2.5 py-1 rounded-full text-[#86868b] hover:text-white font-medium" data-filter="kingdoms">Dynasties</button>
+        <button class="spotlight-filter px-2.5 py-1 rounded-full text-[#86868b] hover:text-white font-medium" data-filter="kings">Monarchs</button>
+        <button class="spotlight-filter px-2.5 py-1 rounded-full text-[#86868b] hover:text-white font-medium" data-filter="sites">Monuments</button>
+      </div>
+
+      <div id="spotlight-results" class="max-h-96 overflow-y-auto p-3 divide-y divide-white/[0.04]">
+        <div class="p-6 text-center text-xs text-[#86868b]">Type to search 229 monarchs, 46 dynasties, 56 monuments, and 15 world civilizations...</div>
+      </div>
+
+      <div class="px-5 py-3 bg-white/[0.02] border-t border-white/[0.06] flex items-center justify-between text-[11px] text-[#55555a]">
+        <div class="flex items-center gap-3">
+          <span>Navigate <kbd class="text-[9px] bg-white/5 px-1 py-0.5 rounded">↑</kbd><kbd class="text-[9px] bg-white/5 px-1 py-0.5 rounded">↓</kbd></span>
+          <span>Select <kbd class="text-[9px] bg-white/5 px-1 py-0.5 rounded">↵</kbd></span>
+        </div>
+        <span>Powered by Pure Go Memory Index</span>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 hidden sm:flex items-center gap-4 px-5 py-2.5 rounded-full bg-[#121216]/80 backdrop-blur-2xl border border-white/[0.1] shadow-2xl text-xs text-[#86868b] hover:border-amber-400/30 transition-all cursor-pointer group"
+       onclick="document.getElementById('spotlight-btn').click()">
+    <span class="w-2 h-2 rounded-full bg-amber-400 group-hover:scale-125 transition-transform animate-pulse"></span>
+    <span class="text-[#f5f5f7] font-medium">World History Archive</span>
+    <span class="text-white/20">&bull;</span>
+    <span>15 Civilizations</span>
+    <span class="text-white/20">&bull;</span>
+    <span>229 Monarchs</span>
+    <span class="text-white/20">&bull;</span>
+    <kbd class="text-[10px] font-semibold bg-white/10 text-white px-2 py-0.5 rounded border border-white/10">⌘K Search</kbd>
+  </div>
+
+  
+  <footer class="mt-32 border-t border-white/[0.08] bg-[#000000] text-[#86868b] text-xs relative z-10">
+    <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="text-xl">🏛️</span>
+        <div>
+          <p class="font-semibold text-[#f5f5f7] text-sm tracking-tight">World History Knowledge Archive</p>
+          <p class="text-[11px] text-[#86868b]">Spatial civilizational chronicles powered by WebGL 3D and Pure Go SSG.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-6 text-[12px] font-medium text-[#86868b]">
+        <a href="/countries" class="hover:text-white transition-colors">Civilizations</a>
+        <a href="/kingdoms" class="hover:text-white transition-colors">Dynasties</a>
+        <a href="/map" class="hover:text-white transition-colors">3D Atlas</a>
+        <a href="/api/stats" class="hover:text-white transition-colors">REST API</a>
+        <a href="https://github.com/NimuthuGanegoda/WorldHistoryArchive" class="hover:text-white transition-colors">GitHub</a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-8 border-t border-white/[0.04] pt-4 text-[11px] text-[#55555a] flex items-center justify-between">
+      <span>Copyright &copy; 2026 World History Archive. All rights reserved.</span>
+      <span>Designed with sovereign perfection for Nimuthu Raiden.</span>
+    </div>
+  </footer>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      document.querySelectorAll('.glass-apple').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+          card.style.background = `radial-gradient(circle 350px at ${x}px ${y}px, rgba(255,255,255,0.06), rgba(18,18,22,0.7) 70%)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.background = '';
+        });
+      });
+
+      
+      const modal = document.getElementById('spotlight-modal');
+      const btn = document.getElementById('spotlight-btn');
+      const input = document.getElementById('spotlight-input');
+      const resultsContainer = document.getElementById('spotlight-results');
+      let searchIndex = [];
+      let activeFilter = 'all';
+
+      function loadSearchJSON(endpoint) {
+        const base = window.WHA_BASE || '';
+        const clean = endpoint.startsWith('/') ? endpoint : '/' + endpoint;
+        const url = base + (clean.endsWith('.json') ? clean : clean + '.json');
+        return fetch(url)
+          .then(res => res.ok ? res.json() : fetch(base + clean).then(r => r.json()))
+          .catch(() => fetch(base + clean).then(r => r.json()).catch(() => []));
+      }
+
+      
+      Promise.all([
+        loadSearchJSON('/api/countries'),
+        loadSearchJSON('/api/kingdoms'),
+        loadSearchJSON('/api/kings'),
+        loadSearchJSON('/api/sites')
+      ]).then(([countries, kingdoms, kings, sites]) => {
+        countries.forEach(c => searchIndex.push({ type: 'countries', title: c.name, sub: 'Civilization (' + c.code + ')', desc: c.description, url: '/countries/' + c.slug, icon: '🌍' }));
+        kingdoms.forEach(k => searchIndex.push({ type: 'kingdoms', title: k.title, sub: k.country + ' • ' + k.reign, desc: k.description, url: '/kingdoms/' + k.slug, icon: '🏰' }));
+        kings.forEach(k => searchIndex.push({ type: 'kings', title: k.title, sub: k.kingdom + ' • ' + k.reign, desc: k.biography, url: '/kings/' + k.slug, icon: '👑' }));
+        sites.forEach(s => searchIndex.push({ 
+          type: 'sites', 
+          title: s.name, 
+          sub: (s.isWorldWonder ? '🏆 ' + s.wonderCategory + ' • ' : '') + (s.type || 'Monument') + ' • ' + (s.kingdom || ''), 
+          desc: (s.description || '') + ' ' + (s.wonderHistoricalContext || ''), 
+          url: '/sites/' + s.id, 
+          icon: s.isWorldWonder ? '🏆' : '📍' 
+        }));
+      });
+
+      function openSpotlight() {
+        modal.classList.remove('hidden');
+        input.value = '';
+        input.focus();
+        renderResults('');
+      }
+
+      function closeSpotlight() {
+        modal.classList.add('hidden');
+      }
+
+      if (btn) btn.addEventListener('click', openSpotlight);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeSpotlight();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          if (modal.classList.contains('hidden')) openSpotlight();
+          else closeSpotlight();
+        } else if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeSpotlight();
+        }
+      });
+
+      input.addEventListener('input', () => {
+        renderResults(input.value.trim().toLowerCase());
+      });
+
+      document.querySelectorAll('.spotlight-filter').forEach(fBtn => {
+        fBtn.addEventListener('click', () => {
+          document.querySelectorAll('.spotlight-filter').forEach(b => {
+            b.className = 'spotlight-filter px-2.5 py-1 rounded-full text-[#86868b] hover:text-white font-medium';
+          });
+          fBtn.className = 'spotlight-filter px-2.5 py-1 rounded-full bg-white/10 text-white font-medium';
+          activeFilter = fBtn.getAttribute('data-filter');
+          renderResults(input.value.trim().toLowerCase());
+        });
+      });
+
+      function renderResults(q) {
+        let filtered = searchIndex;
+        if (activeFilter !== 'all') {
+          filtered = filtered.filter(item => item.type === activeFilter);
+        }
+        if (q) {
+          filtered = filtered.filter(item => 
+            item.title.toLowerCase().includes(q) || 
+            (item.desc && item.desc.toLowerCase().includes(q)) ||
+            (item.sub && item.sub.toLowerCase().includes(q))
+          );
+        }
+
+        if (filtered.length === 0) {
+          resultsContainer.innerHTML = '<div class="p-8 text-center text-xs text-[#86868b]">No chronicles found matching "<b>' + q + '</b>".</div>';
+          return;
+        }
+
+        const list = filtered.slice(0, 10);
+        resultsContainer.innerHTML = list.map((item, idx) => `
+          <a href="${(window.WHA_BASE || '') + item.url}" class="spotlight-item flex items-center justify-between p-3.5 rounded-2xl hover:bg-white/[0.06] transition-colors group">
+            <div class="flex items-center gap-3">
+              <span class="text-base">${item.icon}</span>
+              <div>
+                <h4 class="text-sm font-semibold text-[#f5f5f7] group-hover:text-white">${item.title}</h4>
+                <p class="text-xs text-[#86868b] font-light">${item.sub}</p>
+              </div>
+            </div>
+            <span class="text-xs text-[#2997ff] font-semibold group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </a>
+        `).join('');
+      }
+    });
+  </script>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('ambient-particles');
+      if (!canvas || !window.THREE) return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+      camera.position.z = 400;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      
+      const particleCount = 700;
+      const geometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(particleCount * 3);
+      const colors = new Float32Array(particleCount * 3);
+
+      for (let i = 0; i < particleCount * 3; i += 3) {
+        positions[i] = (Math.random() - 0.5) * 1100;
+        positions[i + 1] = (Math.random() - 0.5) * 1100;
+        positions[i + 2] = (Math.random() - 0.5) * 900;
+
+        const silverGold = Math.random();
+        colors[i] = 0.9 + silverGold * 0.1;
+        colors[i + 1] = 0.85 + silverGold * 0.1;
+        colors[i + 2] = 0.7 + silverGold * 0.3;
+      }
+
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+      const material = new THREE.PointsMaterial({
+        size: 1.8,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.65,
+        blending: THREE.AdditiveBlending
+      });
+
+      const particleSystem = new THREE.Points(geometry, material);
+      scene.add(particleSystem);
+
+      let mouseX = 0, mouseY = 0;
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX - window.innerWidth / 2) * 0.03;
+        mouseY = (e.clientY - window.innerHeight / 2) * 0.03;
+      });
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        particleSystem.rotation.y += 0.0003;
+        particleSystem.rotation.x += 0.00015;
+        camera.position.x += (mouseX - camera.position.x) * 0.02;
+        camera.position.y += (-mouseY - camera.position.y) * 0.02;
+        camera.lookAt(scene.position);
+        renderer.render(scene, camera);
+      }
+      animate();
+    });
+  </script>
+</body>
+</html>
