@@ -1,65 +1,90 @@
 {{define "content"}}
 <div class="relative overflow-hidden">
-  <!-- Decorative background glows -->
-  <div class="absolute -top-40 -left-40 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
-  <div class="absolute top-1/3 -right-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- Subtle Background Aurora Flares -->
+  <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-amber-500/10 via-white/5 to-transparent rounded-full blur-3xl pointer-events-none"></div>
 
-  <!-- Hero Section with 3D Three.js Celestial Globe -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center relative z-10">
-    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-6 shadow-sm shadow-amber-500/10">
-      ⚡ 3D Spatial Engine & Pure Go SSG
-    </span>
-    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
-      Chronicle of <span class="gold-gradient-text">World Civilizations</span>
+  <!-- Apple Keynote Hero Section -->
+  <section class="max-w-6xl mx-auto px-6 pt-12 pb-20 text-center relative z-10">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-white/[0.06] text-amber-300 border border-white/[0.08] mb-8">
+      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+      World History Archive Pro
+    </div>
+
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight apple-headline mb-6">
+      <span class="apple-silver-text">History. In a whole</span><br/>
+      <span class="apple-gold-text">new dimension.</span>
     </h1>
-    <p class="max-w-3xl mx-auto text-base sm:text-lg text-slate-400 mb-8 leading-relaxed font-light">
-      Traverse across space and time through {{.Stats.TotalCountries}} global civilizations, {{.Stats.TotalKingdoms}} sovereign dynasties, {{.Stats.TotalKings}} documented rulers, and {{.Stats.TotalSites}} world heritage monuments.
+
+    <p class="max-w-2xl mx-auto text-base sm:text-lg text-[#86868b] mb-10 leading-relaxed font-light">
+      Explore 15 world civilizations, 46 sovereign dynasties, 229 historical monarchs, and 56 ancient monuments. Built with pure Go SSG and WebGL 3D spatial mapping.
     </p>
+
+    <!-- Quick Navigation Fly-To Horizon Pills -->
+    <div class="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-6 max-w-4xl mx-auto px-2">
+      <span class="text-[11px] text-[#86868b] font-medium mr-1 uppercase tracking-wider hidden sm:inline">Fly To:</span>
+      <button class="fly-to-btn px-3.5 py-1.5 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#f5f5f7] border border-white/[0.08] transition-all flex items-center gap-1.5" data-lat="7.8731" data-lng="80.7718" data-slug="sri-lanka">
+        <span>🇱🇰</span> Sri Lanka
+      </button>
+      <button class="fly-to-btn px-3.5 py-1.5 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#f5f5f7] border border-white/[0.08] transition-all flex items-center gap-1.5" data-lat="36.2048" data-lng="138.2529" data-slug="japan">
+        <span>🇯🇵</span> Japan
+      </button>
+      <button class="fly-to-btn px-3.5 py-1.5 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#f5f5f7] border border-white/[0.08] transition-all flex items-center gap-1.5" data-lat="41.8719" data-lng="12.5674" data-slug="rome">
+        <span>🇮🇹</span> Rome
+      </button>
+      <button class="fly-to-btn px-3.5 py-1.5 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#f5f5f7] border border-white/[0.08] transition-all flex items-center gap-1.5" data-lat="26.8206" data-lng="30.8025" data-slug="ancient-egypt">
+        <span>🇪🇬</span> Egypt
+      </button>
+      <button class="fly-to-btn px-3.5 py-1.5 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#f5f5f7] border border-white/[0.08] transition-all flex items-center gap-1.5" data-lat="35.8617" data-lng="104.1954" data-slug="china">
+        <span>🇨🇳</span> China
+      </button>
+      <button class="fly-to-btn px-3.5 py-1.5 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#f5f5f7] border border-white/[0.08] transition-all flex items-center gap-1.5" data-lat="32.4279" data-lng="53.6880" data-slug="persia">
+        <span>🇮🇷</span> Persia
+      </button>
+      <button class="fly-to-btn px-3.5 py-1.5 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#f5f5f7] border border-white/[0.08] transition-all flex items-center gap-1.5" data-lat="39.0742" data-lng="21.8243" data-slug="ancient-greece">
+        <span>🇬🇷</span> Greece
+      </button>
+    </div>
 
     <!-- Three.js 3D Interactive Globe Viewport -->
     <div class="max-w-4xl mx-auto mb-10 relative">
-      <div class="glass-card rounded-3xl overflow-hidden p-2 relative shadow-2xl border border-amber-500/25">
-        <div id="hero-globe-wrapper" class="w-full h-[420px] sm:h-[500px] relative rounded-2xl overflow-hidden cursor-grab active:cursor-grabbing bg-slate-950/70">
+      <div class="glass-apple rounded-3xl overflow-hidden p-2 relative shadow-2xl">
+        <div id="hero-globe-wrapper" class="w-full h-[440px] sm:h-[520px] relative rounded-2xl overflow-hidden cursor-grab active:cursor-grabbing bg-[#030712]">
           <canvas id="hero-globe-canvas" class="w-full h-full"></canvas>
           
           <!-- 3D Interactive UI Overlay -->
-          <div class="absolute top-4 left-4 pointer-events-none flex items-center gap-2 bg-slate-900/80 backdrop-blur px-3 py-1.5 rounded-full border border-amber-500/20 text-xs text-amber-400 font-semibold">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            3D Planetary Sphere • Drag to Orbit
+          <div class="absolute top-4 left-4 pointer-events-none flex items-center gap-2 bg-black/60 backdrop-blur-xl px-3.5 py-1.5 rounded-full border border-white/[0.08] text-[11px] text-[#f5f5f7] font-medium">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            3D Planetary Sphere • Drag to Orbit • Click Fly-To Pills Above
           </div>
 
           <!-- Tooltip Container for 3D Marker Hover -->
-          <div id="globe-tooltip" class="absolute hidden pointer-events-none transform -translate-x-1/2 -translate-y-full mb-3 px-3.5 py-2 rounded-xl bg-slate-900/95 border border-amber-500/40 text-left shadow-2xl backdrop-blur transition-opacity duration-150 z-20">
-            <div class="flex items-center gap-2">
+          <div id="globe-tooltip" class="absolute hidden pointer-events-none transform -translate-x-1/2 -translate-y-full mb-3 px-4 py-3 rounded-2xl bg-[#121216]/95 border border-white/[0.14] text-left shadow-2xl backdrop-blur-2xl transition-opacity duration-150 z-20">
+            <div class="flex items-center gap-2 mb-1">
               <span id="globe-tooltip-flag" class="text-sm">🌍</span>
-              <span id="globe-tooltip-title" class="font-bold text-xs text-slate-100"></span>
+              <span id="globe-tooltip-title" class="font-bold text-xs text-[#f5f5f7]"></span>
             </div>
-            <p id="globe-tooltip-sub" class="text-[11px] text-amber-400 font-medium"></p>
+            <p id="globe-tooltip-sub" class="text-[11px] text-amber-300 font-medium"></p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="flex flex-wrap justify-center gap-4 mb-16">
-      <a href="/countries" class="px-8 py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold rounded-full shadow-lg shadow-amber-500/25 transition-all transform hover:-translate-y-0.5">
-        🌍 Explore Civilizations
-      </a>
-      <a href="/map" class="px-8 py-3.5 bg-slate-900/90 hover:bg-slate-800 text-amber-400 font-semibold rounded-full border border-amber-500/30 hover:border-amber-400 transition-all flex items-center gap-2">
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-20">
+      <a href="/map" class="px-8 py-3.5 bg-white hover:bg-[#f5f5f7] text-black font-semibold rounded-full apple-pill-btn shadow-lg shadow-white/10 flex items-center gap-2">
         <span>🗺️</span> 3D Spatial Atlas
       </a>
-      <a href="/kingdoms" class="px-8 py-3.5 bg-slate-900/90 hover:bg-slate-800 text-slate-200 font-semibold rounded-full border border-slate-700 transition-all">
-        🏰 Dynasties
+      <a href="/countries" class="px-8 py-3.5 bg-white/[0.06] hover:bg-white/10 text-white font-semibold rounded-full border border-white/[0.08] apple-pill-btn transition-all">
+        🌍 Explore Civilizations
       </a>
-      <a href="/kings" class="px-8 py-3.5 bg-slate-900/90 hover:bg-slate-800 text-slate-200 font-semibold rounded-full border border-slate-700 transition-all">
-        👑 Monarchs
-      </a>
-      <a href="/timeline" class="px-8 py-3.5 bg-slate-900/90 hover:bg-slate-800 text-slate-200 font-semibold rounded-full border border-slate-700 transition-all">
-        ⏳ Timeline
-      </a>
+      <button onclick="document.getElementById('spotlight-btn').click()" class="px-8 py-3.5 bg-white/[0.06] hover:bg-white/10 text-[#86868b] hover:text-white font-semibold rounded-full border border-white/[0.08] apple-pill-btn transition-all flex items-center gap-2">
+        <span>🔍</span> Search Archives <kbd class="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-white">⌘K</kbd>
+      </button>
     </div>
 
+
     <!-- Quick Stats Bento Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto mb-16">
       <div class="glass-apple p-6 rounded-3xl text-left border border-white/[0.08] relative overflow-hidden group">
         <div class="absolute -right-4 -top-4 w-20 h-20 bg-white/5 rounded-full blur-xl group-hover:bg-amber-400/10 transition-colors"></div>
         <span class="block text-4xl font-extrabold tracking-tight apple-headline text-white mb-1">{{.Stats.TotalCountries}}</span>
@@ -79,6 +104,39 @@
         <div class="absolute -right-4 -top-4 w-20 h-20 bg-white/5 rounded-full blur-xl group-hover:bg-amber-400/10 transition-colors"></div>
         <span class="block text-4xl font-extrabold tracking-tight apple-headline text-white mb-1">{{.Stats.TotalSites}}</span>
         <span class="text-xs uppercase tracking-widest text-[#86868b] font-semibold">Ancient Sites</span>
+      </div>
+    </div>
+
+    <!-- Apple Pro Innovation Pillars -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">
+      <div class="glass-apple p-7 rounded-3xl">
+        <div class="w-10 h-10 rounded-2xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-lg mb-4">
+          🌐
+        </div>
+        <h3 class="text-base font-bold text-[#f5f5f7] mb-1.5">Spatial Three.js Engine</h3>
+        <p class="text-xs text-[#86868b] leading-relaxed font-light">
+          Real-time WebGL celestial planetary sphere rendering high-precision spherical coordinates for 56 world heritage monuments and ancient trade routes.
+        </p>
+      </div>
+
+      <div class="glass-apple p-7 rounded-3xl">
+        <div class="w-10 h-10 rounded-2xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-lg mb-4">
+          ⚡
+        </div>
+        <h3 class="text-base font-bold text-[#f5f5f7] mb-1.5">Pure Go SSG Core</h3>
+        <p class="text-xs text-[#86868b] leading-relaxed font-light">
+          Sub-second static site compilation built on 100% standard Go libraries. Zero external frontend framework overhead for instantaneous navigation.
+        </p>
+      </div>
+
+      <div class="glass-apple p-7 rounded-3xl">
+        <div class="w-10 h-10 rounded-2xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-lg mb-4">
+          🏛️
+        </div>
+        <h3 class="text-base font-bold text-[#f5f5f7] mb-1.5">4-Tier Knowledge Graph</h3>
+        <p class="text-xs text-[#86868b] leading-relaxed font-light">
+          Deep ontological taxonomy connecting primary Civilizations down to Dynastic Eras, Sovereign Monarchs, and Archaeological Monument profiles.
+        </p>
       </div>
     </div>
   </section>
@@ -469,6 +527,28 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => console.error("Error loading countries for 3D globe:", err));
 
+  // --- Fly-To Horizon Camera Smooth Lerp ---
+  let targetRotationY = 0;
+  let targetRotationX = 0;
+  let isLerping = false;
+
+  document.querySelectorAll('.fly-to-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lat = parseFloat(btn.getAttribute('data-lat'));
+      const lng = parseFloat(btn.getAttribute('data-lng'));
+      controls.autoRotate = false;
+
+      targetRotationY = -(lng * Math.PI / 180) - Math.PI / 2;
+      targetRotationX = (lat * Math.PI / 180) * 0.4;
+      isLerping = true;
+
+      document.querySelectorAll('.fly-to-btn').forEach(b => {
+        b.className = 'fly-to-btn px-3.5 py-1.5 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-[#f5f5f7] border border-white/[0.08] transition-all flex items-center gap-1.5';
+      });
+      btn.className = 'fly-to-btn px-3.5 py-1.5 text-xs font-semibold rounded-full bg-white text-black apple-pill-btn shadow-md flex items-center gap-1.5';
+    });
+  });
+
   // Raycasting for interactive hover and click
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
@@ -497,7 +577,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    controls.autoRotate = true;
+    if (!isLerping) controls.autoRotate = true;
     canvas.style.cursor = 'grab';
     tooltip.classList.add('hidden');
   }
@@ -536,6 +616,14 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animate);
     controls.update();
 
+    if (isLerping) {
+      globeGroup.rotation.y += (targetRotationY - globeGroup.rotation.y) * 0.08;
+      globeGroup.rotation.x += (targetRotationX - globeGroup.rotation.x) * 0.08;
+      if (Math.abs(targetRotationY - globeGroup.rotation.y) < 0.005 && Math.abs(targetRotationX - globeGroup.rotation.x) < 0.005) {
+        isLerping = false;
+      }
+    }
+
     pulseTimer += 0.04;
     const pulseScale = 1 + Math.sin(pulseTimer) * 0.3;
     markers.forEach(m => {
@@ -551,5 +639,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 {{end}}
-
-
