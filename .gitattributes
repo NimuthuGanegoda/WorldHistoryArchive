@@ -1,0 +1,16 @@
+# GitHub Linguist Overrides - Enforce Go as Primary Language
+*.go linguist-detectable=true
+
+# Mark HTML templates as documentation/non-primary
+*.html linguist-detectable=false
+internal/web/templates/* linguist-detectable=false
+
+# Mark JSON datasets as vendored
+*.json linguist-vendored=true
+data/* linguist-vendored=true
+cmd/wha/data/* linguist-vendored=true
+
+# Mark scripts and documentation
+scripts/* linguist-vendored=true
+*.md linguist-documentation=true
+Makefile linguist-detectable=false

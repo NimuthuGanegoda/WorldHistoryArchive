@@ -33,6 +33,8 @@ func NewServer(s *store.Store) (*Server, error) {
 
 	pages := []string{
 		"home.html",
+		"countries.html",
+		"country_detail.html",
 		"kings.html",
 		"king_detail.html",
 		"kingdoms.html",
@@ -64,6 +66,8 @@ func (s *Server) Handler() http.Handler {
 
 	// 2. Register Web Pages
 	mux.HandleFunc("GET /{$}", s.handleHome)
+	mux.HandleFunc("GET /countries", s.handleCountries)
+	mux.HandleFunc("GET /countries/{slug}", s.handleCountryDetail)
 	mux.HandleFunc("GET /kings", s.handleKings)
 	mux.HandleFunc("GET /kings/{slug}", s.handleKingDetail)
 	mux.HandleFunc("GET /kingdoms", s.handleKingdoms)
@@ -85,7 +89,7 @@ func (s *Server) Handler() http.Handler {
 func (s *Server) render(w http.ResponseWriter, page string, data interface{}) {
 	tmpl, ok := s.templates[page]
 	if !ok {
-		http.Error(w, "Template not found", http.StatusInternalServerError)
+		http.Error(w, "Template not found: "+page, http.StatusInternalServerError)
 		return
 	}
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
@@ -101,24 +105,71 @@ func (s *Server) handleHome(w http.ResponseWriter, r *http.Request) {
 		Stats       models.ArchiveStats
 		DailyKings  []models.King
 		Kingdoms    []models.Kingdom
+		Countries   []models.Country
 	}{
 		Title:       "Home - Chronicle of Civilizations",
 		Description: "Explore the monarchs, kingdoms, and archaeological monuments of human history.",
 		Stats:       s.store.GetStats(),
 		DailyKings:  s.store.GetDailyKings(6, time.Now()),
 		Kingdoms:    s.store.GetKingdoms(),
+		Countries:   s.store.GetCountries(),
 	}
 	s.render(w, "home.html", data)
 }
 
+func (s *Server) handleCountries(w http.ResponseWriter, r *http.Request) {
+	data := struct {
+		Title       string
+		Description string
+		Countries   []models.Country
+		Stats       models.ArchiveStats
+	}{
+		Title:       "World Civilizations & Empires",
+		Description: "Explore the principal historical civilizations, empires, and territorial realms.",
+		Countries:   s.store.GetCountries(),
+		Stats:       s.store.GetStats(),
+	}
+	s.render(w, "countries.html", data)
+}
+
+func (s *Server) handleCountryDetail(w http.ResponseWriter, r *http.Request) {
+	slug := r.PathValue("slug")
+	country, exists := s.store.GetCountryBySlug(slug)
+	if !exists {
+		http.NotFound(w, r)
+		return
+	}
+
+	data := struct {
+		Title       string
+		Description string
+		Country     models.Country
+		Kingdoms    []models.Kingdom
+		Kings       []models.King
+		Sites       []models.Site
+	}{
+		Title:       country.Name + " - Historical Chronicle",
+		Description: country.Description,
+		Country:     country,
+		Kingdoms:    s.store.GetKingdomsByCountry(slug),
+		Kings:       s.store.GetKingsByCountry(slug),
+		Sites:       s.store.GetSitesByCountry(slug),
+	}
+	s.render(w, "country_detail.html", data)
+}
+
 func (s *Server) handleKings(w http.ResponseWriter, r *http.Request) {
 	kingdom := r.URL.Query().Get("kingdom")
+	country := r.URL.Query().Get("country")
 	query := r.URL.Query().Get("search")
 
 	allKings := s.store.GetKings()
 	var filtered []models.King
 	for _, k := range allKings {
-		if kingdom != "" && !strings.EqualFold(k.Kingdom, kingdom) {
+		if country != "" && !strings.EqualFold(k.CountrySlug, country) && !strings.EqualFold(k.Country, country) {
+			continue
+		}
+		if kingdom != "" && !strings.EqualFold(k.KingdomSlug, kingdom) && !strings.EqualFold(k.Kingdom, kingdom) {
 			continue
 		}
 		if query != "" && !strings.Contains(strings.ToLower(k.Title), strings.ToLower(query)) && !strings.Contains(strings.ToLower(k.Biography), strings.ToLower(query)) {
@@ -132,14 +183,18 @@ func (s *Server) handleKings(w http.ResponseWriter, r *http.Request) {
 		Description     string
 		Kings           []models.King
 		Kingdoms        []models.Kingdom
+		Countries       []models.Country
 		SelectedKingdom string
+		SelectedCountry string
 		Query           string
 	}{
 		Title:           "Monarchs & Rulers",
 		Description:     "Chronological catalog of recorded historical rulers.",
 		Kings:           filtered,
 		Kingdoms:        s.store.GetKingdoms(),
+		Countries:       s.store.GetCountries(),
 		SelectedKingdom: kingdom,
+		SelectedCountry: country,
 		Query:           query,
 	}
 	s.render(w, "kings.html", data)
@@ -166,14 +221,27 @@ func (s *Server) handleKingDetail(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) handleKingdoms(w http.ResponseWriter, r *http.Request) {
+	country := r.URL.Query().Get("country")
+	var kds []models.Kingdom
+	if country != "" {
+		cSlug := store.Slugify(country)
+		kds = s.store.GetKingdomsByCountry(cSlug)
+	} else {
+		kds = s.store.GetKingdoms()
+	}
+
 	data := struct {
-		Title       string
-		Description string
-		Kingdoms    []models.Kingdom
+		Title           string
+		Description     string
+		Kingdoms        []models.Kingdom
+		Countries       []models.Country
+		SelectedCountry string
 	}{
-		Title:       "Historical Kingdoms",
-		Description: "Ancient sovereign realms and dynastic eras.",
-		Kingdoms:    s.store.GetKingdoms(),
+		Title:           "Historical Dynasties & Eras",
+		Description:     "Ancient sovereign realms and dynastic eras.",
+		Kingdoms:        kds,
+		Countries:       s.store.GetCountries(),
+		SelectedCountry: country,
 	}
 	s.render(w, "kingdoms.html", data)
 }
@@ -186,24 +254,21 @@ func (s *Server) handleKingdomDetail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	allKings := s.store.GetKings()
-	var rulers []models.King
-	for _, k := range allKings {
-		if strings.EqualFold(k.Kingdom, slug) {
-			rulers = append(rulers, k)
-		}
-	}
+	rulers := s.store.GetKingsByKingdom(slug)
+	sites := s.store.GetSitesByKingdom(slug)
 
 	data := struct {
 		Title       string
 		Description string
 		Kingdom     models.Kingdom
 		Kings       []models.King
+		Sites       []models.Site
 	}{
 		Title:       kd.Title,
 		Description: fmt.Sprintf("History and monarchs of %s (%s).", kd.Title, kd.Reign),
 		Kingdom:     kd,
 		Kings:       rulers,
+		Sites:       sites,
 	}
 	s.render(w, "kingdom_detail.html", data)
 }
@@ -222,14 +287,32 @@ func (s *Server) handleTimeline(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) handleSites(w http.ResponseWriter, r *http.Request) {
+	country := r.URL.Query().Get("country")
+	kingdom := r.URL.Query().Get("kingdom")
+
+	var sites []models.Site
+	if country != "" {
+		cSlug := store.Slugify(country)
+		sites = s.store.GetSitesByCountry(cSlug)
+	} else if kingdom != "" {
+		kSlug := store.Slugify(kingdom)
+		sites = s.store.GetSitesByKingdom(kSlug)
+	} else {
+		sites = s.store.GetSites()
+	}
+
 	data := struct {
-		Title       string
-		Description string
-		Sites       []models.Site
+		Title           string
+		Description     string
+		Sites           []models.Site
+		Countries       []models.Country
+		SelectedCountry string
 	}{
-		Title:       "Archaeological Sites",
-		Description: "Monuments, stupas, fortresses, and ancient engineering sites.",
-		Sites:       s.store.GetSites(),
+		Title:           "Archaeological Sites",
+		Description:     "Monuments, stupas, fortresses, and ancient engineering sites.",
+		Sites:           sites,
+		Countries:       s.store.GetCountries(),
+		SelectedCountry: country,
 	}
 	s.render(w, "sites.html", data)
 }
@@ -258,9 +341,11 @@ func (s *Server) handleMap(w http.ResponseWriter, r *http.Request) {
 	data := struct {
 		Title       string
 		Description string
+		Countries   []models.Country
 	}{
 		Title:       "Spatial Cartography & Map",
-		Description: "Interactive map of archaeological sites.",
+		Description: "Interactive map of archaeological sites across civilizations.",
+		Countries:   s.store.GetCountries(),
 	}
 	s.render(w, "map.html", data)
 }
@@ -269,9 +354,12 @@ func (s *Server) handleAbout(w http.ResponseWriter, r *http.Request) {
 	data := struct {
 		Title       string
 		Description string
+		Stats       models.ArchiveStats
 	}{
 		Title:       "About the Archive",
 		Description: "Mission, architecture, and technology behind World History Archive.",
+		Stats:       s.store.GetStats(),
 	}
 	s.render(w, "about.html", data)
 }
+

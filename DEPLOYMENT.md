@@ -1,63 +1,24 @@
-# Deployment Guide
+# 🚀 Deployment Handbook (Go SSG on GitHub Pages)
 
 ## Overview
 
-This website automatically deploys to GitHub Pages at **https://srilankanhistory.dev/** when changes are pushed to the `main` branch.
+This website automatically builds and deploys to **GitHub Pages** at:
+**`https://nimuthuganegoda.github.io/WorldHistoryArchive/`**
 
-## Deployment Workflow
+The deployment is handled natively by the Go Static Site Generator (SSG) via GitHub Actions ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) whenever commits are merged into `main`.
 
-The deployment is handled by a single GitHub Actions workflow: `.github/workflows/nextjs.yml`
+---
 
-### How It Works
+## ⚙️ Architecture & Build Pipeline
 
-1. **Trigger**: Automatically runs when code is pushed to `main` branch
-2. **Build**: Compiles Next.js application and generates static pages (output: export mode)
-3. **Deploy**: Uploads the `./out` directory to GitHub Pages
-4. **Live**: Website updates in 1-2 minutes
+1. **Trigger**: Push to `main`, manual dispatch, or daily UTC cron (for spotlight rotation).
+2. **Build Engine**: Pure Go binary compiles static HTML, JSON API endpoints, and assets to `./dist`.
+3. **GitHub Pages Deploy**: Deploys `./dist` artifact directly to GitHub Pages with `.nojekyll` and `404.html` fallback.
 
-### Workflow Configuration
-
-```yaml
-# .github/workflows/nextjs.yml
-jobs:
-  build:
-    - Checkout code
-    - Install dependencies (npm ci)
-    - Build Next.js app (npm run build)
-    - Upload artifact
-    
-  deploy:
-    - Deploy to GitHub Pages
-    environment: github-pages  # Required!
-```
-
-## Important Configuration Rules
-
-### ✅ DO
-
-1. **Single Deployment Workflow**: Only use `.github/workflows/nextjs.yml` for deployment
-2. **System Fonts**: Use Tailwind's `font-sans` (never use Google Fonts)
-3. **Static Export**: Keep `output: 'export'` in `next.config.ts`
-4. **Test Locally**: Always run `npm run build` before pushing
-
-### ❌ DON'T
-
-1. **No Duplicate Workflows**: Never create additional deployment workflows (e.g., `deploy.yml`)
-2. **No Google Fonts**: Never import from `next/font/google` - builds fail in restricted environments
-3. **No External Font CDNs**: Avoid external dependencies that may be blocked
-
-## Build Requirements
-
-### Prerequisites
-- Node.js 18 or higher
-- npm (comes with Node.js)
-
-### Build Commands
 ```bash
-npm install          # Install dependencies
-npm run build        # Build for production
-npm run validate     # Validate data integrity
-npm run lint         # Check code quality
+# Local static build command
+./wha build --out dist
+```
 ```
 
 ### Build Output

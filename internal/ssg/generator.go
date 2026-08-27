@@ -37,6 +37,7 @@ func (g *Generator) Build(outputDir string) error {
 	// List of core static routes to pre-render
 	routes := []string{
 		"/",
+		"/countries",
 		"/kings",
 		"/kingdoms",
 		"/timeline",
@@ -53,7 +54,11 @@ func (g *Generator) Build(outputDir string) error {
 		"/api/daily",
 	}
 
-	// Add dynamic detail routes for all kings, kingdoms, sites
+	// Add dynamic detail routes for all countries, kings, kingdoms, sites
+	for _, c := range g.store.GetCountries() {
+		routes = append(routes, "/countries/"+c.Slug)
+		routes = append(routes, "/api/countries/"+c.Slug)
+	}
 	for _, k := range g.store.GetKings() {
 		routes = append(routes, "/kings/"+k.Slug)
 		routes = append(routes, "/api/kings/"+k.Slug)
@@ -94,10 +99,12 @@ func (g *Generator) Build(outputDir string) error {
 		}
 	}
 
-	// Write CNAME and .nojekyll for GitHub Pages
+	// Write .nojekyll for GitHub Pages
 	_ = os.WriteFile(filepath.Join(outputDir, ".nojekyll"), []byte(""), 0644)
-	if cname, err := os.ReadFile("CNAME"); err == nil {
-		_ = os.WriteFile(filepath.Join(outputDir, "CNAME"), cname, 0644)
+
+	// Copy index.html as 404.html for GitHub Pages fallback routing
+	if indexBytes, err := os.ReadFile(filepath.Join(outputDir, "index.html")); err == nil {
+		_ = os.WriteFile(filepath.Join(outputDir, "404.html"), indexBytes, 0644)
 	}
 
 	return nil

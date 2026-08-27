@@ -89,3 +89,59 @@ func TestStoreSearch(t *testing.T) {
 		t.Error("expected to find king Dutugemunu in search results")
 	}
 }
+
+func TestCountryKingdomHierarchy(t *testing.T) {
+	s := New()
+	countries := []models.Country{
+		{Name: "Sri Lanka", Code: "LK", Slug: "sri-lanka", Description: "Island nation."},
+		{Name: "Japan", Code: "JP", Slug: "japan", Description: "Island empire."},
+	}
+	kingdoms := []models.Kingdom{
+		{Slug: "anuradhapura", Title: "Anuradhapura Kingdom", Reign: "437 BCE – 1017 CE", Country: "Sri Lanka"},
+		{Slug: "edo-shogunate", Title: "Edo Shogunate", Reign: "1603–1868 CE", Country: "Japan"},
+	}
+	kings := []models.King{
+		{Slug: "dutugemunu", Title: "King Dutugemunu", Kingdom: "anuradhapura", Country: "Sri Lanka", Reign: "161–137 BCE"},
+		{Slug: "ieyasu", Title: "Tokugawa Ieyasu", Kingdom: "edo-shogunate", Country: "Japan", Reign: "1603–1605 CE"},
+	}
+	sites := []models.Site{
+		{ID: "ruwanwelisaya", Name: "Ruwanwelisaya", Kingdom: "anuradhapura", Country: "Sri Lanka", Coordinates: models.Coordinates{Lat: 8.35, Lng: 80.39}},
+		{ID: "himeji", Name: "Himeji Castle", Kingdom: "edo-shogunate", Country: "Japan", Coordinates: models.Coordinates{Lat: 34.83, Lng: 134.69}},
+	}
+
+	s.populate(kings, kingdoms, sites, countries)
+
+	// Check country retrieval
+	lk, exists := s.GetCountryBySlug("sri-lanka")
+	if !exists || lk.Name != "Sri Lanka" {
+		t.Fatalf("expected Sri Lanka country, got %v (exists=%v)", lk, exists)
+	}
+	if lk.KingdomsCount != 1 || lk.RulersCount != 1 || lk.SitesCount != 1 {
+		t.Errorf("expected counts 1/1/1 for Sri Lanka, got %d/%d/%d", lk.KingdomsCount, lk.RulersCount, lk.SitesCount)
+	}
+
+	jp, exists := s.GetCountryBySlug("japan")
+	if !exists || jp.Name != "Japan" {
+		t.Fatalf("expected Japan country, got %v (exists=%v)", jp, exists)
+	}
+	if jp.KingdomsCount != 1 || jp.RulersCount != 1 || jp.SitesCount != 1 {
+		t.Errorf("expected counts 1/1/1 for Japan, got %d/%d/%d", jp.KingdomsCount, jp.RulersCount, jp.SitesCount)
+	}
+
+	// Check kingdom subcategory filter
+	lkKingdoms := s.GetKingdomsByCountry("sri-lanka")
+	if len(lkKingdoms) != 1 || lkKingdoms[0].Slug != "anuradhapura" {
+		t.Errorf("unexpected kingdoms for Sri Lanka: %v", lkKingdoms)
+	}
+
+	jpKings := s.GetKingsByCountry("japan")
+	if len(jpKings) != 1 || jpKings[0].Slug != "ieyasu" {
+		t.Errorf("unexpected kings for Japan: %v", jpKings)
+	}
+
+	jpSites := s.GetSitesByCountry("japan")
+	if len(jpSites) != 1 || jpSites[0].ID != "himeji" {
+		t.Errorf("unexpected sites for Japan: %v", jpSites)
+	}
+}
+
