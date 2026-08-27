@@ -44,6 +44,26 @@
       -webkit-text-fill-color: transparent;
     }
   </style>
+  <script>
+    (function() {
+      // Auto-detect GitHub Pages subpath (e.g. /WorldHistoryArchive/)
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      const isGitHubPages = window.location.hostname.endsWith('github.io') && pathParts.length > 0;
+      const basePath = isGitHubPages ? '/' + pathParts[0] : '';
+      window.WHA_BASE = basePath;
+
+      if (basePath) {
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('a[href^="/"]').forEach(a => {
+            const currentHref = a.getAttribute('href');
+            if (currentHref && !currentHref.startsWith(basePath)) {
+              a.setAttribute('href', basePath + currentHref);
+            }
+          });
+        });
+      }
+    })();
+  </script>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-amber-500 selection:text-black">
   <!-- Navigation Header -->
@@ -76,7 +96,7 @@
       <div class="relative hidden lg:block w-64">
         <input type="text" id="headerSearch" placeholder="Search civilizations, kings..." 
                class="w-full bg-slate-900/80 text-sm rounded-full pl-10 pr-4 py-2 border border-slate-700/60 focus:outline-none focus:border-amber-500 text-slate-200"
-               onkeydown="if(event.key==='Enter') window.location.href='/kings?search='+encodeURIComponent(this.value)">
+               onkeydown="if(event.key==='Enter') window.location.href=(window.WHA_BASE||'')+'/kings?search='+encodeURIComponent(this.value)">
         <span class="absolute left-3.5 top-2.5 text-slate-500 text-sm">🔍</span>
       </div>
     </div>

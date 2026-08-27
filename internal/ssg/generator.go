@@ -99,10 +99,12 @@ func (g *Generator) Build(outputDir string) error {
 		}
 	}
 
-	// Write CNAME and .nojekyll for GitHub Pages
+	// Write .nojekyll for GitHub Pages
 	_ = os.WriteFile(filepath.Join(outputDir, ".nojekyll"), []byte(""), 0644)
-	if cname, err := os.ReadFile("CNAME"); err == nil {
-		_ = os.WriteFile(filepath.Join(outputDir, "CNAME"), cname, 0644)
+
+	// Copy index.html as 404.html for GitHub Pages fallback routing
+	if indexBytes, err := os.ReadFile(filepath.Join(outputDir, "index.html")); err == nil {
+		_ = os.WriteFile(filepath.Join(outputDir, "404.html"), indexBytes, 0644)
 	}
 
 	return nil
