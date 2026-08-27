@@ -213,11 +213,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // Scene, Camera, Renderer
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-  camera.position.z = 230;
+  camera.position.set(0, 20, 240);
 
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  // Lighting for 3D realism
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+  scene.add(ambientLight);
+
+  const dirLight = new THREE.DirectionalLight(0xfff3d6, 1.8);
+  dirLight.position.set(200, 150, 200);
+  scene.add(dirLight);
+
+  const backLight = new THREE.DirectionalLight(0x2997ff, 0.8);
+  backLight.position.set(-200, -100, -200);
+  scene.add(backLight);
 
   // Orbit Controls
   const controls = new THREE.OrbitControls(camera, canvas);
@@ -225,48 +237,160 @@ document.addEventListener('DOMContentLoaded', () => {
   controls.dampingFactor = 0.05;
   controls.enableZoom = false;
   controls.autoRotate = true;
-  controls.autoRotateSpeed = 0.8;
+  controls.autoRotateSpeed = 0.7;
 
   const globeGroup = new THREE.Group();
   scene.add(globeGroup);
 
   const GLOBE_RADIUS = 75;
 
-  // 1. Inner Dark Celestial Sphere
-  const innerSphereGeo = new THREE.SphereGeometry(GLOBE_RADIUS - 0.5, 64, 64);
-  const innerSphereMat = new THREE.MeshBasicMaterial({
-    color: 0x050b14,
-    transparent: true,
-    opacity: 0.95
-  });
-  const innerSphere = new THREE.Mesh(innerSphereGeo, innerSphereMat);
-  globeGroup.add(innerSphere);
+  // --- Procedural High-Res World Map Texture Generator ---
+  function generateWorldTexture() {
+    const w = 2048;
+    const h = 1024;
+    const offCanvas = document.createElement('canvas');
+    offCanvas.width = w;
+    offCanvas.height = h;
+    const ctx = offCanvas.getContext('2d');
 
-  // 2. Wireframe / Latitude Longitude Grid
-  const wireGeo = new THREE.SphereGeometry(GLOBE_RADIUS, 32, 32);
-  const wireMat = new THREE.MeshBasicMaterial({
-    color: 0xf59e0b,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.12
-  });
-  const wireMesh = new THREE.Mesh(wireGeo, wireMat);
-  globeGroup.add(wireMesh);
+    // Deep Ocean Background
+    ctx.fillStyle = '#050a14';
+    ctx.fillRect(0, 0, w, h);
 
-  // 3. Glowing Atmospheric Halo
-  const haloGeo = new THREE.SphereGeometry(GLOBE_RADIUS * 1.18, 32, 32);
+    // Subtle Ocean Latitude/Longitude Grid Lines
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x <= w; x += w / 24) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, h);
+      ctx.stroke();
+    }
+    for (let y = 0; y <= h; y += h / 12) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(w, y);
+      ctx.stroke();
+    }
+
+    function toX(lng) { return ((lng + 180) / 360) * w; }
+    function toY(lat) { return ((90 - lat) / 180) * h; }
+
+    function drawPolygon(coords, fillColor, strokeColor) {
+      if (!coords || coords.length < 3) return;
+      ctx.beginPath();
+      ctx.moveTo(toX(coords[0][1]), toY(coords[0][0]));
+      for (let i = 1; i < coords.length; i++) {
+        ctx.lineTo(toX(coords[i][1]), toY(coords[i][0]));
+      }
+      ctx.closePath();
+      ctx.fillStyle = fillColor;
+      ctx.fill();
+      if (strokeColor) {
+        ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+    }
+
+    // World Continents (Equirectangular Polygon Datasets)
+    const landColor = '#121d33';
+    const coastColor = '#f59e0b';
+
+    // Africa
+    drawPolygon([
+      [37, 10], [32, 32], [12, 51], [-5, 40], [-12, 40], [-26, 33], [-34, 18], [-33, 27],
+      [-34, 18], [-28, 15], [-5, 12], [4, 9], [5, 1], [15, -17], [28, -13], [36, -6],
+      [37, 10]
+    ], landColor, coastColor);
+
+    // Eurasia (Europe & Asia)
+    drawPolygon([
+      [36, -6], [43, -9], [48, -4], [58, -6], [71, 28], [77, 104], [68, 178], [60, 166],
+      [53, 140], [39, 126], [30, 122], [22, 114], [8, 103], [13, 100], [22, 90], [8, 77],
+      [22, 69], [25, 57], [13, 44], [28, 34], [31, 35], [37, 36], [41, 29], [37, 22],
+      [36, 14], [41, 14], [44, 8], [36, -6]
+    ], landColor, coastColor);
+
+    // Scandinavia
+    drawPolygon([[58, 5], [71, 28], [65, 23], [56, 12], [58, 5]], landColor, coastColor);
+
+    // Great Britain & Ireland
+    drawPolygon([[50, -5], [58, -5], [58, -2], [50, 1], [50, -5]], landColor, coastColor);
+    drawPolygon([[51, -10], [55, -6], [51, -6], [51, -10]], landColor, coastColor);
+
+    // Japan
+    drawPolygon([[31, 131], [35, 133], [44, 145], [45, 142], [35, 136], [31, 131]], landColor, coastColor);
+
+    // Sri Lanka
+    drawPolygon([[6, 80], [9.8, 80.2], [8.5, 81.8], [6, 81.2], [6, 80]], '#f59e0b', '#fef08a');
+
+    // North America
+    drawPolygon([
+      [8, -77], [15, -83], [20, -105], [32, -117], [48, -125], [60, -140], [71, -156],
+      [71, -95], [60, -64], [45, -60], [30, -81], [25, -80], [18, -88], [8, -77]
+    ], landColor, coastColor);
+
+    // South America
+    drawPolygon([
+      [12, -72], [10, -60], [5, -52], [-5, -35], [-23, -42], [-55, -66], [-53, -75],
+      [-18, -71], [-5, -81], [5, -77], [12, -72]
+    ], landColor, coastColor);
+
+    // Australia
+    drawPolygon([
+      [-12, 132], [-12, 142], [-24, 153], [-38, 146], [-35, 117], [-22, 114], [-12, 132]
+    ], landColor, coastColor);
+
+    // Madagascar
+    drawPolygon([[-12, 49], [-25, 47], [-25, 44], [-12, 49]], landColor, coastColor);
+
+    // Dot Matrix on Landmasses for High-Tech Apple Aesthetic
+    const imgData = ctx.getImageData(0, 0, w, h);
+    const data = imgData.data;
+    ctx.fillStyle = '#f59e0b';
+
+    for (let y = 10; y < h - 10; y += 8) {
+      for (let x = 10; x < w - 10; x += 8) {
+        const idx = (y * w + x) * 4;
+        // Check if on land (blue channel > 10 and not ocean)
+        if (data[idx] > 10 || data[idx + 1] > 20) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1.6, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+
+    return new THREE.CanvasTexture(offCanvas);
+  }
+
+  // 1. Globe Sphere with High-Definition Continent Texture
+  const worldTexture = generateWorldTexture();
+  const globeGeo = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);
+  const globeMat = new THREE.MeshStandardMaterial({
+    map: worldTexture,
+    roughness: 0.7,
+    metalness: 0.15,
+    emissive: 0x050b14,
+    emissiveIntensity: 0.4
+  });
+  const globeMesh = new THREE.Mesh(globeGeo, globeMat);
+  globeGroup.add(globeMesh);
+
+  // 2. Glowing Atmospheric Halo
+  const haloGeo = new THREE.SphereGeometry(GLOBE_RADIUS * 1.14, 32, 32);
   const haloMat = new THREE.MeshBasicMaterial({
     color: 0xf59e0b,
     transparent: true,
-    opacity: 0.05,
+    opacity: 0.08,
     side: THREE.BackSide,
     blending: THREE.AdditiveBlending
   });
-  const haloMesh = new THREE.Mesh(haloGeo, haloMat);
-  scene.add(haloMesh);
+  scene.add(new THREE.Mesh(haloGeo, haloMat));
 
-  // 4. Orbital Celestial Rings
-  const ringGeo = new THREE.RingGeometry(GLOBE_RADIUS * 1.25, GLOBE_RADIUS * 1.26, 64);
+  // 3. Orbital Celestial Rings
+  const ringGeo = new THREE.RingGeometry(GLOBE_RADIUS * 1.28, GLOBE_RADIUS * 1.30, 64);
   const ringMat = new THREE.MeshBasicMaterial({
     color: 0xf59e0b,
     side: THREE.DoubleSide,
@@ -274,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
     opacity: 0.35
   });
   const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-  ringMesh.rotation.x = Math.PI / 2.3;
+  ringMesh.rotation.x = Math.PI / 2.2;
   globeGroup.add(ringMesh);
 
   // Helper: Convert Lat/Lng to 3D Cartesian Vector
@@ -288,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // 5. 3D Civilization Markers
+  // 4. 3D Civilization Markers
   const markers = [];
   const markerObjects = [];
 
@@ -300,13 +424,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const [lat, lng] = c.center;
         const pos = latLngToVector3(lat, lng, GLOBE_RADIUS);
 
-        // Marker Pin (Cone + Glowing Sphere)
         const markerGroup = new THREE.Group();
         markerGroup.position.copy(pos);
         markerGroup.lookAt(new THREE.Vector3(0, 0, 0));
 
         // Pin Head
-        const pinHeadGeo = new THREE.SphereGeometry(2.2, 16, 16);
+        const pinHeadGeo = new THREE.SphereGeometry(2.4, 16, 16);
         const pinHeadMat = new THREE.MeshBasicMaterial({
           color: 0xf59e0b,
           blending: THREE.AdditiveBlending
@@ -316,25 +439,25 @@ document.addEventListener('DOMContentLoaded', () => {
         markerGroup.add(pinHead);
         markerObjects.push(pinHead);
 
-        // Pin Beam
-        const beamGeo = new THREE.CylinderGeometry(0.3, 0.3, 8, 8);
+        // Light Beam
+        const beamGeo = new THREE.CylinderGeometry(0.3, 0.3, 10, 8);
         const beamMat = new THREE.MeshBasicMaterial({
           color: 0xfef08a,
           transparent: true,
-          opacity: 0.8
+          opacity: 0.85
         });
         const beam = new THREE.Mesh(beamGeo, beamMat);
-        beam.position.z = 4;
+        beam.position.z = 5;
         beam.rotation.x = Math.PI / 2;
         markerGroup.add(beam);
 
-        // Pulsing Ring
-        const pRingGeo = new THREE.RingGeometry(2.5, 3.2, 16);
+        // Pulsing Shockwave Ring
+        const pRingGeo = new THREE.RingGeometry(2.8, 3.6, 16);
         const pRingMat = new THREE.MeshBasicMaterial({
           color: 0xf59e0b,
           side: THREE.DoubleSide,
           transparent: true,
-          opacity: 0.6
+          opacity: 0.7
         });
         const pRing = new THREE.Mesh(pRingGeo, pRingMat);
         pRing.position.z = 0.5;
@@ -349,7 +472,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Raycasting for interactive hover and click
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
-  let hoveredMarker = null;
 
   function onPointerMove(e) {
     const rect = canvas.getBoundingClientRect();
@@ -363,7 +485,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const obj = intersects[0].object;
       const data = obj.userData.country;
       if (data) {
-        hoveredMarker = obj;
         controls.autoRotate = false;
         canvas.style.cursor = 'pointer';
 
@@ -376,7 +497,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    hoveredMarker = null;
     controls.autoRotate = true;
     canvas.style.cursor = 'grab';
     tooltip.classList.add('hidden');
@@ -417,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
     controls.update();
 
     pulseTimer += 0.04;
-    const pulseScale = 1 + Math.sin(pulseTimer) * 0.25;
+    const pulseScale = 1 + Math.sin(pulseTimer) * 0.3;
     markers.forEach(m => {
       if (m.ring) {
         m.ring.scale.set(pulseScale, pulseScale, 1);
@@ -431,4 +551,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 {{end}}
+
 
