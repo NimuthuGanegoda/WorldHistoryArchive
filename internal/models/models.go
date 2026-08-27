@@ -52,26 +52,34 @@ type Coordinates struct {
 
 // Site represents an archaeological site, monument, stupa, or historical landmark.
 type Site struct {
-	ID            string      `json:"id"`
-	Name          string      `json:"name"`
-	Kingdom       string      `json:"kingdom"`
-	KingdomSlug   string      `json:"kingdomSlug,omitempty"`
-	Period        string      `json:"period,omitempty"`
-	Type          string      `json:"type"`
-	BuiltBy       string      `json:"builtBy,omitempty"`
-	BuiltByKingID string      `json:"builtByKingId,omitempty"`
-	Constructed   string      `json:"constructed,omitempty"`
-	Description   string      `json:"description"`
-	History       string      `json:"history,omitempty"`
-	Construction  string      `json:"construction,omitempty"`
-	Architecture  string      `json:"architecture,omitempty"`
-	Significance  string      `json:"significance,omitempty"`
-	CurrentStatus string      `json:"currentStatus,omitempty"`
-	GoogleMapsURL string      `json:"googleMapsUrl,omitempty"`
-	Media         []string    `json:"media,omitempty"`
-	Coordinates   Coordinates `json:"coordinates"`
-	Country       string      `json:"country,omitempty"`
-	CountrySlug   string      `json:"countrySlug,omitempty"`
+	ID                      string      `json:"id"`
+	Name                    string      `json:"name"`
+	Kingdom                 string      `json:"kingdom"`
+	KingdomSlug             string      `json:"kingdomSlug,omitempty"`
+	Period                  string      `json:"period,omitempty"`
+	Type                    string      `json:"type"`
+	BuiltBy                 string      `json:"builtBy,omitempty"`
+	BuiltByKingID           string      `json:"builtByKingId,omitempty"`
+	Constructed             string      `json:"constructed,omitempty"`
+	Description             string      `json:"description"`
+	History                 string      `json:"history,omitempty"`
+	Construction            string      `json:"construction,omitempty"`
+	Architecture            string      `json:"architecture,omitempty"`
+	Significance            string      `json:"significance,omitempty"`
+	CurrentStatus           string      `json:"currentStatus,omitempty"`
+	GoogleMapsURL           string      `json:"googleMapsUrl,omitempty"`
+	Media                   []string    `json:"media,omitempty"`
+	Coordinates             Coordinates `json:"coordinates"`
+	Country                 string      `json:"country,omitempty"`
+	CountrySlug             string      `json:"countrySlug,omitempty"`
+	// World Wonder Chronicle Attributes
+	IsWorldWonder           bool        `json:"isWorldWonder,omitempty"`
+	WonderCategory          string      `json:"wonderCategory,omitempty"`          // e.g. "Ancient 7 Wonders", "New 7 Wonders", "Eighth Wonder / Medieval Wonder", "New7Wonders Finalist"
+	WonderDesignationYear   string      `json:"wonderDesignationYear,omitempty"`   // e.g. "c. 225 BC (Antipater of Sidon List)" or "July 7, 2007 (New7Wonders Official Declaration)"
+	WonderStatus            string      `json:"wonderStatus,omitempty"`            // e.g. "Standing (Honorary Wonder)", "Standing", "Destroyed by Earthquake (1323 AD)", "Destroyed in 226 BC"
+	WonderReplacedYear      string      `json:"wonderReplacedYear,omitempty"`      // e.g. "July 7, 2007 (Succeeded by New 7 Wonders Modern Registry)"
+	WonderReplacedBy        string      `json:"wonderReplacedBy,omitempty"`        // e.g. "New 7 Wonders Global Foundation Campaign (100M+ international votes)"
+	WonderHistoricalContext string      `json:"wonderHistoricalContext,omitempty"` // Complete authoritative history of its wonder status, destruction or modern replacement
 }
 
 // Region represents a sub-geographic province or zone within a civilization.
