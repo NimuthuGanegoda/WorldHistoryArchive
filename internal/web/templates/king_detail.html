@@ -1,63 +1,63 @@
 {{define "content"}}
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="max-w-4xl mx-auto px-6 py-12">
   <!-- Breadcrumb navigation -->
-  <nav class="flex items-center gap-2 text-xs font-medium text-slate-500 mb-8">
-    <a href="/" class="hover:text-amber-400">Home</a>
+  <nav class="flex items-center gap-2 text-xs font-medium text-[#86868b] mb-8">
+    <a href="/" class="hover:text-white transition-colors">Home</a>
     <span>&rsaquo;</span>
-    <a href="/countries" class="hover:text-amber-400">Civilizations</a>
+    <a href="/countries" class="hover:text-white transition-colors">Civilizations</a>
     <span>&rsaquo;</span>
-    <a href="/countries/{{.King.CountrySlug}}" class="hover:text-amber-400">{{.King.Country}}</a>
+    <a href="/countries/{{.King.CountrySlug}}" class="hover:text-white transition-colors">{{.King.Country}}</a>
     <span>&rsaquo;</span>
-    <a href="/kingdoms/{{.King.KingdomSlug}}" class="hover:text-amber-400">{{.King.Kingdom}}</a>
+    <a href="/kingdoms/{{.King.KingdomSlug}}" class="hover:text-white transition-colors">{{.King.Kingdom}}</a>
     <span>&rsaquo;</span>
-    <span class="text-amber-400">{{.King.Title}}</span>
+    <span class="text-white">{{.King.Title}}</span>
   </nav>
 
   <!-- Main Profile Card -->
-  <article class="glass-card p-8 sm:p-10 rounded-3xl mb-8">
-    <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-800 pb-6">
+  <article class="glass-apple p-8 sm:p-12 rounded-3xl mb-12">
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-8 border-b border-white/[0.06] pb-8">
       <div>
         <div class="flex items-center gap-2 mb-3">
-          <a href="/countries/{{.King.CountrySlug}}" class="px-3 py-1 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 hover:bg-amber-500/20 transition-colors">
+          <a href="/countries/{{.King.CountrySlug}}" class="px-3 py-1 text-xs font-semibold rounded-full bg-white/[0.06] text-amber-300 border border-white/[0.08] hover:bg-white/10 transition-colors">
             🌍 {{.King.Country}}
           </a>
-          <a href="/kingdoms/{{.King.KingdomSlug}}" class="px-3 py-1 text-xs font-semibold rounded-full bg-slate-800 text-slate-300 hover:text-amber-400 border border-slate-700 transition-colors">
+          <a href="/kingdoms/{{.King.KingdomSlug}}" class="px-3 py-1 text-xs font-semibold rounded-full bg-white/[0.06] text-[#f5f5f7] hover:text-white border border-white/[0.08] transition-colors">
             🏰 {{.King.Kingdom}}
           </a>
         </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold brand-font text-slate-100 mb-2">
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight apple-headline text-[#f5f5f7] mb-2">
           {{.King.Title}}
         </h1>
-        <p class="text-sm font-semibold text-slate-400">
-          Reign: <span class="text-amber-400">{{.King.Reign}}</span>
+        <p class="text-sm font-medium text-[#86868b]">
+          Reign: <span class="text-white font-semibold">{{.King.Reign}}</span>
         </p>
       </div>
-      <a href="/kingdoms/{{.King.KingdomSlug}}" class="px-4 py-2 text-xs font-semibold rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors">
+      <a href="/kingdoms/{{.King.KingdomSlug}}" class="px-4 py-2 text-xs font-semibold rounded-full bg-white/[0.06] hover:bg-white/10 text-white border border-white/[0.08] transition-all">
         &larr; {{.King.Kingdom}} Dynastic Line
       </a>
     </div>
 
     <!-- Main Biography -->
-    <div class="prose prose-invert max-w-none text-slate-300 leading-relaxed text-base sm:text-lg mb-8 font-light">
+    <div class="text-[#d1d5db] leading-relaxed text-base sm:text-lg mb-8 font-light">
       <p>{{.King.Biography}}</p>
     </div>
 
     <!-- Structured Sections & Infoboxes -->
     {{range .King.Sections}}
-    <div class="mt-8 pt-6 border-t border-slate-800/80">
+    <div class="mt-8 pt-6 border-t border-white/[0.06]">
       {{if .Heading}}
-      <h2 class="text-2xl font-bold brand-font text-amber-400 mb-4">{{.Heading}}</h2>
+      <h2 class="text-xl font-bold apple-headline text-[#f5f5f7] mb-3">{{.Heading}}</h2>
       {{end}}
       {{range .Content}}
-      <p class="text-slate-300 mb-4 leading-relaxed font-light">{{.}}</p>
+      <p class="text-[#86868b] mb-4 leading-relaxed font-light">{{.}}</p>
       {{end}}
 
       {{if .InfoBoxes}}
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
         {{range .InfoBoxes}}
-        <div class="bg-slate-900/80 p-5 rounded-2xl border border-amber-500/15">
-          <h3 class="text-sm font-bold text-amber-400 mb-1.5">{{.Title}}</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">{{.Content}}</p>
+        <div class="bg-white/[0.03] p-5 rounded-2xl border border-white/[0.06]">
+          <h3 class="text-xs font-bold text-amber-300 mb-1.5 uppercase tracking-wider">{{.Title}}</h3>
+          <p class="text-xs text-[#86868b] leading-relaxed font-light">{{.Content}}</p>
         </div>
         {{end}}
       </div>
@@ -67,11 +67,11 @@
 
     <!-- International & Geopolitical Connections -->
     {{if .King.InternationalConnections}}
-    <div class="mt-8 p-6 rounded-2xl bg-indigo-950/20 border border-indigo-500/20">
-      <h2 class="text-lg font-bold text-indigo-300 mb-2 flex items-center gap-2">
+    <div class="mt-8 p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
+      <h2 class="text-sm font-bold text-white mb-2 flex items-center gap-2">
         🌐 Diplomatic & International Relations
       </h2>
-      <p class="text-sm text-slate-300 leading-relaxed font-light">
+      <p class="text-xs text-[#86868b] leading-relaxed font-light">
         {{.King.InternationalConnections}}
       </p>
     </div>

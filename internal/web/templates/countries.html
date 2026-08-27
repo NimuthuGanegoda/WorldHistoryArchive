@@ -1,56 +1,54 @@
 {{define "content"}}
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="max-w-6xl mx-auto px-6 py-12">
   <!-- Header -->
   <div class="text-center max-w-3xl mx-auto mb-16">
-    <span class="px-3.5 py-1 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
-      🌍 Primary Category Layer
-    </span>
-    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mt-4 mb-4">
-      World <span class="gold-gradient-text">Civilizations</span>
+    <p class="text-xs uppercase tracking-widest text-amber-400 font-semibold mb-3">Primary Category Directory</p>
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight apple-headline text-[#f5f5f7] mb-4">
+      World Civilizations
     </h1>
-    <p class="text-slate-400 text-lg leading-relaxed">
-      Explore the primary civilizational categories across ancient history. Select a territory to inspect its dynastic sub-categories, sovereign rulers, and archaeological monuments.
+    <p class="text-[#86868b] text-base sm:text-lg leading-relaxed font-light">
+      Explore the primary civilizational categories across human history. Select any civilization to inspect its dynastic sub-categories, emperors, and ancient monuments.
     </p>
   </div>
 
   <!-- Grid of Civilizations -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {{range .Countries}}
-    <a href="/countries/{{.Slug}}" class="glass-card p-8 rounded-3xl flex flex-col justify-between group hover:border-amber-500/40">
+    <a href="/countries/{{.Slug}}" class="glass-apple p-8 rounded-3xl flex flex-col justify-between group">
       <div>
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center gap-3">
-            <span class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center font-bold text-amber-400 brand-font text-sm">
+            <span class="w-10 h-10 rounded-2xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center font-bold text-amber-300 brand-font text-xs">
               {{.Code}}
             </span>
-            <h2 class="text-2xl font-bold brand-font text-slate-100 group-hover:text-amber-400 transition-colors">
+            <h2 class="text-xl font-bold tracking-tight text-[#f5f5f7] group-hover:text-white transition-colors">
               {{.Name}}
             </h2>
           </div>
         </div>
-        <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed mb-6">
+        <p class="text-xs text-[#86868b] line-clamp-3 leading-relaxed mb-6 font-light">
           {{.Description}}
         </p>
 
         <!-- Stats Chips -->
-        <div class="grid grid-cols-3 gap-2 py-4 border-t border-b border-slate-800/80 mb-4 text-center">
-          <div class="bg-slate-900/60 p-2 rounded-xl border border-slate-800">
-            <span class="block text-lg font-bold text-amber-400">{{.KingdomsCount}}</span>
-            <span class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Dynasties</span>
+        <div class="grid grid-cols-3 gap-2 py-4 border-t border-b border-white/[0.06] mb-4 text-center">
+          <div class="bg-white/[0.03] p-2.5 rounded-2xl border border-white/[0.04]">
+            <span class="block text-base font-bold text-[#f5f5f7] apple-headline">{{.KingdomsCount}}</span>
+            <span class="text-[9px] uppercase tracking-wider text-[#86868b] font-semibold">Dynasties</span>
           </div>
-          <div class="bg-slate-900/60 p-2 rounded-xl border border-slate-800">
-            <span class="block text-lg font-bold text-amber-400">{{.RulersCount}}</span>
-            <span class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Monarchs</span>
+          <div class="bg-white/[0.03] p-2.5 rounded-2xl border border-white/[0.04]">
+            <span class="block text-base font-bold text-[#f5f5f7] apple-headline">{{.RulersCount}}</span>
+            <span class="text-[9px] uppercase tracking-wider text-[#86868b] font-semibold">Monarchs</span>
           </div>
-          <div class="bg-slate-900/60 p-2 rounded-xl border border-slate-800">
-            <span class="block text-lg font-bold text-amber-400">{{.SitesCount}}</span>
-            <span class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Sites</span>
+          <div class="bg-white/[0.03] p-2.5 rounded-2xl border border-white/[0.04]">
+            <span class="block text-base font-bold text-[#f5f5f7] apple-headline">{{.SitesCount}}</span>
+            <span class="text-[9px] uppercase tracking-wider text-[#86868b] font-semibold">Sites</span>
           </div>
         </div>
       </div>
 
-      <div class="flex items-center justify-between text-xs text-amber-400 font-semibold pt-2">
-        <span>Explore Dynasties & Eras</span>
+      <div class="flex items-center justify-between text-xs text-[#2997ff] font-semibold pt-2">
+        <span>Explore Civilizational Matrix</span>
         <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
       </div>
     </a>
