@@ -1,0 +1,407 @@
+[
+  {
+    "name": "Sri Lanka",
+    "code": "LK",
+    "center": [
+      7.8731,
+      80.7718
+    ],
+    "bounds": [
+      [
+        5.9,
+        79.7
+      ],
+      [
+        10.35,
+        81.88
+      ]
+    ],
+    "zoom": 8,
+    "description": "Island nation with ancient kingdoms spanning 2500+ years. Home to Sinhalese and Tamil kingdoms, Buddhist heritage sites, and trade hub status.",
+    "regions": [
+      {
+        "name": "North Central Province",
+        "center": [
+          7.95,
+          80.88
+        ],
+        "major_sites": [
+          "Anuradhapura",
+          "Polonnaruwa",
+          "Sigiriya"
+        ]
+      },
+      {
+        "name": "Southern Province",
+        "center": [
+          6.4,
+          80.85
+        ],
+        "major_sites": [
+          "Ruhuna",
+          "Tissamaharama",
+          "Magama"
+        ]
+      },
+      {
+        "name": "Western Province",
+        "center": [
+          6.9,
+          80.1
+        ],
+        "major_sites": [
+          "Kelaniya",
+          "Kotte",
+          "Colombo"
+        ]
+      },
+      {
+        "name": "Central Province",
+        "center": [
+          7.05,
+          80.75
+        ],
+        "major_sites": [
+          "Gampola",
+          "Dedigama"
+        ]
+      },
+      {
+        "name": "Northern Province",
+        "center": [
+          9.7,
+          80.2
+        ],
+        "major_sites": [
+          "Jaffna",
+          "Mullaitivu"
+        ]
+      }
+    ],
+    "slug": "sri-lanka"
+  },
+  {
+    "name": "India",
+    "code": "IN",
+    "center": [
+      20.5937,
+      78.9629
+    ],
+    "bounds": [
+      [
+        8.0,
+        68.2
+      ],
+      [
+        35.5,
+        97.4
+      ]
+    ],
+    "zoom": 4,
+    "description": "South Asian subcontinent with diverse kingdoms. Historical home of the Mauryan and Pandyan empires with deep cultural and religious ties to Sri Lanka.",
+    "regions": [
+      {
+        "name": "South India",
+        "center": [
+          13.2,
+          79.9
+        ],
+        "major_sites": [
+          "Madurai",
+          "Thanjavur"
+        ]
+      },
+      {
+        "name": "North India",
+        "center": [
+          28.7,
+          77.1
+        ],
+        "major_sites": [
+          "Pataliputra",
+          "Bodh Gaya"
+        ]
+      }
+    ],
+    "slug": "india"
+  },
+  {
+    "name": "China",
+    "code": "CN",
+    "center": [
+      35.8617,
+      104.1954
+    ],
+    "bounds": [
+      [
+        18.2,
+        73.5
+      ],
+      [
+        53.6,
+        135.1
+      ]
+    ],
+    "zoom": 3,
+    "description": "East Asian civilization with long-standing trade and religious connections to Sri Lanka, notably during the Tang and Ming dynasties.",
+    "regions": [
+      {
+        "name": "Central China",
+        "center": [
+          30.5,
+          109.5
+        ],
+        "major_sites": [
+          "Nanjing",
+          "Xi'an"
+        ]
+      }
+    ],
+    "slug": "china"
+  },
+  {
+    "slug": "japan",
+    "name": "Japan",
+    "code": "JP",
+    "center": [
+      36.2048,
+      138.2529
+    ],
+    "bounds": [
+      [
+        24.0,
+        122.0
+      ],
+      [
+        46.0,
+        153.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "Island empire renowned for ancient imperial dynasties, samurai shoganates, Shinto/Buddhist shrines, and cultural preservation.",
+    "regions": [
+      {
+        "name": "Kansai (Kinai)",
+        "center": [
+          34.6937,
+          135.5023
+        ],
+        "major_sites": [
+          "Kyoto",
+          "Nara",
+          "Osaka"
+        ]
+      },
+      {
+        "name": "Kanto",
+        "center": [
+          35.6762,
+          139.6503
+        ],
+        "major_sites": [
+          "Edo / Tokyo",
+          "Kamakura"
+        ]
+      },
+      {
+        "name": "Chubu",
+        "center": [
+          35.1815,
+          136.9066
+        ],
+        "major_sites": [
+          "Nagoya",
+          "Gifu"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "egypt",
+    "name": "Ancient Egypt",
+    "code": "EG",
+    "center": [
+      26.8206,
+      30.8025
+    ],
+    "bounds": [
+      [
+        22.0,
+        25.0
+      ],
+      [
+        31.5,
+        37.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "Nile river valley civilization celebrated for monumental pyramids, pharaohs, hieroglyphic literature, and dynastic continuity over three millennia.",
+    "regions": [
+      {
+        "name": "Lower Egypt",
+        "center": [
+          30.0444,
+          31.2357
+        ],
+        "major_sites": [
+          "Memphis",
+          "Giza",
+          "Alexandria"
+        ]
+      },
+      {
+        "name": "Upper Egypt",
+        "center": [
+          25.6872,
+          32.6396
+        ],
+        "major_sites": [
+          "Thebes / Luxor",
+          "Karnak",
+          "Aswan"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "rome",
+    "name": "Rome & Italy",
+    "code": "IT",
+    "center": [
+      41.8719,
+      12.5674
+    ],
+    "bounds": [
+      [
+        35.0,
+        6.0
+      ],
+      [
+        47.5,
+        19.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "Cradle of classical republicanism, imperial jurisprudence, monumental Roman architecture, roads, and Mediterranean hegemony.",
+    "regions": [
+      {
+        "name": "Latium & Central Italy",
+        "center": [
+          41.9028,
+          12.4964
+        ],
+        "major_sites": [
+          "Rome",
+          "Ostia",
+          "Tivoli"
+        ]
+      },
+      {
+        "name": "Campania",
+        "center": [
+          40.8518,
+          14.2681
+        ],
+        "major_sites": [
+          "Pompeii",
+          "Herculaneum",
+          "Capua"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "greece",
+    "name": "Ancient Greece",
+    "code": "GR",
+    "center": [
+      39.0742,
+      21.8243
+    ],
+    "bounds": [
+      [
+        34.8,
+        19.3
+      ],
+      [
+        41.8,
+        28.3
+      ]
+    ],
+    "zoom": 6,
+    "description": "Birthplace of Western philosophy, democracy, mathematics, drama, and Hellenistic empires.",
+    "regions": [
+      {
+        "name": "Attica & Peloponnese",
+        "center": [
+          37.9838,
+          23.7275
+        ],
+        "major_sites": [
+          "Athens",
+          "Sparta",
+          "Olympia",
+          "Epidaurus"
+        ]
+      },
+      {
+        "name": "Macedonia & Central",
+        "center": [
+          40.6401,
+          22.9444
+        ],
+        "major_sites": [
+          "Pella",
+          "Delphi",
+          "Vergina"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "persia",
+    "name": "Persia & Iran",
+    "code": "IR",
+    "center": [
+      32.4279,
+      53.688
+    ],
+    "bounds": [
+      [
+        25.0,
+        44.0
+      ],
+      [
+        40.0,
+        64.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "Ancient imperial powerhouse originating the Royal Road, human rights cylinders, Zoroastrian heritage, and Persepolis grandeur.",
+    "regions": [
+      {
+        "name": "Fars & Zagros",
+        "center": [
+          29.5918,
+          52.5837
+        ],
+        "major_sites": [
+          "Persepolis",
+          "Pasargadae",
+          "Shiraz"
+        ]
+      },
+      {
+        "name": "Isfahan & Central",
+        "center": [
+          32.6546,
+          51.668
+        ],
+        "major_sites": [
+          "Isfahan",
+          "Naqsh-e Jahan"
+        ]
+      }
+    ]
+  }
+]
