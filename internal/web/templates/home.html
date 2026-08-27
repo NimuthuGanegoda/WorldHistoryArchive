@@ -49,6 +49,8 @@
     <div class="max-w-4xl mx-auto mb-10 relative">
       <div class="glass-apple rounded-3xl overflow-hidden p-2 relative shadow-2xl">
         <div id="hero-globe-wrapper" class="w-full h-[440px] sm:h-[520px] relative rounded-2xl overflow-hidden cursor-grab active:cursor-grabbing bg-[#030712]">
+          <script id="wha-countries-data" type="application/json">{{.CountriesJSON}}</script>
+          <script id="wha-sites-data" type="application/json">{{.SitesJSON}}</script>
           <canvas id="hero-globe-canvas" class="w-full h-full"></canvas>
           
           <!-- 3D Interactive UI Overlay -->
@@ -389,8 +391,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const markers = [];
   const markerObjects = [];
 
-  fetch((window.WHA_BASE || '') + '/api/countries')
-    .then(res => res.json())
+  function loadJSON(endpoint) {
+    const base = window.WHA_BASE || '';
+    const cleanEndpoint = endpoint.startsWith('/') ? endpoint : '/' + endpoint;
+    const url = base + (cleanEndpoint.endsWith('.json') ? cleanEndpoint : cleanEndpoint + '.json');
+    return fetch(url)
+      .then(res => {
+        if (!res.ok) return fetch(base + cleanEndpoint).then(r => r.json());
+        return res.json();
+      })
+      .catch(() => fetch(base + cleanEndpoint).then(r => r.json()).catch(() => []));
+  }
+
+  function getCountriesData() {
+    const el = document.getElementById('wha-countries-data');
+    if (el && el.textContent && el.textContent.trim().length > 5) {
+      try { return Promise.resolve(JSON.parse(el.textContent)); } catch(e) {}
+    }
+    return loadJSON('/api/countries');
+  }
+
+  getCountriesData()
     .then(countries => {
       countries.forEach(c => {
         if (!c.center || c.center.length < 2) return;

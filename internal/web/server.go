@@ -2,6 +2,7 @@ package web
 
 import (
 	"embed"
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"net/http"
@@ -99,20 +100,26 @@ func (s *Server) render(w http.ResponseWriter, page string, data interface{}) {
 }
 
 func (s *Server) handleHome(w http.ResponseWriter, r *http.Request) {
+	countriesJSON, _ := json.Marshal(s.store.GetCountries())
+	sitesJSON, _ := json.Marshal(s.store.GetSites())
 	data := struct {
-		Title       string
-		Description string
-		Stats       models.ArchiveStats
-		DailyKings  []models.King
-		Kingdoms    []models.Kingdom
-		Countries   []models.Country
+		Title         string
+		Description   string
+		Stats         models.ArchiveStats
+		DailyKings    []models.King
+		Kingdoms      []models.Kingdom
+		Countries     []models.Country
+		CountriesJSON string
+		SitesJSON     string
 	}{
-		Title:       "Home - Chronicle of Civilizations",
-		Description: "Explore the monarchs, kingdoms, and archaeological monuments of human history.",
-		Stats:       s.store.GetStats(),
-		DailyKings:  s.store.GetDailyKings(6, time.Now()),
-		Kingdoms:    s.store.GetKingdoms(),
-		Countries:   s.store.GetCountries(),
+		Title:         "Home - Chronicle of Civilizations",
+		Description:   "Explore the monarchs, kingdoms, and archaeological monuments of human history.",
+		Stats:         s.store.GetStats(),
+		DailyKings:    s.store.GetDailyKings(6, time.Now()),
+		Kingdoms:      s.store.GetKingdoms(),
+		Countries:     s.store.GetCountries(),
+		CountriesJSON: string(countriesJSON),
+		SitesJSON:     string(sitesJSON),
 	}
 	s.render(w, "home.html", data)
 }
@@ -338,14 +345,22 @@ func (s *Server) handleSiteDetail(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) handleMap(w http.ResponseWriter, r *http.Request) {
+	countriesJSON, _ := json.Marshal(s.store.GetCountries())
+	sitesJSON, _ := json.Marshal(s.store.GetSites())
 	data := struct {
-		Title       string
-		Description string
-		Countries   []models.Country
+		Title         string
+		Description   string
+		Countries     []models.Country
+		Sites         []models.Site
+		CountriesJSON string
+		SitesJSON     string
 	}{
-		Title:       "Spatial Cartography & Map",
-		Description: "Interactive map of archaeological sites across civilizations.",
-		Countries:   s.store.GetCountries(),
+		Title:         "Spatial Cartography & Map",
+		Description:   "Interactive map of archaeological sites across civilizations.",
+		Countries:     s.store.GetCountries(),
+		Sites:         s.store.GetSites(),
+		CountriesJSON: string(countriesJSON),
+		SitesJSON:     string(sitesJSON),
 	}
 	s.render(w, "map.html", data)
 }

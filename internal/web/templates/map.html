@@ -70,6 +70,10 @@
 
   <!-- 2D Leaflet Google Maps Style Container -->
   <div id="container-2d" class="glass-apple rounded-3xl overflow-hidden p-2 shadow-2xl relative hidden">
+    <!-- Embedded Infallible JSON Data Cache -->
+    <script id="wha-sites-data" type="application/json">{{.SitesJSON}}</script>
+    <script id="wha-countries-data" type="application/json">{{.CountriesJSON}}</script>
+
     <!-- Google Maps Top Search & Filter Bar Overlay -->
     <div class="absolute top-5 left-5 right-5 z-20 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pointer-events-none">
       <!-- Search Input -->
@@ -153,6 +157,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const container2D = document.getElementById('container-2d');
 
   let leafletMapInitialized = false;
+  let leafletMapInstance = null;
+
+  // Infallible Data Loading Helpers (Baked JSON Cache with Network Fallback)
+  function loadJSON(endpoint) {
+    const base = window.WHA_BASE || '';
+    const cleanEndpoint = endpoint.startsWith('/') ? endpoint : '/' + endpoint;
+    const url = base + (cleanEndpoint.endsWith('.json') ? cleanEndpoint : cleanEndpoint + '.json');
+    return fetch(url)
+      .then(res => {
+        if (!res.ok) return fetch(base + cleanEndpoint).then(r => r.json());
+        return res.json();
+      })
+      .catch(() => fetch(base + cleanEndpoint).then(r => r.json()).catch(() => []));
+  }
+
+  function getSitesData() {
+    const el = document.getElementById('wha-sites-data');
+    if (el && el.textContent && el.textContent.trim().length > 5) {
+      try { return Promise.resolve(JSON.parse(el.textContent)); } catch(e) {}
+    }
+    return loadJSON('/api/sites');
+  }
+
+  function getCountriesData() {
+    const el = document.getElementById('wha-countries-data');
+    if (el && el.textContent && el.textContent.trim().length > 5) {
+      try { return Promise.resolve(JSON.parse(el.textContent)); } catch(e) {}
+    }
+    return loadJSON('/api/countries');
+  }
 
   btn3D.addEventListener('click', () => {
     container3D.classList.remove('hidden');
@@ -168,10 +202,18 @@ document.addEventListener('DOMContentLoaded', () => {
     btn3D.className = 'px-5 py-2 text-xs font-semibold rounded-full text-[#86868b] hover:text-white hover:bg-white/[0.06] transition-all flex items-center gap-1.5';
 
     if (!leafletMapInitialized) {
-      initGoogleMaps2D();
+      leafletMapInstance = initGoogleMaps2D();
       leafletMapInitialized = true;
+    } else if (leafletMapInstance) {
+      setTimeout(() => leafletMapInstance.invalidateSize(), 80);
     }
   });
+
+  // Auto-switch to 2D if lat or mode=2d in URL
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('lat') || urlParams.get('mode') === '2d') {
+    btn2D.click();
+  }
 
   // --- 1. Three.js Google Earth 3D Atlas Engine ---
   const canvas = document.getElementById('atlas-globe-canvas');
@@ -183,285 +225,289 @@ document.addEventListener('DOMContentLoaded', () => {
   const tooltipLink = document.getElementById('atlas-tooltip-link');
   const tooltipBadge = document.getElementById('atlas-tooltip-badge');
 
-  if (!canvas || !viewport || !window.THREE) return;
+  if (canvas && viewport && window.THREE) {
+    const width = viewport.clientWidth;
+    const height = viewport.clientHeight;
 
-  const width = viewport.clientWidth;
-  const height = viewport.clientHeight;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    camera.position.set(0, 30, 250);
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-  camera.position.set(0, 30, 250);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-  renderer.setSize(width, height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.1);
+    scene.add(ambientLight);
 
-  // Lighting
-  const ambientLight = new THREE.AmbientLight(0xffffff, 1.1);
-  scene.add(ambientLight);
+    const sunLight = new THREE.DirectionalLight(0xfffaed, 2.2);
+    sunLight.position.set(250, 150, 200);
+    scene.add(sunLight);
 
-  const sunLight = new THREE.DirectionalLight(0xfffaed, 2.2);
-  sunLight.position.set(250, 150, 200);
-  scene.add(sunLight);
+    const spaceRimLight = new THREE.DirectionalLight(0x38bdf8, 0.9);
+    spaceRimLight.position.set(-200, -100, -200);
+    scene.add(spaceRimLight);
 
-  const spaceRimLight = new THREE.DirectionalLight(0x38bdf8, 0.9);
-  spaceRimLight.position.set(-200, -100, -200);
-  scene.add(spaceRimLight);
+    const controls = new THREE.OrbitControls(camera, canvas);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
+    controls.minDistance = 90;
+    controls.maxDistance = 420;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.5;
 
-  const controls = new THREE.OrbitControls(camera, canvas);
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.06;
-  controls.minDistance = 90;
-  controls.maxDistance = 420;
-  controls.autoRotate = true;
-  controls.autoRotateSpeed = 0.5;
+    const globeGroup = new THREE.Group();
+    scene.add(globeGroup);
 
-  const globeGroup = new THREE.Group();
-  scene.add(globeGroup);
+    const GLOBE_R = 80;
 
-  const GLOBE_R = 80;
+    // NASA Satellite Texture & Moving Cloud Sphere
+    const textureLoader = new THREE.TextureLoader();
+    const earthMapUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg';
+    const earthSpecularUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg';
+    const earthCloudsUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_1024.png';
 
-  // NASA Satellite Texture & Moving Cloud Sphere
-  const textureLoader = new THREE.TextureLoader();
-  const earthMapUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg';
-  const earthSpecularUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg';
-  const earthCloudsUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_1024.png';
+    const globeGeo = new THREE.SphereGeometry(GLOBE_R, 64, 64);
+    const globeMat = new THREE.MeshPhongMaterial({
+      roughness: 0.8,
+      metalness: 0.1,
+      shininess: 15,
+      specular: new THREE.Color(0x333333)
+    });
+    const globeMesh = new THREE.Mesh(globeGeo, globeMat);
+    globeGroup.add(globeMesh);
 
-  const globeGeo = new THREE.SphereGeometry(GLOBE_R, 64, 64);
-  const globeMat = new THREE.MeshPhongMaterial({
-    roughness: 0.8,
-    metalness: 0.1,
-    shininess: 15,
-    specular: new THREE.Color(0x333333)
-  });
-  const globeMesh = new THREE.Mesh(globeGeo, globeMat);
-  globeGroup.add(globeMesh);
+    textureLoader.load(earthMapUrl, tex => {
+      globeMat.map = tex;
+      globeMat.needsUpdate = true;
+    });
+    textureLoader.load(earthSpecularUrl, specTex => {
+      globeMat.specularMap = specTex;
+      globeMat.specular = new THREE.Color(0x2997ff);
+      globeMat.needsUpdate = true;
+    });
 
-  textureLoader.load(earthMapUrl, tex => {
-    globeMat.map = tex;
-    globeMat.needsUpdate = true;
-  });
-  textureLoader.load(earthSpecularUrl, specTex => {
-    globeMat.specularMap = specTex;
-    globeMat.specular = new THREE.Color(0x2997ff);
-    globeMat.needsUpdate = true;
-  });
+    // Cloud Sphere
+    let cloudMesh = null;
+    const cloudGeo = new THREE.SphereGeometry(GLOBE_R * 1.012, 64, 64);
+    const cloudMat = new THREE.MeshPhongMaterial({
+      transparent: true,
+      opacity: 0.45,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
+    cloudMesh = new THREE.Mesh(cloudGeo, cloudMat);
+    globeGroup.add(cloudMesh);
 
-  // Cloud Sphere
-  let cloudMesh = null;
-  const cloudGeo = new THREE.SphereGeometry(GLOBE_R * 1.012, 64, 64);
-  const cloudMat = new THREE.MeshPhongMaterial({
-    transparent: true,
-    opacity: 0.45,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false
-  });
-  cloudMesh = new THREE.Mesh(cloudGeo, cloudMat);
-  globeGroup.add(cloudMesh);
+    textureLoader.load(earthCloudsUrl, cTex => {
+      cloudMat.map = cTex;
+      cloudMat.needsUpdate = true;
+    });
 
-  textureLoader.load(earthCloudsUrl, cTex => {
-    cloudMat.map = cTex;
-    cloudMat.needsUpdate = true;
-  });
+    // Atmosphere Glow Halo
+    const atmoGeo = new THREE.SphereGeometry(GLOBE_R * 1.15, 32, 32);
+    const atmoMat = new THREE.MeshBasicMaterial({
+      color: 0x38bdf8,
+      transparent: true,
+      opacity: 0.12,
+      side: THREE.BackSide,
+      blending: THREE.AdditiveBlending
+    });
+    scene.add(new THREE.Mesh(atmoGeo, atmoMat));
 
-  // Atmosphere Glow Halo
-  const atmoGeo = new THREE.SphereGeometry(GLOBE_R * 1.15, 32, 32);
-  const atmoMat = new THREE.MeshBasicMaterial({
-    color: 0x38bdf8,
-    transparent: true,
-    opacity: 0.12,
-    side: THREE.BackSide,
-    blending: THREE.AdditiveBlending
-  });
-  scene.add(new THREE.Mesh(atmoGeo, atmoMat));
-
-  // Spherical Coordinates to 3D Cartesian Vector
-  function latLngToVec3(lat, lng, r) {
-    const phi = (90 - lat) * (Math.PI / 180);
-    const theta = (lng + 180) * (Math.PI / 180);
-    return new THREE.Vector3(
-      -(r * Math.sin(phi) * Math.cos(theta)),
-      r * Math.cos(phi),
-      r * Math.sin(phi) * Math.sin(theta)
-    );
-  }
-
-  const clickableObjects = [];
-  const pulsingRings = [];
-
-  // Fetch all Archaeological Sites & Civilizations
-  Promise.all([
-    fetch((window.WHA_BASE || '') + '/api/sites').then(r => r.json()),
-    fetch((window.WHA_BASE || '') + '/api/countries').then(r => r.json())
-  ]).then(([sites, countries]) => {
-    // 1. Plot 56 Archaeological Sites
-    sites.forEach(site => {
-      if (!site.coordinates || !site.coordinates.lat || !site.coordinates.lng) return;
-      const pos = latLngToVec3(site.coordinates.lat, site.coordinates.lng, GLOBE_R);
-
-      const pinGroup = new THREE.Group();
-      pinGroup.position.copy(pos);
-      pinGroup.lookAt(new THREE.Vector3(0, 0, 0));
-
-      const pinHeadGeo = new THREE.SphereGeometry(1.6, 12, 12);
-      const pinHeadMat = new THREE.MeshBasicMaterial({ color: 0xf59e0b });
-      const pinHead = new THREE.Mesh(pinHeadGeo, pinHeadMat);
-      pinHead.userData = { type: 'site', data: site };
-      pinGroup.add(pinHead);
-      clickableObjects.push(pinHead);
-
-      const beamGeo = new THREE.CylinderGeometry(0.2, 0.2, 8, 6);
-      const beamMat = new THREE.MeshBasicMaterial({ color: 0xfef08a, transparent: true, opacity: 0.9 });
-      const beam = new THREE.Mesh(beamGeo, beamMat);
-      beam.position.z = 4;
-      beam.rotation.x = Math.PI / 2;
-      pinGroup.add(beam);
-
-      const pRing = new THREE.Mesh(
-        new THREE.RingGeometry(2.0, 3.0, 16),
-        new THREE.MeshBasicMaterial({ color: 0xf59e0b, side: THREE.DoubleSide, transparent: true, opacity: 0.75 })
+    // Spherical Coordinates to 3D Cartesian Vector
+    function latLngToVec3(lat, lng, r) {
+      const phi = (90 - lat) * (Math.PI / 180);
+      const theta = (lng + 180) * (Math.PI / 180);
+      return new THREE.Vector3(
+        -(r * Math.sin(phi) * Math.cos(theta)),
+        r * Math.cos(phi),
+        r * Math.sin(phi) * Math.sin(theta)
       );
-      pRing.position.z = 0.4;
-      pinGroup.add(pRing);
-      pulsingRings.push(pRing);
+    }
 
-      globeGroup.add(pinGroup);
-    });
+    const clickableObjects = [];
+    const pulsingRings = [];
 
-    // 2. Plot Ancient Trade Route Arcs across Civilizations
-    const tradePairs = [
-      ["china", "persia"],
-      ["persia", "rome"],
-      ["india", "sri-lanka"],
-      ["egypt", "greece"],
-      ["greece", "rome"]
-    ];
+    // Fetch all Archaeological Sites & Civilizations
+    Promise.all([
+      getSitesData(),
+      getCountriesData()
+    ]).then(([sites, countries]) => {
+      // 1. Plot all Archaeological Sites & World Wonders
+      sites.forEach(site => {
+        if (!site.coordinates || !site.coordinates.lat || !site.coordinates.lng) return;
+        const pos = latLngToVec3(site.coordinates.lat, site.coordinates.lng, GLOBE_R);
 
-    const cMap = {};
-    countries.forEach(c => { cMap[c.slug] = c; });
+        const pinGroup = new THREE.Group();
+        pinGroup.position.copy(pos);
+        pinGroup.lookAt(new THREE.Vector3(0, 0, 0));
 
-    tradePairs.forEach(([fromSlug, toSlug]) => {
-      const c1 = cMap[fromSlug];
-      const c2 = cMap[toSlug];
-      if (c1 && c2 && c1.center && c2.center) {
-        const v1 = latLngToVec3(c1.center[0], c1.center[1], GLOBE_R);
-        const v2 = latLngToVec3(c2.center[0], c2.center[1], GLOBE_R);
-        const mid = v1.clone().add(v2).multiplyScalar(0.5).normalize().multiplyScalar(GLOBE_R * 1.22);
+        const isWonder = site.isWorldWonder;
+        const pinHeadGeo = new THREE.SphereGeometry(isWonder ? 2.2 : 1.6, 12, 12);
+        const pinHeadMat = new THREE.MeshBasicMaterial({ color: isWonder ? 0xf59e0b : 0xfbbf24 });
+        const pinHead = new THREE.Mesh(pinHeadGeo, pinHeadMat);
+        pinHead.userData = { type: 'site', data: site };
+        pinGroup.add(pinHead);
+        clickableObjects.push(pinHead);
 
-        const curve = new THREE.QuadraticBezierCurve3(v1, mid, v2);
-        const points = curve.getPoints(30);
-        const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
-        const lineMat = new THREE.LineBasicMaterial({ color: 0xf59e0b, transparent: true, opacity: 0.4 });
-        const arc = new THREE.Line(lineGeo, lineMat);
-        globeGroup.add(arc);
-      }
-    });
-  }).catch(err => console.error("Error loading 3D atlas data:", err));
+        const beamGeo = new THREE.CylinderGeometry(0.2, 0.2, isWonder ? 12 : 8, 6);
+        const beamMat = new THREE.MeshBasicMaterial({ color: isWonder ? 0xfef08a : 0xfef9c3, transparent: true, opacity: 0.9 });
+        const beam = new THREE.Mesh(beamGeo, beamMat);
+        beam.position.z = isWonder ? 6 : 4;
+        beam.rotation.x = Math.PI / 2;
+        pinGroup.add(beam);
 
-  // --- 3D Fly-To Buttons ---
-  let targetRotY = 0, targetRotX = 0, targetDist = 250, isAtlasLerping = false;
-  document.querySelectorAll('.fly-3d-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lat = parseFloat(btn.dataset.lat);
-      const lng = parseFloat(btn.dataset.lng);
-      controls.autoRotate = false;
+        const pRing = new THREE.Mesh(
+          new THREE.RingGeometry(2.0, isWonder ? 3.6 : 2.8, 16),
+          new THREE.MeshBasicMaterial({ color: 0xf59e0b, side: THREE.DoubleSide, transparent: true, opacity: 0.75 })
+        );
+        pRing.position.z = 0.4;
+        pinGroup.add(pRing);
+        pulsingRings.push(pRing);
 
-      targetRotY = -(lng * Math.PI / 180) - Math.PI / 2;
-      targetRotX = (lat * Math.PI / 180) * 0.4;
-      targetDist = 170;
-      isAtlasLerping = true;
-    });
-  });
+        globeGroup.add(pinGroup);
+      });
 
-  // Raycasting Interactions
-  const raycaster = new THREE.Raycaster();
-  const mouse = new THREE.Vector2();
+      // 2. Plot Ancient Trade Route Arcs across Civilizations
+      const tradePairs = [
+        ["china", "persia"],
+        ["persia", "rome"],
+        ["india", "sri-lanka"],
+        ["ancient-egypt", "ancient-greece"],
+        ["ancient-greece", "rome"]
+      ];
 
-  function onPointerMove(e) {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+      const cMap = {};
+      countries.forEach(c => { cMap[c.slug] = c; });
 
-    raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(clickableObjects);
+      tradePairs.forEach(([fromSlug, toSlug]) => {
+        const c1 = cMap[fromSlug];
+        const c2 = cMap[toSlug];
+        if (c1 && c2 && c1.center && c2.center) {
+          const v1 = latLngToVec3(c1.center[0], c1.center[1], GLOBE_R);
+          const v2 = latLngToVec3(c2.center[0], c2.center[1], GLOBE_R);
+          const mid = v1.clone().add(v2).multiplyScalar(0.5).normalize().multiplyScalar(GLOBE_R * 1.22);
 
-    if (intersects.length > 0) {
-      const obj = intersects[0].object;
-      const meta = obj.userData;
-      if (meta && meta.data) {
+          const curve = new THREE.QuadraticBezierCurve3(v1, mid, v2);
+          const points = curve.getPoints(30);
+          const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
+          const lineMat = new THREE.LineBasicMaterial({ color: 0xf59e0b, transparent: true, opacity: 0.4 });
+          const arc = new THREE.Line(lineGeo, lineMat);
+          globeGroup.add(arc);
+        }
+      });
+    }).catch(err => console.error("Error loading 3D atlas data:", err));
+
+    // --- 3D Fly-To Buttons ---
+    let targetRotY = 0, targetRotX = 0, targetDist = 250, isAtlasLerping = false;
+    document.querySelectorAll('.fly-3d-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lat = parseFloat(btn.dataset.lat);
+        const lng = parseFloat(btn.dataset.lng);
         controls.autoRotate = false;
-        canvas.style.cursor = 'pointer';
-        tooltip.classList.remove('hidden');
-        tooltip.style.left = (e.clientX - rect.left) + 'px';
-        tooltip.style.top = (e.clientY - rect.top) + 'px';
 
-        const s = meta.data;
-        tooltipTitle.textContent = s.name;
-        tooltipSub.textContent = (s.country || '') + ' • ' + (s.kingdom || '');
-        tooltipDesc.textContent = s.description || 'Archaeological site.';
-        tooltipBadge.textContent = s.type || 'Monument';
-        tooltipLink.href = (window.WHA_BASE || '') + '/sites/' + s.id;
-        return;
+        targetRotY = -(lng * Math.PI / 180) - Math.PI / 2;
+        targetRotX = (lat * Math.PI / 180) * 0.4;
+        targetDist = 170;
+        isAtlasLerping = true;
+      });
+    });
+
+    // Raycasting Interactions
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    function onPointerMove(e) {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(clickableObjects);
+
+      if (intersects.length > 0) {
+        const obj = intersects[0].object;
+        const meta = obj.userData;
+        if (meta && meta.data) {
+          controls.autoRotate = false;
+          canvas.style.cursor = 'pointer';
+          tooltip.classList.remove('hidden');
+          tooltip.style.left = (e.clientX - rect.left) + 'px';
+          tooltip.style.top = (e.clientY - rect.top) + 'px';
+
+          const s = meta.data;
+          tooltipTitle.textContent = s.name;
+          tooltipSub.textContent = (s.country || '') + ' • ' + (s.kingdom || '');
+          tooltipDesc.textContent = s.description || 'Archaeological site.';
+          tooltipBadge.textContent = s.isWorldWonder ? '🏆 WORLD WONDER' : (s.type || 'Monument');
+          tooltipBadge.className = s.isWorldWonder 
+            ? 'px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider rounded bg-amber-400 text-black shadow-md'
+            : 'px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded bg-amber-400/10 text-amber-300 border border-amber-400/20';
+          tooltipLink.href = (window.WHA_BASE || '') + '/sites/' + s.id;
+          return;
+        }
+      }
+
+      if (!isAtlasLerping) controls.autoRotate = true;
+      canvas.style.cursor = 'grab';
+      tooltip.classList.add('hidden');
+    }
+
+    function onPointerClick(e) {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(clickableObjects);
+
+      if (intersects.length > 0) {
+        const s = intersects[0].object.userData.data;
+        if (s && s.id) {
+          window.location.href = (window.WHA_BASE || '') + '/sites/' + s.id;
+        }
       }
     }
 
-    if (!isAtlasLerping) controls.autoRotate = true;
-    canvas.style.cursor = 'grab';
-    tooltip.classList.add('hidden');
-  }
+    canvas.addEventListener('mousemove', onPointerMove);
+    canvas.addEventListener('click', onPointerClick);
 
-  function onPointerClick(e) {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    window.addEventListener('resize', () => {
+      const w = viewport.clientWidth;
+      const h = viewport.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    });
 
-    raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(clickableObjects);
+    let pTimer = 0;
+    function animate3D() {
+      requestAnimationFrame(animate3D);
+      controls.update();
 
-    if (intersects.length > 0) {
-      const s = intersects[0].object.userData.data;
-      if (s && s.id) {
-        window.location.href = (window.WHA_BASE || '') + '/sites/' + s.id;
+      if (cloudMesh) {
+        cloudMesh.rotation.y += 0.00035;
       }
-    }
-  }
 
-  canvas.addEventListener('mousemove', onPointerMove);
-  canvas.addEventListener('click', onPointerClick);
-
-  window.addEventListener('resize', () => {
-    const w = viewport.clientWidth;
-    const h = viewport.clientHeight;
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-    renderer.setSize(w, h);
-  });
-
-  let pTimer = 0;
-  function animate3D() {
-    requestAnimationFrame(animate3D);
-    controls.update();
-
-    if (cloudMesh) {
-      cloudMesh.rotation.y += 0.00035;
-    }
-
-    if (isAtlasLerping) {
-      globeGroup.rotation.y += (targetRotY - globeGroup.rotation.y) * 0.08;
-      globeGroup.rotation.x += (targetRotX - globeGroup.rotation.x) * 0.08;
-      camera.position.z += (targetDist - camera.position.z) * 0.05;
-      if (Math.abs(targetRotY - globeGroup.rotation.y) < 0.005 && Math.abs(targetRotX - globeGroup.rotation.x) < 0.005) {
-        isAtlasLerping = false;
+      if (isAtlasLerping) {
+        globeGroup.rotation.y += (targetRotY - globeGroup.rotation.y) * 0.08;
+        globeGroup.rotation.x += (targetRotX - globeGroup.rotation.x) * 0.08;
+        camera.position.z += (targetDist - camera.position.z) * 0.05;
+        if (Math.abs(targetRotY - globeGroup.rotation.y) < 0.005 && Math.abs(targetRotX - globeGroup.rotation.x) < 0.005) {
+          isAtlasLerping = false;
+        }
       }
+
+      pTimer += 0.05;
+      const s = 1 + Math.sin(pTimer) * 0.3;
+      pulsingRings.forEach(r => r.scale.set(s, s, 1));
+
+      renderer.render(scene, camera);
     }
-
-    pTimer += 0.05;
-    const s = 1 + Math.sin(pTimer) * 0.3;
-    pulsingRings.forEach(r => r.scale.set(s, s, 1));
-
-    renderer.render(scene, camera);
+    animate3D();
   }
-  animate3D();
 
   // --- 2. Google Maps 2D Spatial Engine (100% Free, Zero Watermarks) ---
   function initGoogleMaps2D() {
@@ -490,6 +536,8 @@ document.addEventListener('DOMContentLoaded', () => {
       zoomControl: true,
       layers: [satelliteLayer]
     }).setView([initialLat, initialLng], initialZoom);
+
+    setTimeout(() => map.invalidateSize(), 150);
 
     // Layer Switcher Buttons
     const btnSat = document.getElementById('layer-satellite');
@@ -541,57 +589,52 @@ document.addEventListener('DOMContentLoaded', () => {
     drawerClose.addEventListener('click', () => drawer.classList.add('hidden'));
 
     let allMarkers = [];
-    let allSites = [];
 
-    fetch((window.WHA_BASE || '') + '/api/sites')
-      .then(res => res.json())
-      .then(sites => {
-        allSites = sites;
-        sites.forEach(site => {
-          if (site.coordinates && site.coordinates.lat && site.coordinates.lng) {
-            const isWonder = site.isWorldWonder;
-            const customIcon = L.divIcon({
-              className: 'custom-map-pin',
-              html: isWonder
-                ? `<div style="background:linear-gradient(135deg, #f59e0b, #d97706); width:22px; height:22px; border-radius:50%; border:2px solid #ffffff; box-shadow:0 0 20px rgba(245,158,11,1); display:flex; align-items:center; justify-content:center; font-size:11px; cursor:pointer;">🏆</div>`
-                : `<div style="background:#f59e0b; width:15px; height:15px; border-radius:50%; border:2px solid #000000; box-shadow:0 0 14px rgba(245,158,11,0.8); cursor:pointer;"></div>`,
-              iconSize: isWonder ? [22, 22] : [15, 15],
-              iconAnchor: isWonder ? [11, 11] : [7.5, 7.5]
-            });
+    getSitesData().then(sites => {
+      sites.forEach(site => {
+        if (site.coordinates && site.coordinates.lat && site.coordinates.lng) {
+          const isWonder = site.isWorldWonder;
+          const customIcon = L.divIcon({
+            className: 'custom-map-pin',
+            html: isWonder
+              ? `<div style="background:linear-gradient(135deg, #f59e0b, #d97706); width:24px; height:24px; border-radius:50%; border:2px solid #ffffff; box-shadow:0 0 20px rgba(245,158,11,1); display:flex; align-items:center; justify-content:center; font-size:12px; cursor:pointer;">🏆</div>`
+              : `<div style="background:#f59e0b; width:16px; height:16px; border-radius:50%; border:2px solid #000000; box-shadow:0 0 14px rgba(245,158,11,0.85); cursor:pointer;"></div>`,
+            iconSize: isWonder ? [24, 24] : [16, 16],
+            iconAnchor: isWonder ? [12, 12] : [8, 8]
+          });
 
-            const marker = L.marker([site.coordinates.lat, site.coordinates.lng], { icon: customIcon }).addTo(map);
-            marker.siteData = site;
+          const marker = L.marker([site.coordinates.lat, site.coordinates.lng], { icon: customIcon }).addTo(map);
+          marker.siteData = site;
 
-            marker.on('click', () => {
-              drawer.classList.remove('hidden');
-              drawerBadge.textContent = isWonder ? '🏆 WORLD WONDER' : (site.type || 'Monument');
-              drawerBadge.className = isWonder 
-                ? 'px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider rounded-full bg-amber-400 text-black shadow-md'
-                : 'px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full bg-amber-400/15 text-amber-300 border border-amber-400/25';
-              
-              drawerTitle.textContent = site.name;
-              drawerSub.textContent = (site.kingdom || '') + ' • ' + (site.country || '');
-              drawerDesc.textContent = site.description || site.history || 'Ancient archaeological monument.';
-              drawerCoords.textContent = `${site.coordinates.lat.toFixed(4)}° N, ${site.coordinates.lng.toFixed(4)}° E`;
-              drawerLink.href = (window.WHA_BASE || '') + '/sites/' + site.id;
+          marker.on('click', () => {
+            drawer.classList.remove('hidden');
+            drawerBadge.textContent = isWonder ? '🏆 WORLD WONDER' : (site.type || 'Monument');
+            drawerBadge.className = isWonder 
+              ? 'px-2.5 py-0.5 text-[9px] font-extrabold uppercase tracking-wider rounded-full bg-amber-400 text-black shadow-md'
+              : 'px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full bg-amber-400/15 text-amber-300 border border-amber-400/25';
+            
+            drawerTitle.textContent = site.name;
+            drawerSub.textContent = (site.kingdom || '') + ' • ' + (site.country || '');
+            drawerDesc.textContent = site.description || site.history || 'Ancient archaeological monument.';
+            drawerCoords.textContent = `${site.coordinates.lat.toFixed(4)}° N, ${site.coordinates.lng.toFixed(4)}° E`;
+            drawerLink.href = (window.WHA_BASE || '') + '/sites/' + site.id;
 
-              if (isWonder) {
-                drawerWonderBox.classList.remove('hidden');
-                drawerWonderCat.textContent = site.wonderCategory || 'World Wonder';
-                drawerWonderYear.textContent = '📅 Designated: ' + (site.wonderDesignationYear || 'Ancient Canon');
-                drawerWonderStatus.textContent = '🏛️ Status: ' + (site.wonderStatus || 'Standing') + (site.wonderReplacedYear ? ' • ' + site.wonderReplacedYear : '');
-              } else {
-                drawerWonderBox.classList.add('hidden');
-              }
+            if (isWonder) {
+              drawerWonderBox.classList.remove('hidden');
+              drawerWonderCat.textContent = site.wonderCategory || 'World Wonder';
+              drawerWonderYear.textContent = '📅 Designated: ' + (site.wonderDesignationYear || 'Ancient Canon');
+              drawerWonderStatus.textContent = '🏛️ Status: ' + (site.wonderStatus || 'Standing') + (site.wonderReplacedYear ? ' • ' + site.wonderReplacedYear : '');
+            } else {
+              drawerWonderBox.classList.add('hidden');
+            }
 
-              map.flyTo([site.coordinates.lat, site.coordinates.lng], Math.max(map.getZoom(), 8), { duration: 1.2 });
-            });
+            map.flyTo([site.coordinates.lat, site.coordinates.lng], Math.max(map.getZoom(), 8), { duration: 1.2 });
+          });
 
-            allMarkers.push({ marker, site });
-          }
-        });
-      })
-      .catch(err => console.error("Error loading sites for 2D map:", err));
+          allMarkers.push({ marker, site });
+        }
+      });
+    }).catch(err => console.error("Error loading sites for 2D map:", err));
 
     // Civilization & Wonder Filter Chips
     document.querySelectorAll('.map-chip').forEach(chip => {
@@ -651,6 +694,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+
+    return map;
   }
 });
 </script>
