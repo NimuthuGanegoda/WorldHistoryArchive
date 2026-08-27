@@ -1,640 +1,8 @@
 [
   {
-    "slug": "anuradhapura",
-    "title": "Anuradhapura Kingdom",
-    "reign": "437 BCE \u2013 1017 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "Notable Kings",
-        "content": [
-          "First major kingdom; irrigation & Buddhist center",
-          "First monarch who established Anuradhapura as the capital",
-          "Introduced Buddhism to Sri Lanka",
-          "National hero who unified Sri Lanka"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "raigama",
-    "title": "Raigama Kingdom",
-    "reign": "1521\u20131538 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Emerged after the 'Vijayab\u0101 Kollaya' in 1521 and was later annexed by the Sitawaka Kingdom."
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "dambadeniya",
-    "title": "Dambadeniya",
-    "reign": "1236\u20131284 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Transitional capital after Chola conflicts"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "gampola",
-    "title": "Gampola",
-    "reign": "1341\u20131411 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Highland capital; shift inland"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "jaffna",
-    "title": "Jaffna Kingdom",
-    "reign": "1215\u20131619 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Northern Tamil kingdom"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "kandyan",
-    "title": "Kandyan Kingdom",
-    "reign": "1469\u20131815 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Last independent kingdom; Nayak influences"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "kelaniya",
-    "title": "Kelaniya Kingdom",
-    "reign": "200\u2013100 BCE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "A provincial kingdom with deep mythological and Buddhist significance. It was the capital of King Kelanitissa and the birthplace of Vihara Maha Devi."
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "kotte",
-    "title": "Kotte",
-    "reign": "1412\u20131597 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Late medieval kingdom; literature & trade"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "kurunegala",
-    "title": "Kurunegala",
-    "reign": "1302\u20131341 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Short-lived capital; period of consolidation"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "polonnaruwa",
-    "title": "Polonnaruwa",
-    "reign": "1110\u20131293 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Medieval capital; advanced irrigation"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "ruhuna",
-    "title": "Ruhuna",
-    "reign": "137 BCE \u2013 1211 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Founded around 200 BC by Prince Mahanaga after a dispute with his brother, King Devanampiya Tissa of Anuradhapura. Located in the south of Sri Lanka, it became a crucial center for Sinhalese culture and a base of resistance against invaders. Key cities included Magama and Tissamaharama."
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "sigiriya",
-    "title": "Sigiriya",
-    "reign": "473\u2013495 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Fortress/palace period under Kashyapa I"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "sitawaka",
-    "title": "Sitawaka",
-    "reign": "1521\u20131593 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Resistance against Portuguese expansion"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "tambapanni",
-    "title": "Tambapanni",
-    "reign": "543\u2013504 BCE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Earliest recorded settlement under Vijaya, also known as Thammanna Nuwara."
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "upatissa-nuwara",
-    "title": "Upatissa Nuwara",
-    "reign": "504\u2013437 BCE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Interim capital after Vijaya period"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "yapahuwa",
-    "title": "Yapahuwa",
-    "reign": "1284\u20131302 CE",
-    "kingdom": "",
-    "biography": "",
-    "sections": [
-      {
-        "heading": "",
-        "content": [
-          "Rock fortress capital"
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "country": "Sri Lanka",
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "maurya-empire",
-    "title": "Maurya Empire",
-    "reign": "322\u2013185 BCE",
-    "country": "India",
-    "biography": "The Maurya Empire was a geographically extensive Iron Age historical power based in Magadha and founded by Chandragupta Maurya. Under Ashoka the Great, the empire embraced Buddhism and spread its teachings across Asia, including to Sri Lanka through his son Mahinda.",
-    "sections": [
-      {
-        "heading": "Connection to Sri Lanka",
-        "content": [
-          "Emperor Ashoka sent his son, Mahinda Thero, and later his daughter, Sanghamitta Theri, to Sri Lanka to introduce Buddhism.",
-          "This event fundamentally transformed Sri Lankan culture, architecture, and governance."
-        ],
-        "infoBoxes": []
-      }
-    ],
-    "countrySlug": "sri-lanka"
-  },
-  {
-    "slug": "ming-dynasty",
-    "title": "Ming Dynasty",
-    "reign": "1368\u20131644 CE",
-    "country": "China",
-    "countrySlug": "china",
-    "capital": "Nanjing / Beijing",
-    "startYear": 1368,
-    "description": "Native restoration following Mongol rule, celebrated for construction of the Forbidden City, porcelain art, and Zheng He's treasure fleet voyages to Sri Lanka and Africa."
-  },
-  {
-    "slug": "asuka-nara",
-    "title": "Asuka & Nara Period",
-    "reign": "538\u2013794 CE",
-    "country": "Japan",
-    "countrySlug": "japan",
-    "capital": "Heijo-kyo (Nara)",
-    "startYear": 538,
-    "description": "Introduction of Buddhism, centralization of the imperial state under Prince Shotoku, and construction of colossal bronze Buddhas at Todai-ji.",
-    "sections": [
-      {
-        "heading": "Key Developments",
-        "content": [
-          "Introduction of Buddhism from Baekje",
-          "Establishment of the Seventeen-Article Constitution",
-          "Taiho Code legal system",
-          "First permanent imperial capital at Nara"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "heian-period",
-    "title": "Heian Period",
-    "reign": "794\u20131185 CE",
-    "country": "Japan",
-    "countrySlug": "japan",
-    "capital": "Heian-kyo (Kyoto)",
-    "startYear": 794,
-    "description": "Golden age of classical Japanese court culture, poetry, literature (Tale of Genji), and the rise of the warrior samurai clans.",
-    "sections": [
-      {
-        "heading": "Cultural Zenith",
-        "content": [
-          "Peak of imperial court refinement in Kyoto",
-          "Kana syllabary emergence",
-          "Dominance of the Fujiwara clan regents",
-          "Rise of Minamoto and Taira military clans"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "kamakura-shogunate",
-    "title": "Kamakura Shogunate",
-    "reign": "1185\u20131333 CE",
-    "country": "Japan",
-    "countrySlug": "japan",
-    "capital": "Kamakura",
-    "startYear": 1185,
-    "description": "Establishment of Japan's first feudal military government under Shogun Minamoto no Yoritomo, repelling two Mongol invasions.",
-    "sections": [
-      {
-        "heading": "Feudal Transformation",
-        "content": [
-          "Birth of the Bakufu (tent government)",
-          "Samurai code of honor and martial dominance",
-          "Repulsion of Kublai Khan's Mongol invasions (1274, 1281)",
-          "Rise of Zen Buddhism"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "muromachi-sengoku",
-    "title": "Muromachi & Sengoku Jidai",
-    "reign": "1336\u20131603 CE",
-    "country": "Japan",
-    "countrySlug": "japan",
-    "capital": "Kyoto / Azuchi",
-    "startYear": 1336,
-    "description": "Era of Ashikaga shoguns followed by the Warring States period, unified through the relentless campaigns of Oda Nobunaga and Toyotomi Hideyoshi.",
-    "sections": [
-      {
-        "heading": "War & Unification",
-        "content": [
-          "Ashikaga Shogunate and Kitayama culture (Golden Pavilion)",
-          "Onin War triggering nationwide warlord warfare (Sengoku Jidai)",
-          "Introduction of firearms at Tanegashima",
-          "Unification campaigns of Oda Nobunaga and Toyotomi Hideyoshi"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "edo-shogunate",
-    "title": "Edo (Tokugawa) Shogunate",
-    "reign": "1603\u20131868 CE",
-    "country": "Japan",
-    "countrySlug": "japan",
-    "capital": "Edo (Tokyo)",
-    "startYear": 1603,
-    "description": "Over 250 years of uninterrupted peace, strict isolationism (Sakoku), urban economic boom, and samurai bureaucratic governance.",
-    "sections": [
-      {
-        "heading": "Pax Tokugawa",
-        "content": [
-          "Establishment of Tokugawa rule following Battle of Sekigahara",
-          "Sakoku maritime isolation policy",
-          "Growth of Edo into one of the world's largest metropolises",
-          "Flourishing of Kabuki, Ukiyo-e woodblock art, and Haiku"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "egypt-old-kingdom",
-    "title": "Old Kingdom of Egypt",
-    "reign": "c. 2686 \u2013 2181 BCE",
-    "country": "Ancient Egypt",
-    "countrySlug": "egypt",
-    "capital": "Memphis",
-    "startYear": -2686,
-    "description": "The 'Age of the Pyramids', characterized by divine kingship, supreme political centralization, and monumental limestone architecture.",
-    "sections": [
-      {
-        "heading": "Monumental Architecture",
-        "content": [
-          "Construction of the Step Pyramid by Imhotep for Djoser",
-          "Building the Great Pyramids of Giza under 4th Dynasty Pharaohs",
-          "Consolidation of religious theology centered on Ra"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "egypt-new-kingdom",
-    "title": "New Kingdom of Egypt",
-    "reign": "c. 1550 \u2013 1077 BCE",
-    "country": "Ancient Egypt",
-    "countrySlug": "egypt",
-    "capital": "Thebes (Luxor)",
-    "startYear": -1550,
-    "description": "The golden imperial age of Egypt, expanding borders across the Levant and Nubia under warrior pharaohs like Thutmose III and Ramses II.",
-    "sections": [
-      {
-        "heading": "Imperial Grandeur",
-        "content": [
-          "Expulsion of the Hyksos and establishment of imperial standing army",
-          "Reign of female Pharaoh Hatshepsut and expansive trade to Punt",
-          "Amarna religious revolution under Akhenaten",
-          "Grand monument construction at Karnak, Luxor, and Abu Simbel"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "ptolemaic-dynasty",
-    "title": "Ptolemaic Kingdom of Egypt",
-    "reign": "305 \u2013 30 BCE",
-    "country": "Ancient Egypt",
-    "countrySlug": "egypt",
-    "capital": "Alexandria",
-    "startYear": -305,
-    "description": "Hellenistic dynasty founded by Ptolemy I Soter following Alexander the Great's conquests, celebrated for the Great Library of Alexandria and Queen Cleopatra VII.",
-    "sections": [
-      {
-        "heading": "Hellenistic Synthesis",
-        "content": [
-          "Foundation and growth of Alexandria as intellectual capital of the Mediterranean",
-          "Construction of the Great Library and Pharos Lighthouse",
-          "Reign of Cleopatra VII and Roman transition"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "roman-republic",
-    "title": "Roman Republic",
-    "reign": "509\u201327 BCE",
-    "country": "Rome & Italy",
-    "countrySlug": "rome",
-    "capital": "Rome",
-    "startYear": -509,
-    "description": "Representative republican system led by the Senate and Consuls, defeating Carthage in the Punic Wars to dominate the Mediterranean basin.",
-    "sections": [
-      {
-        "heading": "Republican Hegemony",
-        "content": [
-          "Overthrow of Tarquin kings and establishment of the Res Publica",
-          "Punic Wars against Hannibal Barca of Carthage",
-          "Expansion across Greece, Hispania, and Gaul",
-          "Rise of Julius Caesar and fall of the Republic"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "roman-empire",
-    "title": "Roman Empire",
-    "reign": "27 BCE \u2013 476 CE",
-    "country": "Rome & Italy",
-    "countrySlug": "rome",
-    "capital": "Rome / Ravenna",
-    "startYear": -27,
-    "description": "Imperial civilization inaugurated by Augustus, delivering the Pax Romana, vast paved road networks, Roman law, and monumental engineering.",
-    "sections": [
-      {
-        "heading": "Imperial Dominion",
-        "content": [
-          "Pax Romana under Augustus and the Five Good Emperors",
-          "Construction of the Colosseum, Pantheon, and Aqueducts",
-          "Territorial zenith under Emperor Trajan in 117 CE",
-          "Christianization under Constantine the Great"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "byzantine-empire",
-    "title": "Byzantine (Eastern Roman) Empire",
-    "reign": "330\u20131453 CE",
-    "country": "Rome & Italy",
-    "countrySlug": "rome",
-    "capital": "Constantinople",
-    "startYear": 330,
-    "description": "Greek-speaking continuation of the Roman Empire centered on Constantinople, famed for Justinian law, Hagia Sophia, and 1,100 years of survival.",
-    "sections": [
-      {
-        "heading": "Eastern Splendor",
-        "content": [
-          "Inauguration of Constantinople as Nova Roma",
-          "Justinian Code (Corpus Juris Civilis) and Hagia Sophia cathedral",
-          "Preservation of classical Roman law and Greek literature",
-          "Defense of eastern Mediterranean trade routes"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "gupta-empire",
-    "title": "Gupta Empire",
-    "reign": "319\u2013550 CE",
-    "country": "India",
-    "countrySlug": "india",
-    "capital": "Pataliputra",
-    "startYear": 319,
-    "description": "The 'Golden Age of India', characterized by profound achievements in Sanskrit literature, zero mathematics, astronomy, and classical art.",
-    "sections": [
-      {
-        "heading": "Golden Age of Science & Art",
-        "content": [
-          "Invention of the decimal system and zero by Aryabhata",
-          "Kalidasa's poetic masterpieces",
-          "Ajanta and Ellora cave mural paintings",
-          "Establishment of Nalanda University"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "mughal-empire",
-    "title": "Mughal Empire",
-    "reign": "1526\u20131857 CE",
-    "country": "India",
-    "countrySlug": "india",
-    "capital": "Agra / Delhi",
-    "startYear": 1526,
-    "description": "Turco-Mongol dynasty uniting South Asia with magnificent Indo-Islamic architecture, administrative revenue systems, and religious syncretism under Akbar.",
-    "sections": [
-      {
-        "heading": "Imperial Splendor",
-        "content": [
-          "First Battle of Panipat won by Babur in 1526",
-          "Akbar's Din-i Ilahi tolerance and administrative Mansabdari system",
-          "Shah Jahan's construction of the Taj Mahal and Red Fort",
-          "Economic powerhouse accounting for 25% of global GDP in 1700"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "classical-greece",
-    "title": "Classical Greece & Athens",
-    "reign": "508\u2013322 BCE",
-    "country": "Ancient Greece",
-    "countrySlug": "greece",
-    "capital": "Athens / Sparta",
-    "startYear": -508,
-    "description": "Era of independent poleis (city-states), democratic governance in Athens, Socrates, Plato, Aristotle, and the Persian War victories.",
-    "sections": [
-      {
-        "heading": "Foundations of Democracy & Thought",
-        "content": [
-          "Cleisthenes democratic reforms in Athens",
-          "Victories at Marathon and Salamis against Persian invaders",
-          "Golden Age of Pericles and construction of the Parthenon",
-          "Philosophical breakthroughs by Socrates, Plato, and Aristotle"
-        ]
-      }
-    ]
-  },
-  {
-    "slug": "macedonian-empire",
-    "title": "Macedonian & Hellenistic Empire",
-    "reign": "359\u2013323 BCE",
-    "country": "Ancient Greece",
-    "countrySlug": "greece",
-    "capital": "Pella / Babylon",
-    "startYear": -359,
-    "description": "Macedonian hegemony established by Philip II, followed by Alexander the Great's conquest of Persia, Egypt, and northwestern India.",
-    "sections": [
-      {
-        "heading": "Global Conquest",
-        "content": [
-          "Military revolution of the Macedonian phalanx",
-          "Conquest of the Achaemenid Persian Empire by Alexander",
-          "Diffusion of Hellenistic Greek culture across Asia and Egypt",
-          "Founding of Alexandria in Egypt"
-        ]
-      }
-    ]
-  },
-  {
     "slug": "achaemenid-empire",
     "title": "Achaemenid (First Persian) Empire",
-    "reign": "550\u2013330 BCE",
+    "reign": "550–330 BCE",
     "country": "Persia & Iran",
     "countrySlug": "persia",
     "capital": "Pasargadae / Persepolis",
@@ -653,99 +21,126 @@
     ]
   },
   {
-    "slug": "qin-dynasty",
-    "title": "Qin Dynasty",
-    "reign": "221\u2013206 BCE",
-    "country": "China",
-    "countrySlug": "china",
-    "capital": "Xianyang",
-    "startYear": -221,
-    "description": "First imperial dynasty to unify all Warring States of China under Qin Shi Huang, standardizing currency, weights, writing, and initiating the Great Wall."
+    "slug": "achaemenid-persia",
+    "title": "Achaemenid Persian Empire",
+    "country": "Persia & Iran",
+    "countrySlug": "persia",
+    "reign": "550–330 BCE",
+    "capital": "Pasargadae / Persepolis / Susa",
+    "description": "The first world superpower founded by Cyrus the Great, establishing the Royal Road, satrapy system, religious tolerance (Cyrus Cylinder), and the palace of Persepolis."
   },
   {
-    "slug": "han-dynasty",
-    "title": "Han Dynasty",
-    "reign": "202 BCE \u2013 220 CE",
-    "country": "China",
-    "countrySlug": "china",
-    "capital": "Chang'an / Luoyang",
-    "startYear": -202,
-    "description": "Golden age of Chinese civilization, establishing the Silk Road trade route, state Confucianism, and groundbreaking inventions like paper."
+    "slug": "angkor-khmer-empire",
+    "title": "Angkor Empire (Khmer Realm)",
+    "country": "Khmer Empire (Angkor)",
+    "countrySlug": "khmer",
+    "reign": "802–1431 CE",
+    "capital": "Yasodharapura (Angkor)",
+    "description": "The pinnacle of Southeast Asian temple architecture and monumental water management, creating Angkor Wat, Angkor Thom, and the Bayon."
   },
   {
-    "slug": "tang-dynasty",
-    "title": "Tang Dynasty",
-    "reign": "618\u2013907 CE",
-    "country": "China",
-    "countrySlug": "china",
-    "capital": "Chang'an",
-    "startYear": 618,
-    "description": "Cosmopolitan golden era of poetry (Li Bai, Du Fu), woodblock printing, Buddhist pilgrimages, and economic dominance."
+    "slug": "anuradhapura",
+    "title": "Anuradhapura Kingdom",
+    "reign": "437 BCE – 1017 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "Notable Kings",
+        "content": [
+          "First major kingdom; irrigation & Buddhist center",
+          "First monarch who established Anuradhapura as the capital",
+          "Introduced Buddhism to Sri Lanka",
+          "National hero who unified Sri Lanka"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
   },
   {
-    "slug": "babylonian-empire",
-    "title": "Old & Neo-Babylonian Empires",
-    "reign": "1894\u2013539 BCE",
-    "country": "Mesopotamia & Iraq",
-    "countrySlug": "mesopotamia",
-    "capital": "Babylon",
-    "startYear": -1894,
-    "description": "Ancient Mesopotamian realm famous for the Code of Hammurabi, the Ishtar Gate, and the legendary Hanging Gardens of Babylon."
+    "slug": "macedonian-empire",
+    "title": "Argead Dynasty & Macedonian Empire",
+    "country": "Ancient Greece",
+    "countrySlug": "ancient-greece",
+    "reign": "c. 808–309 BCE",
+    "capital": "Aegae / Pella",
+    "description": "Northern Greek kingdom transformed by Philip II and Alexander the Great, which conquered the Persian Empire and spread Hellenistic culture to the Indus River."
   },
   {
-    "slug": "assyrian-empire",
-    "title": "Neo-Assyrian Empire",
-    "reign": "911\u2013609 BCE",
-    "country": "Mesopotamia & Iraq",
-    "countrySlug": "mesopotamia",
-    "capital": "Nineveh / Assur",
-    "startYear": -911,
-    "description": "Iron Age military titan pioneering siege engines, iron armaments, and King Ashurbanipal's immense royal cuneiform library."
+    "slug": "asuka-nara",
+    "title": "Asuka & Nara Period",
+    "reign": "538–794 CE",
+    "country": "Japan",
+    "countrySlug": "japan",
+    "capital": "Heijo-kyo (Nara)",
+    "startYear": 538,
+    "description": "Introduction of Buddhism, centralization of the imperial state under Prince Shotoku, and construction of colossal bronze Buddhas at Todai-ji.",
+    "sections": [
+      {
+        "heading": "Key Developments",
+        "content": [
+          "Introduction of Buddhism from Baekje",
+          "Establishment of the Seventeen-Article Constitution",
+          "Taiho Code legal system",
+          "First permanent imperial capital at Nara"
+        ]
+      }
+    ]
   },
   {
-    "slug": "maya-civilization",
-    "title": "Classic Maya Era",
-    "reign": "250\u2013900 CE",
-    "country": "Mesoamerica & Maya",
-    "countrySlug": "mesoamerica",
-    "capital": "Tikal / Palenque / Calakmul",
-    "startYear": 250,
-    "description": "Zenith of Maya city-states with advanced hieroglyphic writing, mathematical zero calculations, complex calendars, and towering forest pyramids."
+    "slug": "asuka-nara-japan",
+    "title": "Asuka & Nara Periods",
+    "country": "Japan",
+    "countrySlug": "japan",
+    "reign": "538–794 CE",
+    "capital": "Asuka / Heijo-kyo (Nara)",
+    "description": "Formative imperial era characterized by the introduction of Buddhism, Chinese legal systems (Ritsuryo), and the construction of the colossal Great Buddha at Todai-ji."
   },
   {
     "slug": "aztec-empire",
-    "title": "Aztec (Mexica) Empire",
-    "reign": "1428\u20131521 CE",
+    "title": "Aztec Empire (Triple Alliance)",
     "country": "Mesoamerica & Maya",
     "countrySlug": "mesoamerica",
-    "capital": "Tenochtitlan",
-    "startYear": 1428,
-    "description": "Triple Alliance empire built upon Lake Texcoco with chinampa floating agriculture, monumental stone temples, and elite eagle/jaguar warrior orders."
+    "reign": "1428–1521 CE",
+    "capital": "Tenochtitlan (Mexico City)",
+    "description": "The dominant military empire of central Mexico, renowned for island urban planning at Tenochtitlan, chinampa floating agriculture, and monumental temples."
   },
   {
-    "slug": "inca-empire",
-    "title": "Inca Empire (Tawantinsuyu)",
-    "reign": "1438\u20131533 CE",
-    "country": "Inca & Andes",
-    "countrySlug": "inca",
-    "capital": "Cusco",
-    "startYear": 1438,
-    "description": "Largest pre-Columbian empire in the Americas, weaving thousands of miles of paved mountain roads across South America."
+    "slug": "bourbon-france",
+    "title": "Bourbon Dynasty (The Grand Siècle)",
+    "country": "France & Gaul",
+    "countrySlug": "france",
+    "reign": "1589–1792 CE",
+    "capital": "Paris / Versailles",
+    "description": "The golden age of French absolute monarchy, arts, and military prestige, epitomized by Louis XIV ('The Sun King') and the Palace of Versailles."
   },
   {
-    "slug": "tudor-era",
-    "title": "Tudor & Elizabethan England",
-    "reign": "1485\u20131603 CE",
-    "country": "Great Britain",
-    "countrySlug": "britain",
-    "capital": "London",
-    "startYear": 1485,
-    "description": "Transformation of England through the Renaissance, maritime naval power under Elizabeth I, and Shakespearean literature."
+    "slug": "byzantine-empire",
+    "title": "Byzantine (Eastern Roman) Empire",
+    "reign": "330–1453 CE",
+    "country": "Rome & Italy",
+    "countrySlug": "rome",
+    "capital": "Constantinople",
+    "startYear": 330,
+    "description": "Greek-speaking continuation of the Roman Empire centered on Constantinople, famed for Justinian law, Hagia Sophia, and 1,100 years of survival.",
+    "sections": [
+      {
+        "heading": "Eastern Splendor",
+        "content": [
+          "Inauguration of Constantinople as Nova Roma",
+          "Justinian Code (Corpus Juris Civilis) and Hagia Sophia cathedral",
+          "Preservation of classical Roman law and Greek literature",
+          "Defense of eastern Mediterranean trade routes"
+        ]
+      }
+    ]
   },
   {
     "slug": "carolingian-empire",
     "title": "Carolingian & Frankish Empire",
-    "reign": "751\u2013888 CE",
+    "reign": "751–888 CE",
     "country": "France & Gaul",
     "countrySlug": "france",
     "capital": "Aachen / Paris",
@@ -753,9 +148,299 @@
     "description": "Reunification of Western Europe under Charlemagne, initiating the Carolingian Renaissance in arts, Latin script, and scholarship."
   },
   {
+    "slug": "carolingian-frankish",
+    "title": "Carolingian Empire",
+    "country": "France & Gaul",
+    "countrySlug": "france",
+    "reign": "751–987 CE",
+    "capital": "Aachen",
+    "description": "The founding dynasty of Western Europe under Charlemagne, crowned Emperor of the Romans in 800 CE and sparking the Carolingian Renaissance."
+  },
+  {
+    "slug": "classic-maya",
+    "title": "Classic Maya Civilization",
+    "country": "Mesoamerica & Maya",
+    "countrySlug": "mesoamerica",
+    "reign": "c. 250–900 CE",
+    "capital": "Tikal / Palenque / Calakmul / Copán",
+    "description": "The golden age of Maya mathematics, hieroglyphic writing, astronomical calendars, and towering jungle pyramid citadels."
+  },
+  {
+    "slug": "maya-civilization",
+    "title": "Classic Maya Era",
+    "reign": "250–900 CE",
+    "country": "Mesoamerica & Maya",
+    "countrySlug": "mesoamerica",
+    "capital": "Tikal / Palenque / Calakmul",
+    "startYear": 250,
+    "description": "Zenith of Maya city-states with advanced hieroglyphic writing, mathematical zero calculations, complex calendars, and towering forest pyramids."
+  },
+  {
+    "slug": "classical-athens",
+    "title": "Classical Athens & Delian League",
+    "country": "Ancient Greece",
+    "countrySlug": "ancient-greece",
+    "reign": "c. 508–322 BCE",
+    "capital": "Athens",
+    "description": "The cradle of Western democracy, philosophy, theatre, and classical art, flourishing during the Golden Age of Pericles and the construction of the Acropolis."
+  },
+  {
+    "slug": "classical-greece",
+    "title": "Classical Greece & Athens",
+    "reign": "508–322 BCE",
+    "country": "Ancient Greece",
+    "countrySlug": "greece",
+    "capital": "Athens / Sparta",
+    "startYear": -508,
+    "description": "Era of independent poleis (city-states), democratic governance in Athens, Socrates, Plato, Aristotle, and the Persian War victories.",
+    "sections": [
+      {
+        "heading": "Foundations of Democracy & Thought",
+        "content": [
+          "Cleisthenes democratic reforms in Athens",
+          "Victories at Marathon and Salamis against Persian invaders",
+          "Golden Age of Pericles and construction of the Parthenon",
+          "Philosophical breakthroughs by Socrates, Plato, and Aristotle"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "classical-ottoman-empire",
+    "title": "Classical Ottoman Empire",
+    "country": "Ottoman Empire",
+    "countrySlug": "ottoman",
+    "reign": "1299–1683 CE",
+    "capital": "Söğüt / Bursa / Edirne / Constantinople",
+    "description": "The imperial golden age of the Ottoman Sultanate, spanning the conquest of Constantinople by Mehmed II and the legal and cultural renaissance under Suleiman the Magnificent."
+  },
+  {
+    "slug": "dambadeniya",
+    "title": "Dambadeniya",
+    "reign": "1236–1284 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Transitional capital after Chola conflicts"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "edo-shogunate",
+    "title": "Edo (Tokugawa) Shogunate",
+    "reign": "1603–1868 CE",
+    "country": "Japan",
+    "countrySlug": "japan",
+    "capital": "Edo (Tokyo)",
+    "startYear": 1603,
+    "description": "Over 250 years of uninterrupted peace, strict isolationism (Sakoku), urban economic boom, and samurai bureaucratic governance.",
+    "sections": [
+      {
+        "heading": "Pax Tokugawa",
+        "content": [
+          "Establishment of Tokugawa rule following Battle of Sekigahara",
+          "Sakoku maritime isolation policy",
+          "Growth of Edo into one of the world's largest metropolises",
+          "Flourishing of Kabuki, Ukiyo-e woodblock art, and Haiku"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "flavian-rome",
+    "title": "Flavian Dynasty",
+    "country": "Rome & Italy",
+    "countrySlug": "rome",
+    "reign": "69–96 CE",
+    "capital": "Rome",
+    "description": "Imperial era marked by financial stabilization, military triumphs, and colossal public architecture including the construction of the Colosseum."
+  },
+  {
+    "slug": "gampola",
+    "title": "Gampola",
+    "reign": "1341–1411 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Highland capital; shift inland"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "gupta-empire",
+    "title": "Gupta Empire (Classical Golden Age)",
+    "country": "India",
+    "countrySlug": "india",
+    "reign": "c. 319–550 CE",
+    "capital": "Pataliputra",
+    "description": "The Golden Age of ancient India marked by monumental advancements in mathematics (the concept of zero and decimal system), astronomy, Sanskrit literature, and Hindu-Buddhist art."
+  },
+  {
+    "slug": "han-dynasty",
+    "title": "Han Dynasty (The Golden Age of China)",
+    "country": "China",
+    "countrySlug": "china",
+    "reign": "202 BCE – 220 CE",
+    "capital": "Chang'an / Luoyang",
+    "description": "The imperial golden age that defined Chinese cultural identity, institutionalized Confucian statecraft, and opened the ancient Silk Road across Eurasia."
+  },
+  {
+    "slug": "heian-period",
+    "title": "Heian Period",
+    "reign": "794–1185 CE",
+    "country": "Japan",
+    "countrySlug": "japan",
+    "capital": "Heian-kyo (Kyoto)",
+    "startYear": 794,
+    "description": "Golden age of classical Japanese court culture, poetry, literature (Tale of Genji), and the rise of the warrior samurai clans.",
+    "sections": [
+      {
+        "heading": "Cultural Zenith",
+        "content": [
+          "Peak of imperial court refinement in Kyoto",
+          "Kana syllabary emergence",
+          "Dominance of the Fujiwara clan regents",
+          "Rise of Minamoto and Taira military clans"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "heian-japan",
+    "title": "Heian Period (Classical Imperial Court)",
+    "country": "Japan",
+    "countrySlug": "japan",
+    "reign": "794–1185 CE",
+    "capital": "Heian-kyo (Kyoto)",
+    "description": "The classical zenith of Japanese imperial court culture, poetry, aesthetics, and literature, producing Murasaki Shikibu's Tale of Genji."
+  },
+  {
+    "slug": "chola-empire",
+    "title": "Imperial Chola Dynasty",
+    "country": "India",
+    "countrySlug": "india",
+    "reign": "848–1279 CE",
+    "capital": "Thanjavur / Gangaikonda Cholapuram",
+    "description": "Dominant maritime empire of South India renowned for bronze sculpting, grand Dravidian stone temples (Brihadisvara), and naval expeditions across Southeast Asia."
+  },
+  {
+    "slug": "inca-empire",
+    "title": "Inca Empire (Tawantinsuyu)",
+    "reign": "1438–1533 CE",
+    "country": "Inca & Andes",
+    "countrySlug": "inca",
+    "capital": "Cusco",
+    "startYear": 1438,
+    "description": "Largest pre-Columbian empire in the Americas, weaving thousands of miles of paved mountain roads across South America."
+  },
+  {
+    "slug": "tawantinsuyu-inca",
+    "title": "Inca Empire (Tawantinsuyu)",
+    "country": "Inca & Andes",
+    "countrySlug": "inca",
+    "reign": "1438–1533 CE",
+    "capital": "Cusco",
+    "description": "The greatest empire of pre-Columbian South America, spanning 4,000 kilometers along the Andes, linked by the Qhapaq Ñan road network and Machu Picchu."
+  },
+  {
+    "slug": "jaffna",
+    "title": "Jaffna Kingdom",
+    "reign": "1215–1619 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Northern Tamil kingdom"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "julio-claudian-rome",
+    "title": "Julio-Claudian Dynasty (Principate)",
+    "country": "Rome & Italy",
+    "countrySlug": "rome",
+    "reign": "27 BCE – 68 CE",
+    "capital": "Rome",
+    "description": "The inaugural imperial dynasty of Rome founded by Augustus Caesar, establishing the Pax Romana and laying the institutional foundations of empire."
+  },
+  {
+    "slug": "justinian-era-byzantine",
+    "title": "Justinianic Dynasty (Golden Age of Byzantium)",
+    "country": "Byzantine Empire",
+    "countrySlug": "byzantine",
+    "reign": "518–602 CE",
+    "capital": "Constantinople",
+    "description": "Era of imperial reconquest of Italy and North Africa, codification of Roman Law (Corpus Juris Civilis), and construction of the cathedral of Hagia Sophia."
+  },
+  {
+    "slug": "kamakura-shogunate",
+    "title": "Kamakura Shogunate",
+    "country": "Japan",
+    "countrySlug": "japan",
+    "reign": "1185–1333 CE",
+    "capital": "Kamakura",
+    "description": "The birth of Japanese samurai rule under Minamoto no Yoritomo, introducing the feudal shogunate system and repelling the Mongol invasions."
+  },
+  {
+    "slug": "kandyan",
+    "title": "Kandyan Kingdom",
+    "reign": "1469–1815 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Last independent kingdom; Nayak influences"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "kelaniya",
+    "title": "Kelaniya Kingdom",
+    "reign": "200–100 BCE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "A provincial kingdom with deep mythological and Buddhist significance. It was the capital of King Kelanitissa and the birthplace of Vihara Maha Devi."
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
     "slug": "aksumite-empire",
     "title": "Kingdom of Aksum",
-    "reign": "100\u2013940 CE",
+    "reign": "100–940 CE",
     "country": "Kingdom of Aksum & Ethiopia",
     "countrySlug": "ethiopia",
     "capital": "Aksum",
@@ -763,13 +448,540 @@
     "description": "Major maritime commercial power linking the Roman Empire and ancient India, minting its own currency and erecting giant monolithic stelae."
   },
   {
+    "slug": "aksumite-empire-ethiopia",
+    "title": "Kingdom of Aksum",
+    "country": "Kingdom of Aksum & Ethiopia",
+    "countrySlug": "ethiopia",
+    "reign": "c. 100–940 CE",
+    "capital": "Aksum",
+    "description": "Major ancient trading empire controlling the Red Sea, minting gold currency, adopting Christianity in 330 CE under King Ezana, and erecting giant stone stelae."
+  },
+  {
+    "slug": "spartan-hegemony",
+    "title": "Kingdom of Sparta (Lacedaemon)",
+    "country": "Ancient Greece",
+    "countrySlug": "ancient-greece",
+    "reign": "c. 900–192 BCE",
+    "capital": "Sparta",
+    "description": "Doric Greek military powerhouse renowned for its dual kingship, Agoge martial system, and pivotal role in the Greco-Persian and Peloponnesian Wars."
+  },
+  {
+    "slug": "kotte",
+    "title": "Kotte",
+    "reign": "1412–1597 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Late medieval kingdom; literature & trade"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "kurunegala",
+    "title": "Kurunegala",
+    "reign": "1302–1341 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Short-lived capital; period of consolidation"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "macedonian-byzantine",
+    "title": "Macedonian Dynasty (Byzantine Renaissance)",
+    "country": "Byzantine Empire",
+    "countrySlug": "byzantine",
+    "reign": "867–1056 CE",
+    "capital": "Constantinople",
+    "description": "The golden apex of medieval Byzantine military power, territorial resurgence, scholarship, and Christianization of the Slavic peoples under Basil II."
+  },
+  {
     "slug": "mali-empire",
-    "title": "Mali Empire",
-    "reign": "1235\u20131670 CE",
+    "title": "Mali Empire (Manden Kurufaba)",
     "country": "Mali & West Africa",
     "countrySlug": "mali",
-    "capital": "Niani",
-    "startYear": 1235,
-    "description": "Wealthy West African empire established by Sundiata Keita, reaching global acclaim during Mansa Musa's historic 1324 pilgrimage to Mecca."
+    "reign": "c. 1235–1670 CE",
+    "capital": "Niani / Timbuktu",
+    "description": "The fabulously wealthy gold and salt empire founded by Sundiata Keita, reaching global fame during Mansa Musa's legendary 1324 pilgrimage to Mecca."
+  },
+  {
+    "slug": "maurya-empire",
+    "title": "Maurya Empire",
+    "country": "India",
+    "countrySlug": "india",
+    "reign": "322–185 BCE",
+    "capital": "Pataliputra (Patna)",
+    "description": "First pan-Indian empire founded by Chandragupta Maurya and philosopher Chanakya, reaching its moral and philosophical pinnacle under Emperor Ashoka the Great."
+  },
+  {
+    "slug": "middle-kingdom-egypt",
+    "title": "Middle Kingdom of Egypt",
+    "country": "Ancient Egypt",
+    "countrySlug": "egypt",
+    "reign": "c. 2055–1650 BCE",
+    "capital": "Thebes / Itjtawy",
+    "description": "Period of political reunification, artistic renaissance, complex public works, and expanded trade with Nubia and the Levant."
+  },
+  {
+    "slug": "ming-dynasty",
+    "title": "Ming Dynasty (The Great Ming)",
+    "country": "China",
+    "countrySlug": "china",
+    "reign": "1368–1644 CE",
+    "capital": "Nanjing / Beijing",
+    "description": "Native Chinese imperial restoration renowned for constructing the Forbidden City, expanding the Great Wall in stone brick, and sponsoring Zheng He's maritime treasure fleets."
+  },
+  {
+    "slug": "mongol-world-empire",
+    "title": "Mongol Empire & Yuan Dynasty",
+    "country": "Mongol Empire",
+    "countrySlug": "mongol",
+    "reign": "1206–1368 CE",
+    "capital": "Avarga / Karakorum / Khanbaliq",
+    "description": "The nomadic steppe empire that conquered from the Sea of Japan to the Danube, establishing Yam postal routes, religious tolerance, and Eurasian trade."
+  },
+  {
+    "slug": "mughal-empire",
+    "title": "Mughal Empire",
+    "country": "India",
+    "countrySlug": "india",
+    "reign": "1526–1857 CE",
+    "capital": "Agra / Delhi / Fatehpur Sikri",
+    "description": "Cosmopolitan Indo-Persian Islamic empire renowned for administrative unification, religious synthesis under Akbar, and peerless architectural masterworks like the Taj Mahal."
+  },
+  {
+    "slug": "muromachi-sengoku",
+    "title": "Muromachi & Sengoku Jidai",
+    "reign": "1336–1603 CE",
+    "country": "Japan",
+    "countrySlug": "japan",
+    "capital": "Kyoto / Azuchi",
+    "startYear": 1336,
+    "description": "Era of Ashikaga shoguns followed by the Warring States period, unified through the relentless campaigns of Oda Nobunaga and Toyotomi Hideyoshi.",
+    "sections": [
+      {
+        "heading": "War & Unification",
+        "content": [
+          "Ashikaga Shogunate and Kitayama culture (Golden Pavilion)",
+          "Onin War triggering nationwide warlord warfare (Sengoku Jidai)",
+          "Introduction of firearms at Tanegashima",
+          "Unification campaigns of Oda Nobunaga and Toyotomi Hideyoshi"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "assyrian-empire",
+    "title": "Neo-Assyrian Empire",
+    "reign": "911–609 BCE",
+    "country": "Mesopotamia & Iraq",
+    "countrySlug": "mesopotamia",
+    "capital": "Nineveh / Assur",
+    "startYear": -911,
+    "description": "Iron Age military titan pioneering siege engines, iron armaments, and King Ashurbanipal's immense royal cuneiform library."
+  },
+  {
+    "slug": "nerva-antonine-rome",
+    "title": "Nerva–Antonine Dynasty (Five Good Emperors)",
+    "country": "Rome & Italy",
+    "countrySlug": "rome",
+    "reign": "96–192 CE",
+    "capital": "Rome",
+    "description": "The peak of the Roman Empire's territorial extent, prosperity, judicial refinement, and administrative stability under Trajan, Hadrian, and Marcus Aurelius."
+  },
+  {
+    "slug": "egypt-new-kingdom",
+    "title": "New Kingdom of Egypt",
+    "reign": "c. 1550 – 1077 BCE",
+    "country": "Ancient Egypt",
+    "countrySlug": "egypt",
+    "capital": "Thebes (Luxor)",
+    "startYear": -1550,
+    "description": "The golden imperial age of Egypt, expanding borders across the Levant and Nubia under warrior pharaohs like Thutmose III and Ramses II.",
+    "sections": [
+      {
+        "heading": "Imperial Grandeur",
+        "content": [
+          "Expulsion of the Hyksos and establishment of imperial standing army",
+          "Reign of female Pharaoh Hatshepsut and expansive trade to Punt",
+          "Amarna religious revolution under Akhenaten",
+          "Grand monument construction at Karnak, Luxor, and Abu Simbel"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "new-kingdom-egypt",
+    "title": "New Kingdom of Egypt (The Imperial Age)",
+    "country": "Ancient Egypt",
+    "countrySlug": "egypt",
+    "reign": "c. 1550–1077 BCE",
+    "capital": "Thebes / Akhetaten / Pi-Ramesses",
+    "description": "The zenith of Egyptian imperial power and wealth, producing Egypt's most celebrated warrior pharaohs, the Valley of the Kings, Abu Simbel, and the Amarna religious revolution."
+  },
+  {
+    "slug": "norman-plantagenet-england",
+    "title": "Norman & Plantagenet Dynasty",
+    "country": "Great Britain",
+    "countrySlug": "britain",
+    "reign": "1066–1485 CE",
+    "capital": "London / Winchester",
+    "description": "Era spanning the Norman Conquest of 1066, the birth of Common Law, the signing of Magna Carta in 1215, and the Crusades under Richard the Lionheart."
+  },
+  {
+    "slug": "babylonian-empire",
+    "title": "Old & Neo-Babylonian Empires",
+    "country": "Mesopotamia & Iraq",
+    "countrySlug": "mesopotamia",
+    "reign": "c. 1894–539 BCE",
+    "capital": "Babylon",
+    "description": "Renowned for the Code of Hammurabi, astronomical precision, the Ishtar Gate, and the Hanging Gardens constructed under Nebuchadnezzar II."
+  },
+  {
+    "slug": "egypt-old-kingdom",
+    "title": "Old Kingdom of Egypt",
+    "reign": "c. 2686 – 2181 BCE",
+    "country": "Ancient Egypt",
+    "countrySlug": "egypt",
+    "capital": "Memphis",
+    "startYear": -2686,
+    "description": "The 'Age of the Pyramids', characterized by divine kingship, supreme political centralization, and monumental limestone architecture.",
+    "sections": [
+      {
+        "heading": "Monumental Architecture",
+        "content": [
+          "Construction of the Step Pyramid by Imhotep for Djoser",
+          "Building the Great Pyramids of Giza under 4th Dynasty Pharaohs",
+          "Consolidation of religious theology centered on Ra"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "old-kingdom-egypt",
+    "title": "Old Kingdom of Egypt (Age of the Pyramids)",
+    "country": "Ancient Egypt",
+    "countrySlug": "egypt",
+    "reign": "c. 2686–2181 BCE",
+    "capital": "Memphis",
+    "description": "The foundational golden age of pharaonic civilization, characterized by revolutionary monumental stone architecture, divine kingship, and the construction of the Great Pyramids."
+  },
+  {
+    "slug": "polonnaruwa",
+    "title": "Polonnaruwa",
+    "reign": "1110–1293 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Medieval capital; advanced irrigation"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "ptolemaic-egypt",
+    "title": "Ptolemaic Dynasty",
+    "country": "Ancient Egypt",
+    "countrySlug": "egypt",
+    "reign": "305–30 BCE",
+    "capital": "Alexandria",
+    "description": "Hellenistic Macedonian-Greek royal dynasty founded by Alexander's general Ptolemy I Soter, turning Alexandria into the global capital of scholarship, science, and trade."
+  },
+  {
+    "slug": "ptolemaic-dynasty",
+    "title": "Ptolemaic Kingdom of Egypt",
+    "reign": "305 – 30 BCE",
+    "country": "Ancient Egypt",
+    "countrySlug": "egypt",
+    "capital": "Alexandria",
+    "startYear": -305,
+    "description": "Hellenistic dynasty founded by Ptolemy I Soter following Alexander the Great's conquests, celebrated for the Great Library of Alexandria and Queen Cleopatra VII.",
+    "sections": [
+      {
+        "heading": "Hellenistic Synthesis",
+        "content": [
+          "Foundation and growth of Alexandria as intellectual capital of the Mediterranean",
+          "Construction of the Great Library and Pharos Lighthouse",
+          "Reign of Cleopatra VII and Roman transition"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "qin-dynasty",
+    "title": "Qin Dynasty (First Imperial Unification)",
+    "country": "China",
+    "countrySlug": "china",
+    "reign": "221–206 BCE",
+    "capital": "Xianyang",
+    "description": "The revolutionary dynasty that first unified China under Qin Shi Huang, standardizing currency, writing, weights, and creating the Terracotta Army and early Great Wall."
+  },
+  {
+    "slug": "raigama",
+    "title": "Raigama Kingdom",
+    "reign": "1521–1538 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Emerged after the 'Vijayabā Kollaya' in 1521 and was later annexed by the Sitawaka Kingdom."
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "roman-empire",
+    "title": "Roman Empire",
+    "reign": "27 BCE – 476 CE",
+    "country": "Rome & Italy",
+    "countrySlug": "rome",
+    "capital": "Rome / Ravenna",
+    "startYear": -27,
+    "description": "Imperial civilization inaugurated by Augustus, delivering the Pax Romana, vast paved road networks, Roman law, and monumental engineering.",
+    "sections": [
+      {
+        "heading": "Imperial Dominion",
+        "content": [
+          "Pax Romana under Augustus and the Five Good Emperors",
+          "Construction of the Colosseum, Pantheon, and Aqueducts",
+          "Territorial zenith under Emperor Trajan in 117 CE",
+          "Christianization under Constantine the Great"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "roman-republic",
+    "title": "Roman Republic",
+    "country": "Rome & Italy",
+    "countrySlug": "rome",
+    "reign": "509–27 BCE",
+    "capital": "Rome",
+    "description": "Era of classical republican governance governed by the Senate and People of Rome (SPQR), expanding Roman hegemony across the Mediterranean."
+  },
+  {
+    "slug": "ruhuna",
+    "title": "Ruhuna",
+    "reign": "137 BCE – 1211 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Founded around 200 BC by Prince Mahanaga after a dispute with his brother, King Devanampiya Tissa of Anuradhapura. Located in the south of Sri Lanka, it became a crucial center for Sinhalese culture and a base of resistance against invaders. Key cities included Magama and Tissamaharama."
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "safavid-persia",
+    "title": "Safavid Empire",
+    "country": "Persia & Iran",
+    "countrySlug": "persia",
+    "reign": "1501–1736 CE",
+    "capital": "Tabriz / Qazvin / Isfahan",
+    "description": "The golden age of early modern Persian art, establishing Twelver Shia identity and transforming Isfahan into 'Half the World' under Shah Abbas the Great."
+  },
+  {
+    "slug": "sasanian-persia",
+    "title": "Sasanian Empire (Neo-Persian Empire)",
+    "country": "Persia & Iran",
+    "countrySlug": "persia",
+    "reign": "224–651 CE",
+    "capital": "Ctesiphon",
+    "description": "The last pre-Islamic Persian empire, renowned for Zoroastrian statehood, sophisticated architecture (Taq Kasra), and rivaling the late Roman and Byzantine empires."
+  },
+  {
+    "slug": "sigiriya",
+    "title": "Sigiriya",
+    "reign": "473–495 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Fortress/palace period under Kashyapa I"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "sitawaka",
+    "title": "Sitawaka",
+    "reign": "1521–1593 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Resistance against Portuguese expansion"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "song-dynasty",
+    "title": "Song Dynasty (The Renaissance of Science & Arts)",
+    "country": "China",
+    "countrySlug": "china",
+    "reign": "960–1279 CE",
+    "capital": "Bianjing (Kaifeng) / Lin'an (Hangzhou)",
+    "description": "Era of extraordinary technological innovation, inventing gunpowder, the magnetic compass, paper money, and movable type printing alongside Neo-Confucian philosophy."
+  },
+  {
+    "slug": "sumer-akkad",
+    "title": "Sumerian & Akkadian Empires",
+    "country": "Mesopotamia & Iraq",
+    "countrySlug": "mesopotamia",
+    "reign": "c. 3000–2150 BCE",
+    "capital": "Ur / Uruk / Akkad",
+    "description": "The very cradle of urban civilization, developing cuneiform writing, mathematics, monumental stepped ziggurats, and the first recorded empire under Sargon of Akkad."
+  },
+  {
+    "slug": "tambapanni",
+    "title": "Tambapanni",
+    "reign": "543–504 BCE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Earliest recorded settlement under Vijaya, also known as Thammanna Nuwara."
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "tang-dynasty",
+    "title": "Tang Dynasty (The Cosmopolitan Empire)",
+    "country": "China",
+    "countrySlug": "china",
+    "reign": "618–907 CE",
+    "capital": "Chang'an",
+    "description": "Regarded as the high point of Chinese civilization, characterized by unsurpassed poetry, international Silk Road trade, Buddhist arts, and global cosmopolitanism."
+  },
+  {
+    "slug": "tokugawa-shogunate",
+    "title": "Tokugawa Shogunate (Edo Period)",
+    "country": "Japan",
+    "countrySlug": "japan",
+    "reign": "1603–1867 CE",
+    "capital": "Edo (Tokyo)",
+    "description": "Over 250 years of unbroken internal peace (Pax Tokugawa), rigid social order, urban merchant culture (Ukiyo-e, Kabuki), and strict maritime isolation (Sakoku)."
+  },
+  {
+    "slug": "tudor-era",
+    "title": "Tudor & Elizabethan England",
+    "reign": "1485–1603 CE",
+    "country": "Great Britain",
+    "countrySlug": "britain",
+    "capital": "London",
+    "startYear": 1485,
+    "description": "Transformation of England through the Renaissance, maritime naval power under Elizabeth I, and Shakespearean literature."
+  },
+  {
+    "slug": "tudor-england",
+    "title": "Tudor Dynasty",
+    "country": "Great Britain",
+    "countrySlug": "britain",
+    "reign": "1485–1603 CE",
+    "capital": "London",
+    "description": "The transformative Renaissance era of English history, marked by the English Reformation under Henry VIII and the Golden Age of Shakespeare and naval expansion under Elizabeth I."
+  },
+  {
+    "slug": "upatissa-nuwara",
+    "title": "Upatissa Nuwara",
+    "reign": "504–437 BCE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Interim capital after Vijaya period"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "vijayanagara-empire",
+    "title": "Vijayanagara Empire",
+    "country": "India",
+    "countrySlug": "india",
+    "reign": "1336–1646 CE",
+    "capital": "Vijayanagara (Hampi)",
+    "description": "Southern Indian empire that patronized fine arts, literature, and monumental temple architecture, creating a bustling commercial metropolis at Hampi."
+  },
+  {
+    "slug": "yapahuwa",
+    "title": "Yapahuwa",
+    "reign": "1284–1302 CE",
+    "kingdom": "",
+    "biography": "",
+    "sections": [
+      {
+        "heading": "",
+        "content": [
+          "Rock fortress capital"
+        ],
+        "infoBoxes": []
+      }
+    ],
+    "country": "Sri Lanka",
+    "countrySlug": "sri-lanka"
+  },
+  {
+    "slug": "zagwe-solomonic-ethiopia",
+    "title": "Zagwe & Solomonic Dynasties",
+    "country": "Kingdom of Aksum & Ethiopia",
+    "countrySlug": "ethiopia",
+    "reign": "1137–1974 CE",
+    "capital": "Lalibela / Gondar / Addis Ababa",
+    "description": "Continuous imperial Christian civilization famous for carving the eleven monolithic rock-hewn churches of Lalibela and the royal castles of Gondar."
   }
 ]

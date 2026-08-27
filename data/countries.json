@@ -1,45 +1,50 @@
 [
   {
-    "slug": "sri-lanka",
-    "name": "Sri Lanka",
-    "code": "LK",
+    "slug": "egypt",
+    "name": "Ancient Egypt",
+    "code": "EG",
     "center": [
-      7.8731,
-      80.7718
+      26.8206,
+      30.8025
     ],
     "bounds": [
       [
-        5.9,
-        79.7
+        22.0,
+        25.0
       ],
       [
-        10.35,
-        81.88
+        31.5,
+        37.0
       ]
     ],
-    "zoom": 8,
-    "description": "Emerald island civilization with continuous historical chronicles spanning over 2,500 years. Renowned for massive hydraulic reservoir networks, colossal Buddhist stupas, rock fortresses, and sacred relics."
+    "zoom": 5,
+    "description": "The gift of the Nile; three millennia of monumental civilization characterized by divine pharaohs, soaring limestone pyramids, intricate hieroglyphs, and timeless golden treasures."
   },
   {
-    "slug": "india",
-    "name": "India",
-    "code": "IN",
+    "slug": "ancient-greece",
+    "name": "Ancient Greece",
+    "code": "GRC",
+    "region": "Balkans & Aegean Sea",
+    "description": "The foundational civilization of Western philosophy, mathematics, democracy, dramatic arts, and the Olympic games.",
+    "period": "c. 800–146 BCE",
+    "capital": "Athens / Sparta / Pella",
     "center": [
-      20.5937,
-      78.9629
-    ],
-    "bounds": [
-      [
-        8.0,
-        68.2
-      ],
-      [
-        35.5,
-        97.4
-      ]
-    ],
-    "zoom": 4,
-    "description": "Subcontinental cradle of profound spiritual philosophies, mathematics (zero and decimal systems), magnificent rock-cut cave temples, grand dynastic empires, and global maritime trade."
+      39.0742,
+      21.8243
+    ]
+  },
+  {
+    "slug": "byzantine",
+    "name": "Byzantine Empire",
+    "code": "BYZ",
+    "region": "Eastern Mediterranean & Anatolia",
+    "description": "The direct Eastern continuation of the Roman Empire centered at Constantinople, preserving Greco-Roman law, Christian theology, and imperial statecraft for over a millennium.",
+    "period": "330–1453 CE",
+    "capital": "Constantinople (Byzantium)",
+    "center": [
+      41.0082,
+      28.9784
+    ]
   },
   {
     "slug": "china",
@@ -63,172 +68,25 @@
     "description": "One of humanity's oldest continuous civilizations, originating paper, printing, gunpowder, silk, philosophical Confucianism/Daoism, the Great Wall, and imperial dynasties."
   },
   {
-    "slug": "japan",
-    "name": "Japan",
-    "code": "JP",
+    "slug": "france",
+    "name": "France & Gaul",
+    "code": "FR",
     "center": [
-      36.2048,
-      138.2529
+      46.2276,
+      2.2137
     ],
     "bounds": [
       [
-        24.0,
-        122.0
+        41.3,
+        -5.0
       ],
       [
-        46.0,
-        153.0
+        51.1,
+        9.6
       ]
     ],
     "zoom": 5,
-    "description": "Island empire of unbroken imperial lineage, legendary samurai military codes, Buddhist Zen sanctuaries, wooden architectural masterpieces, and distinct feudal shogunate eras."
-  },
-  {
-    "slug": "egypt",
-    "name": "Ancient Egypt",
-    "code": "EG",
-    "center": [
-      26.8206,
-      30.8025
-    ],
-    "bounds": [
-      [
-        22.0,
-        25.0
-      ],
-      [
-        31.5,
-        37.0
-      ]
-    ],
-    "zoom": 5,
-    "description": "The gift of the Nile; three millennia of monumental civilization characterized by divine pharaohs, soaring limestone pyramids, intricate hieroglyphs, and timeless golden treasures."
-  },
-  {
-    "slug": "rome",
-    "name": "Rome & Italy",
-    "code": "IT",
-    "center": [
-      41.8719,
-      12.5674
-    ],
-    "bounds": [
-      [
-        35.0,
-        6.0
-      ],
-      [
-        47.5,
-        19.0
-      ]
-    ],
-    "zoom": 5,
-    "description": "The Mediterranean superpower that pioneered republican governance, codified jurisprudence, paved global trade roads, engineered colossal domes, and fostered the Renaissance."
-  },
-  {
-    "slug": "greece",
-    "name": "Ancient Greece",
-    "code": "GR",
-    "center": [
-      39.0742,
-      21.8243
-    ],
-    "bounds": [
-      [
-        34.8,
-        19.3
-      ],
-      [
-        41.8,
-        28.3
-      ]
-    ],
-    "zoom": 6,
-    "description": "The birthplace of Western democracy, philosophy, theatre, Olympic athletics, and Hellenistic cultural fusion catalyzed by Alexander the Great."
-  },
-  {
-    "slug": "persia",
-    "name": "Persia & Iran",
-    "code": "IR",
-    "center": [
-      32.4279,
-      53.688
-    ],
-    "bounds": [
-      [
-        25.0,
-        44.0
-      ],
-      [
-        40.0,
-        64.0
-      ]
-    ],
-    "zoom": 5,
-    "description": "Mighty Iranian plateau empire that introduced universal human rights charters (Cyrus Cylinder), the Royal Road network, satrapy governance, and Persepolis splendour."
-  },
-  {
-    "slug": "mesopotamia",
-    "name": "Mesopotamia & Iraq",
-    "code": "IQ",
-    "center": [
-      33.2232,
-      43.6793
-    ],
-    "bounds": [
-      [
-        29.0,
-        38.0
-      ],
-      [
-        37.5,
-        49.0
-      ]
-    ],
-    "zoom": 5,
-    "description": "The fertile crescent between the Tigris and Euphrates, where writing (cuneiform), the wheel, astronomy, mathematical base-60 timekeeping, and Hammurabi's legal code were born."
-  },
-  {
-    "slug": "mesoamerica",
-    "name": "Mesoamerica & Maya",
-    "code": "MX",
-    "center": [
-      19.4326,
-      -99.1332
-    ],
-    "bounds": [
-      [
-        14.0,
-        -105.0
-      ],
-      [
-        22.0,
-        -86.0
-      ]
-    ],
-    "zoom": 5,
-    "description": "Indigenous civilizations of Mexico and Central America renowned for astronomical observatories, hieroglyphic codices, step pyramids, and advanced calendrical cycles."
-  },
-  {
-    "slug": "inca",
-    "name": "Inca & Andes",
-    "code": "PE",
-    "center": [
-      -12.0464,
-      -77.0428
-    ],
-    "bounds": [
-      [
-        -18.0,
-        -81.0
-      ],
-      [
-        0.0,
-        -68.0
-      ]
-    ],
-    "zoom": 5,
-    "description": "Highland South American empire spanning the Andes mountains with master masonry without mortar, quipu knotted accounting, and royal sanctuaries like Machu Picchu."
+    "description": "Epicenter of European medieval chivalry, Gothic cathedral engineering, Carolingian empire under Charlemagne, Enlightenment philosophy, and Versailles grandeur."
   },
   {
     "slug": "britain",
@@ -252,25 +110,80 @@
     "description": "British Isles chronicle encompassing ancient megaliths (Stonehenge), Anglo-Saxon realms, Norman conquests, Magna Carta jurisprudence, and global maritime expeditions."
   },
   {
-    "slug": "france",
-    "name": "France & Gaul",
-    "code": "FR",
+    "slug": "inca",
+    "name": "Inca & Andes",
+    "code": "PE",
     "center": [
-      46.2276,
-      2.2137
+      -12.0464,
+      -77.0428
     ],
     "bounds": [
       [
-        41.3,
-        -5.0
+        -18.0,
+        -81.0
       ],
       [
-        51.1,
-        9.6
+        0.0,
+        -68.0
       ]
     ],
     "zoom": 5,
-    "description": "Epicenter of European medieval chivalry, Gothic cathedral engineering, Carolingian empire under Charlemagne, Enlightenment philosophy, and Versailles grandeur."
+    "description": "Highland South American empire spanning the Andes mountains with master masonry without mortar, quipu knotted accounting, and royal sanctuaries like Machu Picchu."
+  },
+  {
+    "slug": "india",
+    "name": "India",
+    "code": "IN",
+    "center": [
+      20.5937,
+      78.9629
+    ],
+    "bounds": [
+      [
+        8.0,
+        68.2
+      ],
+      [
+        35.5,
+        97.4
+      ]
+    ],
+    "zoom": 4,
+    "description": "Subcontinental cradle of profound spiritual philosophies, mathematics (zero and decimal systems), magnificent rock-cut cave temples, grand dynastic empires, and global maritime trade."
+  },
+  {
+    "slug": "japan",
+    "name": "Japan",
+    "code": "JP",
+    "center": [
+      36.2048,
+      138.2529
+    ],
+    "bounds": [
+      [
+        24.0,
+        122.0
+      ],
+      [
+        46.0,
+        153.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "Island empire of unbroken imperial lineage, legendary samurai military codes, Buddhist Zen sanctuaries, wooden architectural masterpieces, and distinct feudal shogunate eras."
+  },
+  {
+    "slug": "khmer",
+    "name": "Khmer Empire (Angkor)",
+    "code": "KHM",
+    "region": "Southeast Asia (Cambodia)",
+    "description": "A powerful Hindu-Buddhist maritime and agrarian empire in Southeast Asia, renowned for monumental hydraulic engineering and the colossal temple complex of Angkor Wat.",
+    "period": "802–1431 CE",
+    "capital": "Angkor (Yasodharapura)",
+    "center": [
+      13.4125,
+      103.867
+    ]
   },
   {
     "slug": "ethiopia",
@@ -313,5 +226,136 @@
     ],
     "zoom": 5,
     "description": "Trans-Saharan gold and salt empire, home to legendary scholastic centers at Timbuktu, mud-brick mosque architecture, and emperor Mansa Musa."
+  },
+  {
+    "slug": "mesoamerica",
+    "name": "Mesoamerica & Maya",
+    "code": "MX",
+    "center": [
+      19.4326,
+      -99.1332
+    ],
+    "bounds": [
+      [
+        14.0,
+        -105.0
+      ],
+      [
+        22.0,
+        -86.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "Indigenous civilizations of Mexico and Central America renowned for astronomical observatories, hieroglyphic codices, step pyramids, and advanced calendrical cycles."
+  },
+  {
+    "slug": "mesopotamia",
+    "name": "Mesopotamia & Iraq",
+    "code": "IQ",
+    "center": [
+      33.2232,
+      43.6793
+    ],
+    "bounds": [
+      [
+        29.0,
+        38.0
+      ],
+      [
+        37.5,
+        49.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "The fertile crescent between the Tigris and Euphrates, where writing (cuneiform), the wheel, astronomy, mathematical base-60 timekeeping, and Hammurabi's legal code were born."
+  },
+  {
+    "slug": "mongol",
+    "name": "Mongol Empire",
+    "code": "MNG",
+    "region": "Central Asia & Eurasia",
+    "description": "The largest contiguous land empire in world history, founded by Genghis Khan, bridging Eastern and Western civilizations through the Pax Mongolica.",
+    "period": "1206–1368 CE",
+    "capital": "Karakorum / Khanbaliq (Beijing)",
+    "center": [
+      47.1985,
+      102.8427
+    ]
+  },
+  {
+    "slug": "ottoman",
+    "name": "Ottoman Empire",
+    "code": "OTT",
+    "region": "Anatolia, Middle East & Southeastern Europe",
+    "description": "One of history's most powerful and enduring transcontinental Islamic caliphates and empires, bridging East and West at Constantinople.",
+    "period": "1299–1922 CE",
+    "capital": "Constantinople (Istanbul)",
+    "center": [
+      41.0136,
+      28.955
+    ]
+  },
+  {
+    "slug": "persia",
+    "name": "Persia & Iran",
+    "code": "IR",
+    "center": [
+      32.4279,
+      53.688
+    ],
+    "bounds": [
+      [
+        25.0,
+        44.0
+      ],
+      [
+        40.0,
+        64.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "Mighty Iranian plateau empire that introduced universal human rights charters (Cyrus Cylinder), the Royal Road network, satrapy governance, and Persepolis splendour."
+  },
+  {
+    "slug": "rome",
+    "name": "Rome & Italy",
+    "code": "IT",
+    "center": [
+      41.8719,
+      12.5674
+    ],
+    "bounds": [
+      [
+        35.0,
+        6.0
+      ],
+      [
+        47.5,
+        19.0
+      ]
+    ],
+    "zoom": 5,
+    "description": "The Mediterranean superpower that pioneered republican governance, codified jurisprudence, paved global trade roads, engineered colossal domes, and fostered the Renaissance."
+  },
+  {
+    "slug": "sri-lanka",
+    "name": "Sri Lanka",
+    "code": "LK",
+    "center": [
+      7.8731,
+      80.7718
+    ],
+    "bounds": [
+      [
+        5.9,
+        79.7
+      ],
+      [
+        10.35,
+        81.88
+      ]
+    ],
+    "zoom": 8,
+    "description": "Emerald island civilization with continuous historical chronicles spanning over 2,500 years. Renowned for massive hydraulic reservoir networks, colossal Buddhist stupas, rock fortresses, and sacred relics."
   }
 ]

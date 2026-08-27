@@ -296,10 +296,10 @@ document.addEventListener('DOMContentLoaded', () => {
   controls.enableDamping = true;
   controls.dampingFactor = 0.06;
   controls.enableZoom = true;
-  controls.minDistance = 90;
-  controls.maxDistance = 380;
+  controls.minDistance = 105;
+  controls.maxDistance = 350;
   controls.autoRotate = true;
-  controls.autoRotateSpeed = 0.6;
+  controls.autoRotateSpeed = 0.5;
 
   const globeGroup = new THREE.Group();
   scene.add(globeGroup);
@@ -308,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Texture Loader with NASA Blue Marble & Cloud Textures
   const textureLoader = new THREE.TextureLoader();
+  const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
   const earthMapUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg';
   const earthSpecularUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg';
   const earthCloudsUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_1024.png';
@@ -315,22 +316,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Google Earth Photorealistic Sphere
   const globeGeo = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);
   const globeMat = new THREE.MeshPhongMaterial({
-    roughness: 0.8,
+    roughness: 0.75,
     metalness: 0.1,
-    shininess: 15,
+    shininess: 20,
     specular: new THREE.Color(0x333333)
   });
 
   const globeMesh = new THREE.Mesh(globeGeo, globeMat);
   globeGroup.add(globeMesh);
 
-  // Load NASA High-Res Earth Satellite Texture
+  // Load NASA High-Res Earth Satellite Texture with Anisotropic Filtering
   textureLoader.load(earthMapUrl, (tex) => {
+    tex.anisotropy = maxAnisotropy;
+    tex.generateMipmaps = true;
+    tex.minFilter = THREE.LinearMipmapLinearFilter;
+    tex.magFilter = THREE.LinearFilter;
     globeMat.map = tex;
     globeMat.needsUpdate = true;
   });
 
   textureLoader.load(earthSpecularUrl, (specTex) => {
+    specTex.anisotropy = maxAnisotropy;
     globeMat.specularMap = specTex;
     globeMat.specular = new THREE.Color(0x2997ff);
     globeMat.needsUpdate = true;
@@ -349,6 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
   globeGroup.add(cloudMesh);
 
   textureLoader.load(earthCloudsUrl, (cloudTex) => {
+    cloudTex.anisotropy = maxAnisotropy;
     cloudMat.map = cloudTex;
     cloudMat.needsUpdate = true;
   });

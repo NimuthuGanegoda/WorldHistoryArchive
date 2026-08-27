@@ -11,7 +11,7 @@
         Google Earth 3D & Spatial Map
       </h1>
       <p class="text-[#86868b] text-xs sm:text-sm font-light mt-1">
-        Explore 56 ancient monuments and global civilizations in photorealistic 3D orbit or satellite cartography.
+        Explore 82 ancient monuments, fortresses, and world wonders across 19 global civilizations in photorealistic 3D orbit or high-resolution satellite cartography.
       </p>
     </div>
 
@@ -35,7 +35,7 @@
       <div class="absolute top-4 left-4 pointer-events-none flex flex-col gap-2 z-20">
         <div class="bg-black/70 backdrop-blur-xl px-4 py-2 rounded-full border border-white/[0.08] text-[11px] text-[#f5f5f7] font-medium flex items-center gap-2 shadow-xl">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          NASA Satellite 3D Orbit • Drag to Rotate • Scroll to Zoom
+          NASA Satellite 3D Orbit • Drag to Rotate • Click Pins to Focus HD
         </div>
       </div>
 
@@ -44,16 +44,21 @@
         <div class="bg-black/80 backdrop-blur-2xl px-3 py-1.5 rounded-full border border-white/[0.1] flex items-center gap-1.5 shadow-2xl">
           <span class="text-[10px] uppercase font-bold text-[#86868b] px-1.5">Orbit To:</span>
           <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="7.8731" data-lng="80.7718">🇱🇰 Sri Lanka</button>
-          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="36.2048" data-lng="138.2529">🇯🇵 Japan</button>
-          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="41.8719" data-lng="12.5674">🇮🇹 Rome</button>
           <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="26.8206" data-lng="30.8025">🇪🇬 Egypt</button>
-          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="35.8617" data-lng="104.1954">🇨🇳 China</button>
-          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="32.4279" data-lng="53.6880">🇮🇷 Persia</button>
+          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="41.8719" data-lng="12.5674">🇮🇹 Rome</button>
           <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="39.0742" data-lng="21.8243">🇬🇷 Greece</button>
+          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="35.8617" data-lng="104.1954">🇨🇳 China</button>
+          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="20.5937" data-lng="78.9629">🇮🇳 India</button>
+          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="36.2048" data-lng="138.2529">🇯🇵 Japan</button>
+          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="32.4279" data-lng="53.6880">🇮🇷 Persia</button>
+          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="41.0082" data-lng="28.9784">🏛️ Byzantine</button>
+          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="13.4125" data-lng="103.8670">🇰🇭 Angkor</button>
+          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="-13.1631" data-lng="-72.5450">🇵🇪 Inca</button>
+          <button class="fly-3d-btn px-3 py-1 text-xs font-medium rounded-full bg-white/10 hover:bg-white/20 text-white transition-all" data-lat="23.6345" data-lng="-102.5528">🇲🇽 Maya</button>
         </div>
       </div>
 
-      <!-- 3D Tooltip / Info Card on Hover/Click -->
+      <!-- 3D Tooltip / Info Card on Hover/Click with Ultra-HD Focus Action -->
       <div id="atlas-tooltip" class="absolute hidden pointer-events-auto transform -translate-x-1/2 -translate-y-full mb-4 px-5 py-4 rounded-3xl bg-[#121216]/95 border border-white/[0.14] text-left shadow-2xl backdrop-blur-2xl transition-opacity duration-150 z-30 max-w-xs">
         <div class="flex items-center justify-between gap-3 mb-1.5">
           <span id="atlas-tooltip-badge" class="px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded bg-amber-400/10 text-amber-300 border border-amber-400/20">Site</span>
@@ -61,9 +66,14 @@
         </div>
         <h4 id="atlas-tooltip-title" class="font-bold text-sm text-[#f5f5f7] mb-1"></h4>
         <p id="atlas-tooltip-desc" class="text-xs text-[#86868b] line-clamp-2 mb-3 font-light leading-relaxed"></p>
-        <a id="atlas-tooltip-link" href="#" class="inline-flex items-center gap-1 text-xs font-semibold text-[#2997ff] hover:text-[#52aaff]">
-          Inspect Monument &rarr;
-        </a>
+        <div class="flex flex-col gap-2">
+          <button id="atlas-tooltip-focus" class="w-full py-1.5 px-3 rounded-full bg-amber-400 hover:bg-amber-300 text-black text-[11px] font-bold shadow-md flex items-center justify-center gap-1.5 transition-all">
+            <span>🔍</span> Focus in Ultra-HD 4K Satellite
+          </button>
+          <a id="atlas-tooltip-link" href="#" class="text-center text-[11px] font-semibold text-[#2997ff] hover:text-[#52aaff]">
+            View Archive Profile &rarr;
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -78,26 +88,34 @@
     <div class="absolute top-5 left-5 right-5 z-20 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pointer-events-none">
       <!-- Search Input -->
       <div class="relative w-full sm:w-80 pointer-events-auto shadow-2xl">
-        <input type="text" id="map-search-input" placeholder="Search 56 ancient monuments..." 
+        <input type="text" id="map-search-input" placeholder="Search 82 ancient monuments..." 
                class="w-full bg-[#121216]/95 backdrop-blur-2xl text-xs rounded-full pl-9 pr-4 py-2.5 border border-white/[0.12] focus:outline-none focus:border-amber-400/50 text-white placeholder-[#86868b]">
         <span class="absolute left-3.5 top-3 text-xs text-[#86868b]">🔍</span>
       </div>
 
       <!-- Civilization & Wonder Filter Chips Carousel -->
       <div id="map-chips-bar" class="flex items-center gap-1.5 overflow-x-auto pb-1 pointer-events-auto bg-black/60 backdrop-blur-xl px-3 py-1.5 rounded-full border border-white/[0.08] shadow-2xl">
-        <button class="map-chip px-3 py-1 text-xs font-semibold rounded-full bg-white text-black apple-pill-btn shadow-md" data-slug="all">All Sites (63)</button>
+        <button class="map-chip px-3 py-1 text-xs font-semibold rounded-full bg-white text-black apple-pill-btn shadow-md" data-slug="all">All Sites (82)</button>
         <button class="map-chip px-3 py-1 text-xs font-bold rounded-full bg-amber-400 text-black shadow-md flex items-center gap-1 hover:bg-amber-300 transition-all" data-slug="wonders">🏆 World Wonders (16)</button>
         <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="sri-lanka">🇱🇰 Sri Lanka</button>
-        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="ancient-egypt">🇪🇬 Egypt</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="egypt">🇪🇬 Egypt</button>
         <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="rome">🇮🇹 Rome</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="ancient-greece">🇬🇷 Greece</button>
         <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="china">🇨🇳 China</button>
         <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="india">🇮🇳 India</button>
-        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="ancient-greece">🇬🇷 Greece</button>
-        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="persia">🇮🇷 Persia</button>
-        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="mesoamerica">🇲🇽 Maya</button>
-        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="inca">🇵🇪 Inca</button>
         <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="japan">🇯🇵 Japan</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="persia">🇮🇷 Persia</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="mesopotamia">🇮🇶 Mesopotamia</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="byzantine">🏛️ Byzantine</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="khmer">🇰🇭 Khmer</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="mongol">🏹 Mongol</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="ottoman">🕌 Ottoman</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="mesoamerica">🇲🇽 Maya & Aztec</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="inca">🇵🇪 Inca</button>
         <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="britain">🇬🇧 Britain</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="france">🇫🇷 France</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="ethiopia">🇪🇹 Ethiopia</button>
+        <button class="map-chip px-3 py-1 text-xs font-medium rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white" data-slug="mali">🇲🇱 Mali</button>
       </div>
     </div>
 
@@ -252,37 +270,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const controls = new THREE.OrbitControls(camera, canvas);
     controls.enableDamping = true;
     controls.dampingFactor = 0.06;
-    controls.minDistance = 90;
-    controls.maxDistance = 420;
+    controls.minDistance = 110;
+    controls.maxDistance = 350;
     controls.autoRotate = true;
-    controls.autoRotateSpeed = 0.5;
+    controls.autoRotateSpeed = 0.4;
 
     const globeGroup = new THREE.Group();
     scene.add(globeGroup);
 
     const GLOBE_R = 80;
 
-    // NASA Satellite Texture & Moving Cloud Sphere
+    // NASA Satellite Texture with Ultra-Crisp Anisotropic Filtering
     const textureLoader = new THREE.TextureLoader();
+    const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
+
     const earthMapUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg';
     const earthSpecularUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg';
     const earthCloudsUrl = 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_1024.png';
 
     const globeGeo = new THREE.SphereGeometry(GLOBE_R, 64, 64);
     const globeMat = new THREE.MeshPhongMaterial({
-      roughness: 0.8,
+      roughness: 0.75,
       metalness: 0.1,
-      shininess: 15,
+      shininess: 20,
       specular: new THREE.Color(0x333333)
     });
     const globeMesh = new THREE.Mesh(globeGeo, globeMat);
     globeGroup.add(globeMesh);
 
     textureLoader.load(earthMapUrl, tex => {
+      tex.anisotropy = maxAnisotropy;
+      tex.generateMipmaps = true;
+      tex.minFilter = THREE.LinearMipmapLinearFilter;
+      tex.magFilter = THREE.LinearFilter;
       globeMat.map = tex;
       globeMat.needsUpdate = true;
     });
     textureLoader.load(earthSpecularUrl, specTex => {
+      specTex.anisotropy = maxAnisotropy;
       globeMat.specularMap = specTex;
       globeMat.specular = new THREE.Color(0x2997ff);
       globeMat.needsUpdate = true;
@@ -301,6 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
     globeGroup.add(cloudMesh);
 
     textureLoader.load(earthCloudsUrl, cTex => {
+      cTex.anisotropy = maxAnisotropy;
       cloudMat.map = cTex;
       cloudMat.needsUpdate = true;
     });
@@ -415,9 +441,31 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Raycasting Interactions
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
+    let activeHoveredSite = null;
+    const focusBtn = document.getElementById('atlas-tooltip-focus');
+    if (focusBtn) {
+      focusBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (activeHoveredSite && activeHoveredSite.coordinates) {
+          btn2D.click();
+          setTimeout(() => {
+            if (leafletMapInstance) {
+              leafletMapInstance.flyTo([activeHoveredSite.coordinates.lat, activeHoveredSite.coordinates.lng], 16, { duration: 1.5 });
+              const drawer = document.getElementById('place-drawer');
+              if (drawer) {
+                drawer.classList.remove('hidden');
+                document.getElementById('drawer-title').textContent = activeHoveredSite.name;
+                document.getElementById('drawer-sub').textContent = (activeHoveredSite.kingdom || '') + ' • ' + (activeHoveredSite.country || '');
+                document.getElementById('drawer-desc').textContent = activeHoveredSite.description || '';
+                document.getElementById('drawer-coords').textContent = `${activeHoveredSite.coordinates.lat.toFixed(4)}° N, ${activeHoveredSite.coordinates.lng.toFixed(4)}° E`;
+                document.getElementById('drawer-link').href = (window.WHA_BASE || '') + '/sites/' + activeHoveredSite.id;
+              }
+            }
+          }, 200);
+        }
+      });
+    }
 
     function onPointerMove(e) {
       const rect = canvas.getBoundingClientRect();
@@ -438,6 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
           tooltip.style.top = (e.clientY - rect.top) + 'px';
 
           const s = meta.data;
+          activeHoveredSite = s;
           tooltipTitle.textContent = s.name;
           tooltipSub.textContent = (s.country || '') + ' • ' + (s.kingdom || '');
           tooltipDesc.textContent = s.description || 'Archaeological site.';
@@ -516,19 +565,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialLng = parseFloat(urlParams.get('lng')) || 40.0;
     const initialZoom = parseInt(urlParams.get('zoom')) || 3;
 
-    // Free Tile Layers (Zero Watermarks)
+    // Free High-Resolution Tile Layers (Sub-meter Clarity, Zero Watermarks)
     const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 19
+      maxZoom: 19,
+      maxNativeZoom: 19,
+      detectRetina: true
     });
 
     const streetLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
       maxZoom: 19,
-      subdomains: 'abcd'
+      maxNativeZoom: 19,
+      subdomains: 'abcd',
+      detectRetina: true
     });
 
     const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       maxZoom: 19,
-      subdomains: 'abcd'
+      maxNativeZoom: 19,
+      subdomains: 'abcd',
+      detectRetina: true
     });
 
     const map = L.map('historyMap', {
